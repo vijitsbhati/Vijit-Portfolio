@@ -1335,9 +1335,8 @@
   </a>
   <ul class="nav-links">
     <li><a href="#projects">Work</a></li>
-    <li><a href="/casestudies">Case Studies</a></li>
+    <li><a href="/case-studies.html">Case Studies</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#deploy-guide">Deploy</a></li>
     <li><a href="mailto:vijit@example.com" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -1668,98 +1667,7 @@
 
 <div class="cultural-divider"></div>
 
-<!-- ── DEPLOY GUIDE ── -->
-<section id="deploy-guide">
-  <div class="section-header reveal">
-    <div>
-      <div class="section-label">Ship It</div>
-      <h2 class="section-title">Vercel Deployment Guide<span class="jp">展開</span></h2>
-    </div>
-  </div>
 
-  <div class="deploy-grid reveal">
-    <div>
-      <ol class="deploy-steps">
-        <li class="deploy-step">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <h4>Create a GitHub Repository</h4>
-            <p>Push your portfolio files to a new GitHub repo. Vercel deploys directly from Git. Run <code>git init</code> → <code>git add .</code> → <code>git commit -m "init"</code> → push to GitHub.</p>
-          </div>
-        </li>
-        <li class="deploy-step">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <h4>Connect to Vercel</h4>
-            <p>Go to <code>vercel.com</code> → "Add New Project" → Import your GitHub repo. Vercel auto-detects the framework. For a static HTML site, no build settings needed — just deploy.</p>
-          </div>
-        </li>
-        <li class="deploy-step">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <h4>Link Your Custom Domain</h4>
-            <p>In Vercel Dashboard → Project → Settings → Domains → Add your domain (e.g. <code>vijitbhati.com</code>). Copy the provided nameservers or CNAME record to your domain registrar (GoDaddy, Namecheap, etc.).</p>
-          </div>
-        </li>
-        <li class="deploy-step">
-          <div class="step-num">04</div>
-          <div class="step-content">
-            <h4>Enable HTTPS (Auto)</h4>
-            <p>Vercel provisions a free SSL certificate via Let's Encrypt automatically. DNS propagation takes 10–48 hours. Your site will be live at <code>https://yourdomain.com</code> with zero config.</p>
-          </div>
-        </li>
-        <li class="deploy-step">
-          <div class="step-num">05</div>
-          <div class="step-content">
-            <h4>Continuous Deploy</h4>
-            <p>Every push to your <code>main</code> branch auto-triggers a new deployment. Preview URLs are created for every PR. Rollback to any prior deploy in one click from the dashboard.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-
-    <div>
-      <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 24px; font-weight: 700;">Recommended Tech Stack</h3>
-      <div class="tech-stack-grid">
-        <div class="tech-item">
-          <div class="tech-badge badge-recommended">Recommended</div>
-          <div class="tech-name">Next.js 14</div>
-          <div class="tech-desc">React framework with App Router. Perfect for Vercel — SSG + ISR for blazing fast portfolio pages.</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-badge badge-free">Free Tier</div>
-          <div class="tech-name">Vercel</div>
-          <div class="tech-desc">Instant global CDN, preview deployments, analytics, edge functions. Free hobby tier is more than enough.</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-badge badge-recommended">Recommended</div>
-          <div class="tech-name">Tailwind CSS</div>
-          <div class="tech-desc">Utility-first CSS. Fast to build, easy to maintain. Pairs perfectly with Next.js.</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-badge badge-optional">Optional</div>
-          <div class="tech-name">Framer Motion</div>
-          <div class="tech-desc">Production-grade animations for React. Scroll reveals, page transitions, Netflix-style hover effects.</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-badge badge-optional">Optional</div>
-          <div class="tech-name">Contentlayer / MDX</div>
-          <div class="tech-desc">Write case studies in Markdown. Auto-generates typed content — great for blog posts and deep dives.</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-badge badge-free">Free Tier</div>
-          <div class="tech-name">Vercel Analytics</div>
-          <div class="tech-desc">Real user metrics, Core Web Vitals, geographic data. Zero config, privacy-friendly.</div>
-        </div>
-      </div>
-
-      <div class="figma-callout">
-        <h4>🎨 Figma MCP Integration</h4>
-        <p>To edit this design in Figma via MCP: Enable the <code>Figma MCP</code> server in Claude's tool settings. You can then ask Claude to push component specs, export tokens, or sync design variables directly to a Figma file. The recommended workflow is: design tweaks in Figma Dev Mode → export as CSS variables → paste into this file's <code>:root</code> block. For full design-to-code sync, use <code>Tokens Studio</code> plugin in Figma paired with a GitHub Action that commits updated token files on publish.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── FOOTER ── -->
 <footer>
