@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case Studies — Vijit Bhati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --black: #0a0a0a;
+  --deep: #111111;
+  --card: #161616;
+  --card-hover: #1c1c1c;
+  --border: rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.12);
+  --red: #E50914;
+  --saffron: #FF9933;
+  --sakura: #FFB7C5;
+  --maple: #C41E3A;
+  --jade: #00A86B;
+  --gold: #D4AF37;
+  --indigo: #3D5AFE;
+  --white: #ffffff;
+  --muted: rgba(255,255,255,0.52);
+  --subtle: rgba(255,255,255,0.06);
+  --font-display: 'Playfair Display', serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--red); }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.35;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 60px; padding: 0 4vw;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,10,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-jp); font-size: 1rem; font-weight: 700;
+  color: var(--white); text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--saffron); }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-right a {
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-right a:hover { color: var(--white); }
+.nav-back {
+  display: flex; align-items: center; gap: 6px;
+  color: var(--muted) !important;
+  transition: color 0.2s !important;
+}
+.nav-back:hover { color: var(--white) !important; }
+
+/* ── SIDEBAR + MAIN LAYOUT ── */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  background: var(--deep);
+  border-right: 1px solid var(--border);
+  padding: 40px 0;
+  scrollbar-width: none;
+}
+.sidebar::-webkit-scrollbar { display: none; }
+
+.sidebar-label {
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); padding: 0 28px; margin-bottom: 20px;
+}
+
+.cs-nav-item {
+  display: block; padding: 18px 28px;
+  text-decoration: none; color: var(--muted);
+  border-left: 3px solid transparent;
+  transition: all 0.2s; cursor: pointer;
+  border-bottom: 1px solid var(--border);
+}
+.cs-nav-item:hover { background: var(--subtle); color: var(--white); border-left-color: rgba(229,9,20,0.4); }
+.cs-nav-item.active { background: rgba(229,9,20,0.06); color: var(--white); border-left-color: var(--red); }
+
+.cs-nav-num {
+  font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 5px; display: block;
+}
+.cs-nav-title { font-weight: 600; font-size: 0.88rem; line-height: 1.3; margin-bottom: 5px; }
+.cs-nav-tag {
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted); opacity: 0.7;
+}
+
+.sidebar-divider {
+  height: 1px; background: var(--border); margin: 20px 28px;
+}
+
+.sidebar-meta { padding: 0 28px; }
+.sidebar-meta-title {
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: block;
+}
+.skill-pill {
+  display: inline-block; font-size: 0.68rem; padding: 3px 10px;
+  background: var(--subtle); border: 1px solid var(--border);
+  border-radius: 20px; margin: 3px 3px 3px 0; color: var(--muted);
+  font-family: var(--font-mono); letter-spacing: 0.05em;
+}
+
+/* ── MAIN CONTENT ── */
+.main-content {
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+}
+
+/* ── CASE STUDY PANEL ── */
+.cs-panel { display: none; animation: fadeIn 0.4s ease; }
+.cs-panel.active { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── CS HERO ── */
+.cs-hero {
+  position: relative; min-height: 420px;
+  display: flex; align-items: flex-end;
+  padding: 60px 64px; overflow: hidden;
+}
+
+.cs-hero-bg { position: absolute; inset: 0; }
+
+.hero-listing { background: linear-gradient(135deg, #0d001a 0%, #1a0030 40%, #0a0d20 100%); }
+.hero-saas { background: linear-gradient(135deg, #001a0d 0%, #00330d 40%, #001020 100%); }
+.hero-smithsonian { background: linear-gradient(135deg, #1a0800 0%, #331500 45%, #0a0a0d 100%); }
+.hero-wingman { background: linear-gradient(135deg, #000d1a 0%, #001530 45%, #0d001a 100%); }
+
+.cs-hero-glow {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.listing-glow { background: radial-gradient(ellipse 60% 80% at 70% 40%, rgba(229,9,20,0.18) 0%, transparent 55%), radial-gradient(ellipse 30% 50% at 20% 70%, rgba(255,153,51,0.1) 0%, transparent 50%); }
+.saas-glow { background: radial-gradient(ellipse 60% 80% at 70% 40%, rgba(0,168,107,0.15) 0%, transparent 55%), radial-gradient(ellipse 30% 50% at 15% 60%, rgba(61,90,254,0.1) 0%, transparent 50%); }
+.smithsonian-glow { background: radial-gradient(ellipse 60% 80% at 70% 40%, rgba(212,175,55,0.15) 0%, transparent 55%), radial-gradient(ellipse 30% 50% at 15% 60%, rgba(196,30,58,0.1) 0%, transparent 50%); }
+.wingman-glow { background: radial-gradient(ellipse 60% 80% at 70% 40%, rgba(61,90,254,0.18) 0%, transparent 55%), radial-gradient(ellipse 30% 50% at 15% 60%, rgba(255,183,197,0.08) 0%, transparent 50%); }
+
+/* JP pattern overlay */
+.cs-jp-overlay {
+  position: absolute; right: 0; top: 0; width: 45%; height: 100%;
+  opacity: 0.04;
+  background-image:
+    repeating-linear-gradient(30deg, rgba(255,255,255,0.6) 0, rgba(255,255,255,0.6) 1px, transparent 0, transparent 50%),
+    repeating-linear-gradient(150deg, rgba(255,255,255,0.6) 0, rgba(255,255,255,0.6) 1px, transparent 0, transparent 50%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.6) 0, rgba(255,255,255,0.6) 1px, transparent 0, transparent 50%);
+  background-size: 28px 48px;
+}
+
+.cs-hero-fade {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.85) 45%, transparent 100%),
+              linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+}
+
+.cs-hero-content { position: relative; z-index: 2; max-width: 600px; }
+
+.cs-category {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 10px;
+  border-radius: 2px; margin-bottom: 14px; color: var(--white);
+}
+.cat-listing { background: var(--red); }
+.cat-saas { background: var(--jade); color: var(--black); }
+.cat-smithsonian { background: var(--gold); color: var(--black); }
+.cat-wingman { background: var(--indigo); }
+
+.cs-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 700; line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.cs-hero-sub {
+  font-size: 1rem; color: rgba(255,255,255,0.65);
+  max-width: 520px; line-height: 1.65;
+  font-weight: 300; margin-bottom: 28px;
+}
+
+.cs-hero-pills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+
+.cs-pill {
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 4px 10px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px; color: rgba(255,255,255,0.7);
+  backdrop-filter: blur(4px);
+}
+
+/* ── CS META BAR ── */
+.cs-meta-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+  background: var(--deep);
+}
+.cs-meta-item {
+  padding: 20px 28px;
+  border-right: 1px solid var(--border);
+}
+.cs-meta-item:last-child { border-right: none; }
+.cs-meta-label {
+  font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 5px; display: block;
+}
+.cs-meta-value { font-weight: 600; font-size: 0.9rem; }
+
+/* ── CS BODY ── */
+.cs-body { padding: 56px 64px; max-width: 860px; }
+
+/* Overview */
+.cs-overview {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  padding: 36px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 4px;
+  margin-bottom: 56px;
+}
+.overview-col {}
+.overview-label {
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; display: block;
+}
+.overview-text {
+  font-size: 0.92rem; color: var(--muted); line-height: 1.75; font-weight: 300;
+}
+.overview-text strong { color: var(--white); font-weight: 500; }
+
+/* Section */
+.cs-section { margin-bottom: 56px; }
+
+.cs-section-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 28px;
+}
+.cs-section-num {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em;
+  color: var(--red); font-weight: 700;
+}
+.cs-section-title {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+}
+.cs-section-jp {
+  font-family: var(--font-jp); font-size: 0.9rem; color: rgba(255,255,255,0.15);
+  font-weight: 300; margin-left: 4px;
+}
+.section-rule {
+  flex: 1; height: 1px; background: var(--border);
+}
+
+.cs-body p {
+  font-size: 0.95rem; color: var(--muted); line-height: 1.85;
+  font-weight: 300; margin-bottom: 20px;
+}
+.cs-body p strong { color: var(--white); font-weight: 500; }
+.cs-body p em { font-style: italic; color: rgba(255,255,255,0.75); }
+
+/* Process Steps */
+.process-steps {
+  display: flex; flex-direction: column; gap: 2px; margin-bottom: 24px;
+}
+.process-step {
+  display: grid; grid-template-columns: 44px 1fr;
+  gap: 16px; align-items: flex-start;
+  background: var(--card); padding: 22px 24px;
+  border-left: 3px solid var(--border);
+  transition: border-color 0.2s, background 0.2s;
+}
+.process-step:hover { background: var(--card-hover); border-left-color: var(--red); }
+.process-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0; margin-top: 2px;
+}
+.process-step-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 5px; color: var(--white); }
+.process-step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+/* Insight Cards */
+.insights-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;
+}
+.insight-card {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 24px; border-radius: 4px;
+  transition: background 0.2s; position: relative; overflow: hidden;
+}
+.insight-card:hover { background: var(--card-hover); }
+.insight-card::before {
+  content: attr(data-num);
+  font-family: var(--font-display); font-size: 5rem; font-weight: 700;
+  color: rgba(255,255,255,0.025); position: absolute;
+  bottom: -10px; right: 10px; line-height: 1; user-select: none;
+}
+.insight-icon { font-size: 1.3rem; margin-bottom: 10px; display: block; }
+.insight-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 7px; color: var(--white); }
+.insight-text { font-size: 0.8rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+/* Stat row */
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-bottom: 24px;
+}
+.stat-box {
+  background: var(--card); padding: 28px 24px; text-align: center;
+}
+.stat-num {
+  font-family: var(--font-display); font-size: 2.4rem; font-weight: 700;
+  line-height: 1; margin-bottom: 6px; display: block;
+}
+.stat-label {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* Quote block */
+.cs-quote {
+  border-left: 3px solid var(--saffron);
+  padding: 20px 28px;
+  margin: 28px 0;
+  background: rgba(255,153,51,0.04);
+  border-radius: 0 4px 4px 0;
+}
+.cs-quote blockquote {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1.05rem; color: rgba(255,255,255,0.8);
+  line-height: 1.65; margin-bottom: 10px;
+}
+.cs-quote cite {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--saffron); font-style: normal;
+}
+
+/* Outcome badges */
+.outcomes-list {
+  display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;
+}
+.outcome-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--card); padding: 16px 20px;
+  border-radius: 4px; border: 1px solid var(--border);
+}
+.outcome-check {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; flex-shrink: 0; margin-top: 1px;
+  background: rgba(0,168,107,0.15); color: var(--jade);
+  border: 1px solid rgba(0,168,107,0.3);
+}
+.outcome-text { font-size: 0.88rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.outcome-text strong { color: var(--white); font-weight: 500; }
+
+/* Design Decisions */
+.decision-grid {
+  display: flex; flex-direction: column; gap: 2px; margin-bottom: 24px;
+}
+.decision-item {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; background: var(--card);
+}
+.decision-before, .decision-after {
+  padding: 20px 24px; font-size: 0.83rem; line-height: 1.6; color: var(--muted); font-weight: 300;
+}
+.decision-before { border-right: 1px solid var(--border); position: relative; }
+.decision-before::before {
+  content: 'Before'; font-family: var(--font-mono); font-size: 0.58rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+  display: block; margin-bottom: 6px; opacity: 0.7;
+}
+.decision-after { position: relative; }
+.decision-after::before {
+  content: 'After'; font-family: var(--font-mono); font-size: 0.58rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--jade);
+  display: block; margin-bottom: 6px;
+}
+.decision-after strong { color: var(--white); font-weight: 500; }
+
+/* Screen mockup placeholder */
+.screen-mockup {
+  width: 100%; border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); margin-bottom: 24px;
+  position: relative;
+}
+.mockup-bar {
+  height: 36px; background: #1a1a1a;
+  display: flex; align-items: center; padding: 0 14px; gap: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+.mockup-dot.red { background: #ff5f57; }
+.mockup-dot.yellow { background: #ffbd2e; }
+.mockup-dot.green { background: #28c840; }
+.mockup-url {
+  flex: 1; height: 20px; background: rgba(255,255,255,0.05);
+  border-radius: 3px; margin: 0 10px;
+  display: flex; align-items: center; padding: 0 10px;
+  font-family: var(--font-mono); font-size: 0.62rem; color: var(--muted);
+}
+.mockup-screen {
+  min-height: 260px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px;
+}
+.mockup-wireframe {
+  position: absolute; inset: 0; padding: 20px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.wf-bar { border-radius: 2px; background: rgba(255,255,255,0.06); }
+.wf-row { display: flex; gap: 8px; }
+.wf-col { border-radius: 2px; background: rgba(255,255,255,0.04); flex: 1; }
+
+/* Reflection */
+.reflection-card {
+  background: linear-gradient(135deg, rgba(229,9,20,0.06) 0%, rgba(255,153,51,0.04) 100%);
+  border: 1px solid rgba(229,9,20,0.15);
+  border-radius: 4px; padding: 36px;
+  margin-bottom: 24px;
+}
+.reflection-card p { color: rgba(255,255,255,0.7); }
+
+/* Next project CTA */
+.next-project {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 28px 36px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 4px;
+  text-decoration: none; color: var(--white);
+  transition: background 0.2s, border-color 0.2s; margin-top: 48px;
+}
+.next-project:hover { background: var(--card-hover); border-color: var(--red); }
+.next-label {
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 6px; display: block;
+}
+.next-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; }
+.next-arrow {
+  width: 48px; height: 48px; border: 1px solid var(--border);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+.next-project:hover .next-arrow { background: var(--red); border-color: var(--red); transform: translateX(4px); }
+
+/* cultural divider */
+.cultural-divider {
+  height: 3px;
+  background: linear-gradient(to right, var(--saffron) 0%, #ffffff 33%, #138808 66%, var(--maple) 80%, #ff0000 90%, #ffffff 95%);
+  opacity: 0.3;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: relative; height: auto; top: 0; }
+  .main-content { height: auto; position: relative; top: 0; }
+  .cs-hero { padding: 40px 28px; min-height: 300px; }
+  .cs-body { padding: 36px 28px; }
+  .cs-meta-bar { grid-template-columns: 1fr 1fr; }
+  .cs-overview { grid-template-columns: 1fr; }
+  .insights-grid { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .decision-item { grid-template-columns: 1fr; }
+  .decision-before { border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-dot"></span>
+    Vijit Bhati
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Back to Portfolio</a>
+    <a href="index.html#about">About</a>
+    <a href="mailto:vijit@example.com">Contact</a>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Case Studies</div>
+
+    <a class="cs-nav-item active" onclick="showCase('listing')" href="#">
+      <span class="cs-nav-num">01 · E-Commerce · 2023</span>
+      <div class="cs-nav-title">Listing Doctor</div>
+      <div class="cs-nav-tag">Amazon · Walmart · eBay</div>
+    </a>
+
+    <a class="cs-nav-item" onclick="showCase('saas')" href="#">
+      <span class="cs-nav-num">02 · Fintech · AI · 2023</span>
+      <div class="cs-nav-title">SaaS Contract Analyzer</div>
+      <div class="cs-nav-tag">Financial Auditing · ML UX</div>
+    </a>
+
+    <a class="cs-nav-item" onclick="showCase('smithsonian')" href="#">
+      <span class="cs-nav-num">03 · Cultural · Archives · 2022</span>
+      <div class="cs-nav-title">Smithsonian AAA</div>
+      <div class="cs-nav-tag">Search · Discovery · A11y</div>
+    </a>
+
+    <a class="cs-nav-item" onclick="showCase('wingman')" href="#">
+      <span class="cs-nav-num">04 · iOS · Gen AI · 2023</span>
+      <div class="cs-nav-title">Wingman</div>
+      <div class="cs-nav-tag">Travel · Conversational UI</div>
+    </a>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-meta">
+      <span class="sidebar-meta-title">Core Skills</span>
+      <span class="skill-pill">User Research</span>
+      <span class="skill-pill">Prototyping</span>
+      <span class="skill-pill">Interaction Design</span>
+      <span class="skill-pill">Design Systems</span>
+      <span class="skill-pill">Figma</span>
+      <span class="skill-pill">Usability Testing</span>
+      <span class="skill-pill">AI/ML UX</span>
+      <span class="skill-pill">Information Architecture</span>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="main-content">
+
+    <!-- ══════════════════════════════════════
+         CASE STUDY 01 — LISTING DOCTOR
+    ══════════════════════════════════════ -->
+    <div class="cs-panel active" id="cs-listing">
+
+      <div class="cs-hero">
+        <div class="cs-hero-bg hero-listing"></div>
+        <div class="cs-hero-glow listing-glow"></div>
+        <div class="cs-jp-overlay"></div>
+        <div class="cs-hero-fade"></div>
+        <div class="cs-hero-content">
+          <div class="cs-category cat-listing">⚡ Case Study 01</div>
+          <h1 class="cs-hero-title">Listing Doctor</h1>
+          <p class="cs-hero-sub">Designing a zero-to-one application to track, diagnose, and resolve product listing errors across Amazon, Walmart, and eBay marketplaces.</p>
+          <div class="cs-hero-pills">
+            <span class="cs-pill">UX Research</span>
+            <span class="cs-pill">Product Design</span>
+            <span class="cs-pill">Design System</span>
+            <span class="cs-pill">Usability Testing</span>
+            <span class="cs-pill">E-commerce</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-meta-bar">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <div class="cs-meta-value">Lead UX Designer</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Timeline</span>
+          <div class="cs-meta-value">5 Months · 2023</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Team</span>
+          <div class="cs-meta-value">2 Designers · 4 Eng</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Platform</span>
+          <div class="cs-meta-value">Web App · SaaS</div>
+        </div>
+      </div>
+
+      <div class="cultural-divider"></div>
+
+      <div class="cs-body">
+
+        <!-- Overview -->
+        <div class="cs-overview">
+          <div class="overview-col">
+            <span class="overview-label">The Problem</span>
+            <p class="overview-text">Sellers on multi-channel marketplaces lose significant revenue due to <strong>undetected listing errors</strong> — suppressed products, missing attributes, policy violations — that are impossible to monitor manually across thousands of SKUs.</p>
+          </div>
+          <div class="overview-col">
+            <span class="overview-label">The Solution</span>
+            <p class="overview-text">A <strong>centralized dashboard</strong> that aggregates listing health data from Amazon, Walmart, and eBay APIs, surfaces critical errors with severity scoring, and guides sellers through step-by-step resolution workflows.</p>
+          </div>
+        </div>
+
+        <!-- Research -->
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">01</span>
+            <h2 class="cs-section-title">Discovery & Research<span class="cs-section-jp">発見</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <p>I conducted <strong>12 contextual inquiry sessions</strong> with e-commerce operations managers and sellers. The goal was to understand the current workaround landscape — what tools they used, where errors fell through the cracks, and what the emotional cost of a suppressed listing felt like.</p>
+
+          <div class="insights-grid">
+            <div class="insight-card" data-num="1">
+              <span class="insight-icon">😰</span>
+              <div class="insight-title">Manual monitoring is the norm</div>
+              <div class="insight-text">9 of 12 participants used spreadsheets or marketplace-native dashboards in separate tabs to monitor listing health — no unified view existed.</div>
+            </div>
+            <div class="insight-card" data-num="2">
+              <span class="insight-icon">⏱️</span>
+              <div class="insight-title">Detection lag averages 4.2 days</div>
+              <div class="insight-text">On average, sellers didn't notice a suppressed listing for 4+ days — each day representing direct lost revenue on that SKU.</div>
+            </div>
+            <div class="insight-card" data-num="3">
+              <span class="insight-icon">🤯</span>
+              <div class="insight-title">Error messages are cryptic</div>
+              <div class="insight-text">Marketplace error codes are written for developers, not merchants. "8572: INVALID_ATTRIBUTE_VALUE" means nothing without a glossary.</div>
+            </div>
+            <div class="insight-card" data-num="4">
+              <span class="insight-icon">🔁</span>
+              <div class="insight-title">Repeat errors are preventable</div>
+              <div class="insight-text">68% of errors seen were recurring — sellers were solving the same issues over and over due to no historical error memory in existing tools.</div>
+            </div>
+          </div>
+
+          <div class="cs-quote">
+            <blockquote>"I found out my top-selling product was suppressed on Amazon because I noticed a dip in sales — not because any tool told me."</blockquote>
+            <cite>— Operations Manager, Mid-market Seller · Research Participant</cite>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">02</span>
+            <h2 class="cs-section-title">Design Process<span class="cs-section-jp">過程</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <p>The design went through <strong>4 major iterations</strong>, each validated with a different cohort of sellers. I used a mix of low-fidelity concept testing, task-based usability testing, and desirability studies to pressure-test each direction.</p>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="process-icon" style="background: rgba(229,9,20,0.12); color: var(--red);">🗺️</div>
+              <div>
+                <div class="process-step-title">Journey Mapping & How Might We</div>
+                <div class="process-step-desc">Mapped the current-state error discovery journey from suppression event → seller awareness → resolution. Identified 6 key failure points. Generated 40+ HMW statements, narrowed to 8 priority opportunity areas.</div>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="process-icon" style="background: rgba(255,153,51,0.12); color: var(--saffron);">✏️</div>
+              <div>
+                <div class="process-step-title">Concept Sketching & Information Architecture</div>
+                <div class="process-step-desc">Sketched 3 competing IA approaches: a flat list view, a marketplace-grouped view, and a severity-first priority view. Tested concept preference with 6 participants — severity-first won decisively.</div>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="process-icon" style="background: rgba(0,168,107,0.12); color: var(--jade);">🖥️</div>
+              <div>
+                <div class="process-step-title">Wireframe Usability Testing (Round 1 & 2)</div>
+                <div class="process-step-desc">Built mid-fi wireframes in Figma, ran 2 rounds of task-based usability tests with 5 participants each. Success rates moved from 62% → 89% on core task flows between rounds.</div>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="process-icon" style="background: rgba(61,90,254,0.12); color: var(--indigo);">🎨</div>
+              <div>
+                <div class="process-step-title">High-Fidelity Design & Design System</div>
+                <div class="process-step-desc">Built a component library of 80+ components in Figma with error state variants, severity indicators, and multi-marketplace theming. Developed motion principles for real-time error updates.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Screen mockup -->
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">03</span>
+            <h2 class="cs-section-title">Key Design Decisions<span class="cs-section-jp">決断</span></h2>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="screen-mockup">
+            <div class="mockup-bar">
+              <div class="mockup-dot red"></div>
+              <div class="mockup-dot yellow"></div>
+              <div class="mockup-dot green"></div>
+              <div class="mockup-url">app.listingdoctor.com/dashboard</div>
+            </div>
+            <div class="mockup-screen" style="background: linear-gradient(135deg, #0d001a, #1a0030);">
+              <div class="mockup-wireframe">
+                <div class="wf-bar" style="height: 40px; width: 60%;"></div>
+                <div class="wf-row" style="margin-top: 8px;">
+                  <div class="wf-col" style="height: 70px; background: rgba(229,9,20,0.08); border: 1px solid rgba(229,9,20,0.15);"></div>
+                  <div class="wf-col" style="height: 70px; background: rgba(255,153,51,0.06); border: 1px solid rgba(255,153,51,0.12);"></div>
+                  <div class="wf-col" style="height: 70px; background: rgba(0,168,107,0.06); border: 1px solid rgba(0,168,107,0.12);"></div>
+                </div>
+                <div class="wf-bar" style="height: 30px; margin-top: 8px;"></div>
+                <div class="wf-row" style="flex: 1; margin-top: 8px;">
+                  <div class="wf-col" style="height: 120px;"></div>
+                </div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.68rem; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; z-index: 1;">DASHBOARD WIREFRAME · SEVERITY-FIRST LAYOUT</span>
+            </div>
+          </div>
+
+          <div class="decision-grid">
+            <div class="decision-item">
+              <div class="decision-before">Errors listed chronologically — latest errors first, regardless of severity. Merchants missed critical suppression events buried under minor warnings.</div>
+              <div class="decision-after"><strong>Severity-first triage queue.</strong> Critical errors (suppressed listings) always surface at the top, with a 3-tier system: Critical / Warning / Info. Reduced time-to-action on suppressed SKUs by ~70%.</div>
+            </div>
+            <div class="decision-item">
+              <div class="decision-before">Raw API error codes displayed (e.g. "ERROR_8572_INVALID_ATTRIBUTE"). Required sellers to Google every error code to understand it.</div>
+              <div class="decision-after"><strong>Human-readable error translation layer.</strong> "Your product title exceeds Amazon's 200-character limit. Current: 214 chars. Here's how to fix it." Inline with a one-click edit shortcut.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">04</span>
+            <h2 class="cs-section-title">Outcomes<span class="cs-section-jp">結果</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--jade);">89%</span>
+              <span class="stat-label">Task Completion Rate</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--saffron);">4.2d→<br style="line-height:0.5">6hr</span>
+              <span class="stat-label">Detection Lag Reduced</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--red);">4.7<span style="font-size:1.5rem">/5</span></span>
+              <span class="stat-label">SUS Usability Score</span>
+            </div>
+          </div>
+          <div class="outcomes-list">
+            <div class="outcome-item">
+              <div class="outcome-check">✓</div>
+              <div class="outcome-text"><strong>Zero-to-one shipped</strong> — product went from concept to live beta with 40 merchant accounts in 5 months.</div>
+            </div>
+            <div class="outcome-item">
+              <div class="outcome-check">✓</div>
+              <div class="outcome-text"><strong>Design system adopted</strong> — 80+ component library now used across 3 products in the broader platform ecosystem.</div>
+            </div>
+            <div class="outcome-item">
+              <div class="outcome-check">✓</div>
+              <div class="outcome-text"><strong>Reduced support tickets</strong> by 34% in the first 6 weeks post-launch due to in-context guidance and error translation.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reflection -->
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">05</span>
+            <h2 class="cs-section-title">Reflection<span class="cs-section-jp">反省</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="reflection-card">
+            <p>The biggest lesson from Listing Doctor was the power of <strong>domain immersion</strong>. E-commerce operations is a deeply specialized world — spending the first 3 weeks purely in discovery before touching Figma made all the difference. The severity-first design wouldn't have emerged without understanding the real emotional weight of a suppressed listing on a small business owner.</p>
+            <p style="margin-top: 16px;">If I were to revisit, I'd invest more time in <em>notification design</em> — getting sellers to act on alerts outside the app, not just inside it, was a UX challenge we addressed in v2 but could have been baked into the original brief.</p>
+          </div>
+        </div>
+
+        <a href="#" onclick="showCase('saas')" class="next-project">
+          <div>
+            <span class="next-label">Next Case Study</span>
+            <div class="next-title">SaaS Contract Analyzer →</div>
+          </div>
+          <div class="next-arrow">→</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         CASE STUDY 02 — SAAS CONTRACT ANALYZER
+    ══════════════════════════════════════ -->
+    <div class="cs-panel" id="cs-saas">
+
+      <div class="cs-hero">
+        <div class="cs-hero-bg hero-saas"></div>
+        <div class="cs-hero-glow saas-glow"></div>
+        <div class="cs-jp-overlay"></div>
+        <div class="cs-hero-fade"></div>
+        <div class="cs-hero-content">
+          <div class="cs-category cat-saas">🔬 Case Study 02</div>
+          <h1 class="cs-hero-title">SaaS Contract Analyzer</h1>
+          <p class="cs-hero-sub">Augmenting the financial auditing process by designing human-centered interfaces for ML-powered contract analysis and anomaly detection.</p>
+          <div class="cs-hero-pills">
+            <span class="cs-pill">AI/ML UX</span>
+            <span class="cs-pill">B2B SaaS</span>
+            <span class="cs-pill">Fintech</span>
+            <span class="cs-pill">Information Architecture</span>
+            <span class="cs-pill">Prototyping</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-meta-bar">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <div class="cs-meta-value">Senior UX Designer</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Timeline</span>
+          <div class="cs-meta-value">4 Months · 2023</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Team</span>
+          <div class="cs-meta-value">1 Designer · ML Team · 3 Eng</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Platform</span>
+          <div class="cs-meta-value">Web App · Enterprise</div>
+        </div>
+      </div>
+
+      <div class="cultural-divider"></div>
+
+      <div class="cs-body">
+
+        <div class="cs-overview">
+          <div class="overview-col">
+            <span class="overview-label">The Challenge</span>
+            <p class="overview-text">Financial auditors review hundreds of SaaS contracts manually — checking for auto-renewal clauses, price escalators, and compliance flags. The ML model could identify these patterns, but the <strong>outputs were impenetrable</strong> for non-technical auditors.</p>
+          </div>
+          <div class="overview-col">
+            <span class="overview-label">My Contribution</span>
+            <p class="overview-text">Bridge the gap between <strong>ML confidence scores</strong> and human judgment. Design an interface where auditors could review, override, and learn from model outputs — turning AI into a trusted collaborator, not a black box.</p>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">01</span>
+            <h2 class="cs-section-title">The AI Trust Problem<span class="cs-section-jp">信頼</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <p>The core UX challenge here wasn't a flow or navigation problem — it was a <strong>trust calibration problem</strong>. Auditors were either over-trusting the model (rubber-stamping outputs) or completely ignoring it (doing everything manually anyway). Neither extreme was useful.</p>
+          <div class="cs-quote">
+            <blockquote>"When the model flags something at 72% confidence, what does that even mean? Do I trust it or not? I need to understand *why* it thinks that."</blockquote>
+            <cite>— Senior Financial Auditor · Research Participant</cite>
+          </div>
+          <div class="insights-grid">
+            <div class="insight-card" data-num="1">
+              <span class="insight-icon">🧠</span>
+              <div class="insight-title">Explainability is non-negotiable</div>
+              <div class="insight-text">Auditors needed to see the specific contract clause that triggered a flag — not just a confidence score. Evidence-first design became the core principle.</div>
+            </div>
+            <div class="insight-card" data-num="2">
+              <span class="insight-icon">✍️</span>
+              <div class="insight-title">Override ≠ failure</div>
+              <div class="insight-text">Auditors needed a frictionless way to override ML flags without feeling like they were "breaking" something. Override flows needed to capture reasoning to improve the model over time.</div>
+            </div>
+            <div class="insight-card" data-num="3">
+              <span class="insight-icon">📄</span>
+              <div class="insight-title">Side-by-side context is critical</div>
+              <div class="insight-text">Auditors could not trust a flag without seeing the exact contract text that triggered it. The document viewer and analysis panel had to be co-visible at all times.</div>
+            </div>
+            <div class="insight-card" data-num="4">
+              <span class="insight-icon">⚡</span>
+              <div class="insight-title">Batch workflows matter</div>
+              <div class="insight-text">Power users processed 20+ contracts per session. Keyboard shortcuts, bulk approval, and "similar contracts" grouping were critical for efficiency at scale.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">02</span>
+            <h2 class="cs-section-title">Design Decisions<span class="cs-section-jp">設計</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="decision-grid">
+            <div class="decision-item">
+              <div class="decision-before">Confidence score shown as a raw percentage (e.g. 78%). No context about what this means or what evidence drove it.</div>
+              <div class="decision-after"><strong>Evidence-anchored flags.</strong> Every flag highlights the exact contract clause, with the specific language that triggered it. Confidence shown as a 3-tier label (High / Medium / Review) tied to clear thresholds.</div>
+            </div>
+            <div class="decision-item">
+              <div class="decision-before">Overriding a model flag required navigating to a separate "disputes" section, adding friction that discouraged auditors from correcting wrong outputs.</div>
+              <div class="decision-after"><strong>Inline override with reasoning capture.</strong> A single keystroke (or click) surfaces an override panel with reason codes. This data feeds directly back into model retraining — turning disagreement into improvement.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">03</span>
+            <h2 class="cs-section-title">Outcomes<span class="cs-section-jp">成果</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--jade);">3.4×</span>
+              <span class="stat-label">Faster Contract Review</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--saffron);">91%</span>
+              <span class="stat-label">Auditor Trust Score (Post)</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--red);">↑12%</span>
+              <span class="stat-label">Model Accuracy (Override Loop)</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" onclick="showCase('smithsonian')" class="next-project">
+          <div>
+            <span class="next-label">Next Case Study</span>
+            <div class="next-title">Smithsonian Archives of American Art →</div>
+          </div>
+          <div class="next-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         CASE STUDY 03 — SMITHSONIAN
+    ══════════════════════════════════════ -->
+    <div class="cs-panel" id="cs-smithsonian">
+
+      <div class="cs-hero">
+        <div class="cs-hero-bg hero-smithsonian"></div>
+        <div class="cs-hero-glow smithsonian-glow"></div>
+        <div class="cs-jp-overlay"></div>
+        <div class="cs-hero-fade"></div>
+        <div class="cs-hero-content">
+          <div class="cs-category cat-smithsonian">🏛️ Case Study 03</div>
+          <h1 class="cs-hero-title">Smithsonian Archives of American Art</h1>
+          <p class="cs-hero-sub">Reimagining search and discovery for one of the world's largest archives of visual art documentation — serving scholars, researchers, and the curious public.</p>
+          <div class="cs-hero-pills">
+            <span class="cs-pill">Information Architecture</span>
+            <span class="cs-pill">Search UX</span>
+            <span class="cs-pill">Accessibility</span>
+            <span class="cs-pill">Cultural UX</span>
+            <span class="cs-pill">Research-led</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-meta-bar">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <div class="cs-meta-value">UX Designer (Lead)</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Timeline</span>
+          <div class="cs-meta-value">6 Months · 2022</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Team</span>
+          <div class="cs-meta-value">2 Designers · Archivists</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Platform</span>
+          <div class="cs-meta-value">Web · Public Institution</div>
+        </div>
+      </div>
+
+      <div class="cultural-divider"></div>
+
+      <div class="cs-body">
+
+        <div class="cs-overview">
+          <div class="overview-col">
+            <span class="overview-label">Context</span>
+            <p class="overview-text">The Smithsonian's Archives of American Art holds <strong>over 20 million items</strong> — letters, sketchbooks, photos, oral histories — documenting American art history. The existing search experience made this treasure largely undiscoverable.</p>
+          </div>
+          <div class="overview-col">
+            <span class="overview-label">My Role</span>
+            <p class="overview-text">Lead the end-to-end redesign of the search and browse experience. Balance the needs of <strong>academic researchers</strong> who need precision with <strong>casual visitors</strong> who want inspiration and serendipitous discovery.</p>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">01</span>
+            <h2 class="cs-section-title">The Dual User Challenge<span class="cs-section-jp">二重</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <p>The most complex challenge here was designing for <strong>two radically different mental models</strong> on the same interface. A PhD art historian searching by provenance, date range, and medium has completely different needs than a high school student browsing for a Frida Kahlo reference photo.</p>
+          <div class="insights-grid">
+            <div class="insight-card" data-num="1">
+              <span class="insight-icon">🎓</span>
+              <div class="insight-title">Researchers need precision tools</div>
+              <div class="insight-text">Faceted search with 12+ filter dimensions, Boolean operators, date range sliders, and the ability to save and share search queries. Depth over breadth.</div>
+            </div>
+            <div class="insight-card" data-num="2">
+              <span class="insight-icon">🌿</span>
+              <div class="insight-title">General visitors need serendipity</div>
+              <div class="insight-text">Visual browse modes, "Related works" connections, artist timelines, and thematic collections. Discovery over search. The archive as a museum, not a database.</div>
+            </div>
+            <div class="insight-card" data-num="3">
+              <span class="insight-icon">♿</span>
+              <div class="insight-title">Accessibility is an ethical imperative</div>
+              <div class="insight-text">Public cultural institutions have a WCAG AA obligation. Every design decision was pressure-tested against screen reader compatibility, contrast ratios, and keyboard navigation.</div>
+            </div>
+            <div class="insight-card" data-num="4">
+              <span class="insight-icon">📜</span>
+              <div class="insight-title">Metadata quality is uneven</div>
+              <div class="insight-text">Some collection items have rich metadata; others are a scan with a two-word description. The UI needed to gracefully handle both extremes without feeling broken.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">02</span>
+            <h2 class="cs-section-title">Key Design Solution<span class="cs-section-jp">解決</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <p>We introduced a <strong>"Search Mode" toggle</strong> — a subtle but powerful interaction that transformed the interface from an academic search interface to a visual browse experience. Rather than creating two separate sites, the toggle revealed and hid complexity based on intent.</p>
+          <div class="decision-grid">
+            <div class="decision-item">
+              <div class="decision-before">Single search experience tried to serve both audiences. Advanced filters cluttered the casual browse experience; removing them frustrated researchers.</div>
+              <div class="decision-after"><strong>Progressive disclosure with mode-switching.</strong> Default "Explore" mode is visual and spacious. "Research" mode surfaces all 12 filter dimensions. Both modes share the same URL structure for linking and citation.</div>
+            </div>
+            <div class="decision-item">
+              <div class="decision-before">Items with sparse metadata showed as nearly-empty cards — broken-feeling, unappealing, appearing low-quality compared to rich items.</div>
+              <div class="decision-after"><strong>Metadata-adaptive card templates.</strong> Cards intelligently resize content areas based on available metadata. Sparse items get a more visual treatment; rich items show structured data grids.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">03</span>
+            <h2 class="cs-section-title">Outcomes<span class="cs-section-jp">成果</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--gold);">+47%</span>
+              <span class="stat-label">Search Success Rate</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--jade);">WCAG AA</span>
+              <span class="stat-label">Accessibility Rating</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--red);">2.8×</span>
+              <span class="stat-label">Time on Archive (Avg)</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" onclick="showCase('wingman')" class="next-project">
+          <div>
+            <span class="next-label">Next Case Study</span>
+            <div class="next-title">Wingman — AI Travel Companion →</div>
+          </div>
+          <div class="next-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         CASE STUDY 04 — WINGMAN
+    ══════════════════════════════════════ -->
+    <div class="cs-panel" id="cs-wingman">
+
+      <div class="cs-hero">
+        <div class="cs-hero-bg hero-wingman"></div>
+        <div class="cs-hero-glow wingman-glow"></div>
+        <div class="cs-jp-overlay"></div>
+        <div class="cs-hero-fade"></div>
+        <div class="cs-hero-content">
+          <div class="cs-category cat-wingman">✈️ Case Study 04</div>
+          <h1 class="cs-hero-title">Wingman</h1>
+          <p class="cs-hero-sub">Integrating a Generative AI chatbot into a travel companion iOS app — designing conversational UX that feels genuinely human, contextual, and delightful to use.</p>
+          <div class="cs-hero-pills">
+            <span class="cs-pill">Conversational UI</span>
+            <span class="cs-pill">iOS Design</span>
+            <span class="cs-pill">Gen AI</span>
+            <span class="cs-pill">Mobile UX</span>
+            <span class="cs-pill">Prompt Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-meta-bar">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <div class="cs-meta-value">Lead Product Designer</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Timeline</span>
+          <div class="cs-meta-value">4 Months · 2023</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Team</span>
+          <div class="cs-meta-value">2 Designers · iOS · AI Eng</div>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Platform</span>
+          <div class="cs-meta-value">iOS · Mobile</div>
+        </div>
+      </div>
+
+      <div class="cultural-divider"></div>
+
+      <div class="cs-body">
+
+        <div class="cs-overview">
+          <div class="overview-col">
+            <span class="overview-label">The Challenge</span>
+            <p class="overview-text">Wingman had a powerful AI travel recommendation engine. But the <strong>chat interface felt cold and robotic</strong> — like texting a FAQ bot. Users disengaged after 1-2 messages. The AI's capability was invisible behind a poor conversational experience.</p>
+          </div>
+          <div class="overview-col">
+            <span class="overview-label">The Goal</span>
+            <p class="overview-text">Design a conversational experience where the AI feels like a <strong>knowledgeable local friend</strong> — proactive, contextual, with personality — while staying within the guardrails of LLM capabilities and honest about its limitations.</p>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">01</span>
+            <h2 class="cs-section-title">Designing for Conversation<span class="cs-section-jp">会話</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <p>Conversational UI design is a discipline of its own — it lives at the intersection of <strong>UX writing, interaction design, and prompt engineering</strong>. I led discovery research with 15 frequent travellers across Vancouver, Toronto, and Delhi to understand how people naturally ask for travel advice.</p>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="process-icon" style="background: rgba(61,90,254,0.12); color: var(--indigo);">🎙️</div>
+              <div>
+                <div class="process-step-title">Voice & Personality Definition</div>
+                <div class="process-step-desc">Defined the AI's personality spectrum: knowledgeable but not condescending, enthusiastic but not exhausting, honest about uncertainty. Created a voice guide with 20+ do/don't example exchanges.</div>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="process-icon" style="background: rgba(255,183,197,0.12); color: var(--sakura);">🗺️</div>
+              <div>
+                <div class="process-step-title">Conversation Flow Mapping</div>
+                <div class="process-step-desc">Mapped 8 core conversation journeys (itinerary planning, restaurant discovery, transport help, emergency situations, etc.) and identified the 12 most common "dead end" conversation patterns that needed graceful recovery design.</div>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="process-icon" style="background: rgba(0,168,107,0.12); color: var(--jade);">💬</div>
+              <div>
+                <div class="process-step-title">Prompt Scaffolding Design</div>
+                <div class="process-step-desc">Worked directly with the AI engineering team to design conversation-starter suggestions, contextual prompts, and response format guidelines — making the model's outputs visually parseable and actionable within the iOS interface.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">02</span>
+            <h2 class="cs-section-title">Key Innovations<span class="cs-section-jp">革新</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="insights-grid">
+            <div class="insight-card" data-num="1">
+              <span class="insight-icon">🎯</span>
+              <div class="insight-title">Contextual Conversation Starters</div>
+              <div class="insight-text">When a user opens the app at 7pm in Tokyo, the AI surfaces "Good evening! Looking for dinner recommendations nearby?" — not a blank chat input. Location + time context drives proactive suggestions.</div>
+            </div>
+            <div class="insight-card" data-num="2">
+              <span class="insight-icon">🃏</span>
+              <div class="insight-title">Rich Response Cards</div>
+              <div class="insight-text">AI responses that include places, restaurants, or transit steps render as interactive cards — not walls of text. Tap to open in Maps, save to itinerary, or share with travel partners.</div>
+            </div>
+            <div class="insight-card" data-num="3">
+              <span class="insight-icon">🤍</span>
+              <div class="insight-title">Honest Uncertainty Design</div>
+              <div class="insight-text">Designed a distinct visual treatment for when the AI hedges ("I'm not 100% certain about opening hours — I'd verify on Google"). Users trusted the AI *more* because it acknowledged its limits.</div>
+            </div>
+            <div class="insight-card" data-num="4">
+              <span class="insight-icon">🔁</span>
+              <div class="insight-title">Trip Memory & Continuity</div>
+              <div class="insight-text">The AI remembers your trip context across sessions — "How was that ramen place I suggested yesterday?" feels magical and creates genuine emotional engagement with the product.</div>
+            </div>
+          </div>
+
+          <div class="cs-quote">
+            <blockquote>"I forgot I was talking to an AI. It felt like messaging a friend who happened to know everything about Tokyo."</blockquote>
+            <cite>— Beta Tester · UX Feedback Session · Vancouver</cite>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">03</span>
+            <h2 class="cs-section-title">Outcomes<span class="cs-section-jp">成果</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--indigo);">4.8×</span>
+              <span class="stat-label">Chat Session Length</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--jade);">78%</span>
+              <span class="stat-label">D7 Retention Rate</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" style="color: var(--saffron);">4.6★</span>
+              <span class="stat-label">App Store Rating</span>
+            </div>
+          </div>
+          <div class="outcomes-list">
+            <div class="outcome-item">
+              <div class="outcome-check">✓</div>
+              <div class="outcome-text"><strong>Conversation depth increased 4.8×</strong> — users went from 1-2 message exchanges to sustained multi-turn conversations averaging 12 messages.</div>
+            </div>
+            <div class="outcome-item">
+              <div class="outcome-check">✓</div>
+              <div class="outcome-text"><strong>AI personality framework adopted</strong> as the internal standard for all AI-integrated features across the product suite.</div>
+            </div>
+            <div class="outcome-item">
+              <div class="outcome-check">✓</div>
+              <div class="outcome-text">Featured in <strong>App Store's "Travel Apps We Love"</strong> editorial section, citing the conversational experience as a differentiator.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-section-header">
+            <span class="cs-section-num">04</span>
+            <h2 class="cs-section-title">Reflection<span class="cs-section-jp">反省</span></h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="reflection-card">
+            <p>Wingman taught me that <strong>designing for AI is fundamentally designing for uncertainty</strong>. Every other design discipline has deterministic outputs — you design a button, you know what it does. With LLMs, you're designing for a probability distribution of responses.</p>
+            <p style="margin-top: 16px;">The most important skill I developed here was <em>prompt scaffolding</em> — learning to shape AI behavior through the design of context, constraints, and conversation starters, not just the UI chrome around them. This is a design skill that barely existed three years ago and is now central to my practice.</p>
+          </div>
+        </div>
+
+        <a href="#" onclick="showCase('listing')" class="next-project">
+          <div>
+            <span class="next-label">Back to First</span>
+            <div class="next-title">← Listing Doctor</div>
+          </div>
+          <div class="next-arrow">←</div>
+        </a>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showCase(id) {
+  // Update panels
+  document.querySelectorAll('.cs-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('cs-' + id).classList.add('active');
+
+  // Update nav items
+  document.querySelectorAll('.cs-nav-item').forEach(n => n.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+
+  // Scroll main content to top
+  document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
+
+  return false;
+}
+
+// Keyboard nav
+document.addEventListener('keydown', (e) => {
+  const cases = ['listing', 'saas', 'smithsonian', 'wingman'];
+  const current = document.querySelector('.cs-panel.active')?.id.replace('cs-', '');
+  const idx = cases.indexOf(current);
+
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    const next = cases[(idx + 1) % cases.length];
+    const navItem = document.querySelectorAll('.cs-nav-item')[(idx + 1) % cases.length];
+    document.querySelectorAll('.cs-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('cs-' + next).classList.add('active');
+    document.querySelectorAll('.cs-nav-item').forEach(n => n.classList.remove('active'));
+    navItem.classList.add('active');
+    document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    const prev = cases[(idx - 1 + cases.length) % cases.length];
+    const navItem = document.querySelectorAll('.cs-nav-item')[(idx - 1 + cases.length) % cases.length];
+    document.querySelectorAll('.cs-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('cs-' + prev).classList.add('active');
+    document.querySelectorAll('.cs-nav-item').forEach(n => n.classList.remove('active'));
+    navItem.classList.add('active');
+    document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+</script>
+</body>
+</html>
