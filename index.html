@@ -79,9 +79,10 @@ nav.scrolled .nav-logo-img{height:50px;}
 
 /* SECTION */
 section{padding:85px 4vw;position:relative;z-index:2;}
-.sec-hd{display:flex;align-items:baseline;gap:18px;margin-bottom:40px;}
+/* Adjusted sec-hd to reduce distance between Title and View All Link */
+.sec-hd{display:flex;align-items:baseline;gap:24px;margin-bottom:40px;}
 .sec-lbl{font-family:var(--fm);font-size:.9rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);}
-.sec-ttl{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;flex:1;color:var(--text-main);}
+.sec-ttl{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--text-main);}
 .see-all{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:color .2s;}
 .see-all:hover{color:var(--pink);}
 .see-all::after{content:'→';}
@@ -153,13 +154,10 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 
 /* SMALLER PROFILE IMAGE FRAME */
-.about-frame{position:relative;width:65%; margin: 0 auto; aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--subtle); box-shadow:0 20px 40px rgba(0,0,0,0.1);}
+.about-frame{position:relative;width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:var(--subtle); box-shadow:0 20px 40px rgba(0,0,0,0.1);}
 .about-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;}
 .about-overlay{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%); z-index:2;}
-.ab-c{position:absolute;width:60px;height:60px; z-index:3;}
-.ab-c.tl{top:16px;left:16px;border-top:3px solid var(--pink);border-left:3px solid var(--pink);}
-.ab-c.br{bottom:16px;right:16px;border-bottom:3px solid var(--white);border-right:3px solid var(--white);}
-.about-badge{position:absolute;bottom:-20px;right:-20px;z-index:4;background:var(--pink);color:var(--white);padding:20px 24px;border-radius:6px;text-align:center;box-shadow:0 10px 25px rgba(255,42,133,0.3);}
+.about-badge{position:absolute;bottom:-10px;right:-10px;z-index:4;background:var(--pink);color:var(--white);padding:20px 24px;border-radius:6px;text-align:center;box-shadow:0 10px 25px rgba(255,42,133,0.3);}
 .about-badge .n{font-family:var(--fd);font-size:2.4rem;font-weight:700;display:block;line-height:1;}
 .about-badge .l{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;display:block;}
 
@@ -201,7 +199,6 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   .nav-links{display:none;}
   .featured{height:300px;}
   .feat-body{padding:30px;}
-  .about-frame{width:80%;}
 }
 @media(max-width:600px){
   .nf-row{grid-template-columns:1fr;}
@@ -344,14 +341,17 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 
 <section id="about">
   <div class="about-grid">
-    <div class="reveal" style="position:relative;">
-      <div class="about-frame">
-        <img src="profile-pic-vb.png" alt="Portrait" class="about-img" />
-        <div class="about-overlay"></div>
-        <div class="ab-c tl"></div><div class="ab-c br"></div>
+    
+    <div class="reveal" style="display:flex; justify-content:center;">
+      <div style="position:relative; width: 65%; max-width: 360px;">
+        <div class="about-frame">
+          <img src="image_531ac7.png" alt="Portrait" class="about-img" />
+          <div class="about-overlay" style="border-radius:50%;"></div>
+        </div>
+        <div class="about-badge"><span class="n">10+</span><span class="l">Years</span></div>
       </div>
-      <div class="about-badge"><span class="n">10+</span><span class="l">Years</span></div>
     </div>
+    
     <div class="reveal">
       <div class="about-eye">About</div>
       <h2 class="about-hl">I'm a Senior Experience Designer based in beautiful Vancouver, British Columbia.</h2>
@@ -361,7 +361,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         <p>Outside of work, you'll find me cheering on Liverpool, experimenting in the kitchen for my wife (results vary), catching films whenever I can, or playing badminton at the local rec center.</p>
       </div>
       <div class="hero-acts">
-        <a href="https://drive.google.com/file/d/1Hy-zlenvu5gfX_-IPAEalPqkoFJBcNeh/view?usp=sharing" target="_blank" class="btn-p">View Resume</a>
+        <a href="https://topmate.io/vijit_bhati" target="_blank" class="btn-p">Book Mentorship</a>
         <a href="mailto:vijitsinghbhati@gmail.com" class="btn-s">Get in Touch</a>
       </div>
     </div>
