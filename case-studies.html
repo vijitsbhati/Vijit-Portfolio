@@ -6,194 +6,185 @@
 <title>Case Studies — Vijit Bhati</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root {
-  --bg:       #0b1510;
-  --deep:     #0d1a12;
-  --card:     #111e15;
-  --card-h:   #16271b;
-  --border:   rgba(255,255,255,0.07);
-  --orange:   #E8751A;
-  --orange-lt:#ff8c2e;
-  --sage:     #7aab8a;
-  --sakura:   #FFB7C5;
-  --cream:    #f5ede0;
-  --gold:     #D4AF37;
-  --indigo:   #5B7FD4;
-  --white:    #ffffff;
-  --muted:    rgba(255,255,255,0.50);
-  --subtle:   rgba(255,255,255,0.055);
-  --fd:       'Playfair Display', serif;
-  --fm:       'Space Mono', monospace;
-  --fb:       'DM Sans', sans-serif;
+  --bg:          #ffffff;
+  --deep:        #f9f9fa;
+  --card:        #ffffff;
+  --card-h:      #f0f2f5;
+  --border:      rgba(0,0,0,0.08);
+  --pink:        #FF2A85;
+  --pink-lt:     #ff5e9f;
+  --sage:        #2ecc8a;
+  --sakura:      #FFB7C5;
+  --cream:       #f5ede0;
+  --gold:        #D4AF37;
+  --indigo:      #5B7FD4;
+  --white:       #ffffff;
+  --text-main:   #1a1a1a;
+  --text-muted:  #5e5e5e;
+  --subtle:      rgba(0,0,0,0.03);
+  
+  --fd:          'Rajdhani', sans-serif;
+  --fm:          'Rajdhani', sans-serif;
+  --fb:          'Rajdhani', sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--white);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden;}
-::-webkit-scrollbar{width:3px;}
+body{background:var(--bg);color:var(--text-main);font-family:var(--fb);font-size:18px;line-height:1.6;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:var(--orange);}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.28;}
-#blossom-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.4;}
+::-webkit-scrollbar-thumb{background:var(--pink);}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
+#blossom-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.85;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;background:rgba(11,21,16,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
-.nav-logo{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:9px;}
-.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);}
-.nav-right{display:flex;align-items:center;gap:22px;}
-.nav-right a{font-family:var(--fm);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
-.nav-right a:hover{color:var(--white);}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
+.nav-logo{font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--text-main);text-decoration:none;display:flex;align-items:center;gap:10px;}
+.nav-dot{width:10px;height:10px;border-radius:50%;background:var(--pink);}
+.nav-right{display:flex;align-items:center;gap:26px;}
+.nav-right a{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s;}
+.nav-right a:hover{color:var(--pink);}
 
 /* LAYOUT: sidebar + scrollable main */
-.layout{display:grid;grid-template-columns:270px 1fr;min-height:100vh;padding-top:58px;}
+.layout{display:grid;grid-template-columns:300px 1fr;min-height:100vh;padding-top:70px;}
 
 /* SIDEBAR */
-.sidebar{position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto;background:var(--deep);border-right:1px solid var(--border);padding:32px 0;scrollbar-width:none;z-index:10;}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;background:var(--deep);border-right:1px solid var(--border);padding:40px 0;scrollbar-width:none;z-index:10;}
 .sidebar::-webkit-scrollbar{display:none;}
-.sb-label{font-family:var(--fm);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:0 24px;margin-bottom:16px;display:block;}
+.sb-label{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);padding:0 28px;margin-bottom:20px;display:block;}
 
-.sb-item{display:block;padding:16px 24px;text-decoration:none;color:var(--muted);border-left:3px solid transparent;transition:all .2s;border-bottom:1px solid var(--border);cursor:pointer;}
-.sb-item:hover{background:var(--subtle);color:var(--white);border-left-color:rgba(232,117,26,.4);}
-.sb-item.active{background:rgba(232,117,26,.07);color:var(--white);border-left-color:var(--orange);}
-.sb-num{font-family:var(--fm);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;display:block;}
-.sb-title{font-weight:600;font-size:.85rem;line-height:1.3;margin-bottom:4px;}
-.sb-tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);opacity:.65;}
+.sb-item{display:block;padding:20px 28px;text-decoration:none;color:var(--text-muted);border-left:4px solid transparent;transition:all .2s;border-bottom:1px solid var(--border);cursor:pointer;}
+.sb-item:hover{background:var(--subtle);color:var(--text-main);border-left-color:rgba(255,42,133,.4);}
+.sb-item.active{background:rgba(255,42,133,.05);color:var(--text-main);border-left-color:var(--pink);}
+.sb-num{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:6px;display:block;}
+.sb-title{font-weight:700;font-size:1.1rem;line-height:1.3;margin-bottom:6px;}
+.sb-tag{font-family:var(--fm);font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);opacity:.8;}
 
-.sb-divider{height:1px;background:var(--border);margin:18px 24px;}
-.sb-skills{padding:0 24px;}
-.sb-skills span{font-family:var(--fm);font-size:.58rem;letter-spacing:.05em;display:inline-block;padding:3px 9px;background:var(--subtle);border:1px solid var(--border);border-radius:20px;margin:3px 2px;color:var(--muted);}
+.sb-divider{height:1px;background:var(--border);margin:24px 28px;}
+.sb-skills{padding:0 28px;}
+.sb-skills span{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;display:inline-block;padding:4px 10px;background:var(--white);border:1px solid var(--border);border-radius:4px;margin:4px 2px;color:var(--text-muted); text-transform:uppercase;}
 
 /* MAIN */
-.main{overflow-y:auto;height:calc(100vh - 58px);position:sticky;top:58px;}
+.main{overflow-y:auto;height:calc(100vh - 70px);position:sticky;top:70px;}
 
 /* PANELS */
 .cs-panel{display:none;}
 .cs-panel.active{display:block;animation:panelIn .35s ease;}
-@keyframes panelIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+@keyframes panelIn{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
 
 /* CS HERO */
-.cs-hero{position:relative;min-height:400px;display:flex;align-items:flex-end;padding:56px 60px;overflow:hidden;}
-.hero-bg-layer{position:absolute;inset:0;}
-.bg-listing{background:linear-gradient(135deg,#0a1e0c 0%,#163020 42%,#0b1812 100%);}
-.bg-saas{background:linear-gradient(135deg,#0c1a0e 0%,#162a10 42%,#0a1210 100%);}
-.bg-smithsonian{background:linear-gradient(135deg,#1a1006 0%,#2e1c08 42%,#0f0e08 100%);}
-.bg-wingman{background:linear-gradient(135deg,#0c0e1a 0%,#141828 42%,#0e0a18 100%);}
+.cs-hero{position:relative;min-height:480px;display:flex;align-items:flex-end;padding:60px 70px;overflow:hidden;background-color:#000;}
+.hero-bg-layer{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.85;}
+.bg-listing{background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80');}
+.bg-saas{background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');}
+.bg-smithsonian{background-image:url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80');}
+.bg-wingman{background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80');}
 
-.hero-glow{position:absolute;inset:0;pointer-events:none;}
-.glow-listing{background:radial-gradient(ellipse 55% 75% at 70% 40%,rgba(232,117,26,.14) 0%,transparent 55%),radial-gradient(ellipse 30% 50% at 15% 70%,rgba(122,171,138,.08) 0%,transparent 50%);}
-.glow-saas{background:radial-gradient(ellipse 55% 75% at 70% 40%,rgba(122,171,138,.14) 0%,transparent 55%),radial-gradient(ellipse 30% 50% at 15% 70%,rgba(91,127,212,.08) 0%,transparent 50%);}
-.glow-smithsonian{background:radial-gradient(ellipse 55% 75% at 70% 40%,rgba(212,175,55,.14) 0%,transparent 55%),radial-gradient(ellipse 30% 50% at 15% 70%,rgba(232,117,26,.08) 0%,transparent 50%);}
-.glow-wingman{background:radial-gradient(ellipse 55% 75% at 70% 40%,rgba(91,127,212,.16) 0%,transparent 55%),radial-gradient(ellipse 30% 50% at 15% 70%,rgba(255,183,197,.07) 0%,transparent 50%);}
+/* Gradient fade making text highly readable */
+.hero-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.95) 45%,transparent 100%),linear-gradient(to top,rgba(255,255,255,.9) 0%,transparent 50%);}
+.hero-content{position:relative;z-index:2;max-width:650px;}
 
-.hero-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(11,21,16,.9) 40%,transparent 100%),linear-gradient(to top,rgba(11,21,16,.65) 0%,transparent 50%);}
-.hero-content{position:relative;z-index:2;max-width:580px;}
-
-.cs-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:13px;color:var(--white);}
-.badge-listing{background:var(--orange);}
-.badge-saas{background:var(--sage);color:#0b1510;}
+.cs-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:4px;margin-bottom:16px;color:var(--white);}
+.badge-listing{background:var(--pink);}
+.badge-saas{background:var(--sage);}
 .badge-smithsonian{background:var(--gold);color:#1a1000;}
 .badge-wingman{background:var(--indigo);}
 
-.cs-hero-title{font-family:var(--fd);font-size:clamp(1.75rem,3.3vw,2.85rem);font-weight:700;line-height:1.1;margin-bottom:12px;}
-.cs-hero-sub{font-size:.94rem;color:rgba(255,255,255,.62);max-width:500px;line-height:1.65;font-weight:300;margin-bottom:24px;}
-.cs-pills{display:flex;flex-wrap:wrap;gap:7px;}
-.cs-pill{font-family:var(--fm);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;padding:4px 10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:2px;color:rgba(255,255,255,.68);backdrop-filter:blur(4px);}
+.cs-hero-title{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:16px;color:var(--text-main);}
+.cs-hero-sub{font-size:1.1rem;color:var(--text-muted);max-width:550px;line-height:1.65;font-weight:500;margin-bottom:28px;}
+.cs-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.cs-pill{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;background:var(--white);border:1px solid var(--border);border-radius:4px;color:var(--text-main); box-shadow:0 2px 10px rgba(0,0,0,0.05);}
 
 /* META BAR */
 .meta-bar{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);background:var(--deep);}
-.meta-item{padding:18px 24px;border-right:1px solid var(--border);}
+.meta-item{padding:22px 30px;border-right:1px solid var(--border);}
 .meta-item:last-child{border-right:none;}
-.meta-lbl{font-family:var(--fm);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;display:block;}
-.meta-val{font-weight:600;font-size:.88rem;}
-
-/* STRIPE */
-.stripe{height:3px;background:linear-gradient(to right,#FF9933 0%,#fff 33%,#138808 55%,#E8751A 76%,#C41E3A 88%,#fff 100%);opacity:.24;}
+.meta-lbl{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;display:block;}
+.meta-val{font-weight:700;font-size:1.05rem;color:var(--text-main);}
 
 /* BODY */
-.cs-body{padding:50px 60px;max-width:840px;}
-.cs-body p{font-size:.93rem;color:var(--muted);line-height:1.86;font-weight:300;margin-bottom:18px;}
-.cs-body p strong{color:var(--white);font-weight:500;}
-.cs-body p em{font-style:italic;color:rgba(255,255,255,.72);}
+.cs-body{padding:60px 70px;max-width:900px;}
+.cs-body p{font-size:1.05rem;color:var(--text-muted);line-height:1.8;font-weight:500;margin-bottom:22px;}
+.cs-body p strong{color:var(--text-main);font-weight:700;}
+.cs-body p em{font-style:italic;color:var(--pink);}
 
 /* Overview */
-.overview{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:32px;background:var(--card);border:1px solid var(--border);border-radius:4px;margin-bottom:50px;}
-.ov-lbl{font-family:var(--fm);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block;}
-.ov-txt{font-size:.9rem;color:var(--muted);line-height:1.76;font-weight:300;}
-.ov-txt strong{color:var(--white);font-weight:500;}
+.overview{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:40px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:60px; box-shadow:0 10px 30px rgba(0,0,0,0.02);}
+.ov-lbl{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:12px;display:block;}
+.ov-txt{font-size:1rem;color:var(--text-muted);line-height:1.7;font-weight:500;}
+.ov-txt strong{color:var(--text-main);font-weight:700;}
 
 /* Section */
-.cs-sec{margin-bottom:50px;}
-.cs-sec-hd{display:flex;align-items:center;gap:14px;margin-bottom:24px;}
-.cs-sec-num{font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;color:var(--orange);font-weight:700;}
-.cs-sec-title{font-family:var(--fd);font-size:1.45rem;font-weight:700;}
-.sec-rule{flex:1;height:1px;background:var(--border);}
+.cs-sec{margin-bottom:60px;}
+.cs-sec-hd{display:flex;align-items:center;gap:16px;margin-bottom:30px;}
+.cs-sec-num{font-family:var(--fm);font-size:.9rem;font-weight:700;letter-spacing:.1em;color:var(--pink);}
+.cs-sec-title{font-family:var(--fd);font-size:1.8rem;font-weight:700;color:var(--text-main);}
+.sec-rule{flex:1;height:2px;background:var(--border);}
 
 /* Insights */
-.insights{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:22px;}
-.insight{background:var(--card);border:1px solid var(--border);padding:22px;border-radius:3px;transition:background .2s;position:relative;overflow:hidden;}
-.insight:hover{background:var(--card-h);}
-.insight::after{content:attr(data-n);font-family:var(--fd);font-size:5rem;font-weight:700;color:rgba(255,255,255,.022);position:absolute;bottom:-8px;right:8px;line-height:1;user-select:none;}
-.in-ico{font-size:1.2rem;margin-bottom:9px;display:block;}
-.in-title{font-weight:600;font-size:.86rem;margin-bottom:6px;color:var(--white);}
-.in-txt{font-size:.78rem;color:var(--muted);line-height:1.65;font-weight:300;}
+.insights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px;}
+.insight{background:var(--card);border:1px solid var(--border);padding:28px;border-radius:6px;transition:all .2s;position:relative;overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
+.insight:hover{background:var(--card-h); transform:translateY(-3px);}
+.insight::after{content:attr(data-n);font-family:var(--fd);font-size:6rem;font-weight:700;color:var(--subtle);position:absolute;bottom:-15px;right:10px;line-height:1;user-select:none;}
+.in-ico{font-size:1.4rem;margin-bottom:12px;display:block;}
+.in-title{font-weight:700;font-size:1.1rem;margin-bottom:8px;color:var(--text-main);}
+.in-txt{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 
 /* Process */
-.process{display:flex;flex-direction:column;gap:2px;margin-bottom:22px;}
-.proc-step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:flex-start;background:var(--card);padding:20px 22px;border-left:3px solid var(--border);transition:border-color .2s,background .2s;}
-.proc-step:hover{background:var(--card-h);border-left-color:var(--orange);}
-.proc-ico{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;margin-top:1px;}
-.proc-title{font-weight:600;font-size:.9rem;margin-bottom:4px;color:var(--white);}
-.proc-desc{font-size:.8rem;color:var(--muted);line-height:1.65;font-weight:300;}
+.process{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;}
+.proc-step{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:flex-start;background:var(--card);padding:24px 28px;border:1px solid var(--border);border-radius:6px;border-left:4px solid var(--border);transition:all .2s;}
+.proc-step:hover{background:var(--card-h);border-left-color:var(--pink); transform:translateX(4px);}
+.proc-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+.proc-title{font-weight:700;font-size:1.1rem;margin-bottom:6px;color:var(--text-main);}
+.proc-desc{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 
 /* Quote */
-.cs-quote{border-left:3px solid var(--orange);padding:18px 26px;margin:24px 0;background:rgba(232,117,26,.04);border-radius:0 3px 3px 0;}
-.cs-quote blockquote{font-family:var(--fd);font-style:italic;font-size:1rem;color:rgba(255,255,255,.78);line-height:1.65;margin-bottom:8px;}
-.cs-quote cite{font-family:var(--fm);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);font-style:normal;}
+.cs-quote{border-left:4px solid var(--pink);padding:24px 32px;margin:32px 0;background:rgba(255,42,133,.04);border-radius:0 6px 6px 0;}
+.cs-quote blockquote{font-family:var(--fd);font-style:italic;font-size:1.3rem;color:var(--text-main);line-height:1.6;margin-bottom:12px;font-weight:600;}
+.cs-quote cite{font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);font-style:normal;}
 
 /* Stats */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:22px;}
-.stat{background:var(--card);padding:26px 22px;text-align:center;}
-.stat-n{font-family:var(--fd);font-size:2.3rem;font-weight:700;line-height:1;margin-bottom:5px;display:block;}
-.stat-l{font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px;}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:32px 26px;text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
+.stat-n{font-family:var(--fd);font-size:3rem;font-weight:700;line-height:1;margin-bottom:8px;display:block;}
+.stat-l{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);}
 
 /* Decisions */
-.decisions{display:flex;flex-direction:column;gap:2px;margin-bottom:22px;}
-.decision{display:grid;grid-template-columns:1fr 1fr;background:var(--card);}
-.dec-before,.dec-after{padding:18px 22px;font-size:.82rem;line-height:1.62;color:var(--muted);font-weight:300;}
-.dec-before{border-right:1px solid var(--border);}
-.dec-before::before{content:'Before';font-family:var(--fm);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px;opacity:.6;}
-.dec-after::before{content:'After';font-family:var(--fm);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:5px;}
-.dec-after strong{color:var(--white);font-weight:500;}
+.decisions{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;}
+.decision{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.dec-before,.dec-after{padding:24px 28px;font-size:1rem;line-height:1.6;color:var(--text-muted);font-weight:500;}
+.dec-before{border-right:1px solid var(--border);background:var(--deep);}
+.dec-before::before{content:'Before';font-family:var(--fm);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:8px;}
+.dec-after::before{content:'After';font-family:var(--fm);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:8px;}
+.dec-after strong{color:var(--text-main);font-weight:700;}
 
 /* Outcomes */
-.outcomes{display:flex;flex-direction:column;gap:8px;margin-bottom:22px;}
-.outcome{display:flex;align-items:flex-start;gap:12px;background:var(--card);padding:14px 18px;border-radius:3px;border:1px solid var(--border);}
-.oc{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;flex-shrink:0;margin-top:1px;background:rgba(122,171,138,.14);color:var(--sage);border:1px solid rgba(122,171,138,.28);}
-.ot{font-size:.86rem;color:var(--muted);line-height:1.6;font-weight:300;}
-.ot strong{color:var(--white);font-weight:500;}
+.outcomes{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
+.outcome{display:flex;align-items:flex-start;gap:16px;background:var(--card);padding:18px 22px;border-radius:6px;border:1px solid var(--border); box-shadow:0 4px 15px rgba(0,0,0,0.02);}
+.oc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:2px;background:rgba(46,204,138,.15);color:var(--sage);border:1px solid rgba(46,204,138,.3); font-weight:bold;}
+.ot{font-size:1rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
+.ot strong{color:var(--text-main);font-weight:700;}
 
 /* Reflection */
-.reflection{background:linear-gradient(135deg,rgba(232,117,26,.06) 0%,rgba(122,171,138,.04) 100%);border:1px solid rgba(232,117,26,.14);border-radius:4px;padding:32px;margin-bottom:22px;}
+.reflection{background:linear-gradient(135deg,rgba(255,42,133,.04) 0%,rgba(46,204,138,.04) 100%);border:1px solid rgba(255,42,133,.15);border-radius:8px;padding:40px;margin-bottom:26px;}
 
 /* Next CTA */
-.next-cta{display:flex;align-items:center;justify-content:space-between;padding:26px 32px;background:var(--card);border:1px solid var(--border);border-radius:3px;text-decoration:none;color:var(--white);transition:background .2s,border-color .2s;margin-top:44px;}
-.next-cta:hover{background:var(--card-h);border-color:var(--orange);}
-.next-lbl{font-family:var(--fm);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;display:block;}
-.next-title{font-family:var(--fd);font-size:1.25rem;font-weight:700;}
-.next-arr{width:44px;height:44px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;transition:background .2s,border-color .2s,transform .2s;}
-.next-cta:hover .next-arr{background:var(--orange);border-color:var(--orange);transform:translateX(4px);}
-
-/* Stripe */
-.stripe-sm{height:3px;background:linear-gradient(to right,#FF9933 0%,#fff 33%,#138808 55%,#E8751A 76%,#C41E3A 88%,#fff 100%);opacity:.22;}
+.next-cta{display:flex;align-items:center;justify-content:space-between;padding:32px 40px;background:var(--card);border:2px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text-main);transition:all .2s;margin-top:50px; box-shadow:0 10px 30px rgba(0,0,0,0.03);}
+.next-cta:hover{background:var(--subtle);border-color:var(--pink); transform:translateY(-3px);}
+.next-lbl{font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block;}
+.next-title{font-family:var(--fd);font-size:1.5rem;font-weight:700;}
+.next-arr{width:54px;height:54px;border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;transition:all .2s;}
+.next-cta:hover .next-arr{background:var(--pink);border-color:var(--pink);color:var(--white);transform:translateX(6px);}
 
 /* Responsive */
 @media(max-width:900px){
   .layout{grid-template-columns:1fr;}
-  .sidebar{position:relative;height:auto;top:0;}
+  .sidebar{position:relative;height:auto;top:0;padding:20px 0;}
   .main{height:auto;position:relative;top:0;}
-  .cs-hero{padding:36px 24px;min-height:280px;}
-  .cs-body{padding:32px 24px;}
+  .cs-hero{padding:40px 30px;min-height:350px;}
+  .cs-body{padding:40px 30px;}
   .meta-bar{grid-template-columns:1fr 1fr;}
   .overview,.insights,.stats{grid-template-columns:1fr;}
   .decision{grid-template-columns:1fr;}
@@ -210,13 +201,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
   <div class="nav-right">
     <a href="index.html">&#8592; Portfolio</a>
     <a href="index.html#about">About</a>
-    <a href="mailto:vijit@example.com">Contact</a>
+    <a href="mailto:vijit@example.com" style="color:var(--pink);">Contact</a>
   </div>
 </nav>
 
 <div class="layout">
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
     <span class="sb-label">Case Studies</span>
 
@@ -243,19 +233,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
 
     <div class="sb-divider"></div>
     <div class="sb-skills">
-      <span style="font-family:var(--fm);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px;">Skills</span>
+      <span style="font-family:var(--fm);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);display:block;margin-bottom:14px;border:none;padding:0;">Skills</span>
       <span>User Research</span><span>Prototyping</span><span>Interaction Design</span><span>Design Systems</span><span>Figma</span><span>Usability Testing</span><span>AI/ML UX</span><span>Info Architecture</span>
     </div>
   </aside>
 
-  <!-- MAIN -->
   <main class="main" id="main-scroll">
 
-    <!-- ══ CS 01: LISTING ══ -->
     <div class="cs-panel active" id="panel-listing">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-listing"></div>
-        <div class="hero-glow glow-listing"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
           <div class="cs-badge badge-listing">&#9889; Case Study 01</div>
@@ -273,7 +260,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
         <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; 4 Eng</div></div>
         <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web App &middot; SaaS</div></div>
       </div>
-      <div class="stripe-sm"></div>
 
       <div class="cs-body">
         <div class="overview">
@@ -284,6 +270,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Discovery &amp; Research</h2><div class="sec-rule"></div></div>
           <p>I conducted <strong>12 contextual inquiry sessions</strong> with e-commerce operations managers. The goal was to understand the current workaround landscape — what tools they used, where errors fell through the cracks, and the emotional cost of a suppressed listing.</p>
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Research Process" style="width:100%; border-radius:6px; margin-bottom: 24px; box-shadow:0 4px 15px rgba(0,0,0,0.05);" />
+          
           <div class="insights">
             <div class="insight" data-n="1"><span class="in-ico">😰</span><div class="in-title">Manual monitoring is the norm</div><div class="in-txt">9 of 12 participants used spreadsheets or separate marketplace dashboards — no unified view existed.</div></div>
             <div class="insight" data-n="2"><span class="in-ico">⏱️</span><div class="in-title">Detection lag averages 4.2 days</div><div class="in-txt">On average, sellers didn't notice a suppressed listing for 4+ days — each day representing direct lost revenue.</div></div>
@@ -300,9 +288,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
           <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Design Process</h2><div class="sec-rule"></div></div>
           <p>The design went through <strong>4 major iterations</strong>, each validated with a different cohort of sellers. I used a mix of low-fidelity concept testing, task-based usability testing, and desirability studies.</p>
           <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(232,117,26,.13);color:var(--orange);">🗺️</div><div><div class="proc-title">Journey Mapping &amp; How Might We</div><div class="proc-desc">Mapped the current-state error discovery journey. Identified 6 key failure points. Generated 40+ HMW statements, narrowed to 8 priority opportunity areas.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(122,171,138,.13);color:var(--sage);">✏️</div><div><div class="proc-title">Concept Sketching &amp; IA</div><div class="proc-desc">Sketched 3 competing IA approaches: flat list, marketplace-grouped, and severity-first. Tested concept preference with 6 participants — severity-first won decisively.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.13);color:var(--indigo);">🖥️</div><div><div class="proc-title">Wireframe Usability Testing (R1 &amp; R2)</div><div class="proc-desc">Built mid-fi wireframes in Figma, ran 2 rounds of task-based usability tests. Success rates moved from 62% → 89% between rounds.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);">🗺️</div><div><div class="proc-title">Journey Mapping &amp; How Might We</div><div class="proc-desc">Mapped the current-state error discovery journey. Identified 6 key failure points. Generated 40+ HMW statements, narrowed to 8 priority opportunity areas.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">✏️</div><div><div class="proc-title">Concept Sketching &amp; IA</div><div class="proc-desc">Sketched 3 competing IA approaches: flat list, marketplace-grouped, and severity-first. Tested concept preference with 6 participants — severity-first won decisively.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🖥️</div><div><div class="proc-title">Wireframe Usability Testing (R1 &amp; R2)</div><div class="proc-desc">Built mid-fi wireframes in Figma, ran 2 rounds of task-based usability tests. Success rates moved from 62% → 89% between rounds.</div></div></div>
             <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);">🎨</div><div><div class="proc-title">High-Fidelity Design &amp; Design System</div><div class="proc-desc">Built a component library of 80+ components with error state variants, severity indicators, and multi-marketplace theming.</div></div></div>
           </div>
         </div>
@@ -319,7 +307,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
           <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
           <div class="stats">
             <div class="stat"><span class="stat-n" style="color:var(--sage);">89%</span><span class="stat-l">Task Completion Rate</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--orange);">4.2d→6hr</span><span class="stat-l">Detection Lag Reduced</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">4.2d→6hr</span><span class="stat-l">Detection Lag Reduced</span></div>
             <div class="stat"><span class="stat-n" style="color:var(--gold);">4.7/5</span><span class="stat-l">SUS Usability Score</span></div>
           </div>
           <div class="outcomes">
@@ -344,11 +332,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
       </div>
     </div>
 
-    <!-- ══ CS 02: SAAS ══ -->
     <div class="cs-panel" id="panel-saas">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-saas"></div>
-        <div class="hero-glow glow-saas"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
           <div class="cs-badge badge-saas">&#128300; Case Study 02</div>
@@ -365,7 +351,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
         <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">1 Designer &middot; ML Team</div></div>
         <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web &middot; Enterprise</div></div>
       </div>
-      <div class="stripe-sm"></div>
       <div class="cs-body">
         <div class="overview">
           <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Financial auditors review hundreds of SaaS contracts manually — checking for auto-renewal clauses, price escalators, and compliance flags. The ML model could identify these patterns, but the <strong>outputs were impenetrable</strong> for non-technical auditors.</p></div>
@@ -396,7 +381,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
           <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
           <div class="stats">
             <div class="stat"><span class="stat-n" style="color:var(--sage);">3.4×</span><span class="stat-l">Faster Review</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--orange);">91%</span><span class="stat-l">Auditor Trust Score</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">91%</span><span class="stat-l">Auditor Trust Score</span></div>
             <div class="stat"><span class="stat-n" style="color:var(--gold);">+12%</span><span class="stat-l">Model Accuracy</span></div>
           </div>
         </div>
@@ -407,11 +392,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
       </div>
     </div>
 
-    <!-- ══ CS 03: SMITHSONIAN ══ -->
     <div class="cs-panel" id="panel-smithsonian">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-smithsonian"></div>
-        <div class="hero-glow glow-smithsonian"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
           <div class="cs-badge badge-smithsonian">&#127981; Case Study 03</div>
@@ -428,7 +411,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
         <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; Archivists</div></div>
         <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web &middot; Public Institution</div></div>
       </div>
-      <div class="stripe-sm"></div>
       <div class="cs-body">
         <div class="overview">
           <div><span class="ov-lbl">Context</span><p class="ov-txt">The Smithsonian's Archives of American Art holds <strong>over 20 million items</strong> — letters, sketchbooks, photos, oral histories. The existing search experience made this treasure largely undiscoverable.</p></div>
@@ -457,7 +439,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
           <div class="stats">
             <div class="stat"><span class="stat-n" style="color:var(--gold);">+47%</span><span class="stat-l">Search Success Rate</span></div>
             <div class="stat"><span class="stat-n" style="color:var(--sage);">WCAG AA</span><span class="stat-l">Accessibility Rating</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--orange);">2.8×</span><span class="stat-l">Time on Archive</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">2.8×</span><span class="stat-l">Time on Archive</span></div>
           </div>
         </div>
         <a href="#wingman" onclick="return show('wingman', document.querySelector('[href=\'#wingman\']'))" class="next-cta">
@@ -467,11 +449,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
       </div>
     </div>
 
-    <!-- ══ CS 04: WINGMAN ══ -->
     <div class="cs-panel" id="panel-wingman">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-wingman"></div>
-        <div class="hero-glow glow-wingman"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
           <div class="cs-badge badge-wingman">&#9992; Case Study 04</div>
@@ -488,7 +468,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
         <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; AI Eng</div></div>
         <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">iOS &middot; Mobile</div></div>
       </div>
-      <div class="stripe-sm"></div>
       <div class="cs-body">
         <div class="overview">
           <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Wingman had a powerful AI travel engine. But the <strong>chat interface felt cold and robotic</strong> — like texting a FAQ bot. Users disengaged after 1–2 messages. The AI's capability was invisible behind a poor conversational experience.</p></div>
@@ -498,9 +477,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Designing for Conversation</h2><div class="sec-rule"></div></div>
           <p>Conversational UI design sits at the intersection of <strong>UX writing, interaction design, and prompt engineering</strong>. I led discovery with 15 frequent travellers across Vancouver, Toronto, and Delhi to understand how people naturally ask for travel advice.</p>
           <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.13);color:var(--indigo);">🎙️</div><div><div class="proc-title">Voice &amp; Personality Definition</div><div class="proc-desc">Defined the AI's personality: knowledgeable but not condescending, enthusiastic but not exhausting, honest about uncertainty. Created a voice guide with 20+ do/don't example exchanges.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.1);color:var(--sakura);">🗺️</div><div><div class="proc-title">Conversation Flow Mapping</div><div class="proc-desc">Mapped 8 core conversation journeys and identified the 12 most common "dead end" patterns that needed graceful recovery design.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(122,171,138,.13);color:var(--sage);">💬</div><div><div class="proc-title">Prompt Scaffolding Design</div><div class="proc-desc">Worked directly with AI engineering to design conversation-starter suggestions, contextual prompts, and response format guidelines that make outputs visually parseable within iOS.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎙️</div><div><div class="proc-title">Voice &amp; Personality Definition</div><div class="proc-desc">Defined the AI's personality: knowledgeable but not condescending, enthusiastic but not exhausting, honest about uncertainty. Created a voice guide with 20+ do/don't example exchanges.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.2);color:#ff5e9f;">🗺️</div><div><div class="proc-title">Conversation Flow Mapping</div><div class="proc-desc">Mapped 8 core conversation journeys and identified the 12 most common "dead end" patterns that needed graceful recovery design.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">💬</div><div><div class="proc-title">Prompt Scaffolding Design</div><div class="proc-desc">Worked directly with AI engineering to design conversation-starter suggestions, contextual prompts, and response format guidelines that make outputs visually parseable within iOS.</div></div></div>
           </div>
         </div>
         <div class="cs-sec">
@@ -521,7 +500,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 4vw;di
           <div class="stats">
             <div class="stat"><span class="stat-n" style="color:var(--indigo);">4.8×</span><span class="stat-l">Chat Session Length</span></div>
             <div class="stat"><span class="stat-n" style="color:var(--sage);">78%</span><span class="stat-l">D7 Retention Rate</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--orange);">4.6★</span><span class="stat-l">App Store Rating</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">4.6★</span><span class="stat-l">App Store Rating</span></div>
           </div>
           <div class="outcomes">
             <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Conversation depth increased 4.8×</strong> — users went from 1–2 message exchanges to sustained multi-turn conversations averaging 12 messages.</div></div>
@@ -585,7 +564,7 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Cherry blossom (shared)
+// Cherry blossom (shared) - bright pink colors
 (function(){
   const cv = document.getElementById('blossom-canvas');
   const cx = cv.getContext('2d');
@@ -597,12 +576,12 @@ document.addEventListener('keydown', e => {
     for(let i=0;i<5;i++){
       cx.save(); cx.rotate(i*Math.PI*2/5);
       cx.beginPath(); cx.ellipse(0,-r*.72,r*.36,r*.66,0,0,Math.PI*2);
-      cx.fillStyle='#f8b4c0'; cx.fill(); cx.restore();
+      cx.fillStyle='#FF6EB4'; cx.fill(); cx.restore();
     }
-    cx.beginPath(); cx.arc(0,0,r*.17,0,Math.PI*2); cx.fillStyle='#ffd4a0'; cx.fill();
+    cx.beginPath(); cx.arc(0,0,r*.17,0,Math.PI*2); cx.fillStyle='#FF2A85'; cx.fill();
     cx.restore();
   }
-  function mk(){ return {x:Math.random()*W,y:-16,r:4+Math.random()*5.5,a:Math.random()*Math.PI*2,spin:(Math.random()-.5)*.025,vx:(Math.random()-.5)*.7,vy:.45+Math.random()*.85,sa:.35+Math.random()*.55,sf:.007+Math.random()*.011,so:Math.random()*100,op:.42+Math.random()*.44,t:0}; }
+  function mk(){ return {x:Math.random()*W,y:-16,r:4+Math.random()*5.5,a:Math.random()*Math.PI*2,spin:(Math.random()-.5)*.025,vx:(Math.random()-.5)*.7,vy:.45+Math.random()*.85,sa:.35+Math.random()*.55,sf:.007+Math.random()*.011,so:Math.random()*100,op:.5+Math.random()*.5,t:0}; }
   for(let i=0;i<22;i++){const p=mk();p.y=Math.random()*H;petals.push(p);}
   let f=0;
   (function loop(){
