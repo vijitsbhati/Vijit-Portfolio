@@ -26,6 +26,7 @@
   --text-muted:  #5e5e5e;
   --subtle:      rgba(0,0,0,0.03);
   
+  /* Font is applied globally */
   --fd:          'Rajdhani', sans-serif;
   --fm:          'Rajdhani', sans-serif;
   --fb:          'Rajdhani', sans-serif;
@@ -37,12 +38,11 @@ body{background:var(--bg);color:var(--text-main);font-family:var(--fb);font-size
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--pink);}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
-#blossom-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.85;}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
-.nav-logo{font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--text-main);text-decoration:none;display:flex;align-items:center;gap:10px;}
-.nav-dot{width:10px;height:10px;border-radius:50%;background:var(--pink);}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo-img{height:40px; width:auto; filter: invert(1); /* Made dark for visibility against white bg */}
 .nav-right{display:flex;align-items:center;gap:26px;}
 .nav-right a{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s;}
 .nav-right a:hover{color:var(--pink);}
@@ -77,10 +77,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 /* CS HERO */
 .cs-hero{position:relative;min-height:480px;display:flex;align-items:flex-end;padding:60px 70px;overflow:hidden;background-color:#000;}
 .hero-bg-layer{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.85;}
-.bg-listing{background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80');}
-.bg-saas{background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');}
-.bg-smithsonian{background-image:url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80');}
-.bg-wingman{background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80');}
+/* Updated Backgrounds using direct URLs */
+.bg-listing{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');}
+.bg-saas{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png');}
+.bg-smithsonian{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659e2ea290e1bfb89403f46a_aaa-home-page%20(1).png');}
+.bg-wingman{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png');}
 
 /* Gradient fade making text highly readable */
 .hero-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.95) 45%,transparent 100%),linear-gradient(to top,rgba(255,255,255,.9) 0%,transparent 50%);}
@@ -194,10 +195,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 </head>
 <body>
 
-<canvas id="blossom-canvas"></canvas>
-
 <nav>
-  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>Vijit Bhati</a>
+  <a href="index.html" class="nav-logo">
+    <img src="652ee31966a6c5201fe21c5a_portfolio-logo.png" alt="Vijit Bhati Logo" class="nav-logo-img" />
+  </a>
   <div class="nav-right">
     <a href="index.html">&#8592; Portfolio</a>
     <a href="index.html#about">About</a>
@@ -465,132 +466,4 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
       <div class="meta-bar">
         <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">Lead Product Designer</div></div>
         <div class="meta-item"><span class="meta-lbl">Timeline</span><div class="meta-val">4 Months &middot; 2023</div></div>
-        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; AI Eng</div></div>
-        <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">iOS &middot; Mobile</div></div>
-      </div>
-      <div class="cs-body">
-        <div class="overview">
-          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Wingman had a powerful AI travel engine. But the <strong>chat interface felt cold and robotic</strong> — like texting a FAQ bot. Users disengaged after 1–2 messages. The AI's capability was invisible behind a poor conversational experience.</p></div>
-          <div><span class="ov-lbl">The Goal</span><p class="ov-txt">Design a conversational experience where the AI feels like a <strong>knowledgeable local friend</strong> — proactive, contextual, with personality — while staying honest about its limitations.</p></div>
-        </div>
-        <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Designing for Conversation</h2><div class="sec-rule"></div></div>
-          <p>Conversational UI design sits at the intersection of <strong>UX writing, interaction design, and prompt engineering</strong>. I led discovery with 15 frequent travellers across Vancouver, Toronto, and Delhi to understand how people naturally ask for travel advice.</p>
-          <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎙️</div><div><div class="proc-title">Voice &amp; Personality Definition</div><div class="proc-desc">Defined the AI's personality: knowledgeable but not condescending, enthusiastic but not exhausting, honest about uncertainty. Created a voice guide with 20+ do/don't example exchanges.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.2);color:#ff5e9f;">🗺️</div><div><div class="proc-title">Conversation Flow Mapping</div><div class="proc-desc">Mapped 8 core conversation journeys and identified the 12 most common "dead end" patterns that needed graceful recovery design.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">💬</div><div><div class="proc-title">Prompt Scaffolding Design</div><div class="proc-desc">Worked directly with AI engineering to design conversation-starter suggestions, contextual prompts, and response format guidelines that make outputs visually parseable within iOS.</div></div></div>
-          </div>
-        </div>
-        <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Key Innovations</h2><div class="sec-rule"></div></div>
-          <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico">🎯</span><div class="in-title">Contextual Conversation Starters</div><div class="in-txt">When a user opens the app at 7pm in Tokyo, the AI surfaces "Good evening! Looking for dinner recommendations nearby?" — not a blank chat input.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico">🃏</span><div class="in-title">Rich Response Cards</div><div class="in-txt">AI responses that include places render as interactive cards — not walls of text. Tap to open in Maps, save to itinerary, or share with travel partners.</div></div>
-            <div class="insight" data-n="3"><span class="in-ico">🤍</span><div class="in-title">Honest Uncertainty Design</div><div class="in-txt">A distinct visual treatment for hedged responses ("I'm not 100% certain — verify on Google"). Users trusted the AI more because it acknowledged its limits.</div></div>
-            <div class="insight" data-n="4"><span class="in-ico">🔁</span><div class="in-title">Trip Memory &amp; Continuity</div><div class="in-txt">"How was that ramen place I suggested yesterday?" feels magical and creates genuine emotional engagement with the product across sessions.</div></div>
-          </div>
-          <div class="cs-quote">
-            <blockquote>"I forgot I was talking to an AI. It felt like messaging a friend who happened to know everything about Tokyo."</blockquote>
-            <cite>&mdash; Beta Tester, UX Feedback Session &middot; Vancouver</cite>
-          </div>
-        </div>
-        <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
-          <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--indigo);">4.8×</span><span class="stat-l">Chat Session Length</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">78%</span><span class="stat-l">D7 Retention Rate</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">4.6★</span><span class="stat-l">App Store Rating</span></div>
-          </div>
-          <div class="outcomes">
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Conversation depth increased 4.8×</strong> — users went from 1–2 message exchanges to sustained multi-turn conversations averaging 12 messages.</div></div>
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>AI personality framework adopted</strong> as the internal standard for all AI-integrated features across the product suite.</div></div>
-            <div class="outcome"><div class="oc">✓</div><div class="ot">Featured in <strong>App Store's "Travel Apps We Love"</strong> editorial, citing the conversational experience as a key differentiator.</div></div>
-          </div>
-        </div>
-        <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Reflection</h2><div class="sec-rule"></div></div>
-          <div class="reflection">
-            <p>Wingman taught me that <strong>designing for AI is fundamentally designing for uncertainty</strong>. Every other design discipline has deterministic outputs. With LLMs, you're designing for a probability distribution of responses.</p>
-            <p>The most important skill I developed was <em>prompt scaffolding</em> — learning to shape AI behavior through context, constraints, and conversation starters, not just the UI chrome around them. This is now central to my practice.</p>
-          </div>
-        </div>
-        <a href="#listing" onclick="return show('listing', document.querySelector('[href=\'#listing\']'))" class="next-cta">
-          <div><span class="next-lbl">Back to First</span><div class="next-title">&#8592; Listing Doctor</div></div>
-          <div class="next-arr" style="transform:none;">←</div>
-        </a>
-      </div>
-    </div>
-
-  </main>
-</div>
-
-<script>
-const IDS = ['listing','saas','smithsonian','wingman'];
-
-function show(id, navEl) {
-  // panels
-  document.querySelectorAll('.cs-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  // sidebar
-  document.querySelectorAll('.sb-item').forEach(n => n.classList.remove('active'));
-  if (navEl) navEl.classList.add('active');
-  // scroll main to top
-  document.getElementById('main-scroll').scrollTo({ top: 0, behavior: 'smooth' });
-  // update hash without jump
-  history.replaceState(null, '', '#' + id);
-  return false;
-}
-
-// On load, read hash and open correct panel
-window.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash.replace('#','');
-  if (IDS.includes(hash)) {
-    const navEl = document.querySelector('.sb-item[href="#' + hash + '"]');
-    show(hash, navEl);
-  }
-});
-
-// Keyboard nav
-document.addEventListener('keydown', e => {
-  const current = document.querySelector('.cs-panel.active')?.id.replace('panel-','');
-  const idx = IDS.indexOf(current);
-  let next = null;
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = IDS[(idx+1)%IDS.length];
-  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   next = IDS[(idx-1+IDS.length)%IDS.length];
-  if (next) {
-    const navEl = document.querySelector('.sb-item[href="#' + next + '"]');
-    show(next, navEl);
-  }
-});
-
-// Cherry blossom (shared) - bright pink colors
-(function(){
-  const cv = document.getElementById('blossom-canvas');
-  const cx = cv.getContext('2d');
-  let W, H, petals=[];
-  function resize(){ W=cv.width=window.innerWidth; H=cv.height=window.innerHeight; }
-  resize(); window.addEventListener('resize',resize);
-  function draw(x,y,r,a,op){
-    cx.save(); cx.translate(x,y); cx.rotate(a); cx.globalAlpha=op;
-    for(let i=0;i<5;i++){
-      cx.save(); cx.rotate(i*Math.PI*2/5);
-      cx.beginPath(); cx.ellipse(0,-r*.72,r*.36,r*.66,0,0,Math.PI*2);
-      cx.fillStyle='#FF6EB4'; cx.fill(); cx.restore();
-    }
-    cx.beginPath(); cx.arc(0,0,r*.17,0,Math.PI*2); cx.fillStyle='#FF2A85'; cx.fill();
-    cx.restore();
-  }
-  function mk(){ return {x:Math.random()*W,y:-16,r:4+Math.random()*5.5,a:Math.random()*Math.PI*2,spin:(Math.random()-.5)*.025,vx:(Math.random()-.5)*.7,vy:.45+Math.random()*.85,sa:.35+Math.random()*.55,sf:.007+Math.random()*.011,so:Math.random()*100,op:.5+Math.random()*.5,t:0}; }
-  for(let i=0;i<22;i++){const p=mk();p.y=Math.random()*H;petals.push(p);}
-  let f=0;
-  (function loop(){
-    cx.clearRect(0,0,W,H); f++;
-    if(f%26===0&&petals.length<48) petals.push(mk());
-    petals.forEach((p,i)=>{ p.t++; p.x+=p.vx+Math.sin(p.t*p.sf+p.so)*p.sa; p.y+=p.vy; p.a+=p.spin; draw(p.x,p.y,p.r,p.a,p.op); if(p.y>H+18) petals[i]=mk(); });
-    requestAnimationFrame(loop);
-  })();
-})();
-</script>
-</body>
-</html>
+        <div class="meta-item"><span class="meta-lbl
