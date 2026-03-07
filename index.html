@@ -18,10 +18,12 @@
   --pink-lt:     #ff5e9f;
   --sage:        #2ecc8a;
   --sakura:      #FFB7C5;
+  --cream:       #f5ede0;
   --white:       #ffffff;
   --text-main:   #1a1a1a;
   --text-muted:  #5e5e5e;
   --subtle:      rgba(0,0,0,0.03);
+  
   --fd:          'Rajdhani', sans-serif;
   --fm:          'Rajdhani', sans-serif;
   --fb:          'Rajdhani', sans-serif;
@@ -34,66 +36,175 @@ body{background:var(--bg);color:var(--text-main);font-family:var(--fb);font-size
 ::-webkit-scrollbar-thumb{background:var(--pink);}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
 
+/* BLOSSOM */
 #blossom-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.85;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 4vw;height:80px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(255,255,255,0.97) 0%,transparent 100%);transition:background .3s;}
-nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:70px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 4vw;height:90px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(255,255,255,0.97) 0%,transparent 100%);transition:background .3s,border-color .3s, box-shadow .3s, height .3s;}
+nav.scrolled{height:75px; background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
 .nav-logo{text-decoration:none;display:flex;align-items:center;}
-/* Increased Logo Size */
-.nav-logo-img{height:55px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%); transition: height 0.3s;}
-nav.scrolled .nav-logo-img{height:45px;}
+/* INCREASED LOGO SIZE IN NAVBAR */
+.nav-logo-img{height:60px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%); transition: height .3s;}
+nav.scrolled .nav-logo-img{height:50px;}
 
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:1.05rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;}
 .nav-links a:hover{color:var(--pink);}
-.nav-cta{background:var(--pink)!important;color:var(--white)!important;padding:8px 22px;border-radius:4px;}
+.nav-cta{background:var(--pink)!important;color:var(--white)!important;padding:8px 22px;border-radius:4px;transition:background .2s!important;}
+.nav-cta:hover{background:var(--pink-lt)!important;}
 
 /* HERO */
-#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 4vw;overflow:hidden;z-index:2;}
-.hero-content{position:relative;z-index:3;max-width:850px;}
-.hero-title{font-family:var(--fd);font-size:clamp(3.5rem,8vw,6.5rem);font-weight:700;line-height:1;margin-bottom:22px;color:var(--text-main);}
-.hero-desc{font-size:1.4rem;color:var(--text-muted);max-width:650px;font-weight:500;line-height:1.5;margin-bottom:34px;}
+#hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 4vw 12vh;overflow:hidden;z-index:2;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 60% 35%,rgba(255,42,133,0.06) 0%,transparent 60%),radial-gradient(ellipse 45% 65% at 15% 80%,rgba(46,204,138,0.05) 0%,transparent 55%),linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 55%,var(--bg) 100%);}
+.hero-content{position:relative;z-index:3;max-width:750px;}
+.hero-eye{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);display:flex;align-items:center;gap:12px;margin-bottom:18px;opacity:0;animation:fadeUp .8s .2s forwards;}
+.hero-eye::before{content:'';width:36px;height:2px;background:var(--pink);}
+.hero-title{font-family:var(--fd);font-size:clamp(3.5rem,7.5vw,6.5rem);font-weight:700;line-height:1;margin-bottom:22px;opacity:0;animation:fadeUp .8s .4s forwards;color:var(--text-main);}
+.hero-title em{font-style:normal;color:var(--pink);font-weight:700;}
+.hero-desc{font-size:1.2rem;color:var(--text-muted);max-width:550px;font-weight:500;line-height:1.7;margin-bottom:34px;opacity:0;animation:fadeUp .8s .6s forwards;}
+.hero-desc strong{color:var(--text-main);font-weight:700;}
+.hero-acts{display:flex;gap:16px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards;}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:var(--white);padding:14px 28px;border-radius:4px;font-weight:700;font-size:1rem;letter-spacing:.05em;text-decoration:none;transition:background .2s,transform .2s; text-transform:uppercase;}
+.btn-p:hover{background:var(--pink-lt);transform:translateY(-2px); color:var(--white);}
+.btn-s{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--text-main);padding:14px 28px;border-radius:4px;font-weight:600;font-size:1rem;letter-spacing:.05em;text-decoration:none;border:2px solid var(--border);transition:border-color .2s, background .2s; text-transform:uppercase;}
+.btn-s:hover{background:var(--subtle); border-color:var(--text-main);}
+.hero-scroll{position:absolute;bottom:38px;right:4vw;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5;animation:bob 2.4s ease-in-out infinite;}
+.hero-scroll span{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.1em;writing-mode:vertical-rl;transform:rotate(180deg);color:var(--text-muted);text-transform:uppercase;}
+.hero-scroll::after{content:'';width:2px;height:52px;background:linear-gradient(to bottom,var(--text-muted),transparent);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
 
-/* PROJECTS SECTION HEADLINE FROM WEBFLOW */
-.work-intro{margin-bottom:60px;}
-.work-headline{font-family:var(--fd); font-size: 2.5rem; font-weight: 700; color: var(--text-main); line-height: 1.2; margin-top: 10px;}
+/* STRIPE */
+.stripe{height:4px;background:linear-gradient(to right,#FF9933 0%,var(--pink) 33%,#138808 55%,var(--pink) 76%,#C41E3A 88%,var(--pink) 100%);opacity:.8;}
 
-/* REFINED PROJECT CARDS */
-section{padding:100px 4vw;position:relative;z-index:2;}
+/* SECTION */
+section{padding:85px 4vw;position:relative;z-index:2;}
+.sec-hd{display:flex;align-items:baseline;gap:18px;margin-bottom:40px;}
 .sec-lbl{font-family:var(--fm);font-size:.9rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);}
-.featured{position:relative;border-radius:6px;overflow:hidden;height:500px;margin-bottom:12px;display:block;text-decoration:none;}
+.sec-ttl{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;flex:1;color:var(--text-main);}
+.see-all{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:color .2s;}
+.see-all:hover{color:var(--pink);}
+.see-all::after{content:'→';}
+
+/* ── PROJECTS ── */
+#projects{background:var(--bg);}
+
+.featured{position:relative;border-radius:6px;overflow:hidden;height:450px;margin-bottom:12px;cursor:pointer;display:block;text-decoration:none;color:var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.08);}
 .feat-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.4s ease;}
-.feat-body{position:absolute;bottom:0;left:0;right:0;padding:50px;z-index:2;background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); color: #fff;}
-.feat-title{font-family:var(--fd);font-size:2.8rem;font-weight:700;margin-bottom:8px;}
-.ftag{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--white);padding:4px 12px;border:1px solid rgba(255,255,255,0.4);border-radius:4px;margin-right:8px;}
+.featured:hover .feat-bg {transform: scale(1.03);}
+.feat-vig{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.8) 20%,transparent 100%),linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%);}
+.feat-body{position:absolute;bottom:0;left:0;right:0;padding:50px 55px;z-index:2;}
+.feat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--pink);color:var(--white);font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:4px;margin-bottom:18px;}
+.feat-title{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.1;max-width:600px;margin-bottom:14px;}
+.feat-desc{font-size:1.1rem;color:rgba(255,255,255,.85);max-width:520px;line-height:1.6;font-weight:500;margin-bottom:26px;}
+.feat-tags{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.ftag{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--white);padding:4px 12px;border:1px solid rgba(255,255,255,0.4);border-radius:4px;backdrop-filter:blur(4px);}
 
 .nf-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.proj-card{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/3;text-decoration:none;display:block;background:#000;}
-.proj-img-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.8;transition:transform .5s;}
-.proj-meta{position:absolute;bottom:0;left:0;right:0;padding:24px;z-index:3;color: #fff;}
-.proj-name{font-family:var(--fd);font-size:1.6rem;font-weight:700;}
+.proj-card{position:relative;border-radius:6px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;text-decoration:none;display:block;transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s,z-index 0s; background:#000;}
+.proj-card:hover{transform:translateY(-8px) scale(1.02);z-index:10;box-shadow:0 22px 45px rgba(0,0,0,.15);}
+.proj-img-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.75;transition:opacity .3s, transform .5s;}
+.proj-card:hover .proj-img-overlay{opacity:0.95; transform:scale(1.05);}
+.proj-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 60%,transparent 100%);z-index:1;}
+.proj-accent{position:absolute;top:0;left:0;right:0;height:4px;z-index:2;}
+.proj-meta{position:absolute;bottom:0;left:0;right:0;padding:24px;z-index:3;transform:translateY(8px);transition:transform .3s;}
+.proj-card:hover .proj-meta{transform:translateY(0);}
+.proj-name{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:8px;}
+.proj-desc{font-size:.9rem;font-weight:500;color:rgba(255,255,255,.8);line-height:1.5;max-height:0;overflow:hidden;transition:max-height .3s;}
+.proj-card:hover .proj-desc{max-height:70px;}
+.proj-acts{display:flex;gap:10px;margin-top:12px;opacity:0;transition:opacity .3s;}
+.proj-card:hover .proj-acts{opacity:1;}
+.pbtn{font-size:.8rem;padding:6px 14px;border-radius:4px;font-weight:700;letter-spacing:.05em;text-decoration:none;display:inline-flex;align-items:center;gap:6px; text-transform:uppercase;}
+.pbtn-play{background:var(--pink);color:var(--white);}
+.pbtn-info{background:rgba(255,255,255,.2);color:var(--white);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(4px);}
 
-/* ABOUT SECTION - REFINED PROFILE IMAGE */
-.about-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;align-items:center;}
-.about-frame{position:relative;width:80%; margin: 0 auto; aspect-ratio:1/1;border-radius:50%;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.1);}
-.about-img{width:100%; height:100%; object-fit:cover;}
-.about-badge{position:absolute;bottom:10px;right:10px;z-index:4;background:var(--pink);color:var(--white);padding:15px;border-radius:50%;text-align:center;width:80px;height:80px;display:flex;flex-direction:column;justify-content:center;}
-.about-badge .n{font-family:var(--fd);font-size:1.8rem;font-weight:700;line-height:1;}
-.about-badge .l{font-size:.6rem;font-weight:600;text-transform:uppercase;}
+/* MANTRAS */
+#mantras{background:var(--bg);}
+.mantras-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.mantra-card{background:var(--card);padding:50px 40px;border-radius:6px; border:1px solid var(--border);position:relative;overflow:hidden;transition:all .2s; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
+.mantra-card:hover{transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.08);}
+.mantra-top{height:4px;position:absolute;top:0;left:0;right:0;}
+.mantra-card:nth-child(1) .mantra-top{background:var(--pink);}
+.mantra-card:nth-child(2) .mantra-top{background:var(--sage);}
+.mantra-card:nth-child(3) .mantra-top{background:#FF9933;}
+.mantra-num{font-family:var(--fd);font-size:4.5rem;font-weight:700;color:var(--subtle);line-height:1;margin-bottom:20px;}
+.mantra-ico{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px;}
+.mantra-card:nth-child(1) .mantra-ico{background:rgba(255,42,133,.1);color:var(--pink);}
+.mantra-card:nth-child(2) .mantra-ico{background:rgba(46,204,138,.1);color:var(--sage);}
+.mantra-card:nth-child(3) .mantra-ico{background:rgba(255,153,51,.1);color:#FF9933;}
+.mantra-title{font-family:var(--fd);font-size:1.8rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
+.mantra-body{font-size:.95rem;color:var(--text-muted);line-height:1.7;font-weight:500;}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--deep);border-top:1px solid var(--border);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.testi-card{background:var(--card);padding:40px 35px;border-radius:6px;border:1px solid var(--border);transition:all .2s; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
+.testi-card:hover{transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.08);}
+.testi-q{font-family:var(--fd);font-size:4rem;line-height:1;color:var(--pink);opacity:.2;margin-bottom:-10px;}
+.testi-txt{font-style:italic;font-size:1rem;color:var(--text-muted);line-height:1.7;margin-bottom:24px;font-family:var(--fd);font-weight:500;}
+.testi-txt strong{font-style:normal;color:var(--text-main);font-weight:700;}
+.testi-person{display:flex;align-items:center;gap:14px;}
+.testi-av{width:46px;height:46px;border-radius:50%;background:var(--subtle);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--pink);flex-shrink:0; overflow:hidden;}
+.testi-name{font-weight:700;font-size:.95rem;margin-bottom:2px;color:var(--text-main);}
+.testi-role{font-size:.8rem;color:var(--text-muted);font-family:var(--fm);font-weight:600;letter-spacing:.02em;}
+
+/* ABOUT */
+#about{background:var(--card);border-top:1px solid var(--border);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+
+/* SMALLER PROFILE IMAGE FRAME */
+.about-frame{position:relative;width:65%; margin: 0 auto; aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--subtle); box-shadow:0 20px 40px rgba(0,0,0,0.1);}
+.about-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;}
+.about-overlay{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%); z-index:2;}
+.ab-c{position:absolute;width:60px;height:60px; z-index:3;}
+.ab-c.tl{top:16px;left:16px;border-top:3px solid var(--pink);border-left:3px solid var(--pink);}
+.ab-c.br{bottom:16px;right:16px;border-bottom:3px solid var(--white);border-right:3px solid var(--white);}
+.about-badge{position:absolute;bottom:-20px;right:-20px;z-index:4;background:var(--pink);color:var(--white);padding:20px 24px;border-radius:6px;text-align:center;box-shadow:0 10px 25px rgba(255,42,133,0.3);}
+.about-badge .n{font-family:var(--fd);font-size:2.4rem;font-weight:700;display:block;line-height:1;}
+.about-badge .l{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;display:block;}
+
+.about-eye{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.about-eye::before{content:'';width:32px;height:2px;background:var(--pink);}
+.about-hl{font-family:var(--fd);font-size:clamp(2.2rem,3.5vw,3rem);font-weight:700;line-height:1.15;margin-bottom:24px;color:var(--text-main);}
+.about-hl em{font-style:normal;color:var(--pink);font-weight:700;}
+.about-flags{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+.flag-c{display:flex;align-items:center;gap:6px;font-size:.9rem;font-weight:600;color:var(--text-muted);}
+.flag-c .fl{font-size:1.3rem;}
+.fdiv{width:2px;height:16px;background:var(--border);}
+.about-body{color:var(--text-muted);font-weight:500;line-height:1.8;margin-bottom:32px;font-size:1.05rem;}
+.about-body p+p{margin-top:16px;}
 
 /* FOOTER */
-footer{background:var(--deep);border-top:1px solid var(--border);padding:80px 4vw 40px;}
-/* Increased Footer Logo */
-.footer-logo-img{height:70px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%); margin-bottom:20px;}
+footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4vw 40px;position:relative;z-index:2;}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:50px;margin-bottom:50px;}
+.footer-logo{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
+/* INCREASED LOGO SIZE IN FOOTER */
+.footer-logo-img{height:75px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);} 
+.footer-tag{font-size:.95rem;color:var(--text-muted);font-weight:500;line-height:1.6;max-width:280px; margin-top: 10px;}
+.footer-col h4{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{font-size:.95rem;font-weight:500;color:var(--text-muted);text-decoration:none;transition:color .2s;}
+.footer-col a:hover{color:var(--pink);}
+.footer-bot{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:.85rem;font-weight:600;color:var(--text-muted);font-family:var(--fm);}
 
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
+/* RESPONSIVE */
 @media(max-width:900px){
-  .about-grid{grid-template-columns:1fr; text-align:center;}
+  .about-grid,.footer-top{grid-template-columns:1fr;gap:45px;}
+  .mantras-grid,.testi-grid{grid-template-columns:1fr;}
+  .nf-row{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+  .featured{height:300px;}
+  .feat-body{padding:30px;}
+  .about-frame{width:80%;}
+}
+@media(max-width:600px){
   .nf-row{grid-template-columns:1fr;}
-  .about-frame{width:60%;}
 }
 </style>
 </head>
@@ -114,118 +225,245 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:80px 4v
 </nav>
 
 <section id="hero">
+  <div class="hero-bg"></div>
   <div class="hero-content">
-    <h1 class="hero-title">I design<br>memorable experiences</h1>
+    <h1 class="hero-title">I design<br><em>memorable</em><br>experiences</h1>
     <p class="hero-desc">Hi! I'm Vijit, a senior product designer based in Vancouver. I transform complexity into clarity using user research, rapid prototyping, and interaction design skills.</p>
     <div class="hero-acts">
-      <a href="#projects" class="btn-p">View Projects</a>
-      <a href="mailto:alex@example.com" class="btn-s">Let's Connect</a>
+      <a href="#projects" class="btn-p">View Work</a>
+      <a href="#about" class="btn-s">About Me</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="stripe"></div>
+
+<section id="projects">
+  <div class="sec-hd reveal">
+    <div><div class="sec-lbl">Work</div><h2 class="sec-ttl">Bringing stellar results<br>to every product.</h2></div>
+    <a href="case-studies.html" class="see-all">All Case Studies</a>
+  </div>
+
+  <a href="case-studies.html#listing" class="featured reveal">
+    <div class="feat-bg" style="background-image: url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');"></div>
+    <div class="feat-vig"></div>
+    <div class="feat-body">
+      <div class="feat-badge">Featured Project</div>
+      <h2 class="feat-title">Listing Doctor</h2>
+      <p class="feat-desc">Designing an application to track and resolve listing errors on online marketplaces like Amazon, Walmart, eBay</p>
+      
+      <div class="feat-tags">
+        <span class="ftag">User Research</span>
+        <span class="ftag">Interaction Design</span>
+        <span class="ftag">Design System</span>
+        <span class="btn-p" style="font-size:.8rem;padding:9px 18px;border-radius:4px;">Case Study</span>
+      </div>
+    </div>
+  </a>
+
+  <div class="nf-row reveal">
+    <a href="case-studies.html#saas" class="proj-card">
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png" alt="Fintech AI" class="proj-img-overlay" />
+      <div class="proj-grad"></div>
+      <div class="proj-accent" style="background:linear-gradient(to right,#2ecc8a,var(--pink));"></div>
+      <div class="proj-meta">
+        <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">AI/ML UX</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">B2B SaaS</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Prototyping</span>
+        </div>
+        <div class="proj-name">SaaS Contract Analyzer</div>
+        <div class="proj-desc">Augmenting the financial auditing process for SaaS Contracts</div>
+        <div class="proj-acts">
+          <span class="pbtn pbtn-play">Study</span>
+          <span class="pbtn pbtn-info">More</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="case-studies.html#smithsonian" class="proj-card">
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659e2ea290e1bfb89403f46a_aaa-home-page%20(1).png" alt="Cultural Archives" class="proj-img-overlay" />
+      <div class="proj-grad"></div>
+      <div class="proj-accent" style="background:linear-gradient(to right,#D4AF37,var(--pink));"></div>
+      <div class="proj-meta">
+        <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Information Architecture</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Search UX</span>
+        </div>
+        <div class="proj-name">Smithsonian AAA</div>
+        <div class="proj-desc">Improving the search and discovery experience of art archives</div>
+        <div class="proj-acts">
+          <span class="pbtn pbtn-play">Study</span>
+          <span class="pbtn pbtn-info">More</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="case-studies.html#wingman" class="proj-card">
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png" alt="iOS Travel AI" class="proj-img-overlay" />
+      <div class="proj-grad"></div>
+      <div class="proj-accent" style="background:linear-gradient(to right,#FFB7C5,var(--pink));"></div>
+      <div class="proj-meta">
+        <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Conversational UI</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Gen AI</span>
+        </div>
+        <div class="proj-name">Wingman</div>
+        <div class="proj-desc">Integrating Generative AI Chatbot in a travel companion iOS application</div>
+        <div class="proj-acts">
+          <span class="pbtn pbtn-play">Study</span>
+          <span class="pbtn pbtn-info">More</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="mantras">
+  <div class="sec-hd reveal">
+    <div><div class="sec-lbl">Design Philosophy</div><h2 class="sec-ttl">My 3 mantras for successful design</h2></div>
+  </div>
+  <div class="mantras-grid reveal">
+    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num">[1]</div><div class="mantra-ico">⚡</div><h3 class="mantra-title">Instinctive</h3><p class="mantra-body">Design should be instinctive for the user without relying on instructions.</p></div>
+    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num">[2]</div><div class="mantra-ico">↻</div><h3 class="mantra-title">Iterative</h3><p class="mantra-body">There is no finish line to design with each iteration, an opportunity to get it better for the user.</p></div>
+    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num">[3]</div><div class="mantra-ico">🤝</div><h3 class="mantra-title">Open</h3><p class="mantra-body">Be receptive to feedback from others, creating a collaborative and inclusive approach to the design.</p></div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="sec-hd reveal">
+    <div><div class="sec-lbl">Testimonials</div><h2 class="sec-ttl">Hear it directly from my colleagues</h2></div>
+  </div>
+  <div class="testi-grid reveal">
+    <div class="testi-card"><div class="testi-q">"</div><h3 style="font-family:var(--fd); font-size: 1.2rem; margin-bottom: 10px;">Go-to for all things UX research</h3><p class="testi-txt">Vijit has a zest for the work he does and calm demeanor that people gravitate towards. He always brings out the best in those around him and is an absolute joy to be around. At Spreetail, Vijit made managing projects and ambiguity look easy. He was our go-to for all things UX research...</p><div class="testi-person"><div class="testi-av">LB</div><div><div class="testi-name">Laura Bergen</div><div class="testi-role">UX Director @ Spreetail</div></div></div></div>
+    <div class="testi-card"><div class="testi-q">"</div><h3 style="font-family:var(--fd); font-size: 1.2rem; margin-bottom: 10px;">Thoughtful, calculated, driven</h3><p class="testi-txt">I'm super grateful that I got the chance to work with Vijit. He's thoughtful, calculated, driven, and most importantly, a friend. In the UX world, I think honesty and clarity are two of the most important things a team can look to develop, and Vijit helped contribute to that culture at Spreetail.</p><div class="testi-person"><div class="testi-av"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="Patrick" style="width:100%;height:100%;object-fit:cover;"/></div><div><div class="testi-name">Patrick Jackman</div><div class="testi-role">UX Designer II, Riot Games</div></div></div></div>
+    <div class="testi-card"><div class="testi-q">"</div><h3 style="font-family:var(--fd); font-size: 1.2rem; margin-bottom: 10px;">Absurdly capable designer</h3><p class="testi-txt">An absurdly capable designer, and a genuine joy to be around. Vijit brings a real sense of being grounded and rational in his approach to design. He's always the one to approach things from both aspects of design - one eye looking to the scientific side of things, the other looking to the artistic side.</p><div class="testi-person"><div class="testi-av">MJ</div><div><div class="testi-name">Mike Jensen</div><div class="testi-role">UX Engineering Lead @ Spreetail</div></div></div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal" style="position:relative;">
+      <div class="about-frame">
+        <img src="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/657e5a01da303a85ace60acf_profile-image.png" alt="Portrait" class="about-img" />
+        <div class="about-overlay"></div>
+        <div class="ab-c tl"></div><div class="ab-c br"></div>
+      </div>
+      <div class="about-badge" style="right: 5%; bottom: -10px;"><span class="n">10+</span><span class="l">Years</span></div>
+    </div>
+    <div class="reveal">
+      <div class="about-eye">Get to know me</div>
+      <h2 class="about-hl">Let's grab a drink</h2>
+      <div class="about-body">
+        <p>I'm a Senior Experience Designer at Electronic Arts based in Vancouver, BC.</p>
+        <p>Let's connect! Feel free to reach out to me.</p>
+      </div>
+      <div class="hero-acts">
+        <a href="mailto:alex@example.com" class="btn-p">Get in Touch</a>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="stripe"></div>
 
-<section id="projects">
-  <div class="work-intro reveal">
-    <div class="sec-lbl">work</div>
-    <h2 class="work-headline">Bringing stellar results<br>to every product.</h2>
-  </div>
-
-  <a href="case-studies.html#listing" class="featured reveal">
-    <div class="feat-bg" style="background-image: url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');"></div>
-    <div class="feat-body">
-      <h2 class="feat-title">Listing Doctor</h2>
-      <p style="margin-bottom:15px; opacity:0.9;">Designing an application to track and resolve listing errors on online marketplaces like Amazon, Walmart, eBay</p>
-      <div class="feat-tags">
-        <span class="ftag">User Research</span><span class="ftag">Product Design</span><span class="ftag">E-commerce</span>
-      </div>
-    </div>
-  </a>
-
-  <div class="nf-row reveal" style="margin-top:12px;">
-    <a href="case-studies.html#saas" class="proj-card">
-      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png" class="proj-img-overlay" />
-      <div class="proj-meta">
-        <div class="proj-name">SaaS Contract Analyzer</div>
-        <p style="font-size:0.9rem; opacity:0.8;">Augmenting the financial auditing process for SaaS Contracts</p>
-      </div>
-    </a>
-    <a href="case-studies.html#smithsonian" class="proj-card">
-      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659e2ea290e1bfb89403f46a_aaa-home-page%20(1).png" class="proj-img-overlay" />
-      <div class="proj-meta">
-        <div class="proj-name">Smithsonian AAA</div>
-        <p style="font-size:0.9rem; opacity:0.8;">Improving the search and discovery experience of art archives</p>
-      </div>
-    </a>
-    <a href="case-studies.html#wingman" class="proj-card">
-      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png" class="proj-img-overlay" />
-      <div class="proj-meta">
-        <div class="proj-name">Wingman</div>
-        <p style="font-size:0.9rem; opacity:0.8;">Integrating Generative AI Chatbot in travel companion iOS app</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-<section style="background:var(--deep);">
-  <div class="sec-lbl">DESIGN philosophy</div>
-  <h2 class="work-headline" style="margin-bottom:40px;">My 3 mantras for successful design</h2>
-  <div class="nf-row">
-    <div style="padding:30px; background:var(--white); border:1px solid var(--border); border-radius:8px;">
-      <div class="sec-lbl" style="font-size:1.5rem; margin-bottom:10px;">[1] Instinctive</div>
-      <p>Design should be instinctive for the user without relying on instructions.</p>
-    </div>
-    <div style="padding:30px; background:var(--white); border:1px solid var(--border); border-radius:8px;">
-      <div class="sec-lbl" style="font-size:1.5rem; margin-bottom:10px;">[2] Iterative</div>
-      <p>There is no finish line to design with each iteration, an opportunity to get it better for the user.</p>
-    </div>
-    <div style="padding:30px; background:var(--white); border:1px solid var(--border); border-radius:8px;">
-      <div class="sec-lbl" style="font-size:1.5rem; margin-bottom:10px;">[3] Open</div>
-      <p>Be receptive to feedback from others, creating a collaborative and inclusive approach to the design.</p>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="about-grid">
-    <div class="reveal">
-      <div class="about-frame">
-        <img src="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/657e5a01da303a85ace60acf_profile-image.png" alt="Vijit Bhati" class="about-img" />
-        <div class="about-badge"><span class="n">10+</span><span class="l">Years</span></div>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="sec-lbl">About Me</div>
-      <h2 class="work-headline" style="font-size:3rem; margin-bottom:20px;">Designing with purpose and precision</h2>
-      <p>I'm a Senior Experience Designer at Electronic Arts based in Vancouver, BC. Shaped by the vibrancy of India and inspired by Japanese precision, I bring a globally-informed perspective to every product challenge.</p>
-      <div class="hero-acts" style="margin-top:30px;">
-        <a href="https://topmate.io/vijit_bhati" class="nav-cta" style="text-decoration:none;">Mentorship</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <footer>
-  <div style="max-width:400px;">
-    <img src="logo-vb.svg" alt="Vijit Bhati" class="footer-logo-img" />
-    <p class="footer-tag">Designing memorable experiences at the intersection of research, craft, and culture.</p>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">
+        <img src="logo-vb.svg" alt="Vijit Bhati Logo" class="footer-logo-img" />
+      </div>
+      <p class="footer-tag">I'm a Senior Experience Designer at Electronic Arts based in Vancouver, BC.</p>
+      <div style="margin-top:16px;font-size:1.3rem;display:flex;gap:10px;">🍣 🍵 🌸</div>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#projects">Work</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="#about">About</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li><li><a href="https://twitter.com/" target="_blank">Twitter</a></li><li><a href="https://www.behance.net/" target="_blank">Behance</a></li><li><a href="https://github.com/" target="_blank">GitHub</a></li></ul></div>
   </div>
-  <div style="margin-top:40px; display:flex; gap:40px;">
-    <a href="https://linkedin.com" style="color:var(--text-main); font-weight:700; text-decoration:none;">LinkedIn</a>
-    <a href="https://twitter.com" style="color:var(--text-main); font-weight:700; text-decoration:none;">Twitter</a>
-    <a href="https://github.com" style="color:var(--text-main); font-weight:700; text-decoration:none;">GitHub</a>
+  <div class="footer-bot">
+    <div class="footer-copy">&copy; 2026 Vijit Bhati</div>
+    <div style="font-size:1.1rem;">💻 ✨ 🚀</div>
   </div>
-  <div style="margin-top:40px; font-size:0.8rem; color:var(--text-muted);">© 2026 Vijit Bhati. Made with precision.</div>
 </footer>
 
 <script>
+// Navbar
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 55));
+
+// Reveal
 const ro = new IntersectionObserver((entries) => {
-  entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 65); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// Cherry Blossom - updated colors to bright pinks
+(function () {
+  const cv = document.getElementById('blossom-canvas');
+  const cx = cv.getContext('2d');
+  let W, H, petals = [];
+
+  function resize() { W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function drawPetal(x, y, r, angle, alpha) {
+    cx.save();
+    cx.translate(x, y);
+    cx.rotate(angle);
+    cx.globalAlpha = alpha;
+    for (let i = 0; i < 5; i++) {
+      cx.save();
+      cx.rotate((i * Math.PI * 2) / 5);
+      cx.beginPath();
+      cx.ellipse(0, -r * 0.72, r * 0.36, r * 0.66, 0, 0, Math.PI * 2);
+      cx.fillStyle = '#FF6EB4'; // Bright soft pink petal
+      cx.fill();
+      cx.restore();
+    }
+    cx.beginPath();
+    cx.arc(0, 0, r * 0.17, 0, Math.PI * 2);
+    cx.fillStyle = '#FF2A85'; // Deep bright pink core
+    cx.fill();
+    cx.restore();
+  }
+
+  function mk() {
+    return {
+      x: Math.random() * W, y: -16,
+      r: 4 + Math.random() * 5.5,
+      angle: Math.random() * Math.PI * 2,
+      spin: (Math.random() - 0.5) * 0.025,
+      vx: (Math.random() - 0.5) * 0.7,
+      vy: 0.45 + Math.random() * 0.85,
+      sa: 0.35 + Math.random() * 0.55,
+      sf: 0.007 + Math.random() * 0.011,
+      so: Math.random() * 100,
+      op: 0.5 + Math.random() * 0.5,
+      t: 0
+    };
+  }
+
+  for (let i = 0; i < 26; i++) { const p = mk(); p.y = Math.random() * H; petals.push(p); }
+
+  let frame = 0;
+  (function loop() {
+    cx.clearRect(0, 0, W, H);
+    frame++;
+    if (frame % 24 === 0 && petals.length < 52) petals.push(mk());
+    petals.forEach((p, i) => {
+      p.t++;
+      p.x += p.vx + Math.sin(p.t * p.sf + p.so) * p.sa;
+      p.y += p.vy;
+      p.angle += p.spin;
+      drawPetal(p.x, p.y, p.r, p.angle, p.op);
+      if (p.y > H + 18) petals[i] = mk();
+    });
+    requestAnimationFrame(loop);
+  })();
+})();
 </script>
 </body>
 </html>
