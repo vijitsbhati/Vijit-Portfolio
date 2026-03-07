@@ -24,7 +24,6 @@
   --text-muted:  #5e5e5e;
   --subtle:      rgba(0,0,0,0.03);
   
-  /* Rajdhani font is applied globally */
   --fd:          'Rajdhani', sans-serif;
   --fm:          'Rajdhani', sans-serif;
   --fb:          'Rajdhani', sans-serif;
@@ -37,21 +36,20 @@ body{background:var(--bg);color:var(--text-main);font-family:var(--fb);font-size
 ::-webkit-scrollbar-thumb{background:var(--pink);}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
 
-/* BLOSSOM */
 #blossom-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.85;}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 4vw;height:70px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(255,255,255,0.97) 0%,transparent 100%);transition:background .3s,border-color .3s, box-shadow .3s;}
 nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
-.nav-logo{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--text-main);text-decoration:none;display:flex;align-items:center;gap:10px;}
-.nav-logo-img{height:40px; width:auto; filter: invert(1); /* Made dark for visibility against white bg */}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+/* Filter for Dark Pink Logo Visibility */
+.nav-logo-img{height:40px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);}
+
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:1.05rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;}
 .nav-links a:hover{color:var(--pink);}
 .nav-cta{background:var(--pink)!important;color:var(--white)!important;padding:8px 22px;border-radius:4px;transition:background .2s!important;}
 .nav-cta:hover{background:var(--pink-lt)!important;}
 
-/* HERO */
 #hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 4vw 12vh;overflow:hidden;z-index:2;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 60% 35%,rgba(255,42,133,0.06) 0%,transparent 60%),radial-gradient(ellipse 45% 65% at 15% 80%,rgba(46,204,138,0.05) 0%,transparent 55%),linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 55%,var(--bg) 100%);}
 .hero-content{position:relative;z-index:3;max-width:750px;}
@@ -72,10 +70,8 @@ nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
 
-/* STRIPE */
 .stripe{height:4px;background:linear-gradient(to right,#FF9933 0%,var(--pink) 33%,#138808 55%,var(--pink) 76%,#C41E3A 88%,var(--pink) 100%);opacity:.8;}
 
-/* SECTION */
 section{padding:85px 4vw;position:relative;z-index:2;}
 .sec-hd{display:flex;align-items:baseline;gap:18px;margin-bottom:40px;}
 .sec-lbl{font-family:var(--fm);font-size:.9rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);}
@@ -84,9 +80,7 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .see-all:hover{color:var(--pink);}
 .see-all::after{content:'→';}
 
-/* ── PROJECTS ── */
 #projects{background:var(--bg);}
-
 .featured{position:relative;border-radius:6px;overflow:hidden;height:450px;margin-bottom:12px;cursor:pointer;display:block;text-decoration:none;color:var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.08);}
 .feat-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.4s ease;}
 .featured:hover .feat-bg {transform: scale(1.03);}
@@ -107,7 +101,6 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .proj-accent{position:absolute;top:0;left:0;right:0;height:4px;z-index:2;}
 .proj-meta{position:absolute;bottom:0;left:0;right:0;padding:24px;z-index:3;transform:translateY(8px);transition:transform .3s;}
 .proj-card:hover .proj-meta{transform:translateY(0);}
-.proj-tag{font-family:var(--fm);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:6px;display:block;}
 .proj-name{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:8px;}
 .proj-desc{font-size:.9rem;font-weight:500;color:rgba(255,255,255,.8);line-height:1.5;max-height:0;overflow:hidden;transition:max-height .3s;}
 .proj-card:hover .proj-desc{max-height:70px;}
@@ -117,20 +110,6 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .pbtn-play{background:var(--pink);color:var(--white);}
 .pbtn-info{background:rgba(255,255,255,.2);color:var(--white);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(4px);}
 
-/* CASE STUDIES list */
-#casestudies{background:var(--deep);border-top:1px solid var(--border);}
-.cs-list{display:flex;flex-direction:column;gap:8px;}
-.cs-row{background:var(--card);padding:35px 40px;border-radius:6px; display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;text-decoration:none;color:var(--text-main);border:1px solid var(--border);border-left:4px solid transparent;transition:all .25s ease; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
-.cs-row:hover{background:var(--card-h);padding-left:48px;border-left-color:var(--pink); transform:translateX(5px); box-shadow:0 8px 25px rgba(0,0,0,0.06);}
-.cs-row-num{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block;}
-.cs-row-title{font-family:var(--fd);font-size:1.6rem;font-weight:700;margin-bottom:8px;}
-.cs-row-sub{font-size:.95rem;color:var(--text-muted);font-weight:500;line-height:1.6; max-width:800px;}
-.cs-row-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
-.cs-rtag{font-family:var(--fm);font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--pink);padding:4px 10px;border:1px solid rgba(255,42,133,.2);border-radius:4px; background:rgba(255,42,133,.04);}
-.cs-arr{width:46px;height:46px;border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;transition:all .2s;}
-.cs-row:hover .cs-arr{background:var(--pink);border-color:var(--pink);color:var(--white);transform:translateX(6px);}
-
-/* MANTRAS */
 #mantras{background:var(--bg);}
 .mantras-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .mantra-card{background:var(--card);padding:50px 40px;border-radius:6px; border:1px solid var(--border);position:relative;overflow:hidden;transition:all .2s; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
@@ -147,7 +126,6 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .mantra-title{font-family:var(--fd);font-size:1.8rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
 .mantra-body{font-size:.95rem;color:var(--text-muted);line-height:1.7;font-weight:500;}
 
-/* TESTIMONIALS */
 #testimonials{background:var(--deep);border-top:1px solid var(--border);}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .testi-card{background:var(--card);padding:40px 35px;border-radius:6px;border:1px solid var(--border);transition:all .2s; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
@@ -160,7 +138,6 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .testi-name{font-weight:700;font-size:.95rem;margin-bottom:2px;color:var(--text-main);}
 .testi-role{font-size:.8rem;color:var(--text-muted);font-family:var(--fm);font-weight:600;letter-spacing:.02em;}
 
-/* ABOUT */
 #about{background:var(--card);border-top:1px solid var(--border);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .about-frame{position:relative;width:100%;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--subtle); box-shadow:0 20px 40px rgba(0,0,0,0.1);}
@@ -185,11 +162,9 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
 .at{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;padding:6px 14px;background:var(--subtle);border:1px solid var(--border);border-radius:4px;color:var(--text-main);text-transform:uppercase;}
 
-/* FOOTER */
 footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4vw 40px;position:relative;z-index:2;}
 .footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:50px;margin-bottom:50px;}
-.footer-logo{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
-.footer-logo-img{height:50px; width:auto; filter: invert(34%) sepia(85%) saturate(1917%) hue-rotate(307deg) brightness(98%) contrast(106%); /* Made pink */}
+.footer-logo-img{height:50px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);}
 .footer-tag{font-size:.95rem;color:var(--text-muted);font-weight:500;line-height:1.6;max-width:280px; margin-top: 10px;}
 .footer-col h4{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);margin-bottom:16px;}
 .footer-col ul{list-style:none;}
@@ -199,11 +174,9 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 .footer-bot{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:.85rem;font-weight:600;color:var(--text-muted);font-family:var(--fm);}
 
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
-/* RESPONSIVE */
 @media(max-width:900px){
   .about-grid,.footer-top{grid-template-columns:1fr;gap:45px;}
   .mantras-grid,.testi-grid{grid-template-columns:1fr;}
@@ -227,7 +200,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   </a>
   <ul class="nav-links">
     <li><a href="#projects">Work</a></li>
-    <li><a href="#casestudies">Case Studies</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="mailto:vijit@example.com" class="nav-cta">Contact</a></li>
   </ul>
@@ -263,22 +236,25 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
       <h2 class="feat-title">Listing Doctor</h2>
       <p class="feat-desc">A zero-to-one application to track and resolve listing errors across Amazon, Walmart, and eBay. End-to-end UX from discovery to delivery.</p>
       <div class="feat-tags">
-        <span class="ftag">UX Research</span>
-        <span class="ftag">Product Design</span>
-        <span class="ftag">E-commerce</span>
+        <span class="ftag">User Research</span>
+        <span class="ftag">Interaction Design</span>
+        <span class="ftag">Design System</span>
         <span class="btn-p" style="font-size:.8rem;padding:9px 18px;border-radius:4px;">Case Study</span>
       </div>
     </div>
   </a>
 
   <div class="nf-row reveal">
-
     <a href="case-studies.html#saas" class="proj-card">
       <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png" alt="Fintech AI" class="proj-img-overlay" />
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,#2ecc8a,var(--pink));"></div>
       <div class="proj-meta">
-        <span class="proj-tag">Fintech &middot; AI</span>
+        <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">AI/ML UX</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">B2B SaaS</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">Prototyping</span>
+        </div>
         <div class="proj-name">SaaS Contract Analyzer</div>
         <div class="proj-desc">Augmenting financial auditing using ML pattern recognition for SaaS contracts.</div>
         <div class="proj-acts">
@@ -293,7 +269,11 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,#D4AF37,var(--pink));"></div>
       <div class="proj-meta">
-        <span class="proj-tag">Cultural &middot; Archives</span>
+        <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">Information Architecture</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">Search UX</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">Accessibility</span>
+        </div>
         <div class="proj-name">Smithsonian AAA</div>
         <div class="proj-desc">Reimagining search and discovery for the Archives of American Art.</div>
         <div class="proj-acts">
@@ -308,70 +288,17 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,#FFB7C5,var(--pink));"></div>
       <div class="proj-meta">
-        <span class="proj-tag">iOS &middot; Gen AI</span>
+        <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">Conversational UI</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">iOS</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px;">Gen AI</span>
+        </div>
         <div class="proj-name">Wingman</div>
         <div class="proj-desc">Integrating Generative AI into a travel companion iOS app &mdash; contextual, human.</div>
         <div class="proj-acts">
           <span class="pbtn pbtn-play">Study</span>
           <span class="pbtn pbtn-info">More</span>
         </div>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<section id="casestudies">
-  <div class="sec-hd reveal">
-    <div><div class="sec-lbl">Deep Dives</div><h2 class="sec-ttl">Case Studies</h2></div>
-  </div>
-  <div class="cs-list reveal">
-    <a href="case-studies.html#listing" class="cs-row">
-      <div>
-        <span class="cs-row-num">01 &middot; E-Commerce &middot; 2023</span>
-        <div class="cs-row-title">Listing Doctor</div>
-        <div class="cs-row-sub">Tracking and resolving listing errors across Amazon, Walmart, and eBay. Zero-to-one product, end-to-end design system, usability testing with merchants.</div>
-        <div class="cs-row-tags"><span class="cs-rtag">User Research</span><span class="cs-rtag">Interaction Design</span><span class="cs-rtag">Design System</span></div>
-      </div>
-      <div>
-        <div style="font-family:var(--fm);font-size:.75rem;font-weight:600;color:var(--text-muted);text-align:right;margin-bottom:8px;">~8 min</div>
-        <div class="cs-arr">→</div>
-      </div>
-    </a>
-    <a href="case-studies.html#saas" class="cs-row">
-      <div>
-        <span class="cs-row-num">02 &middot; Fintech &middot; AI &middot; 2023</span>
-        <div class="cs-row-title">SaaS Contract Analyzer</div>
-        <div class="cs-row-sub">Augmenting financial auditing through intelligent document analysis. Bridging ML outputs with human-centered interfaces for non-technical auditors.</div>
-        <div class="cs-row-tags"><span class="cs-rtag">AI/ML UX</span><span class="cs-rtag">B2B SaaS</span><span class="cs-rtag">Prototyping</span></div>
-      </div>
-      <div>
-        <div style="font-family:var(--fm);font-size:.75rem;font-weight:600;color:var(--text-muted);text-align:right;margin-bottom:8px;">~6 min</div>
-        <div class="cs-arr">→</div>
-      </div>
-    </a>
-    <a href="case-studies.html#smithsonian" class="cs-row">
-      <div>
-        <span class="cs-row-num">03 &middot; Cultural &middot; Archives &middot; 2022</span>
-        <div class="cs-row-title">Smithsonian Archives of American Art</div>
-        <div class="cs-row-sub">Reimagining search and discovery for one of the world's largest art archive systems. Serving scholars, researchers, and the public.</div>
-        <div class="cs-row-tags"><span class="cs-rtag">Information Architecture</span><span class="cs-rtag">Search UX</span><span class="cs-rtag">Accessibility</span></div>
-      </div>
-      <div>
-        <div style="font-family:var(--fm);font-size:.75rem;font-weight:600;color:var(--text-muted);text-align:right;margin-bottom:8px;">~10 min</div>
-        <div class="cs-arr">→</div>
-      </div>
-    </a>
-    <a href="case-studies.html#wingman" class="cs-row">
-      <div>
-        <span class="cs-row-num">04 &middot; iOS &middot; Travel &middot; Gen AI &middot; 2023</span>
-        <div class="cs-row-title">Wingman &mdash; AI Travel Companion</div>
-        <div class="cs-row-sub">Integrating a Generative AI chatbot into a travel companion iOS app. Designing conversational UX that feels natural, contextual, and genuinely useful.</div>
-        <div class="cs-row-tags"><span class="cs-rtag">Conversational UI</span><span class="cs-rtag">iOS</span><span class="cs-rtag">Gen AI</span></div>
-      </div>
-      <div>
-        <div style="font-family:var(--fm);font-size:.75rem;font-weight:600;color:var(--text-muted);text-align:right;margin-bottom:8px;">~7 min</div>
-        <div class="cs-arr">→</div>
       </div>
     </a>
   </div>
@@ -403,11 +330,11 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   <div class="about-grid">
     <div class="reveal" style="position:relative;">
       <div class="about-frame">
-        <img src="image_2.png" alt="Portrait" class="about-img" />
+        <img src="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/657e5a01da303a85ace60acf_profile-profile.jpg" alt="Portrait" class="about-img" />
         <div class="about-overlay"></div>
         <div class="ab-c tl"></div><div class="ab-c br"></div>
       </div>
-      <div class="about-badge"><span class="n">7+</span><span class="l">Years</span></div>
+      <div class="about-badge"><span class="n">10+</span><span class="l">Years</span></div>
     </div>
     <div class="reveal">
       <div class="about-eye">About Me</div>
@@ -445,7 +372,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
       <p class="footer-tag">Senior Experience Designer at EA. Designing memorable experiences at the intersection of research, craft, and culture.</p>
       <div style="margin-top:16px;font-size:1.3rem;display:flex;gap:10px;">🍣 🍵 🌸</div>
     </div>
-    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#projects">Work</a></li><li><a href="#casestudies">Case Studies</a></li><li><a href="#about">About</a></li><li><a href="https://topmate.io/vijit_bhati" target="_blank">Mentorship</a></li></ul></div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#projects">Work</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="#about">About</a></li><li><a href="https://topmate.io/vijit_bhati" target="_blank">Mentorship</a></li></ul></div>
     <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li><li><a href="https://twitter.com/" target="_blank">Twitter / X</a></li><li><a href="https://www.behance.net/" target="_blank">Behance</a></li><li><a href="https://github.com/" target="_blank">GitHub</a></li></ul></div>
   </div>
   <div class="footer-bot">
@@ -455,79 +382,40 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 </footer>
 
 <script>
-// Navbar
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 55));
-
-// Reveal
 const ro = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 65); ro.unobserve(e.target); }
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-
-// Cherry Blossom
 (function () {
   const cv = document.getElementById('blossom-canvas');
   const cx = cv.getContext('2d');
   let W, H, petals = [];
-
   function resize() { W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
-
   function drawPetal(x, y, r, angle, alpha) {
-    cx.save();
-    cx.translate(x, y);
-    cx.rotate(angle);
-    cx.globalAlpha = alpha;
+    cx.save(); cx.translate(x, y); cx.rotate(angle); cx.globalAlpha = alpha;
     for (let i = 0; i < 5; i++) {
-      cx.save();
-      cx.rotate((i * Math.PI * 2) / 5);
-      cx.beginPath();
-      cx.ellipse(0, -r * 0.72, r * 0.36, r * 0.66, 0, 0, Math.PI * 2);
-      cx.fillStyle = '#FF6EB4'; // Bright soft pink petal
-      cx.fill();
-      cx.restore();
+      cx.save(); cx.rotate((i * Math.PI * 2) / 5); cx.beginPath();
+      cx.ellipse(0, -r * 0.72, r * 0.36, r * 0.66, 0, 0, Math.PI * 2); cx.fillStyle = '#FF6EB4'; cx.fill(); cx.restore();
     }
-    cx.beginPath();
-    cx.arc(0, 0, r * 0.17, 0, Math.PI * 2);
-    cx.fillStyle = '#FF2A85'; // Deep bright pink core
-    cx.fill();
-    cx.restore();
+    cx.beginPath(); cx.arc(0, 0, r * 0.17, 0, Math.PI * 2); cx.fillStyle = '#FF2A85'; cx.fill(); cx.restore();
   }
-
   function mk() {
-    return {
-      x: Math.random() * W, y: -16,
-      r: 4 + Math.random() * 5.5,
-      angle: Math.random() * Math.PI * 2,
-      spin: (Math.random() - 0.5) * 0.025,
-      vx: (Math.random() - 0.5) * 0.7,
-      vy: 0.45 + Math.random() * 0.85,
-      sa: 0.35 + Math.random() * 0.55,
-      sf: 0.007 + Math.random() * 0.011,
-      so: Math.random() * 100,
-      op: 0.5 + Math.random() * 0.5,
-      t: 0
-    };
+    return { x: Math.random() * W, y: -16, r: 4 + Math.random() * 5.5, angle: Math.random() * Math.PI * 2, spin: (Math.random() - 0.5) * 0.025, vx: (Math.random() - 0.5) * 0.7, vy: 0.45 + Math.random() * 0.85, sa: 0.35 + Math.random() * 0.55, sf: 0.007 + Math.random() * 0.011, so: Math.random() * 100, op: 0.5 + Math.random() * 0.5, t: 0 };
   }
-
   for (let i = 0; i < 26; i++) { const p = mk(); p.y = Math.random() * H; petals.push(p); }
-
   let frame = 0;
   (function loop() {
-    cx.clearRect(0, 0, W, H);
-    frame++;
+    cx.clearRect(0, 0, W, H); frame++;
     if (frame % 24 === 0 && petals.length < 52) petals.push(mk());
     petals.forEach((p, i) => {
-      p.t++;
-      p.x += p.vx + Math.sin(p.t * p.sf + p.so) * p.sa;
-      p.y += p.vy;
-      p.angle += p.spin;
-      drawPetal(p.x, p.y, p.r, p.angle, p.op);
-      if (p.y > H + 18) petals[i] = mk();
+      p.t++; p.x += p.vx + Math.sin(p.t * p.sf + p.so) * p.sa; p.y += p.vy; p.angle += p.spin;
+      drawPetal(p.x, p.y, p.r, p.angle, p.op); if (p.y > H + 18) petals[i] = mk();
     });
     requestAnimationFrame(loop);
   })();
