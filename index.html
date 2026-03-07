@@ -24,7 +24,7 @@
   --text-muted:  #5e5e5e;
   --subtle:      rgba(0,0,0,0.03);
   
-  /* Unified to Rajdhani */
+  /* Rajdhani font is applied globally */
   --fd:          'Rajdhani', sans-serif;
   --fm:          'Rajdhani', sans-serif;
   --fb:          'Rajdhani', sans-serif;
@@ -44,7 +44,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 4vw;height:70px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(255,255,255,0.97) 0%,transparent 100%);transition:background .3s,border-color .3s, box-shadow .3s;}
 nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
 .nav-logo{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--text-main);text-decoration:none;display:flex;align-items:center;gap:10px;}
-.nav-dot{width:10px;height:10px;border-radius:50%;background:var(--pink);}
+.nav-logo-img{height:40px; width:auto; filter: invert(1); /* Made dark for visibility against white bg */}
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:1.05rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;}
 .nav-links a:hover{color:var(--pink);}
@@ -189,7 +189,8 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4vw 40px;position:relative;z-index:2;}
 .footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:50px;margin-bottom:50px;}
 .footer-logo{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
-.footer-tag{font-size:.95rem;color:var(--text-muted);font-weight:500;line-height:1.6;max-width:280px;}
+.footer-logo-img{height:50px; width:auto; filter: invert(34%) sepia(85%) saturate(1917%) hue-rotate(307deg) brightness(98%) contrast(106%); /* Made pink */}
+.footer-tag{font-size:.95rem;color:var(--text-muted);font-weight:500;line-height:1.6;max-width:280px; margin-top: 10px;}
 .footer-col h4{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);margin-bottom:16px;}
 .footer-col ul{list-style:none;}
 .footer-col li{margin-bottom:10px;}
@@ -221,7 +222,9 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 <canvas id="blossom-canvas"></canvas>
 
 <nav id="navbar">
-  <a href="#" class="nav-logo"><span class="nav-dot"></span>Vijit Bhati</a>
+  <a href="#" class="nav-logo">
+    <img src="image_1.png" alt="Vijit Bhati Logo" class="nav-logo-img" />
+  </a>
   <ul class="nav-links">
     <li><a href="#projects">Work</a></li>
     <li><a href="#casestudies">Case Studies</a></li>
@@ -253,7 +256,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   </div>
 
   <a href="case-studies.html#listing" class="featured reveal">
-    <div class="feat-bg" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80');"></div>
+    <div class="feat-bg" style="background-image: url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');"></div>
     <div class="feat-vig"></div>
     <div class="feat-body">
       <div class="feat-badge">Featured Project</div>
@@ -271,7 +274,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   <div class="nf-row reveal">
 
     <a href="case-studies.html#saas" class="proj-card">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Fintech AI" class="proj-img-overlay" />
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png" alt="Fintech AI" class="proj-img-overlay" />
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,#2ecc8a,var(--pink));"></div>
       <div class="proj-meta">
@@ -286,7 +289,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     </a>
 
     <a href="case-studies.html#smithsonian" class="proj-card">
-      <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80" alt="Cultural Archives" class="proj-img-overlay" />
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659e2ea290e1bfb89403f46a_aaa-home-page%20(1).png" alt="Cultural Archives" class="proj-img-overlay" />
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,#D4AF37,var(--pink));"></div>
       <div class="proj-meta">
@@ -301,7 +304,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     </a>
 
     <a href="case-studies.html#wingman" class="proj-card">
-      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="iOS Travel AI" class="proj-img-overlay" />
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png" alt="iOS Travel AI" class="proj-img-overlay" />
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,#FFB7C5,var(--pink));"></div>
       <div class="proj-meta">
@@ -400,7 +403,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   <div class="about-grid">
     <div class="reveal" style="position:relative;">
       <div class="about-frame">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Portrait" class="about-img" />
+        <img src="image_2.png" alt="Portrait" class="about-img" />
         <div class="about-overlay"></div>
         <div class="ab-c tl"></div><div class="ab-c br"></div>
       </div>
@@ -436,7 +439,9 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-logo">Vijit Bhati</div>
+      <div class="footer-logo">
+        <img src="image_1.png" alt="Vijit Bhati Logo" class="footer-logo-img" />
+      </div>
       <p class="footer-tag">Senior Experience Designer at EA. Designing memorable experiences at the intersection of research, craft, and culture.</p>
       <div style="margin-top:16px;font-size:1.3rem;display:flex;gap:10px;">🍣 🍵 🌸</div>
     </div>
@@ -462,7 +467,7 @@ const ro = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-// Cherry Blossom - updated colors to bright pinks
+// Cherry Blossom
 (function () {
   const cv = document.getElementById('blossom-canvas');
   const cx = cv.getContext('2d');
@@ -504,7 +509,7 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
       sa: 0.35 + Math.random() * 0.55,
       sf: 0.007 + Math.random() * 0.011,
       so: Math.random() * 100,
-      op: 0.5 + Math.random() * 0.5, // Increased opacity for white bg
+      op: 0.5 + Math.random() * 0.5,
       t: 0
     };
   }
