@@ -26,7 +26,6 @@
   --text-muted:  #5e5e5e;
   --subtle:      rgba(0,0,0,0.03);
   
-  /* Font is applied globally */
   --fd:          'Rajdhani', sans-serif;
   --fm:          'Rajdhani', sans-serif;
   --fb:          'Rajdhani', sans-serif;
@@ -39,18 +38,17 @@ body{background:var(--bg);color:var(--text-main);font-family:var(--fb);font-size
 ::-webkit-scrollbar-thumb{background:var(--pink);}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
 .nav-logo{text-decoration:none;display:flex;align-items:center;}
-.nav-logo-img{height:40px; width:auto; filter: invert(1); /* Made dark for visibility against white bg */}
+/* Updated Dark Pink Filter for consistency */
+.nav-logo-img{height:40px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);}
+
 .nav-right{display:flex;align-items:center;gap:26px;}
 .nav-right a{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s;}
 .nav-right a:hover{color:var(--pink);}
 
-/* LAYOUT: sidebar + scrollable main */
 .layout{display:grid;grid-template-columns:300px 1fr;min-height:100vh;padding-top:70px;}
 
-/* SIDEBAR */
 .sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;background:var(--deep);border-right:1px solid var(--border);padding:40px 0;scrollbar-width:none;z-index:10;}
 .sidebar::-webkit-scrollbar{display:none;}
 .sb-label{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);padding:0 28px;margin-bottom:20px;display:block;}
@@ -66,24 +64,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .sb-skills{padding:0 28px;}
 .sb-skills span{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;display:inline-block;padding:4px 10px;background:var(--white);border:1px solid var(--border);border-radius:4px;margin:4px 2px;color:var(--text-muted); text-transform:uppercase;}
 
-/* MAIN */
 .main{overflow-y:auto;height:calc(100vh - 70px);position:sticky;top:70px;}
-
-/* PANELS */
 .cs-panel{display:none;}
 .cs-panel.active{display:block;animation:panelIn .35s ease;}
 @keyframes panelIn{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
 
-/* CS HERO */
 .cs-hero{position:relative;min-height:480px;display:flex;align-items:flex-end;padding:60px 70px;overflow:hidden;background-color:#000;}
 .hero-bg-layer{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.85;}
-/* Updated Backgrounds using direct URLs */
 .bg-listing{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');}
 .bg-saas{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png');}
 .bg-smithsonian{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659e2ea290e1bfb89403f46a_aaa-home-page%20(1).png');}
 .bg-wingman{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png');}
 
-/* Gradient fade making text highly readable */
 .hero-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.95) 45%,transparent 100%),linear-gradient(to top,rgba(255,255,255,.9) 0%,transparent 50%);}
 .hero-content{position:relative;z-index:2;max-width:650px;}
 
@@ -98,33 +90,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .cs-pills{display:flex;flex-wrap:wrap;gap:10px;}
 .cs-pill{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;background:var(--white);border:1px solid var(--border);border-radius:4px;color:var(--text-main); box-shadow:0 2px 10px rgba(0,0,0,0.05);}
 
-/* META BAR */
 .meta-bar{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);background:var(--deep);}
 .meta-item{padding:22px 30px;border-right:1px solid var(--border);}
 .meta-item:last-child{border-right:none;}
 .meta-lbl{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;display:block;}
 .meta-val{font-weight:700;font-size:1.05rem;color:var(--text-main);}
 
-/* BODY */
 .cs-body{padding:60px 70px;max-width:900px;}
 .cs-body p{font-size:1.05rem;color:var(--text-muted);line-height:1.8;font-weight:500;margin-bottom:22px;}
 .cs-body p strong{color:var(--text-main);font-weight:700;}
 .cs-body p em{font-style:italic;color:var(--pink);}
 
-/* Overview */
 .overview{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:40px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:60px; box-shadow:0 10px 30px rgba(0,0,0,0.02);}
 .ov-lbl{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:12px;display:block;}
 .ov-txt{font-size:1rem;color:var(--text-muted);line-height:1.7;font-weight:500;}
 .ov-txt strong{color:var(--text-main);font-weight:700;}
 
-/* Section */
 .cs-sec{margin-bottom:60px;}
 .cs-sec-hd{display:flex;align-items:center;gap:16px;margin-bottom:30px;}
 .cs-sec-num{font-family:var(--fm);font-size:.9rem;font-weight:700;letter-spacing:.1em;color:var(--pink);}
 .cs-sec-title{font-family:var(--fd);font-size:1.8rem;font-weight:700;color:var(--text-main);}
 .sec-rule{flex:1;height:2px;background:var(--border);}
 
-/* Insights */
 .insights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px;}
 .insight{background:var(--card);border:1px solid var(--border);padding:28px;border-radius:6px;transition:all .2s;position:relative;overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
 .insight:hover{background:var(--card-h); transform:translateY(-3px);}
@@ -133,7 +120,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .in-title{font-weight:700;font-size:1.1rem;margin-bottom:8px;color:var(--text-main);}
 .in-txt{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 
-/* Process */
 .process{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;}
 .proc-step{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:flex-start;background:var(--card);padding:24px 28px;border:1px solid var(--border);border-radius:6px;border-left:4px solid var(--border);transition:all .2s;}
 .proc-step:hover{background:var(--card-h);border-left-color:var(--pink); transform:translateX(4px);}
@@ -141,18 +127,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .proc-title{font-weight:700;font-size:1.1rem;margin-bottom:6px;color:var(--text-main);}
 .proc-desc{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 
-/* Quote */
 .cs-quote{border-left:4px solid var(--pink);padding:24px 32px;margin:32px 0;background:rgba(255,42,133,.04);border-radius:0 6px 6px 0;}
 .cs-quote blockquote{font-family:var(--fd);font-style:italic;font-size:1.3rem;color:var(--text-main);line-height:1.6;margin-bottom:12px;font-weight:600;}
 .cs-quote cite{font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);font-style:normal;}
 
-/* Stats */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px;}
 .stat{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:32px 26px;text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
 .stat-n{font-family:var(--fd);font-size:3rem;font-weight:700;line-height:1;margin-bottom:8px;display:block;}
 .stat-l{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);}
 
-/* Decisions */
 .decisions{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;}
 .decision{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
 .dec-before,.dec-after{padding:24px 28px;font-size:1rem;line-height:1.6;color:var(--text-muted);font-weight:500;}
@@ -161,17 +144,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .dec-after::before{content:'After';font-family:var(--fm);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:8px;}
 .dec-after strong{color:var(--text-main);font-weight:700;}
 
-/* Outcomes */
 .outcomes{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
 .outcome{display:flex;align-items:flex-start;gap:16px;background:var(--card);padding:18px 22px;border-radius:6px;border:1px solid var(--border); box-shadow:0 4px 15px rgba(0,0,0,0.02);}
 .oc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:2px;background:rgba(46,204,138,.15);color:var(--sage);border:1px solid rgba(46,204,138,.3); font-weight:bold;}
 .ot{font-size:1rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 .ot strong{color:var(--text-main);font-weight:700;}
 
-/* Reflection */
 .reflection{background:linear-gradient(135deg,rgba(255,42,133,.04) 0%,rgba(46,204,138,.04) 100%);border:1px solid rgba(255,42,133,.15);border-radius:8px;padding:40px;margin-bottom:26px;}
 
-/* Next CTA */
 .next-cta{display:flex;align-items:center;justify-content:space-between;padding:32px 40px;background:var(--card);border:2px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text-main);transition:all .2s;margin-top:50px; box-shadow:0 10px 30px rgba(0,0,0,0.03);}
 .next-cta:hover{background:var(--subtle);border-color:var(--pink); transform:translateY(-3px);}
 .next-lbl{font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block;}
@@ -179,7 +159,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .next-arr{width:54px;height:54px;border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;transition:all .2s;}
 .next-cta:hover .next-arr{background:var(--pink);border-color:var(--pink);color:var(--white);transform:translateX(6px);}
 
-/* Responsive */
 @media(max-width:900px){
   .layout{grid-template-columns:1fr;}
   .sidebar{position:relative;height:auto;top:0;padding:20px 0;}
@@ -207,10 +186,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 </nav>
 
 <div class="layout">
-
   <aside class="sidebar">
     <span class="sb-label">Case Studies</span>
-
     <a class="sb-item active" href="#listing" onclick="return show('listing',this)">
       <span class="sb-num">01 &middot; E-Commerce &middot; 2023</span>
       <div class="sb-title">Listing Doctor</div>
@@ -231,7 +208,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
       <div class="sb-title">Wingman</div>
       <div class="sb-tag">Travel &middot; Conversational UI</div>
     </a>
-
     <div class="sb-divider"></div>
     <div class="sb-skills">
       <span style="font-family:var(--fm);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);display:block;margin-bottom:14px;border:none;padding:0;">Skills</span>
@@ -240,7 +216,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
   </aside>
 
   <main class="main" id="main-scroll">
-
     <div class="cs-panel active" id="panel-listing">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-listing"></div>
@@ -254,25 +229,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
           </div>
         </div>
       </div>
-
       <div class="meta-bar">
         <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">Lead UX Designer</div></div>
         <div class="meta-item"><span class="meta-lbl">Timeline</span><div class="meta-val">5 Months &middot; 2023</div></div>
         <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; 4 Eng</div></div>
         <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web App &middot; SaaS</div></div>
       </div>
-
       <div class="cs-body">
         <div class="overview">
           <div><span class="ov-lbl">The Problem</span><p class="ov-txt">Sellers on multi-channel marketplaces lose significant revenue due to <strong>undetected listing errors</strong> — suppressed products, missing attributes, policy violations — impossible to monitor manually across thousands of SKUs.</p></div>
           <div><span class="ov-lbl">The Solution</span><p class="ov-txt">A <strong>centralized dashboard</strong> aggregating listing health data from Amazon, Walmart, and eBay APIs, surfacing critical errors with severity scoring, and guiding sellers through step-by-step resolution workflows.</p></div>
         </div>
-
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Discovery &amp; Research</h2><div class="sec-rule"></div></div>
           <p>I conducted <strong>12 contextual inquiry sessions</strong> with e-commerce operations managers. The goal was to understand the current workaround landscape — what tools they used, where errors fell through the cracks, and the emotional cost of a suppressed listing.</p>
           <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Research Process" style="width:100%; border-radius:6px; margin-bottom: 24px; box-shadow:0 4px 15px rgba(0,0,0,0.05);" />
-          
           <div class="insights">
             <div class="insight" data-n="1"><span class="in-ico">😰</span><div class="in-title">Manual monitoring is the norm</div><div class="in-txt">9 of 12 participants used spreadsheets or separate marketplace dashboards — no unified view existed.</div></div>
             <div class="insight" data-n="2"><span class="in-ico">⏱️</span><div class="in-title">Detection lag averages 4.2 days</div><div class="in-txt">On average, sellers didn't notice a suppressed listing for 4+ days — each day representing direct lost revenue.</div></div>
@@ -284,7 +255,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
             <cite>&mdash; Operations Manager, Mid-market Seller</cite>
           </div>
         </div>
-
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Design Process</h2><div class="sec-rule"></div></div>
           <p>The design went through <strong>4 major iterations</strong>, each validated with a different cohort of sellers. I used a mix of low-fidelity concept testing, task-based usability testing, and desirability studies.</p>
@@ -295,7 +265,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
             <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);">🎨</div><div><div class="proc-title">High-Fidelity Design &amp; Design System</div><div class="proc-desc">Built a component library of 80+ components with error state variants, severity indicators, and multi-marketplace theming.</div></div></div>
           </div>
         </div>
-
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Key Design Decisions</h2><div class="sec-rule"></div></div>
           <div class="decisions">
@@ -303,7 +272,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
             <div class="decision"><div class="dec-before">Raw API error codes displayed (e.g. "ERROR_8572"). Required sellers to Google every code to understand it.</div><div class="dec-after"><strong>Human-readable error translation.</strong> "Your title exceeds Amazon's 200-char limit. Current: 214. Here's how to fix it." One-click edit shortcut inline.</div></div>
           </div>
         </div>
-
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
           <div class="stats">
@@ -311,28 +279,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
             <div class="stat"><span class="stat-n" style="color:var(--pink);">4.2d→6hr</span><span class="stat-l">Detection Lag Reduced</span></div>
             <div class="stat"><span class="stat-n" style="color:var(--gold);">4.7/5</span><span class="stat-l">SUS Usability Score</span></div>
           </div>
-          <div class="outcomes">
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Zero-to-one shipped</strong> — concept to live beta with 40 merchant accounts in 5 months.</div></div>
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Design system adopted</strong> — 80+ component library used across 3 products in the broader platform.</div></div>
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Support tickets reduced 34%</strong> in the first 6 weeks post-launch due to in-context guidance.</div></div>
-          </div>
         </div>
-
-        <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">05</span><h2 class="cs-sec-title">Reflection</h2><div class="sec-rule"></div></div>
-          <div class="reflection">
-            <p>The biggest lesson from Listing Doctor was the power of <strong>domain immersion</strong>. Spending the first 3 weeks purely in discovery before touching Figma made all the difference. The severity-first design wouldn't have emerged without understanding the real emotional weight of a suppressed listing on a small business owner.</p>
-            <p>If I were to revisit, I'd invest more time in <em>notification design</em> — getting sellers to act on alerts outside the app was a challenge we addressed in v2 but should have been baked into the original brief.</p>
-          </div>
-        </div>
-
         <a href="#saas" onclick="return show('saas', document.querySelector('[href=\'#saas\']'))" class="next-cta">
           <div><span class="next-lbl">Next Case Study</span><div class="next-title">SaaS Contract Analyzer</div></div>
           <div class="next-arr">→</div>
         </a>
       </div>
     </div>
-
     <div class="cs-panel" id="panel-saas">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-saas"></div>
@@ -392,7 +345,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         </a>
       </div>
     </div>
-
     <div class="cs-panel" id="panel-smithsonian">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-smithsonian"></div>
@@ -449,7 +401,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         </a>
       </div>
     </div>
-
     <div class="cs-panel" id="panel-wingman">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-wingman"></div>
@@ -466,4 +417,82 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
       <div class="meta-bar">
         <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">Lead Product Designer</div></div>
         <div class="meta-item"><span class="meta-lbl">Timeline</span><div class="meta-val">4 Months &middot; 2023</div></div>
-        <div class="meta-item"><span class="meta-lbl
+        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; AI Eng</div></div>
+        <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">iOS &middot; Mobile</div></div>
+      </div>
+      <div class="cs-body">
+        <div class="overview">
+          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Wingman had a powerful AI travel engine. But the <strong>chat interface felt cold and robotic</strong> — like texting a FAQ bot. Users disengaged after 1–2 messages. The AI's capability was invisible behind a poor conversational experience.</p></div>
+          <div><span class="ov-lbl">The Goal</span><p class="ov-txt">Design a conversational experience where the AI feels like a <strong>knowledgeable local friend</strong> — proactive, contextual, with personality — while staying honest about its limitations.</p></div>
+        </div>
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Designing for Conversation</h2><div class="sec-rule"></div></div>
+          <p>Conversational UI design sits at the intersection of <strong>UX writing, interaction design, and prompt engineering</strong>. I led discovery with 15 frequent travellers across Vancouver, Toronto, and Delhi to understand how people naturally ask for travel advice.</p>
+          <div class="process">
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎙️</div><div><div class="proc-title">Voice &amp; Personality Definition</div><div class="proc-desc">Defined the AI's personality: knowledgeable but not condescending, enthusiastic but not exhausting, honest about uncertainty. Created a voice guide with 20+ do/don't example exchanges.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.2);color:#ff5e9f;">🗺️</div><div><div class="proc-title">Conversation Flow Mapping</div><div class="proc-desc">Mapped 8 core conversation journeys and identified the 12 most common "dead end" patterns that needed graceful recovery design.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">💬</div><div><div class="proc-title">Prompt Scaffolding Design</div><div class="proc-desc">Worked directly with AI engineering to design conversation-starter suggestions, contextual prompts, and response format guidelines that make outputs visually parseable within iOS.</div></div></div>
+          </div>
+        </div>
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Key Innovations</h2><div class="sec-rule"></div></div>
+          <div class="insights">
+            <div class="insight" data-n="1"><span class="in-ico">🎯</span><div class="in-title">Contextual Conversation Starters</div><div class="in-txt">When a user opens the app at 7pm in Tokyo, the AI surfaces "Good evening! Looking for dinner recommendations nearby?" — not a blank chat input.</div></div>
+            <div class="insight" data-n="2"><span class="in-ico">🃏</span><div class="in-title">Rich Response Cards</div><div class="in-txt">AI responses that include places render as interactive cards — not walls of text. Tap to open in Maps, save to itinerary, or share with travel partners.</div></div>
+            <div class="insight" data-n="3"><span class="in-ico">🤍</span><div class="in-title">Honest Uncertainty Design</div><div class="in-txt">A distinct visual treatment for hedged responses ("I'm not 100% certain — verify on Google"). Users trusted the AI more because it acknowledged its limits.</div></div>
+            <div class="insight" data-n="4"><span class="in-ico">🔁</span><div class="in-title">Trip Memory &amp; Continuity</div><div class="in-txt">"How was that ramen place I suggested yesterday?" feels magical and creates genuine emotional engagement with the product across sessions.</div></div>
+          </div>
+          <div class="cs-quote">
+            <blockquote>"I forgot I was talking to an AI. It felt like messaging a friend who happened to know everything about Tokyo."</blockquote>
+            <cite>&mdash; Beta Tester, UX Feedback Session &middot; Vancouver</cite>
+          </div>
+        </div>
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
+          <div class="stats">
+            <div class="stat"><span class="stat-n" style="color:var(--indigo);">4.8×</span><span class="stat-l">Chat Session Length</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage);">78%</span><span class="stat-l">D7 Retention Rate</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">4.6★</span><span class="stat-l">App Store Rating</span></div>
+          </div>
+        </div>
+        <a href="#listing" onclick="return show('listing', document.querySelector('[href=\'#listing\']'))" class="next-cta">
+          <div><span class="next-lbl">Back to First</span><div class="next-title">&#8592; Listing Doctor</div></div>
+          <div class="next-arr" style="transform:none;">←</div>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const IDS = ['listing','saas','smithsonian','wingman'];
+function show(id, navEl) {
+  document.querySelectorAll('.cs-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  document.querySelectorAll('.sb-item').forEach(n => n.classList.remove('active'));
+  if (navEl) navEl.classList.add('active');
+  document.getElementById('main-scroll').scrollTo({ top: 0, behavior: 'smooth' });
+  history.replaceState(null, '', '#' + id);
+  return false;
+}
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.replace('#','');
+  if (IDS.includes(hash)) {
+    const navEl = document.querySelector('.sb-item[href="#' + hash + '"]');
+    show(hash, navEl);
+  }
+});
+document.addEventListener('keydown', e => {
+  const current = document.querySelector('.cs-panel.active')?.id.replace('panel-','');
+  const idx = IDS.indexOf(current);
+  let next = null;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = IDS[(idx+1)%IDS.length];
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   next = IDS[(idx-1+IDS.length)%IDS.length];
+  if (next) {
+    const navEl = document.querySelector('.sb-item[href="#' + next + '"]');
+    show(next, navEl);
+  }
+});
+</script>
+</body>
+</html>
