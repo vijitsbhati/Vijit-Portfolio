@@ -1,12 +1,11 @@
 import { NextResponse } from 'next/server';
 
-const PROTECTED_PATH = '/case-studies.html';
 const COOKIE_NAME = 'caseStudiesAuth';
 
 export function middleware(req) {
   const url = req.nextUrl.clone();
 
-  if (!url.pathname.startsWith(PROTECTED_PATH)) {
+  if (!url.pathname.startsWith('/case-studies.html')) {
     return NextResponse.next();
   }
 
@@ -20,5 +19,5 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: [PROTECTED_PATH],
+  matcher: ['/case-studies.html'],
 };
