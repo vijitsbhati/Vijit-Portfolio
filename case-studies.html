@@ -71,18 +71,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 
 .cs-hero{position:relative;min-height:480px;display:flex;align-items:flex-end;padding:60px 70px;overflow:hidden;background-color:#000;}
 .hero-bg-layer{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.85;}
-.bg-listing{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');}
+.bg-eyq{background-image:url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80');}
 .bg-saas{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png');}
-.bg-smithsonian{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659e2ea290e1bfb89403f46a_aaa-home-page%20(1).png');}
+.bg-listing{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');}
 .bg-wingman{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png');}
 
 .hero-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.95) 45%,transparent 100%),linear-gradient(to top,rgba(255,255,255,.9) 0%,transparent 50%);}
 .hero-content{position:relative;z-index:2;max-width:650px;}
 
 .cs-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:4px;margin-bottom:16px;color:var(--white);}
-.badge-listing{background:var(--pink);}
+.badge-eyq{background:#2b2d42;}
 .badge-saas{background:var(--sage);}
-.badge-smithsonian{background:var(--gold);color:#1a1000;}
+.badge-listing{background:var(--pink);}
 .badge-wingman{background:var(--indigo);}
 
 .cs-hero-title{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:16px;color:var(--text-main);}
@@ -188,26 +188,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 <div class="layout">
   <aside class="sidebar">
     <span class="sb-label">Case Studies</span>
-    <a class="sb-item active" href="#listing" onclick="return show('listing',this)">
-      <span class="sb-num">01 &middot; E-Commerce &middot; 2023</span>
-      <div class="sb-title">Listing Doctor</div>
-      <div class="sb-tag">Amazon &middot; Walmart &middot; eBay</div>
+    
+    <a class="sb-item active" href="#eyq" onclick="return show('eyq',this)">
+      <span class="sb-num">01 &middot; Enterprise AI &middot; B2B</span>
+      <div class="sb-title">EYQ Platform</div>
+      <div class="sb-tag">Gen AI &middot; Skills &middot; Governance</div>
     </a>
+
     <a class="sb-item" href="#saas" onclick="return show('saas',this)">
       <span class="sb-num">02 &middot; Fintech &middot; AI &middot; 2023</span>
       <div class="sb-title">SaaS Contract Analyzer</div>
       <div class="sb-tag">Financial Auditing &middot; ML UX</div>
     </a>
-    <a class="sb-item" href="#smithsonian" onclick="return show('smithsonian',this)">
-      <span class="sb-num">03 &middot; Cultural &middot; 2022</span>
-      <div class="sb-title">Smithsonian AAA</div>
-      <div class="sb-tag">Search &middot; Discovery &middot; A11y</div>
+    
+    <a class="sb-item" href="#listing" onclick="return show('listing',this)">
+      <span class="sb-num">03 &middot; E-Commerce &middot; 2023</span>
+      <div class="sb-title">Listing Doctor</div>
+      <div class="sb-tag">Amazon &middot; Walmart &middot; eBay</div>
     </a>
+    
     <a class="sb-item" href="#wingman" onclick="return show('wingman',this)">
       <span class="sb-num">04 &middot; iOS &middot; Gen AI &middot; 2023</span>
       <div class="sb-title">Wingman</div>
       <div class="sb-tag">Travel &middot; Conversational UI</div>
     </a>
+    
     <div class="sb-divider"></div>
     <div class="sb-skills">
       <span style="font-family:var(--fm);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);display:block;margin-bottom:14px;border:none;padding:0;">Skills</span>
@@ -216,76 +221,85 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
   </aside>
 
   <main class="main" id="main-scroll">
-    <div class="cs-panel active" id="panel-listing">
+    
+    <div class="cs-panel active" id="panel-eyq">
       <div class="cs-hero">
-        <div class="hero-bg-layer bg-listing"></div>
+        <div class="hero-bg-layer bg-eyq"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-listing">&#9889; Case Study 01</div>
-          <h1 class="cs-hero-title">Listing Doctor</h1>
-          <p class="cs-hero-sub">Designing a zero-to-one application to track, diagnose, and resolve product listing errors across Amazon, Walmart, and eBay marketplaces.</p>
+          <div class="cs-badge badge-eyq" style="color: var(--white);">&#128300; Case Study 01</div>
+          <h1 class="cs-hero-title">EYQ – Enterprise Generative AI Platform</h1>
+          <p class="cs-hero-sub">Designing a centralized AI marketplace enabling practitioners to create, manage, and safely use AI-powered “skills” for consulting workflows.</p>
           <div class="cs-pills">
-            <span class="cs-pill">UX Research</span><span class="cs-pill">Product Design</span><span class="cs-pill">Design System</span><span class="cs-pill">Usability Testing</span><span class="cs-pill">E-commerce</span>
+            <span class="cs-pill">Experience Strategy</span><span class="cs-pill">Platform Design</span><span class="cs-pill">AI Governance</span><span class="cs-pill">B2B Enterprise</span>
           </div>
         </div>
       </div>
       <div class="meta-bar">
-        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">Lead UX Designer</div></div>
-        <div class="meta-item"><span class="meta-lbl">Timeline</span><div class="meta-val">5 Months &middot; 2023</div></div>
-        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; 4 Eng</div></div>
-        <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web App &middot; SaaS</div></div>
+        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">UX Lead</div></div>
+        <div class="meta-item"><span class="meta-lbl">Contributions</span><div class="meta-val" style="font-size:0.95rem;">Research, UX Strategy, Wireframing</div></div>
+        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">1 PM &middot; 6 Eng &middot; AI Teams</div></div>
+        <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web Platform</div></div>
       </div>
       <div class="cs-body">
         <div class="overview">
-          <div><span class="ov-lbl">The Problem</span><p class="ov-txt">Sellers on multi-channel marketplaces lose significant revenue due to <strong>undetected listing errors</strong> — suppressed products, missing attributes, policy violations — impossible to monitor manually across thousands of SKUs.</p></div>
-          <div><span class="ov-lbl">The Solution</span><p class="ov-txt">A <strong>centralized dashboard</strong> aggregating listing health data from Amazon, Walmart, and eBay APIs, surfacing critical errors with severity scoring, and guiding sellers through step-by-step resolution workflows.</p></div>
+          <div><span class="ov-lbl">The Problem</span><p class="ov-txt">Consultants were experimenting with external generative AI tools like ChatGPT, which lacked <strong>governance and security</strong> for sensitive client data. There was no way to standardize prompts, share workflows, or track output accuracy.</p></div>
+          <div><span class="ov-lbl">The Goal</span><p class="ov-txt">Instead of a traditional chatbot, build a <strong>centralized AI marketplace</strong> where teams could create reusable skills, manage prompt libraries, and safely scale AI capabilities across the organization while tracking adoption.</p></div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Discovery &amp; Research</h2><div class="sec-rule"></div></div>
-          <p>I conducted <strong>12 contextual inquiry sessions</strong> with e-commerce operations managers. The goal was to understand the current workaround landscape — what tools they used, where errors fell through the cracks, and the emotional cost of a suppressed listing.</p>
-          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Research Process" style="width:100%; border-radius:6px; margin-bottom: 24px; box-shadow:0 4px 15px rgba(0,0,0,0.05);" />
+          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">User Research & Personas</h2><div class="sec-rule"></div></div>
+          <p>We began by defining the three core personas the platform needed to support. A critical design insight quickly emerged: <strong>The platform needed to function as a skills ecosystem, not just a chatbot.</strong></p>
           <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico">😰</span><div class="in-title">Manual monitoring is the norm</div><div class="in-txt">9 of 12 participants used spreadsheets or separate marketplace dashboards — no unified view existed.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico">⏱️</span><div class="in-title">Detection lag averages 4.2 days</div><div class="in-txt">On average, sellers didn't notice a suppressed listing for 4+ days — each day representing direct lost revenue.</div></div>
-            <div class="insight" data-n="3"><span class="in-ico">🤯</span><div class="in-title">Error messages are cryptic</div><div class="in-txt">Marketplace error codes are written for developers, not merchants. "8572: INVALID_ATTRIBUTE_VALUE" means nothing to a seller.</div></div>
-            <div class="insight" data-n="4"><span class="in-ico">🔁</span><div class="in-title">68% of errors are repeat</div><div class="in-txt">Sellers were solving the same issues over and over due to no historical error memory in existing tools.</div></div>
-          </div>
-          <div class="cs-quote">
-            <blockquote>"I found out my top-selling product was suppressed on Amazon because I noticed a dip in sales — not because any tool told me."</blockquote>
-            <cite>&mdash; Operations Manager, Mid-market Seller</cite>
+            <div class="insight" data-n="1"><span class="in-ico">💼</span><div class="in-title">Client Practitioners</div><div class="in-txt">Consultants needing quick access to trusted, reusable AI capabilities to automate tasks and improve day-to-day efficiency.</div></div>
+            <div class="insight" data-n="2"><span class="in-ico">💻</span><div class="in-title">EY Developers</div><div class="in-txt">Technical users building AI solutions, integrating models, and publishing reusable skills for business workflows.</div></div>
+            <div class="insight" data-n="3"><span class="in-ico">🛡️</span><div class="in-title">Platform Admins</div><div class="in-txt">Administrators requiring analytics dashboards to monitor usage, track performance, and ensure governance standards.</div></div>
           </div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Design Process</h2><div class="sec-rule"></div></div>
-          <p>The design went through <strong>4 major iterations</strong>, each validated with a different cohort of sellers. I used a mix of low-fidelity concept testing, task-based usability testing, and desirability studies.</p>
+          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Experience Strategy & Concepting</h2><div class="sec-rule"></div></div>
+          <p>We defined core user journeys around selecting an existing skill, creating a custom skill, and starting a direct AI conversation.</p>
           <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);">🗺️</div><div><div class="proc-title">Journey Mapping &amp; How Might We</div><div class="proc-desc">Mapped the current-state error discovery journey. Identified 6 key failure points. Generated 40+ HMW statements, narrowed to 8 priority opportunity areas.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">✏️</div><div><div class="proc-title">Concept Sketching &amp; IA</div><div class="proc-desc">Sketched 3 competing IA approaches: flat list, marketplace-grouped, and severity-first. Tested concept preference with 6 participants — severity-first won decisively.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🖥️</div><div><div class="proc-title">Wireframe Usability Testing (R1 &amp; R2)</div><div class="proc-desc">Built mid-fi wireframes in Figma, ran 2 rounds of task-based usability tests. Success rates moved from 62% → 89% between rounds.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);">🎨</div><div><div class="proc-title">High-Fidelity Design &amp; Design System</div><div class="proc-desc">Built a component library of 80+ components with error state variants, severity indicators, and multi-marketplace theming.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);">🗺️</div><div><div class="proc-title">System Architecture</div><div class="proc-desc">Designed user flows allowing teams to build skills using contextual data, share with colleagues, and test outputs before publishing.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">✏️</div><div><div class="proc-title">Low-Fidelity Concepting</div><div class="proc-desc">Explored core interactions: the AI skill marketplace, prompt library management, and context-aware chat interactions.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🖥️</div><div><div class="proc-title">Validation Testing</div><div class="proc-desc">Ran usability tests to ensure users understood how to activate skills, edit parameters, and switch between general AI chat and specific workflows.</div></div></div>
           </div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Key Design Decisions</h2><div class="sec-rule"></div></div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">High-Fidelity Design & Governance</h2><div class="sec-rule"></div></div>
           <div class="decisions">
-            <div class="decision"><div class="dec-before">Errors listed chronologically — latest first, regardless of severity. Merchants missed critical suppression events buried under minor warnings.</div><div class="dec-after"><strong>Severity-first triage queue.</strong> Critical errors always surface at the top. A 3-tier system: Critical / Warning / Info. Reduced time-to-action on suppressed SKUs by ~70%.</div></div>
-            <div class="decision"><div class="dec-before">Raw API error codes displayed (e.g. "ERROR_8572"). Required sellers to Google every code to understand it.</div><div class="dec-after"><strong>Human-readable error translation.</strong> "Your title exceeds Amazon's 200-char limit. Current: 214. Here's how to fix it." One-click edit shortcut inline.</div></div>
+            <div class="decision"><div class="dec-before">Isolated prompt engineering restricted to individual users with no oversight on quality or security.</div><div class="dec-after"><strong>Centralized Skill Marketplace.</strong> A unified hub designed using EY's system to create, manage, and share prompt libraries securely.</div></div>
+            <div class="decision"><div class="dec-before">Zero visibility into how AI models were performing or being utilized across consulting teams.</div><div class="dec-after"><strong>Admin Analytics Dashboards.</strong> Equipped admins to monitor adoption rates, engagement, model performance, and confidence scores.</div></div>
           </div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
-          <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">89%</span><span class="stat-l">Task Completion Rate</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">4.2d→6hr</span><span class="stat-l">Detection Lag Reduced</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--gold);">4.7/5</span><span class="stat-l">SUS Usability Score</span></div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes & Impact</h2><div class="sec-rule"></div></div>
+          <div class="outcomes">
+            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Rapid Onboarding</strong> due to a simplified user experience tailored specifically for enterprise workflows.</div></div>
+            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Increased Creation</strong> of reusable AI skills scaling seamlessly across multiple consulting teams.</div></div>
+            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Higher Adoption</strong> of secure internal AI tools compared to risky external alternatives.</div></div>
           </div>
         </div>
+
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">05</span><h2 class="cs-sec-title">Final Reflections</h2><div class="sec-rule"></div></div>
+          <div class="reflection">
+            <p><strong>Designing for Ecosystems, Not Features:</strong> Enterprise AI tools require platform thinking, where value comes from reusable capabilities rather than isolated features.</p>
+            <p><strong>Governance Is Critical:</strong> Balancing rapid innovation with strict security and compliance shaped many of the core design decisions we made.</p>
+            <p><strong>Adoption Depends on Clear Value:</strong> Providing visible benefits — such as reusable skills and automation of tedious consulting workflows — was absolutely essential to driving adoption across the firm.</p>
+          </div>
+        </div>
+
         <a href="#saas" onclick="return show('saas', document.querySelector('[href=\'#saas\']'))" class="next-cta">
           <div><span class="next-lbl">Next Case Study</span><div class="next-title">SaaS Contract Analyzer</div></div>
           <div class="next-arr">→</div>
         </a>
       </div>
     </div>
+    
     <div class="cs-panel" id="panel-saas">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-saas"></div>
@@ -293,114 +307,159 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="hero-content">
           <div class="cs-badge badge-saas">&#128300; Case Study 02</div>
           <h1 class="cs-hero-title">SaaS Contract Analyzer</h1>
-          <p class="cs-hero-sub">Augmenting the financial auditing process by designing human-centered interfaces for ML-powered contract analysis and anomaly detection.</p>
+          <p class="cs-hero-sub">Augmenting the financial auditing process for SaaS Contracts at EY by designing an application that identifies and annotates financially impactful sections.</p>
           <div class="cs-pills">
             <span class="cs-pill">AI/ML UX</span><span class="cs-pill">B2B SaaS</span><span class="cs-pill">Fintech</span><span class="cs-pill">Prototyping</span>
           </div>
         </div>
       </div>
       <div class="meta-bar">
-        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">Senior UX Designer</div></div>
-        <div class="meta-item"><span class="meta-lbl">Timeline</span><div class="meta-val">4 Months &middot; 2023</div></div>
-        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">1 Designer &middot; ML Team</div></div>
+        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">UX Lead</div></div>
+        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val" style="font-size:0.95rem;">2 PMs, 2 Data Sci, 6 Devs</div></div>
+        <div class="meta-item"><span class="meta-lbl">Goal</span><div class="meta-val" style="color:var(--sage);">Audit Time: 4wks → 1wk</div></div>
         <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web &middot; Enterprise</div></div>
       </div>
       <div class="cs-body">
         <div class="overview">
-          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Financial auditors review hundreds of SaaS contracts manually — checking for auto-renewal clauses, price escalators, and compliance flags. The ML model could identify these patterns, but the <strong>outputs were impenetrable</strong> for non-technical auditors.</p></div>
-          <div><span class="ov-lbl">My Contribution</span><p class="ov-txt">Bridge the gap between <strong>ML confidence scores</strong> and human judgment. Design an interface where auditors could review, override, and learn from model outputs — turning AI into a trusted collaborator, not a black box.</p></div>
+          <div><span class="ov-lbl">The Struggle</span><p class="ov-txt">Auditors review multiple contracts daily, each exceeding 300 pages. <strong>Combing through these manually takes countless hours.</strong> Since SaaS contracts generally use a reference document to verify the language of financially impacting sections, an opportunity arose to train an ML model on past annotations to reduce manual labor.</p></div>
+          <div><span class="ov-lbl">The Goal</span><p class="ov-txt">To design a machine-learning-assisted workflow that reduces the auditing process of a SaaS Contract from <strong>4-5 weeks down to 1-2 weeks</strong>, significantly cutting the required person-hours.</p></div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">The AI Trust Problem</h2><div class="sec-rule"></div></div>
-          <p>The core UX challenge wasn't a flow or navigation problem — it was a <strong>trust calibration problem</strong>. Auditors were either over-trusting the model (rubber-stamping) or completely ignoring it. Neither extreme was useful.</p>
-          <div class="cs-quote">
-            <blockquote>"When the model flags something at 72% confidence, what does that mean? Do I trust it or not? I need to understand why it thinks that."</blockquote>
-            <cite>&mdash; Senior Financial Auditor, Research Participant</cite>
-          </div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Brainstorming & Ideation</h2><div class="sec-rule"></div></div>
+          <p>I facilitated a virtual design workshop on Mural with Auditors, ML Experts, PMs, and the Tech Lead to define the problem statement and identify high-priority functions.</p>
           <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico">🧠</span><div class="in-title">Explainability is non-negotiable</div><div class="in-txt">Auditors needed to see the specific clause that triggered a flag — not just a confidence score. Evidence-first design became the core principle.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico">✍️</span><div class="in-title">Override must not feel like failure</div><div class="in-txt">A frictionless override flow that captures reasoning feeds back into model retraining — turning disagreement into improvement.</div></div>
-            <div class="insight" data-n="3"><span class="in-ico">📄</span><div class="in-title">Side-by-side context is critical</div><div class="in-txt">The document viewer and analysis panel had to be co-visible at all times. Auditors can't trust a flag without seeing the exact text that triggered it.</div></div>
-            <div class="insight" data-n="4"><span class="in-ico">⚡</span><div class="in-title">Batch workflows matter</div><div class="in-txt">Power users processed 20+ contracts per session. Keyboard shortcuts, bulk approval, and similar-contracts grouping were essential at scale.</div></div>
+            <div class="insight" data-n="1"><span class="in-ico">⚖️</span><div class="in-title">Human-in-the-Loop</div><div class="in-txt">Users needed the ability to confidently approve or reject machine-generated recommendations before they were finalized.</div></div>
+            <div class="insight" data-n="2"><span class="in-ico">📈</span><div class="in-title">Scalable Architecture</div><div class="in-txt">The solution needed to be designed so it could eventually scale across different departments for various document types.</div></div>
+            <div class="insight" data-n="3"><span class="in-ico">✍️</span><div class="in-title">Manual Categorization</div><div class="in-txt">Even with ML, auditors required the fallback ability to manually add, highlight, and categorize clauses within the documents.</div></div>
           </div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Design Decisions</h2><div class="sec-rule"></div></div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Design Iterations</h2><div class="sec-rule"></div></div>
+          <div class="process">
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">✏️</div><div><div class="proc-title">Collaborative Sketching & Wireframing</div><div class="proc-desc">Conducted sketching sessions to capture the stakeholders' ideal auditing workflow. Built low-fi wireframes focusing on how auditors would interact with machine-identified clauses.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎨</div><div><div class="proc-title">High-Fidelity & Motif System</div><div class="proc-desc">Moved to high-fidelity using our in-house Motif design system. Conducted 2 rounds of testing with stakeholders before entering a weekly sync rhythm with developers.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);">⚙️</div><div><div class="proc-title">Admin Dashboard Creation</div><div class="proc-desc">Designed specialized admin screens for the internal team to monitor model performance and track user usage metrics prior to the broader launch.</div></div></div>
+          </div>
+        </div>
+
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Overcoming the ML Hurdle</h2><div class="sec-rule"></div></div>
+          <p>During stakeholder feedback, the model successfully identified all financial sections (a huge win!), but was categorizing most annotations incorrectly into the "other" field.</p>
+          <div class="cs-quote">
+            <blockquote>"There is still a lot of manual work required to categorize the clauses correctly."</blockquote>
+            <cite>&mdash; Auditing Users</cite>
+          </div>
           <div class="decisions">
-            <div class="decision"><div class="dec-before">Confidence score shown as a raw percentage (e.g. 78%). No context about what it means or what evidence drove it.</div><div class="dec-after"><strong>Evidence-anchored flags.</strong> Every flag highlights the exact contract clause. Confidence shown as High/Medium/Review tied to clear thresholds.</div></div>
-            <div class="decision"><div class="dec-before">Overriding required navigating to a separate "disputes" section — adding friction that discouraged auditors from correcting wrong outputs.</div><div class="dec-after"><strong>Inline override with reasoning capture.</strong> A single keystroke surfaces an override panel with reason codes, feeding directly into model retraining.</div></div>
+            <div class="decision"><div class="dec-before">Users faced manual fatigue, threatening retention and adoption if they had to correct the ML model too frequently.</div><div class="dec-after"><strong>Power-User Beta Program.</strong> Selected 6 power users to test and train the platform for a full month. This targeted effort skyrocketed the model's accuracy before the company-wide launch.</div></div>
           </div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes & Reflections</h2><div class="sec-rule"></div></div>
           <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">3.4×</span><span class="stat-l">Faster Review</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">91%</span><span class="stat-l">Auditor Trust Score</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--gold);">+12%</span><span class="stat-l">Model Accuracy</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage);">4w→1w</span><span class="stat-l">Audit Time Reduced</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">92%</span><span class="stat-l">ML Model Accuracy</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--gold);">80%</span><span class="stat-l">Auditor Adoption</span></div>
+          </div>
+          <div class="outcomes" style="margin-top:20px;">
+            <div class="outcome"><div class="oc">✓</div><div class="ot">Achieved an 80% ML model accuracy in the first month, which soared to <strong>92% after just four months</strong>.</div></div>
+            <div class="outcome"><div class="oc">✓</div><div class="ot">Adopted by 80% of financial auditors across EY, accounting for roughly <strong>50% of the revenue generated</strong> by the auditing department.</div></div>
+          </div>
+          <div class="reflection">
+            <p><strong>Early Dev Involvement:</strong> Bringing developers into early brainstorming sessions severely reduces back-and-forth caused by feasibility restrictions, especially with complex ML implementations.</p>
+            <p><strong>Managing Scope Creep:</strong> Scope creep is a recurring threat during stakeholder check-ins; it is vital to confidently steer discussions back within the defined constraints.</p>
+            <p><strong>Horizontal Scalability:</strong> The massive success of this tool led other teams to request similar solutions, resulting in a new product adapted for various departments.</p>
           </div>
         </div>
-        <a href="#smithsonian" onclick="return show('smithsonian', document.querySelector('[href=\'#smithsonian\']'))" class="next-cta">
-          <div><span class="next-lbl">Next Case Study</span><div class="next-title">Smithsonian Archives of American Art</div></div>
+
+        <a href="#listing" onclick="return show('listing', document.querySelector('[href=\'#listing\']'))" class="next-cta">
+          <div><span class="next-lbl">Next Case Study</span><div class="next-title">Listing Doctor</div></div>
           <div class="next-arr">→</div>
         </a>
       </div>
     </div>
-    <div class="cs-panel" id="panel-smithsonian">
+
+    <div class="cs-panel" id="panel-listing">
       <div class="cs-hero">
-        <div class="hero-bg-layer bg-smithsonian"></div>
+        <div class="hero-bg-layer bg-listing"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-smithsonian">&#127981; Case Study 03</div>
-          <h1 class="cs-hero-title">Smithsonian Archives of American Art</h1>
-          <p class="cs-hero-sub">Reimagining search and discovery for one of the world's largest archives of visual art documentation — serving scholars, researchers, and the curious public.</p>
+          <div class="cs-badge badge-listing">&#9889; Case Study 03</div>
+          <h1 class="cs-hero-title">Listing Doctor</h1>
+          <p class="cs-hero-sub">Designing an application for the listing quality team at Spreetail to seamlessly track and fix listing errors on Amazon, Walmart, eBay and other marketplaces.</p>
           <div class="cs-pills">
-            <span class="cs-pill">Information Architecture</span><span class="cs-pill">Search UX</span><span class="cs-pill">Accessibility</span><span class="cs-pill">Cultural UX</span>
+            <span class="cs-pill">UX Research</span><span class="cs-pill">Prototyping</span><span class="cs-pill">Workshop Facilitation</span><span class="cs-pill">Usability Testing</span><span class="cs-pill">E-commerce</span>
           </div>
         </div>
       </div>
       <div class="meta-bar">
-        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">UX Designer (Lead)</div></div>
-        <div class="meta-item"><span class="meta-lbl">Timeline</span><div class="meta-val">6 Months &middot; 2022</div></div>
-        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; Archivists</div></div>
-        <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web &middot; Public Institution</div></div>
+        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">UX Lead</div></div>
+        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val" style="font-size:0.95rem;">1 PM, 1 Tech Lead, 5 Devs</div></div>
+        <div class="meta-item"><span class="meta-lbl">Goal</span><div class="meta-val" style="color:var(--sage);">82% → 95% Active Listings</div></div>
+        <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web App &middot; SaaS</div></div>
       </div>
       <div class="cs-body">
         <div class="overview">
-          <div><span class="ov-lbl">Context</span><p class="ov-txt">The Smithsonian's Archives of American Art holds <strong>over 20 million items</strong> — letters, sketchbooks, photos, oral histories. The existing search experience made this treasure largely undiscoverable.</p></div>
-          <div><span class="ov-lbl">My Role</span><p class="ov-txt">Lead the end-to-end redesign of the search and browse experience. Balance the needs of <strong>academic researchers</strong> who need precision with <strong>casual visitors</strong> who want serendipitous discovery.</p></div>
+          <div><span class="ov-lbl">The Struggle</span><p class="ov-txt">Spreetail's listing quality team fell behind in keeping up with listing errors for hundreds of new products across multiple marketplaces. This was costing the company millions in inactive listings. <strong>The fix wasn't the problem</strong> — it was the tedious task of combing through mismatched error formats dumped into excel sheets from various APIs.</p></div>
+          <div><span class="ov-lbl">The Goal</span><p class="ov-txt">To design a solution that streamlines the identification, tracking, and resolution of these errors, ultimately aiming to increase the percentage of active listings from <strong>82% to more than 95%</strong> across all marketplaces.</p></div>
         </div>
+        
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">The Dual User Challenge</h2><div class="sec-rule"></div></div>
-          <p>The most complex challenge was designing for <strong>two radically different mental models</strong> on the same interface. A PhD art historian has completely different needs than a high school student browsing for reference material.</p>
+          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Discovery Workshops</h2><div class="sec-rule"></div></div>
+          <p>I facilitated a cross-functional design workshop that utilized Affinity Mapping, Crazy 8 sketching, and dot voting. I brought together Marketplace Managers, Operations, Vendor Managers, and the Listing Quality Team to brainstorm issues and align on solutions.</p>
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Research Process" style="width:100%; border-radius:6px; margin-bottom: 24px; box-shadow:0 4px 15px rgba(0,0,0,0.05);" />
           <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico">🎓</span><div class="in-title">Researchers need precision tools</div><div class="in-txt">Faceted search with 12+ filter dimensions, Boolean operators, date range sliders, and the ability to save and share search queries.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico">🌿</span><div class="in-title">Visitors need serendipity</div><div class="in-txt">Visual browse modes, "Related works" connections, artist timelines, thematic collections. Discovery over search. The archive as a museum, not a database.</div></div>
-            <div class="insight" data-n="3"><span class="in-ico">♿</span><div class="in-title">Accessibility is an ethical imperative</div><div class="in-txt">Public cultural institutions have a WCAG AA obligation. Every design decision was tested against screen readers, contrast ratios, and keyboard navigation.</div></div>
-            <div class="insight" data-n="4"><span class="in-ico">📜</span><div class="in-title">Metadata quality is uneven</div><div class="in-txt">Some items have rich metadata; others are a scan with a two-word description. The UI needed to gracefully handle both extremes.</div></div>
+            <div class="insight" data-n="1"><span class="in-ico">📊</span><div class="in-title">Unified Overview Needed</div><div class="in-txt">Users needed a clean, aggregated overview of listing errors for each individual marketplace, rather than raw excel exports.</div></div>
+            <div class="insight" data-n="2"><span class="in-ico">💰</span><div class="in-title">Financial Visibility</div><div class="in-txt">There was a strong desire to view the direct financial impact of listings with unresolved errors to help prioritize the workload.</div></div>
+            <div class="insight" data-n="3"><span class="in-ico">✋</span><div class="in-title">Claiming & Noting</div><div class="in-txt">The quality team needed the ability to "claim" specific listing errors for resolution and attach notes for ongoing follow-ups.</div></div>
           </div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Key Design Solution</h2><div class="sec-rule"></div></div>
-          <p>We introduced a <strong>"Search Mode" toggle</strong> — a subtle but powerful interaction that transformed the interface from an academic search tool to a visual browse experience without creating two separate sites.</p>
+          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Design Iterations & Testing</h2><div class="sec-rule"></div></div>
+          <div class="process">
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);">🗺️</div><div><div class="proc-title">Journey Mapping & Wireframing</div><div class="proc-desc">Partnered with the PM to map the user journey and transform ideation data into low-fidelity wireframes. Focused heavily on organizing different error categories across various marketplaces.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">🧪</div><div><div class="proc-title">Wireframe Testing</div><div class="proc-desc">Walkthroughs with the listing quality team validated our approach. Users successfully identified features that were missing, allowing us to pivot quickly before moving to high fidelity.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">✨</div><div><div class="proc-title">High-Fidelity & Handoff</div><div class="proc-desc">Utilized our in-house Meta design system. After 4 distinct rounds of iterations, the designs were handed off, followed by weekly sync-ups with developers to navigate feasibility constraints.</div></div></div>
+          </div>
+        </div>
+
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Soft Launch Insights</h2><div class="sec-rule"></div></div>
+          <p>We launched a beta version to a select group of 8 users representing different personas. While users praised the simplicity and clear error messaging, a major challenge arose.</p>
+          <div class="cs-quote">
+            <blockquote>"We want to download an excel report of all the errors that we can work through."</blockquote>
+            <cite>&mdash; Beta Users</cite>
+          </div>
           <div class="decisions">
-            <div class="decision"><div class="dec-before">Single experience tried to serve both audiences. Advanced filters cluttered casual browse; removing them frustrated researchers.</div><div class="dec-after"><strong>Progressive disclosure with mode-switching.</strong> Default "Explore" mode is visual and spacious. "Research" mode reveals all 12 filter dimensions. Both share the same URL structure for citation.</div></div>
-            <div class="decision"><div class="dec-before">Items with sparse metadata showed as near-empty cards — broken-feeling, appearing low-quality vs. richer items.</div><div class="dec-after"><strong>Metadata-adaptive card templates.</strong> Cards intelligently resize based on available metadata. Sparse items get a more visual treatment; rich items show structured data grids.</div></div>
+            <div class="decision"><div class="dec-before">Users struggled to prioritize their workload based solely on the volume of errors presented in the dashboard list.</div><div class="dec-after"><strong>Business Impact View.</strong> Created a separate view focused entirely on error metrics and their impact on business revenue, catering to both the quality and marketplace teams.</div></div>
+            <div class="decision"><div class="dec-before">Users were restricted to exploring errors via generic categories, disrupting their existing habits.</div><div class="dec-after"><strong>Mental Model Alignment.</strong> Redesigned the search functionality to allow users to search directly via item numbers, aligning with their existing mental model.</div></div>
           </div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes & Reflections</h2><div class="sec-rule"></div></div>
           <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--gold);">+47%</span><span class="stat-l">Search Success Rate</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">WCAG AA</span><span class="stat-l">Accessibility Rating</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">2.8×</span><span class="stat-l">Time on Archive</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage);">82%→95%</span><span class="stat-l">Active Listings Reached</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">100%</span><span class="stat-l">Quarterly Goals Met</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--gold);">4</span><span class="stat-l">Design Iterations</span></div>
+          </div>
+          <div class="reflection">
+            <p><strong>API Independence:</strong> Finding solutions to track listing status that reduce our strict dependence on delayed API responses from marketplaces is a must moving forward.</p>
+            <p><strong>Empowering the Team:</strong> Building a system where the quality team can actively claim errors to fix—instead of blindly relying on system priority—proved to be key for engagement.</p>
+            <p><strong>Change Management:</strong> Focusing heavily on onboarding users by clearly highlighting the key benefits was critical in getting them to adapt to an entirely new process.</p>
           </div>
         </div>
+        
         <a href="#wingman" onclick="return show('wingman', document.querySelector('[href=\'#wingman\']'))" class="next-cta">
           <div><span class="next-lbl">Next Case Study</span><div class="next-title">Wingman &mdash; AI Travel Companion</div></div>
           <div class="next-arr">→</div>
         </a>
       </div>
     </div>
+
     <div class="cs-panel" id="panel-wingman">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-wingman"></div>
@@ -408,55 +467,54 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="hero-content">
           <div class="cs-badge badge-wingman">&#9992; Case Study 04</div>
           <h1 class="cs-hero-title">Wingman</h1>
-          <p class="cs-hero-sub">Integrating a Generative AI chatbot into a travel companion iOS app — designing conversational UX that feels genuinely human, contextual, and delightful.</p>
+          <p class="cs-hero-sub">Integrating OpenAI's ChatGPT technology into a travel companion iOS application to provide instant, personalized information in a conversational way.</p>
           <div class="cs-pills">
-            <span class="cs-pill">Conversational UI</span><span class="cs-pill">iOS Design</span><span class="cs-pill">Gen AI</span><span class="cs-pill">Prompt Design</span>
+            <span class="cs-pill">Conversational UI</span><span class="cs-pill">iOS Design</span><span class="cs-pill">Gen AI</span><span class="cs-pill">Usability Testing</span>
           </div>
         </div>
       </div>
       <div class="meta-bar">
-        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">Lead Product Designer</div></div>
-        <div class="meta-item"><span class="meta-lbl">Timeline</span><div class="meta-val">4 Months &middot; 2023</div></div>
-        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">2 Designers &middot; AI Eng</div></div>
+        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">UX Designer</div></div>
+        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val" style="font-size:0.95rem;">1 Partner, 1 PM</div></div>
+        <div class="meta-item"><span class="meta-lbl">Goal</span><div class="meta-val" style="color:var(--indigo);">Secure M&A Investment</div></div>
         <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">iOS &middot; Mobile</div></div>
       </div>
       <div class="cs-body">
         <div class="overview">
-          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Wingman had a powerful AI travel engine. But the <strong>chat interface felt cold and robotic</strong> — like texting a FAQ bot. Users disengaged after 1–2 messages. The AI's capability was invisible behind a poor conversational experience.</p></div>
-          <div><span class="ov-lbl">The Goal</span><p class="ov-txt">Design a conversational experience where the AI feels like a <strong>knowledgeable local friend</strong> — proactive, contextual, with personality — while staying honest about its limitations.</p></div>
+          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">To demonstrate the "art of the possible" to a Mergers and Acquisitions firm by showcasing how innovative conversational chat UI can seamlessly integrate disparate travel services into a single, cohesive user experience.</p></div>
+          <div><span class="ov-lbl">The Goal</span><p class="ov-txt">Design a high-fidelity conversational prototype to secure the M&A firm's support and investment in selected companies, whose services were simulated as seamless integrations within our chat interface.</p></div>
         </div>
+
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Designing for Conversation</h2><div class="sec-rule"></div></div>
-          <p>Conversational UI design sits at the intersection of <strong>UX writing, interaction design, and prompt engineering</strong>. I led discovery with 15 frequent travellers across Vancouver, Toronto, and Delhi to understand how people naturally ask for travel advice.</p>
           <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎙️</div><div><div class="proc-title">Voice &amp; Personality Definition</div><div class="proc-desc">Defined the AI's personality: knowledgeable but not condescending, enthusiastic but not exhausting, honest about uncertainty. Created a voice guide with 20+ do/don't example exchanges.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.2);color:#ff5e9f;">🗺️</div><div><div class="proc-title">Conversation Flow Mapping</div><div class="proc-desc">Mapped 8 core conversation journeys and identified the 12 most common "dead end" patterns that needed graceful recovery design.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">💬</div><div><div class="proc-title">Prompt Scaffolding Design</div><div class="proc-desc">Worked directly with AI engineering to design conversation-starter suggestions, contextual prompts, and response format guidelines that make outputs visually parseable within iOS.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎙️</div><div><div class="proc-title">Step 1: User-Based Context Research</div><div class="proc-desc">Conducted extensive research to comprehend user needs within a chaotic airport environment—ranging from connecting flight info and lounge facilities to boarding gates and F&B options.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.2);color:#ff5e9f;">🤖</div><div><div class="proc-title">Step 2: Technology Integration</div><div class="proc-desc">Integrated OpenAI’s ChatGPT logic into the existing app design. The integration aimed to offer highly personalized assistance to travelers, moving beyond standard FAQ bots.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">📱</div><div><div class="proc-title">Step 3: User-Centric Design</div><div class="proc-desc">Focused heavily on usability and feedback from the original application to guarantee seamless interaction between the mobile UI and its users.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);">♿</div><div><div class="proc-title">Step 4: Accessibility Considerations</div><div class="proc-desc">Strictly adhered to universal design principles. Incorporated high color contrast, simple text, recognizable icons, and voice-enabled AI to ensure maximum accessibility.</div></div></div>
           </div>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Key Innovations</h2><div class="sec-rule"></div></div>
-          <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico">🎯</span><div class="in-title">Contextual Conversation Starters</div><div class="in-txt">When a user opens the app at 7pm in Tokyo, the AI surfaces "Good evening! Looking for dinner recommendations nearby?" — not a blank chat input.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico">🃏</span><div class="in-title">Rich Response Cards</div><div class="in-txt">AI responses that include places render as interactive cards — not walls of text. Tap to open in Maps, save to itinerary, or share with travel partners.</div></div>
-            <div class="insight" data-n="3"><span class="in-ico">🤍</span><div class="in-title">Honest Uncertainty Design</div><div class="in-txt">A distinct visual treatment for hedged responses ("I'm not 100% certain — verify on Google"). Users trusted the AI more because it acknowledged its limits.</div></div>
-            <div class="insight" data-n="4"><span class="in-ico">🔁</span><div class="in-title">Trip Memory &amp; Continuity</div><div class="in-txt">"How was that ramen place I suggested yesterday?" feels magical and creates genuine emotional engagement with the product across sessions.</div></div>
-          </div>
-          <div class="cs-quote">
-            <blockquote>"I forgot I was talking to an AI. It felt like messaging a friend who happened to know everything about Tokyo."</blockquote>
-            <cite>&mdash; Beta Tester, UX Feedback Session &middot; Vancouver</cite>
-          </div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Testing & Validation</h2><div class="sec-rule"></div></div>
+          <p>I conducted rigorous usability tests using the high-fidelity prototype with four key stakeholder participants. Observations encompassing the ChatGPT feature's utility and usability were carefully documented and utilized to polish the prototype before the massive M&A presentation.</p>
         </div>
+
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Outcomes</h2><div class="sec-rule"></div></div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Outcomes & Success</h2><div class="sec-rule"></div></div>
           <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--indigo);">4.8×</span><span class="stat-l">Chat Session Length</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">78%</span><span class="stat-l">D7 Retention Rate</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">4.6★</span><span class="stat-l">App Store Rating</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--indigo);">100%</span><span class="stat-l">Stakeholder Buy-In</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage);">4/4</span><span class="stat-l">Usability Success</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">Active</span><span class="stat-l">M&A Negotiations</span></div>
+          </div>
+          <div class="outcomes" style="margin-top:20px;">
+            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>A Resounding Success:</strong> The presentation successfully achieved its goal of securing support from the M&A firm for investing in the selected target companies.</div></div>
+            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Moving Forward:</strong> Thanks to the tangible demonstration of the integrated UI, the team immediately moved into the active negotiation phase with the respective companies.</div></div>
           </div>
         </div>
-        <a href="#listing" onclick="return show('listing', document.querySelector('[href=\'#listing\']'))" class="next-cta">
-          <div><span class="next-lbl">Back to First</span><div class="next-title">&#8592; Listing Doctor</div></div>
+
+        <a href="#eyq" onclick="return show('eyq', document.querySelector('[href=\'#eyq\']'))" class="next-cta">
+          <div><span class="next-lbl">Back to First</span><div class="next-title">&#8592; EYQ Platform</div></div>
           <div class="next-arr" style="transform:none;">←</div>
         </a>
       </div>
@@ -465,16 +523,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 </div>
 
 <script>
-const IDS = ['listing','saas','smithsonian','wingman'];
+// JS array updated to match new IDs order
+const IDS = ['eyq', 'saas', 'listing', 'wingman'];
+
 function show(id, navEl) {
   document.querySelectorAll('.cs-panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-' + id).classList.add('active');
+  
   document.querySelectorAll('.sb-item').forEach(n => n.classList.remove('active'));
   if (navEl) navEl.classList.add('active');
+  
   document.getElementById('main-scroll').scrollTo({ top: 0, behavior: 'smooth' });
   history.replaceState(null, '', '#' + id);
   return false;
 }
+
 window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#','');
   if (IDS.includes(hash)) {
@@ -482,6 +545,7 @@ window.addEventListener('DOMContentLoaded', () => {
     show(hash, navEl);
   }
 });
+
 document.addEventListener('keydown', e => {
   const current = document.querySelector('.cs-panel.active')?.id.replace('panel-','');
   const idx = IDS.indexOf(current);
