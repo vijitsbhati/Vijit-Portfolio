@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Case Studies</title>
+  <style>
+    body{font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f5f5f7;color:#111;}
+    .card{width:320px;padding:32px;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.08);background:#fff;}
+    h1{font-size:1.25rem;margin:0 0 18px;}
+    input{width:100%;padding:12px 14px;margin:10px 0;border:1px solid rgba(0,0,0,0.15);border-radius:10px;font-size:1rem;}
+    button{width:100%;padding:12px 14px;margin-top:10px;border:none;border-radius:10px;background:#ff2a85;color:#fff;font-weight:700;cursor:pointer;}
+    button:disabled{opacity:.55;cursor:not-allowed;}
+    .note{font-size:.9rem;color:#666;margin-top:14px;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Protected Content</h1>
+    <p>Enter the password to view the case studies.</p>
+    <form id="login">
+      <input name="password" type="password" placeholder="Password" required autocomplete="current-password" />
+      <button type="submit">Unlock</button>
+    </form>
+    <p class="note">This page is protected via server-side middleware.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('login');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitBtn = form.querySelector('button');
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        window.location.href = '/case-studies.html';
+      } else {
+        alert('Incorrect password.');
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
