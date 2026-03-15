@@ -4,8 +4,8 @@ module.exports = function handler(req, res) {
     return res.status(405).end('Method Not Allowed');
   }
 
-  const password = (req.body && req.body.password) || '';
-  const expected = process.env.CASE_STUDIES_PASSWORD;
+  const password = String((req.body && req.body.password) || '').trim();
+  const expected = String(process.env.CASE_STUDIES_PASSWORD || '').trim();
 
   if (!expected) {
     return res.status(500).end('Server not configured');

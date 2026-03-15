@@ -32,10 +32,11 @@
       const submitBtn = form.querySelector('button');
       submitBtn.disabled = true;
 
-      const formData = new FormData(form);
+      const password = form.querySelector('[name="password"]').value;
       const response = await fetch('/api/login', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
       });
 
       if (response.ok) {
