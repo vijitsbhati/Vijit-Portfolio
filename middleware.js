@@ -1,23 +1,26 @@
-import { NextResponse } from 'next/server';
-
 const COOKIE_NAME = 'caseStudiesAuth';
 
-export function middleware(req) {
-  const url = req.nextUrl.clone();
-
-  if (!url.pathname.startsWith('/case-studies.html')) {
-    return NextResponse.next();
-  }
-
-  const token = req.cookies.get(COOKIE_NAME)?.value;
-  if (token === '1') {
-    return NextResponse.next();
-  }
-
-  url.pathname = '/login.html';
-  return NextResponse.redirect(url);
+function getCookie(cookies, name) {
+  const match = cookies.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  return match ? decodeURIComponent(match[1]) : undefined;
 }
 
 export const config = {
   matcher: ['/case-studies.html'],
 };
+
+export default async function middleware(request) {
+  const url = new URL(request.url);
+  if (!url.pathname.startsWith('/case-studies.html')) {
+    return fetch(request);
+  }
+
+  const cookieHeader = request.headers.get('cookie') || '';
+  const token = getCookie(cookieHeader, COOKIE_NAME);
+  if (token === '1') {
+    return fetch(request);
+  }
+
+  const loginUrl = new URL('/login.html', request.url);
+  return Response.redirect(loginUrl, 302);
+}
