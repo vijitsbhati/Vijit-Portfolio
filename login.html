@@ -1,3 +1,10 @@
+Ah, the input box likely vanished because the border and background colors were too light and blended completely into the card background!
+
+Here is the corrected `login.html` file. I have darkened the input border, added an inner shadow to give it depth, and set a distinct background color so the password field is clearly visible and clickable.
+
+### `login.html`
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +19,7 @@
       --bg:          #ffffff;
       --deep:        #f9f9fa;
       --card:        #ffffff;
-      --border:      rgba(0,0,0,0.08);
+      --border:      rgba(0,0,0,0.2); /* Darkened for better visibility */
       --pink:        #FF2A85;
       --pink-lt:     #ff5e9f;
       --white:       #ffffff;
@@ -77,7 +84,7 @@
       width: 100%;
       max-width: 420px;
       padding: 45px 40px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 8px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.04);
       text-align: center;
@@ -110,25 +117,32 @@
       margin-bottom: 28px;
     }
 
+    /* Fixed Input Box Styling */
     input {
       font-family: var(--fb);
       font-size: 1.05rem;
-      font-weight: 500;
+      font-weight: 600;
       width: 100%;
       padding: 14px 16px;
       margin-bottom: 16px;
-      border: 2px solid var(--border);
+      border: 2px solid var(--border); /* Much darker border */
       border-radius: 4px;
-      background: var(--deep);
+      background: #ffffff; /* Solid white background */
       color: var(--text-main);
       outline: none;
-      transition: border-color 0.2s, background 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
       text-align: center;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.03); /* Inner shadow for depth */
+    }
+
+    input::placeholder {
+      color: #888888;
+      font-weight: 400;
     }
 
     input:focus {
       border-color: var(--pink);
-      background: var(--bg);
+      box-shadow: 0 0 0 3px rgba(255, 42, 133, 0.15);
     }
 
     button {
@@ -183,4 +197,35 @@
     <p class="desc">Enter the password to view the case studies.</p>
     
     <form id="login">
-      <input name="password" type="password" placeholder="Password
+      <input name="password" type="password" placeholder="Password" required autocomplete="current-password" />
+      <button type="submit">Unlock</button>
+    </form>
+    
+    <p class="note">This page is protected via server-side middleware.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('login');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitBtn = form.querySelector('button');
+      submitBtn.disabled = true;
+
+      const password = form.querySelector('[name="password"]').value;
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        window.location.href = '/case-studies.html';
+      } else {
+        alert('Incorrect password.');
+        submitBtn.disabled = false;
+        form.querySelector('[name="password"]').value = ''; // Clear input on fail
+      }
+    });
+  </script>
+</body>
+</html>
