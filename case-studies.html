@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
 :root {
   --bg:          #ffffff;
@@ -40,7 +41,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
 .nav-logo{text-decoration:none;display:flex;align-items:center;}
-/* Updated Dark Pink Filter for consistency */
 .nav-logo-img{height:40px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);}
 
 .nav-right{display:flex;align-items:center;gap:26px;}
@@ -116,14 +116,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .insight{background:var(--card);border:1px solid var(--border);padding:28px;border-radius:6px;transition:all .2s;position:relative;overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
 .insight:hover{background:var(--card-h); transform:translateY(-3px);}
 .insight::after{content:attr(data-n);font-family:var(--fd);font-size:6rem;font-weight:700;color:var(--subtle);position:absolute;bottom:-15px;right:10px;line-height:1;user-select:none;}
-.in-ico{font-size:1.4rem;margin-bottom:12px;display:block;}
+.in-ico{margin-bottom:12px;display:block;}
+.in-ico i{width:32px; height:32px;}
 .in-title{font-weight:700;font-size:1.1rem;margin-bottom:8px;color:var(--text-main);}
 .in-txt{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 
 .process{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;}
 .proc-step{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:flex-start;background:var(--card);padding:24px 28px;border:1px solid var(--border);border-radius:6px;border-left:4px solid var(--border);transition:all .2s;}
 .proc-step:hover{background:var(--card-h);border-left-color:var(--pink); transform:translateX(4px);}
-.proc-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+.proc-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.proc-ico i{width:22px; height:22px;}
 .proc-title{font-weight:700;font-size:1.1rem;margin-bottom:6px;color:var(--text-main);}
 .proc-desc{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 
@@ -146,7 +148,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 
 .outcomes{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
 .outcome{display:flex;align-items:flex-start;gap:16px;background:var(--card);padding:18px 22px;border-radius:6px;border:1px solid var(--border); box-shadow:0 4px 15px rgba(0,0,0,0.02);}
-.oc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:2px;background:rgba(46,204,138,.15);color:var(--sage);border:1px solid rgba(46,204,138,.3); font-weight:bold;}
+.oc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;background:rgba(46,204,138,.15);color:var(--sage);border:1px solid rgba(46,204,138,.3);}
+.oc i { width:16px; height:16px; }
 .ot{font-size:1rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 .ot strong{color:var(--text-main);font-weight:700;}
 
@@ -156,7 +159,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .next-cta:hover{background:var(--subtle);border-color:var(--pink); transform:translateY(-3px);}
 .next-lbl{font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block;}
 .next-title{font-family:var(--fd);font-size:1.5rem;font-weight:700;}
-.next-arr{width:54px;height:54px;border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;transition:all .2s;}
+.next-arr{width:54px;height:54px;border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.next-arr i { width:24px; height:24px;}
 .next-cta:hover .next-arr{background:var(--pink);border-color:var(--pink);color:var(--white);transform:translateX(6px);}
 
 @media(max-width:900px){
@@ -180,8 +184,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
   </a>
   <div class="nav-right">
     <a href="index.html">&#8592; Portfolio</a>
+    <a href="teaching.html">Teaching</a>
     <a href="index.html#about">About</a>
-    <a href="mailto:vijit@example.com" style="color:var(--pink);">Contact</a>
   </div>
 </nav>
 
@@ -227,7 +231,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="hero-bg-layer bg-eyq"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-eyq" style="color: var(--white);">&#128300; Case Study 01</div>
+          <div class="cs-badge badge-eyq" style="color: var(--white);"><i data-lucide="shield-check" style="width:16px;height:16px;"></i> Case Study 01</div>
           <h1 class="cs-hero-title">EYQ – Enterprise Generative AI Platform</h1>
           <p class="cs-hero-sub">Designing a centralized AI marketplace enabling practitioners to create, manage, and safely use AI-powered “skills” for consulting workflows.</p>
           <div class="cs-pills">
@@ -251,9 +255,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">User Research & Personas</h2><div class="sec-rule"></div></div>
           <p>We began by defining the three core personas the platform needed to support. A critical design insight quickly emerged: <strong>The platform needed to function as a skills ecosystem, not just a chatbot.</strong></p>
           <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico">💼</span><div class="in-title">Client Practitioners</div><div class="in-txt">Consultants needing quick access to trusted, reusable AI capabilities to automate tasks and improve day-to-day efficiency.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico">💻</span><div class="in-title">EY Developers</div><div class="in-txt">Technical users building AI solutions, integrating models, and publishing reusable skills for business workflows.</div></div>
-            <div class="insight" data-n="3"><span class="in-ico">🛡️</span><div class="in-title">Platform Admins</div><div class="in-txt">Administrators requiring analytics dashboards to monitor usage, track performance, and ensure governance standards.</div></div>
+            <div class="insight" data-n="1"><span class="in-ico"><i data-lucide="briefcase"></i></span><div class="in-title">Client Practitioners</div><div class="in-txt">Consultants needing quick access to trusted, reusable AI capabilities to automate tasks and improve day-to-day efficiency.</div></div>
+            <div class="insight" data-n="2"><span class="in-ico"><i data-lucide="terminal"></i></span><div class="in-title">EY Developers</div><div class="in-txt">Technical users building AI solutions, integrating models, and publishing reusable skills for business workflows.</div></div>
+            <div class="insight" data-n="3"><span class="in-ico"><i data-lucide="shield-check"></i></span><div class="in-title">Platform Admins</div><div class="in-txt">Administrators requiring analytics dashboards to monitor usage, track performance, and ensure governance standards.</div></div>
           </div>
         </div>
 
@@ -261,9 +265,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
           <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Experience Strategy & Concepting</h2><div class="sec-rule"></div></div>
           <p>We defined core user journeys around selecting an existing skill, creating a custom skill, and starting a direct AI conversation.</p>
           <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);">🗺️</div><div><div class="proc-title">System Architecture</div><div class="proc-desc">Designed user flows allowing teams to build skills using contextual data, share with colleagues, and test outputs before publishing.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">✏️</div><div><div class="proc-title">Low-Fidelity Concepting</div><div class="proc-desc">Explored core interactions: the AI skill marketplace, prompt library management, and context-aware chat interactions.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🖥️</div><div><div class="proc-title">Validation Testing</div><div class="proc-desc">Ran usability tests to ensure users understood how to activate skills, edit parameters, and switch between general AI chat and specific workflows.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);"><i data-lucide="network"></i></div><div><div class="proc-title">System Architecture</div><div class="proc-desc">Designed user flows allowing teams to build skills using contextual data, share with colleagues, and test outputs before publishing.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="pencil-ruler"></i></div><div><div class="proc-title">Low-Fidelity Concepting</div><div class="proc-desc">Explored core interactions: the AI skill marketplace, prompt library management, and context-aware chat interactions.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);"><i data-lucide="monitor-play"></i></div><div><div class="proc-title">Validation Testing</div><div class="proc-desc">Ran usability tests to ensure users understood how to activate skills, edit parameters, and switch between general AI chat and specific workflows.</div></div></div>
           </div>
         </div>
 
@@ -278,9 +282,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes & Impact</h2><div class="sec-rule"></div></div>
           <div class="outcomes">
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Rapid Onboarding</strong> due to a simplified user experience tailored specifically for enterprise workflows.</div></div>
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Increased Creation</strong> of reusable AI skills scaling seamlessly across multiple consulting teams.</div></div>
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Higher Adoption</strong> of secure internal AI tools compared to risky external alternatives.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Rapid Onboarding</strong> due to a simplified user experience tailored specifically for enterprise workflows.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Increased Creation</strong> of reusable AI skills scaling seamlessly across multiple consulting teams.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Higher Adoption</strong> of secure internal AI tools compared to risky external alternatives.</div></div>
           </div>
         </div>
 
@@ -295,7 +299,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 
         <a href="#saas" onclick="return show('saas', document.querySelector('[href=\'#saas\']'))" class="next-cta">
           <div><span class="next-lbl">Next Case Study</span><div class="next-title">SaaS Contract Analyzer</div></div>
-          <div class="next-arr">→</div>
+          <div class="next-arr"><i data-lucide="arrow-right"></i></div>
         </a>
       </div>
     </div>
@@ -305,7 +309,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="hero-bg-layer bg-saas"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-saas">&#128300; Case Study 02</div>
+          <div class="cs-badge badge-saas"><i data-lucide="brain" style="width:16px;height:16px;"></i> Case Study 02</div>
           <h1 class="cs-hero-title">SaaS Contract Analyzer</h1>
           <p class="cs-hero-sub">Augmenting the financial auditing process for SaaS Contracts at EY by designing an application that identifies and annotates financially impactful sections.</p>
           <div class="cs-pills">
@@ -329,18 +333,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Brainstorming & Ideation</h2><div class="sec-rule"></div></div>
           <p>I facilitated a virtual design workshop on Mural with Auditors, ML Experts, PMs, and the Tech Lead to define the problem statement and identify high-priority functions.</p>
           <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico">⚖️</span><div class="in-title">Human-in-the-Loop</div><div class="in-txt">Users needed the ability to confidently approve or reject machine-generated recommendations before they were finalized.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico">📈</span><div class="in-title">Scalable Architecture</div><div class="in-txt">The solution needed to be designed so it could eventually scale across different departments for various document types.</div></div>
-            <div class="insight" data-n="3"><span class="in-ico">✍️</span><div class="in-title">Manual Categorization</div><div class="in-txt">Even with ML, auditors required the fallback ability to manually add, highlight, and categorize clauses within the documents.</div></div>
+            <div class="insight" data-n="1"><span class="in-ico"><i data-lucide="scale"></i></span><div class="in-title">Human-in-the-Loop</div><div class="in-txt">Users needed the ability to confidently approve or reject machine-generated recommendations before they were finalized.</div></div>
+            <div class="insight" data-n="2"><span class="in-ico"><i data-lucide="trending-up"></i></span><div class="in-title">Scalable Architecture</div><div class="in-txt">The solution needed to be designed so it could eventually scale across different departments for various document types.</div></div>
+            <div class="insight" data-n="3"><span class="in-ico"><i data-lucide="pen-tool"></i></span><div class="in-title">Manual Categorization</div><div class="in-txt">Even with ML, auditors required the fallback ability to manually add, highlight, and categorize clauses within the documents.</div></div>
           </div>
         </div>
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Design Iterations</h2><div class="sec-rule"></div></div>
           <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">✏️</div><div><div class="proc-title">Collaborative Sketching & Wireframing</div><div class="proc-desc">Conducted sketching sessions to capture the stakeholders' ideal auditing workflow. Built low-fi wireframes focusing on how auditors would interact with machine-identified clauses.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎨</div><div><div class="proc-title">High-Fidelity & Motif System</div><div class="proc-desc">Moved to high-fidelity using our in-house Motif design system. Conducted 2 rounds of testing with stakeholders before entering a weekly sync rhythm with developers.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);">⚙️</div><div><div class="proc-title">Admin Dashboard Creation</div><div class="proc-desc">Designed specialized admin screens for the internal team to monitor model performance and track user usage metrics prior to the broader launch.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="pencil"></i></div><div><div class="proc-title">Collaborative Sketching & Wireframing</div><div class="proc-desc">Conducted sketching sessions to capture the stakeholders' ideal auditing workflow. Built low-fi wireframes focusing on how auditors would interact with machine-identified clauses.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);"><i data-lucide="palette"></i></div><div><div class="proc-title">High-Fidelity & Motif System</div><div class="proc-desc">Moved to high-fidelity using our in-house Motif design system. Conducted 2 rounds of testing with stakeholders before entering a weekly sync rhythm with developers.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);"><i data-lucide="settings"></i></div><div><div class="proc-title">Admin Dashboard Creation</div><div class="proc-desc">Designed specialized admin screens for the internal team to monitor model performance and track user usage metrics prior to the broader launch.</div></div></div>
           </div>
         </div>
 
@@ -364,8 +368,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
             <div class="stat"><span class="stat-n" style="color:var(--gold);">80%</span><span class="stat-l">Auditor Adoption</span></div>
           </div>
           <div class="outcomes" style="margin-top:20px;">
-            <div class="outcome"><div class="oc">✓</div><div class="ot">Achieved an 80% ML model accuracy in the first month, which soared to <strong>92% after just four months</strong>.</div></div>
-            <div class="outcome"><div class="oc">✓</div><div class="ot">Adopted by 80% of financial auditors across EY, accounting for roughly <strong>50% of the revenue generated</strong> by the auditing department.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot">Achieved an 80% ML model accuracy in the first month, which soared to <strong>92% after just four months</strong>.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot">Adopted by 80% of financial auditors across EY, accounting for roughly <strong>50% of the revenue generated</strong> by the auditing department.</div></div>
           </div>
           <div class="reflection">
             <p><strong>Early Dev Involvement:</strong> Bringing developers into early brainstorming sessions severely reduces back-and-forth caused by feasibility restrictions, especially with complex ML implementations.</p>
@@ -376,7 +380,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 
         <a href="#listing" onclick="return show('listing', document.querySelector('[href=\'#listing\']'))" class="next-cta">
           <div><span class="next-lbl">Next Case Study</span><div class="next-title">Listing Doctor</div></div>
-          <div class="next-arr">→</div>
+          <div class="next-arr"><i data-lucide="arrow-right"></i></div>
         </a>
       </div>
     </div>
@@ -386,7 +390,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="hero-bg-layer bg-listing"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-listing">&#9889; Case Study 03</div>
+          <div class="cs-badge badge-listing"><i data-lucide="zap" style="width:16px;height:16px;"></i> Case Study 03</div>
           <h1 class="cs-hero-title">Listing Doctor</h1>
           <p class="cs-hero-sub">Designing an application for the listing quality team at Spreetail to seamlessly track and fix listing errors on Amazon, Walmart, eBay and other marketplaces.</p>
           <div class="cs-pills">
@@ -411,18 +415,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
           <p>I facilitated a cross-functional design workshop that utilized Affinity Mapping, Crazy 8 sketching, and dot voting. I brought together Marketplace Managers, Operations, Vendor Managers, and the Listing Quality Team to brainstorm issues and align on solutions.</p>
           <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Research Process" style="width:100%; border-radius:6px; margin-bottom: 24px; box-shadow:0 4px 15px rgba(0,0,0,0.05);" />
           <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico">📊</span><div class="in-title">Unified Overview Needed</div><div class="in-txt">Users needed a clean, aggregated overview of listing errors for each individual marketplace, rather than raw excel exports.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico">💰</span><div class="in-title">Financial Visibility</div><div class="in-txt">There was a strong desire to view the direct financial impact of listings with unresolved errors to help prioritize the workload.</div></div>
-            <div class="insight" data-n="3"><span class="in-ico">✋</span><div class="in-title">Claiming & Noting</div><div class="in-txt">The quality team needed the ability to "claim" specific listing errors for resolution and attach notes for ongoing follow-ups.</div></div>
+            <div class="insight" data-n="1"><span class="in-ico"><i data-lucide="bar-chart-3"></i></span><div class="in-title">Unified Overview Needed</div><div class="in-txt">Users needed a clean, aggregated overview of listing errors for each individual marketplace, rather than raw excel exports.</div></div>
+            <div class="insight" data-n="2"><span class="in-ico"><i data-lucide="circle-dollar-sign"></i></span><div class="in-title">Financial Visibility</div><div class="in-txt">There was a strong desire to view the direct financial impact of listings with unresolved errors to help prioritize the workload.</div></div>
+            <div class="insight" data-n="3"><span class="in-ico"><i data-lucide="check-square"></i></span><div class="in-title">Claiming & Noting</div><div class="in-txt">The quality team needed the ability to "claim" specific listing errors for resolution and attach notes for ongoing follow-ups.</div></div>
           </div>
         </div>
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Design Iterations & Testing</h2><div class="sec-rule"></div></div>
           <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);">🗺️</div><div><div class="proc-title">Journey Mapping & Wireframing</div><div class="proc-desc">Partnered with the PM to map the user journey and transform ideation data into low-fidelity wireframes. Focused heavily on organizing different error categories across various marketplaces.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">🧪</div><div><div class="proc-title">Wireframe Testing</div><div class="proc-desc">Walkthroughs with the listing quality team validated our approach. Users successfully identified features that were missing, allowing us to pivot quickly before moving to high fidelity.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">✨</div><div><div class="proc-title">High-Fidelity & Handoff</div><div class="proc-desc">Utilized our in-house Meta design system. After 4 distinct rounds of iterations, the designs were handed off, followed by weekly sync-ups with developers to navigate feasibility constraints.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);"><i data-lucide="map"></i></div><div><div class="proc-title">Journey Mapping & Wireframing</div><div class="proc-desc">Partnered with the PM to map the user journey and transform ideation data into low-fidelity wireframes. Focused heavily on organizing different error categories across various marketplaces.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="flask-conical"></i></div><div><div class="proc-title">Wireframe Testing</div><div class="proc-desc">Walkthroughs with the listing quality team validated our approach. Users successfully identified features that were missing, allowing us to pivot quickly before moving to high fidelity.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);"><i data-lucide="sparkles"></i></div><div><div class="proc-title">High-Fidelity & Handoff</div><div class="proc-desc">Utilized our in-house Meta design system. After 4 distinct rounds of iterations, the designs were handed off, followed by weekly sync-ups with developers to navigate feasibility constraints.</div></div></div>
           </div>
         </div>
 
@@ -455,7 +459,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         
         <a href="#wingman" onclick="return show('wingman', document.querySelector('[href=\'#wingman\']'))" class="next-cta">
           <div><span class="next-lbl">Next Case Study</span><div class="next-title">Wingman &mdash; AI Travel Companion</div></div>
-          <div class="next-arr">→</div>
+          <div class="next-arr"><i data-lucide="arrow-right"></i></div>
         </a>
       </div>
     </div>
@@ -465,7 +469,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="hero-bg-layer bg-wingman"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-wingman">&#9992; Case Study 04</div>
+          <div class="cs-badge badge-wingman"><i data-lucide="smartphone" style="width:16px;height:16px;"></i> Case Study 04</div>
           <h1 class="cs-hero-title">Wingman</h1>
           <p class="cs-hero-sub">Integrating OpenAI's ChatGPT technology into a travel companion iOS application to provide instant, personalized information in a conversational way.</p>
           <div class="cs-pills">
@@ -488,10 +492,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Designing for Conversation</h2><div class="sec-rule"></div></div>
           <div class="process">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎙️</div><div><div class="proc-title">Step 1: User-Based Context Research</div><div class="proc-desc">Conducted extensive research to comprehend user needs within a chaotic airport environment—ranging from connecting flight info and lounge facilities to boarding gates and F&B options.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.2);color:#ff5e9f;">🤖</div><div><div class="proc-title">Step 2: Technology Integration</div><div class="proc-desc">Integrated OpenAI’s ChatGPT logic into the existing app design. The integration aimed to offer highly personalized assistance to travelers, moving beyond standard FAQ bots.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">📱</div><div><div class="proc-title">Step 3: User-Centric Design</div><div class="proc-desc">Focused heavily on usability and feedback from the original application to guarantee seamless interaction between the mobile UI and its users.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);">♿</div><div><div class="proc-title">Step 4: Accessibility Considerations</div><div class="proc-desc">Strictly adhered to universal design principles. Incorporated high color contrast, simple text, recognizable icons, and voice-enabled AI to ensure maximum accessibility.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);"><i data-lucide="mic"></i></div><div><div class="proc-title">Step 1: User-Based Context Research</div><div class="proc-desc">Conducted extensive research to comprehend user needs within a chaotic airport environment—ranging from connecting flight info and lounge facilities to boarding gates and F&B options.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.2);color:#ff5e9f;"><i data-lucide="bot"></i></div><div><div class="proc-title">Step 2: Technology Integration</div><div class="proc-desc">Integrated OpenAI’s ChatGPT logic into the existing app design. The integration aimed to offer highly personalized assistance to travelers, moving beyond standard FAQ bots.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="smartphone"></i></div><div><div class="proc-title">Step 3: User-Centric Design</div><div class="proc-desc">Focused heavily on usability and feedback from the original application to guarantee seamless interaction between the mobile UI and its users.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);"><i data-lucide="accessibility"></i></div><div><div class="proc-title">Step 4: Accessibility Considerations</div><div class="proc-desc">Strictly adhered to universal design principles. Incorporated high color contrast, simple text, recognizable icons, and voice-enabled AI to ensure maximum accessibility.</div></div></div>
           </div>
         </div>
 
@@ -508,14 +512,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
             <div class="stat"><span class="stat-n" style="color:var(--pink);">Active</span><span class="stat-l">M&A Negotiations</span></div>
           </div>
           <div class="outcomes" style="margin-top:20px;">
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>A Resounding Success:</strong> The presentation successfully achieved its goal of securing support from the M&A firm for investing in the selected target companies.</div></div>
-            <div class="outcome"><div class="oc">✓</div><div class="ot"><strong>Moving Forward:</strong> Thanks to the tangible demonstration of the integrated UI, the team immediately moved into the active negotiation phase with the respective companies.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>A Resounding Success:</strong> The presentation successfully achieved its goal of securing support from the M&A firm for investing in the selected target companies.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Moving Forward:</strong> Thanks to the tangible demonstration of the integrated UI, the team immediately moved into the active negotiation phase with the respective companies.</div></div>
           </div>
         </div>
 
         <a href="#eyq" onclick="return show('eyq', document.querySelector('[href=\'#eyq\']'))" class="next-cta">
           <div><span class="next-lbl">Back to First</span><div class="next-title">&#8592; EYQ Platform</div></div>
-          <div class="next-arr" style="transform:none;">←</div>
+          <div class="next-arr" style="transform:none;"><i data-lucide="arrow-left"></i></div>
         </a>
       </div>
     </div>
@@ -523,7 +527,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 </div>
 
 <script>
-// JS array updated to match new IDs order
+// Initialize Icons
+lucide.createIcons();
+
 const IDS = ['eyq', 'saas', 'listing', 'wingman'];
 
 function show(id, navEl) {

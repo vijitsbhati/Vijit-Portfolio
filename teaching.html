@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
 :root {
   --bg:          #ffffff;
@@ -36,7 +37,6 @@ body{background:var(--bg);color:var(--text-main);font-family:var(--fb);font-size
 ::-webkit-scrollbar-thumb{background:var(--pink);}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 4vw;height:90px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: height .3s;}
 nav.scrolled{height:75px;}
 .nav-logo{text-decoration:none;display:flex;align-items:center;}
@@ -49,7 +49,6 @@ nav.scrolled .nav-logo-img{height:50px;}
 .nav-cta{background:var(--pink)!important;color:var(--white)!important;padding:8px 22px;border-radius:4px;transition:background .2s!important;}
 .nav-cta:hover{background:var(--pink-lt)!important;}
 
-/* HERO */
 .t-hero{position:relative;background:var(--deep);padding:180px 4vw 80px;border-bottom:1px solid var(--border); overflow: hidden;}
 .t-hero-bg{position:absolute;inset:0;background-image:url('vancouver-hero.jpg');background-size:cover;background-position:center;opacity:0.08;}
 .t-hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;}
@@ -59,7 +58,6 @@ nav.scrolled .nav-logo-img{height:50px;}
 .t-pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
 .t-pill{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:6px 16px;background:var(--white);border:1px solid var(--border);border-radius:4px;color:var(--text-main);box-shadow:0 2px 10px rgba(0,0,0,0.03);}
 
-/* CONTENT LAYOUT */
 .t-container{max-width:900px;margin:0 auto;padding:80px 4vw;}
 .t-sec{margin-bottom:70px;}
 .t-sec-hd{display:flex;align-items:center;gap:16px;margin-bottom:30px;}
@@ -70,22 +68,22 @@ nav.scrolled .nav-logo-img{height:50px;}
 .t-body{font-size:1.05rem;color:var(--text-muted);line-height:1.8;font-weight:500;margin-bottom:24px;}
 .t-body strong{color:var(--text-main);font-weight:700;}
 
-/* CARDS & GRIDS */
 .insights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px;}
 .insight{background:var(--card);border:1px solid var(--border);padding:32px;border-radius:6px;transition:all .2s;position:relative;overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
 .insight:hover{background:var(--card-h); transform:translateY(-3px);}
-.in-ico{font-size:1.6rem;margin-bottom:12px;display:block;}
+.in-ico{margin-bottom:12px;display:block;}
+.in-ico i{width:32px; height:32px;}
 .in-title{font-weight:700;font-size:1.2rem;margin-bottom:8px;color:var(--text-main);font-family:var(--fd);}
 .in-txt{font-size:1rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 
 .process{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
 .proc-step{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:flex-start;background:var(--card);padding:24px 28px;border:1px solid var(--border);border-radius:6px;border-left:4px solid var(--border);transition:all .2s;}
 .proc-step:hover{background:var(--card-h);border-left-color:var(--pink); transform:translateX(4px);}
-.proc-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+.proc-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.proc-ico i{width:22px; height:22px;}
 .proc-title{font-weight:700;font-size:1.15rem;margin-bottom:6px;color:var(--text-main);font-family:var(--fd);}
 .proc-desc{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
 
-/* TESTIMONIALS REUSED */
 .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 .testi-card{background:var(--card);padding:40px 35px;border-radius:6px;border:1px solid var(--border);transition:all .2s; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
 .testi-card:hover{transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.08);}
@@ -96,14 +94,12 @@ nav.scrolled .nav-logo-img{height:50px;}
 .testi-name{font-weight:700;font-size:.95rem;margin-bottom:2px;color:var(--text-main);}
 .testi-role{font-size:.8rem;color:var(--text-muted);font-family:var(--fm);font-weight:600;letter-spacing:.02em;}
 
-/* CTA */
 .t-cta{background:var(--pink);color:var(--white);padding:60px;border-radius:8px;text-align:center;box-shadow:0 20px 40px rgba(255,42,133,0.15);margin-top:40px;}
 .t-cta h2{font-family:var(--fd);font-size:2.5rem;font-weight:700;margin-bottom:16px;}
 .t-cta p{font-size:1.1rem;font-weight:500;margin-bottom:30px;opacity:0.9;}
 .btn-w{display:inline-block;background:var(--white);color:var(--pink);padding:14px 32px;border-radius:4px;font-family:var(--fm);font-weight:700;font-size:1rem;letter-spacing:.05em;text-decoration:none;text-transform:uppercase;transition:transform .2s;}
 .btn-w:hover{transform:translateY(-3px);}
 
-/* STRIPE & FOOTER REUSED */
 .stripe{height:4px;background:linear-gradient(to right,#FF9933 0%,var(--pink) 33%,#138808 55%,var(--pink) 76%,#C41E3A 88%,var(--pink) 100%);opacity:.8;}
 footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4vw 40px;position:relative;z-index:2;}
 .footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:50px;margin-bottom:50px;}
@@ -164,12 +160,12 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     
     <div class="insights">
       <div class="insight">
-        <span class="in-ico">🎮</span>
+        <span class="in-ico" style="color:var(--indigo);"><i data-lucide="gamepad-2"></i></span>
         <div class="in-title">Electronic Arts (EA)</div>
         <div class="in-txt">Improved customer satisfaction by 10% across Data & Insights tools. Led UX research for the Data Marketplace, building scalable playbooks across teams.</div>
       </div>
       <div class="insight">
-        <span class="in-ico">💼</span>
+        <span class="in-ico" style="color:var(--gold);"><i data-lucide="briefcase"></i></span>
         <div class="in-title">Ernst & Young (EY)</div>
         <div class="in-txt">Led UX for the Generative AI product EYQ, delivering AI-driven workflows across enterprise domains and facilitating executive design thinking workshops.</div>
       </div>
@@ -180,21 +176,21 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     <div class="t-sec-hd"><span class="t-sec-num">02</span><h2 class="t-sec-title">Teaching & Mentorship</h2><div class="sec-rule"></div></div>
     <div class="process">
       <div class="proc-step">
-        <div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);">🎓</div>
+        <div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);"><i data-lucide="graduation-cap"></i></div>
         <div>
           <div class="proc-title">Lead UX Instructor @ BrainStation</div>
           <div class="proc-desc">Led cohorts of 20–25 students, owning end-to-end delivery of UX process, research, and product thinking. Guided students to build robust, job-ready portfolios resulting in successful career transitions.</div>
         </div>
       </div>
       <div class="proc-step">
-        <div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">🧑‍🏫</div>
+        <div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="users"></i></div>
         <div>
           <div class="proc-title">UX Tutor @ CareerFoundry</div>
           <div class="proc-desc">Mentored students through highly structured remote programs, providing deeply detailed project audits and actionable portfolio feedback.</div>
         </div>
       </div>
       <div class="proc-step">
-        <div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎤</div>
+        <div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);"><i data-lucide="mic"></i></div>
         <div>
           <div class="proc-title">Academic & Industry Contributions</div>
           <div class="proc-desc">Regular industry panelist discussing UX careers and hiring expectations. Active Hackathon Judge evaluating UX, usability, and product thinking for university programs.</div>
@@ -209,7 +205,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     
     <div class="insights">
       <div class="insight">
-        <span class="in-ico">📚</span>
+        <span class="in-ico" style="color:var(--text-main);"><i data-lucide="book-open"></i></span>
         <div class="in-title">Core Topics Available</div>
         <div class="in-txt">
           • UX Foundations & Product Thinking<br>
@@ -220,7 +216,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         </div>
       </div>
       <div class="insight">
-        <span class="in-ico">🤖</span>
+        <span class="in-ico" style="color:var(--pink);"><i data-lucide="bot"></i></span>
         <div class="in-title">AI in UX Workflows</div>
         <div class="in-txt">
           • Prompt design for UX ideation<br>
@@ -247,7 +243,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         <div class="testi-q">"</div>
         <p class="testi-txt">"Thought-provoking exercises and real-world examples make learning immediately applicable."</p>
         <div class="testi-person">
-          <div class="testi-av">🎓</div>
+          <div class="testi-av"><i data-lucide="graduation-cap" style="width:20px;height:20px;"></i></div>
           <div><div class="testi-name">UX Graduate</div><div class="testi-role">Student</div></div>
         </div>
       </div>
@@ -298,6 +294,9 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 </footer>
 
 <script>
+// Initialize Icons
+lucide.createIcons();
+
 // Navbar
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 55));
