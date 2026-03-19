@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teaching & Mentorship — Vijit Bhati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg:          #ffffff;
+  --deep:        #f9f9fa;
+  --card:        #ffffff;
+  --card-h:      #f0f2f5;
+  --border:      rgba(0,0,0,0.08);
+  --pink:        #FF2A85;
+  --pink-lt:     #ff5e9f;
+  --sage:        #2ecc8a;
+  --sakura:      #FFB7C5;
+  --cream:       #f5ede0;
+  --white:       #ffffff;
+  --text-main:   #1a1a1a;
+  --text-muted:  #5e5e5e;
+  --subtle:      rgba(0,0,0,0.03);
+  
+  --fd:          'Rajdhani', sans-serif;
+  --fm:          'Rajdhani', sans-serif;
+  --fb:          'Rajdhani', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text-main);font-family:var(--fb);font-size:18px;line-height:1.6;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--pink);}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 4vw;height:90px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: height .3s;}
+nav.scrolled{height:75px;}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-logo-img{height:60px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%); transition: height .3s;}
+nav.scrolled .nav-logo-img{height:50px;}
+
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:1.05rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--pink);}
+.nav-cta{background:var(--pink)!important;color:var(--white)!important;padding:8px 22px;border-radius:4px;transition:background .2s!important;}
+.nav-cta:hover{background:var(--pink-lt)!important;}
+
+/* HERO */
+.t-hero{position:relative;background:var(--deep);padding:180px 4vw 80px;border-bottom:1px solid var(--border); overflow: hidden;}
+.t-hero-bg{position:absolute;inset:0;background-image:url('vancouver-hero.jpg');background-size:cover;background-position:center;opacity:0.08;}
+.t-hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;}
+.t-hero-eye{font-family:var(--fm);font-size:.9rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;display:inline-block;}
+.t-hero-title{font-family:var(--fd);font-size:clamp(3rem,6vw,5rem);font-weight:700;line-height:1.1;margin-bottom:24px;color:var(--text-main);}
+.t-hero-desc{font-size:1.25rem;color:var(--text-muted);font-weight:500;line-height:1.6;max-width:700px;margin:0 auto 30px;}
+.t-pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.t-pill{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:6px 16px;background:var(--white);border:1px solid var(--border);border-radius:4px;color:var(--text-main);box-shadow:0 2px 10px rgba(0,0,0,0.03);}
+
+/* CONTENT LAYOUT */
+.t-container{max-width:900px;margin:0 auto;padding:80px 4vw;}
+.t-sec{margin-bottom:70px;}
+.t-sec-hd{display:flex;align-items:center;gap:16px;margin-bottom:30px;}
+.t-sec-num{font-family:var(--fm);font-size:.9rem;font-weight:700;letter-spacing:.1em;color:var(--pink);}
+.t-sec-title{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--text-main);}
+.sec-rule{flex:1;height:2px;background:var(--border);}
+
+.t-body{font-size:1.05rem;color:var(--text-muted);line-height:1.8;font-weight:500;margin-bottom:24px;}
+.t-body strong{color:var(--text-main);font-weight:700;}
+
+/* CARDS & GRIDS */
+.insights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px;}
+.insight{background:var(--card);border:1px solid var(--border);padding:32px;border-radius:6px;transition:all .2s;position:relative;overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
+.insight:hover{background:var(--card-h); transform:translateY(-3px);}
+.in-ico{font-size:1.6rem;margin-bottom:12px;display:block;}
+.in-title{font-weight:700;font-size:1.2rem;margin-bottom:8px;color:var(--text-main);font-family:var(--fd);}
+.in-txt{font-size:1rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
+
+.process{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
+.proc-step{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:flex-start;background:var(--card);padding:24px 28px;border:1px solid var(--border);border-radius:6px;border-left:4px solid var(--border);transition:all .2s;}
+.proc-step:hover{background:var(--card-h);border-left-color:var(--pink); transform:translateX(4px);}
+.proc-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+.proc-title{font-weight:700;font-size:1.15rem;margin-bottom:6px;color:var(--text-main);font-family:var(--fd);}
+.proc-desc{font-size:.95rem;color:var(--text-muted);line-height:1.6;font-weight:500;}
+
+/* TESTIMONIALS REUSED */
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.testi-card{background:var(--card);padding:40px 35px;border-radius:6px;border:1px solid var(--border);transition:all .2s; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
+.testi-card:hover{transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.08);}
+.testi-q{font-family:var(--fd);font-size:4rem;line-height:1;color:var(--pink);opacity:.2;margin-bottom:-10px;}
+.testi-txt{font-style:italic;font-size:1.05rem;color:var(--text-muted);line-height:1.7;margin-bottom:24px;font-family:var(--fd);font-weight:500;}
+.testi-person{display:flex;align-items:center;gap:14px;}
+.testi-av{width:46px;height:46px;border-radius:50%;background:var(--subtle);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--pink);flex-shrink:0; overflow:hidden;}
+.testi-name{font-weight:700;font-size:.95rem;margin-bottom:2px;color:var(--text-main);}
+.testi-role{font-size:.8rem;color:var(--text-muted);font-family:var(--fm);font-weight:600;letter-spacing:.02em;}
+
+/* CTA */
+.t-cta{background:var(--pink);color:var(--white);padding:60px;border-radius:8px;text-align:center;box-shadow:0 20px 40px rgba(255,42,133,0.15);margin-top:40px;}
+.t-cta h2{font-family:var(--fd);font-size:2.5rem;font-weight:700;margin-bottom:16px;}
+.t-cta p{font-size:1.1rem;font-weight:500;margin-bottom:30px;opacity:0.9;}
+.btn-w{display:inline-block;background:var(--white);color:var(--pink);padding:14px 32px;border-radius:4px;font-family:var(--fm);font-weight:700;font-size:1rem;letter-spacing:.05em;text-decoration:none;text-transform:uppercase;transition:transform .2s;}
+.btn-w:hover{transform:translateY(-3px);}
+
+/* STRIPE & FOOTER REUSED */
+.stripe{height:4px;background:linear-gradient(to right,#FF9933 0%,var(--pink) 33%,#138808 55%,var(--pink) 76%,#C41E3A 88%,var(--pink) 100%);opacity:.8;}
+footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4vw 40px;position:relative;z-index:2;}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:50px;margin-bottom:50px;}
+.footer-logo{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
+.footer-logo-img{height:75px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);} 
+.footer-tag{font-size:.95rem;color:var(--text-muted);font-weight:500;line-height:1.6;max-width:280px; margin-top: 10px;}
+.footer-col h4{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{font-size:.95rem;font-weight:500;color:var(--text-muted);text-decoration:none;transition:color .2s;}
+.footer-col a:hover{color:var(--pink);}
+.footer-bot{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:.85rem;font-weight:600;color:var(--text-muted);font-family:var(--fm);}
+
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .insights, .testi-grid {grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;gap:45px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="logo-vb.svg" alt="Vijit Bhati Logo" class="nav-logo-img" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="case-studies.html">Work</a></li>
+    <li><a href="teaching.html" style="color:var(--pink);">Teaching</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="mailto:vijitsinghbhati@gmail.com" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="t-hero">
+  <div class="t-hero-bg"></div>
+  <div class="t-hero-content reveal">
+    <span class="t-hero-eye">Vijit Bhati</span>
+    <h1 class="t-hero-title">Design Leader &amp;<br>UX Instructor</h1>
+    <p class="t-hero-desc">Teaching UX grounded in real product systems. 10+ years of experience across gaming, enterprise, e-commerce, and edtech.</p>
+    <div class="t-pills">
+      <span class="t-pill">Applied UX</span>
+      <span class="t-pill">Product Thinking</span>
+      <span class="t-pill">AI-Integrated Workflows</span>
+    </div>
+  </div>
+</section>
+
+<div class="t-container">
+
+  <div class="t-sec reveal">
+    <div class="t-sec-hd"><span class="t-sec-num">01</span><h2 class="t-sec-title">Applied UX in Practice</h2><div class="sec-rule"></div></div>
+    <p class="t-body">My teaching is heavily informed by my day-to-day work as a <strong>Senior Experience Designer at Electronic Arts (EA)</strong> and my past role as an Experience Designer at <strong>EY</strong>. I bring real-world constraints, complex system design, and data-heavy product scenarios directly into the classroom.</p>
+    
+    <div class="insights">
+      <div class="insight">
+        <span class="in-ico">🎮</span>
+        <div class="in-title">Electronic Arts (EA)</div>
+        <div class="in-txt">Improved customer satisfaction by 10% across Data & Insights tools. Led UX research for the Data Marketplace, building scalable playbooks across teams.</div>
+      </div>
+      <div class="insight">
+        <span class="in-ico">💼</span>
+        <div class="in-title">Ernst & Young (EY)</div>
+        <div class="in-txt">Led UX for the Generative AI product EYQ, delivering AI-driven workflows across enterprise domains and facilitating executive design thinking workshops.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t-sec reveal">
+    <div class="t-sec-hd"><span class="t-sec-num">02</span><h2 class="t-sec-title">Teaching & Mentorship</h2><div class="sec-rule"></div></div>
+    <div class="process">
+      <div class="proc-step">
+        <div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);">🎓</div>
+        <div>
+          <div class="proc-title">Lead UX Instructor @ BrainStation</div>
+          <div class="proc-desc">Led cohorts of 20–25 students, owning end-to-end delivery of UX process, research, and product thinking. Guided students to build robust, job-ready portfolios resulting in successful career transitions.</div>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);">🧑‍🏫</div>
+        <div>
+          <div class="proc-title">UX Tutor @ CareerFoundry</div>
+          <div class="proc-desc">Mentored students through highly structured remote programs, providing deeply detailed project audits and actionable portfolio feedback.</div>
+        </div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);">🎤</div>
+        <div>
+          <div class="proc-title">Academic & Industry Contributions</div>
+          <div class="proc-desc">Regular industry panelist discussing UX careers and hiring expectations. Active Hackathon Judge evaluating UX, usability, and product thinking for university programs.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t-sec reveal">
+    <div class="t-sec-hd"><span class="t-sec-num">03</span><h2 class="t-sec-title">Teaching Approach & Curriculum</h2><div class="sec-rule"></div></div>
+    <p class="t-body">My classrooms are built on <strong>project-based learning</strong> using real product scenarios. I emphasize critical decision making, trade-offs, and continuous iteration. Currently, I focus heavily on integrating <strong>AI tools within UX workflows</strong> to ensure students are prepared for the modern industry.</p>
+    
+    <div class="insights">
+      <div class="insight">
+        <span class="in-ico">📚</span>
+        <div class="in-title">Core Topics Available</div>
+        <div class="in-txt">
+          • UX Foundations & Product Thinking<br>
+          • User Research & Usability Testing<br>
+          • Interaction Design & Prototyping<br>
+          • Design Systems<br>
+          • Portfolio & Career Preparation
+        </div>
+      </div>
+      <div class="insight">
+        <span class="in-ico">🤖</span>
+        <div class="in-title">AI in UX Workflows</div>
+        <div class="in-txt">
+          • Prompt design for UX ideation<br>
+          • AI tools for research synthesis<br>
+          • Designing AI-assisted experiences<br>
+          • Evaluating AI outputs for usability
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t-sec reveal">
+    <div class="t-sec-hd"><span class="t-sec-num">04</span><h2 class="t-sec-title">Student & Program Feedback</h2><div class="sec-rule"></div></div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p class="testi-txt">"Calm, empathetic teaching style. Explains concepts in multiple ways and makes it safe to ask questions."</p>
+        <div class="testi-person">
+          <div class="testi-av">BS</div>
+          <div><div class="testi-name">Program Feedback</div><div class="testi-role">BrainStation</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p class="testi-txt">"Thought-provoking exercises and real-world examples make learning immediately applicable."</p>
+        <div class="testi-person">
+          <div class="testi-av">🎓</div>
+          <div><div class="testi-name">UX Graduate</div><div class="testi-role">Student</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p class="testi-txt">"Actionable feedback on my portfolio. I felt confident applying to roles."</p>
+        <div class="testi-person">
+          <div class="testi-av">CF</div>
+          <div><div class="testi-name">UX Student</div><div class="testi-role">CareerFoundry</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p class="testi-txt">"Strong ownership of cohorts and excellent student outcomes."</p>
+        <div class="testi-person">
+          <div class="testi-av">PM</div>
+          <div><div class="testi-name">Program Manager</div><div class="testi-role">BrainStation</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t-cta reveal">
+    <h2>Available for Teaching & Mentorship</h2>
+    <p>I am actively available for part-time, adjunct, and sessional teaching roles, as well as guest lectures and corporate workshops across Vancouver and remotely.</p>
+    <a href="mailto:vijitsinghbhati@gmail.com" class="btn-w">Let's Discuss Opportunities</a>
+  </div>
+
+</div>
+
+<div class="stripe"></div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">
+        <img src="logo-vb.svg" alt="Vijit Bhati Logo" class="footer-logo-img" />
+      </div>
+      <p class="footer-tag">I'm a Senior Experience Designer at Electronic Arts based in Vancouver, BC.</p>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="case-studies.html">Work</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="index.html#about">About</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/in/vijitbhati/" target="_blank">LinkedIn</a></li><li><a href="https://twitter.com/" target="_blank">Twitter</a></li><li><a href="https://www.behance.net/" target="_blank">Behance</a></li><li><a href="https://github.com/" target="_blank">GitHub</a></li></ul></div>
+  </div>
+  <div class="footer-bot">
+    <div class="footer-copy">&copy; 2026 Vijit Bhati</div>
+    <div style="font-size:1.1rem;">💻 ✨ 🚀</div>
+  </div>
+</footer>
+
+<script>
+// Navbar
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 55));
+
+// Reveal Animation
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 65); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
