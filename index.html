@@ -58,12 +58,14 @@ nav.scrolled .nav-logo-img{height:50px;}
 #hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 4vw 12vh;overflow:hidden;z-index:2;}
 .hero-bg{position:absolute;inset:0;background-image:url('vancouver-hero.png');background-size:cover;background-position:center 30%;background-repeat:no-repeat;opacity: 0.35;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0.84) 0%,rgba(255,255,255,0.48) 42%,rgba(255,255,255,0.08) 100%),linear-gradient(to top,rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.0) 38%);}
-.hero-content{position:relative;z-index:3;max-width:750px;}
+.hero-content{position:relative;z-index:3;max-width:850px;}
 .hero-eye{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);display:flex;align-items:center;gap:12px;margin-bottom:18px;opacity:0;animation:fadeUp .8s .2s forwards;}
 .hero-eye::before{content:'';width:36px;height:2px;background:var(--pink);}
-/* Reduced Max Size to 4rem */
-.hero-title{font-family:var(--fd);font-size:clamp(3rem,6vw,4rem);font-weight:700;line-height:1;margin-bottom:22px;opacity:0;animation:fadeUp .8s .4s forwards;color:var(--text-main);}
+
+/* Adjusted to 5rem max and wider clamp */
+.hero-title{font-family:var(--fd);font-size:clamp(3.2rem,7vw,5rem);font-weight:700;line-height:1.05;margin-bottom:22px;opacity:0;animation:fadeUp .8s .4s forwards;color:var(--text-main);}
 .hero-title em{font-style:normal;color:var(--pink);font-weight:700;}
+
 .hero-desc{font-size:1.2rem;color:var(--text-muted);max-width:650px;font-weight:500;line-height:1.7;margin-bottom:34px;opacity:0;animation:fadeUp .8s .6s forwards;}
 .hero-desc strong{color:var(--text-main);font-weight:700;}
 .hero-acts{display:flex;gap:16px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards;}
@@ -228,7 +230,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-eye">Senior Experience Designer &middot; EA &middot; Vancouver</div>
-    <h1 class="hero-title">I design <em>impactful</em><br>experiences that power<br><em>AAA games</em></h1>
+    <h1 class="hero-title">I design<br><em>impactful</em> experiences that<br>power <em>AAA games</em></h1>
     <p class="hero-desc">I'm Vijit, a Design Leader with 10+ years across three countries and several industries turning complex systems, messy workflows, and ambiguous problems into experiences that thrive.</p>
     <div class="hero-acts">
       <a href="#projects" class="btn-p">View Work</a>
