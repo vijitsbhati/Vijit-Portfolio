@@ -61,13 +61,12 @@ nav.scrolled .nav-logo-img{height:50px;}
 
 /* HERO */
 #hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 4vw 12vh;overflow:hidden;z-index:2;}
-.hero-bg{position:absolute;inset:0;background-image:url('vancouver-hero.png');background-size:cover;background-position:center 30%;background-repeat:no-repeat;opacity: 0.35;}
+.hero-bg{position:absolute;inset:0;background-image:url('vancouver-hero.jpg');background-size:cover;background-position:center 30%;background-repeat:no-repeat;opacity: 0.35;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0.84) 0%,rgba(255,255,255,0.48) 42%,rgba(255,255,255,0.08) 100%),linear-gradient(to top,rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.0) 38%);}
 .hero-content{position:relative;z-index:3;max-width:850px;}
 .hero-eye{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);display:flex;align-items:center;gap:12px;margin-bottom:18px;opacity:0;animation:fadeUp .8s .2s forwards;}
 .hero-eye::before{content:'';width:36px;height:2px;background:var(--pink);}
 
-/* Adjusted to 5rem max and wider clamp */
 .hero-title{font-family:var(--fd);font-size:clamp(3.2rem,7vw,5rem);font-weight:700;line-height:1.05;margin-bottom:22px;opacity:0;animation:fadeUp .8s .4s forwards;color:var(--text-main);}
 .hero-title em{font-style:normal;color:var(--pink);font-weight:700;}
 
@@ -237,7 +236,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-eye">Senior Experience Designer &middot; EA &middot; Vancouver</div>
-    <h1 class="hero-title">I design <br> <em>impactful</em> experiences <br> that power <em>AAA games</em></h1>
+    <h1 class="hero-title">I design <br> <em>impactful</em> experiences that <br> power <em>AAA games</em></h1>
     <p class="hero-desc">I'm Vijit, a Design Leader with 10+ years across three countries and several industries turning complex systems, messy workflows, and ambiguous problems into experiences that thrive.</p>
     <div class="hero-acts">
       <a href="#projects" class="btn-p">View Work</a>
@@ -439,6 +438,14 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   let H = window.innerHeight;
   let weatherAnim = null;
 
+  // Interactive Wind Tracking
+  let wind = 0;
+  let targetWind = 0;
+  window.addEventListener('mousemove', (e) => {
+      // Normalizes mouse X from -1 to 1 based on screen width
+      targetWind = ((e.clientX / W) - 0.5) * 8; 
+  });
+
   function resizeCanvas() {
     W = cv.width = window.innerWidth;
     H = cv.height = window.innerHeight;
@@ -483,11 +490,171 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
     }
   }
 
+  // --- 1. RAIN ---
   function startRain() {
-    let drops = [];
-    let splashes = [];
+    let drops = [], splashes = [];
+    function mkDrop() {
+      return {
+        x: Math.random() * W,
+        y: -50 - Math.random() * H,
+        len: 20 + Math.random() * 30,
+        v: 15 + Math.random() * 15,
+        op: 0.3 + Math.random() * 0.3
+      };
+    }
+    for(let i=0; i<150; i++) drops.push(mkDrop());
+    
+    function loop() {
+      clearCanvas();
+      wind += (targetWind - wind) * 0.05;
 
-    function makeDrop() {
+      drops.forEach((d, i) => {
+        cx.save();
+        cx.globalAlpha = d.op;
+        cx.strokeStyle = 'rgba(200, 220, 255, 0.8)';
+        cx.lineWidth = 1.5;
+        cx.beginPath();
+        cx.moveTo(d.x, d.y);
+        cx.lineTo(d.x + (wind*2), d.y - d.len); 
+        cx.stroke();
+        cx.restore();
+
+        d.x += (wind*2);
+        d.y += d.v;
+        if (d.y > H) {
+          if (Math.random() < 0.2) splashes.push({x: d.x, y: H, r: 1, life: 1});
+          drops[i] = mkDrop();
+        }
+      });
+      
+      splashes.forEach(s => {
+         cx.save();
+         cx.globalAlpha = s.life * 0.5;
+         cx.strokeStyle = 'rgba(200, 220, 255, 0.8)';
+         cx.beginPath();
+         cx.ellipse(s.x, s.y, s.r, s.r*0.3, 0, 0, Math.PI*2);
+         cx.stroke();
+         cx.restore();
+         s.r += 2; s.life -= 0.1;
+      });
+      splashes = splashes.filter(s => s.life > 0);
+      
+      weatherAnim = requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
+  // --- 2. CLOUDS ---
+  function startClouds() {
+    const clouds = Array.from({ length: 12 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H * 0.4 - 50,
+      s: 0.5 + Math.random() * 1.5, 
+      op: 0.4 + Math.random() * 0.4
+    }));
+
+    function drawCloud(ctx, x, y, s, op) {
+       ctx.save();
+       ctx.globalAlpha = op;
+       ctx.fillStyle = '#ffffff';
+       ctx.beginPath();
+       ctx.arc(x, y, 40*s, 0, Math.PI*2);
+       ctx.arc(x + 45*s, y - 15*s, 50*s, 0, Math.PI*2);
+       ctx.arc(x + 90*s, y, 45*s, 0, Math.PI*2);
+       ctx.arc(x + 45*s, y + 15*s, 40*s, 0, Math.PI*2);
+       ctx.fill();
+       ctx.restore();
+    }
+
+    function loop() {
+      clearCanvas();
+      wind += (targetWind - wind) * 0.05;
+
+      clouds.forEach(c => {
+         c.x += (0.5 * c.s) + (wind * c.s * 0.2); 
+         if (c.x > W + 200) c.x = -200;
+         if (c.x < -200) c.x = W + 200;
+         drawCloud(cx, c.x, c.y, c.s, c.op);
+      });
+      weatherAnim = requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
+  // --- 3. SUNNY (RAYS + DUST MOTES) ---
+  function startSunshine() {
+    const numRays = 18;
+    const rays = Array.from({length: numRays}, (_, i) => ({
+      angle: (Math.PI * 2 / numRays) * i,
+      speed: -0.001 + Math.random() * 0.002,
+      width: 0.1 + Math.random() * 0.15,
+      alpha: 0.03 + Math.random() * 0.08,
+      phase: Math.random() * Math.PI * 2
+    }));
+
+    const motes = Array.from({length: 80}, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      s: Math.random() * 2 + 0.5,
+      v: -0.2 - Math.random() * 0.5,
+      sway: Math.random() * Math.PI * 2
+    }));
+
+    function loop() {
+      clearCanvas();
+      wind += (targetWind - wind) * 0.05;
+      
+      cx.fillStyle = 'rgba(255, 250, 230, 0.05)';
+      cx.fillRect(0, 0, W, H);
+
+      const originX = W * 0.8 + (wind * 20); 
+      const originY = H * -0.1;
+
+      rays.forEach(r => {
+        r.angle += r.speed;
+        r.phase += 0.02;
+        const currentAlpha = r.alpha + Math.sin(r.phase) * 0.02;
+
+        cx.save();
+        cx.translate(originX, originY);
+        cx.rotate(r.angle);
+        
+        const grad = cx.createLinearGradient(0, 0, 0, H * 2);
+        grad.addColorStop(0, `rgba(255, 255, 255, ${Math.max(0, currentAlpha)})`);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
+        cx.fillStyle = grad;
+        cx.beginPath();
+        cx.moveTo(0, 0);
+        cx.lineTo(-Math.sin(r.width/2) * H * 2, Math.cos(r.width/2) * H * 2);
+        cx.lineTo(Math.sin(r.width/2) * H * 2, Math.cos(r.width/2) * H * 2);
+        cx.closePath();
+        cx.fill();
+        cx.restore();
+      });
+
+      motes.forEach(m => {
+         m.sway += 0.01;
+         m.x += Math.sin(m.sway) * 0.5 + (wind * 0.5);
+         m.y += m.v;
+         if (m.y < -10) { m.y = H + 10; m.x = Math.random() * W; }
+         if (m.x > W + 10) m.x = -10;
+         if (m.x < -10) m.x = W + 10;
+         cx.fillStyle = 'rgba(255,255,255,0.4)';
+         cx.beginPath();
+         cx.arc(m.x, m.y, m.s, 0, Math.PI*2);
+         cx.fill();
+      });
+
+      weatherAnim = requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
+  // --- 4. CHERRY BLOSSOMS (Pink Streaks) ---
+  function startCherryBlossoms() {
+    let drops = [], splashes = [];
+    function mkDrop() {
       const speed = 13 + Math.random() * 10;
       const drift = 0.14 + Math.random() * 0.09;
       return {
@@ -500,23 +667,18 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
         w: 0.8 + Math.random() * 1.1,
       };
     }
-
-    function makeSplash(x) {
-      return { x, y: H - 1, rx: 1, ry: 0.4, life: 1.0 };
-    }
-
-    for (let i = 0; i < 220; i++) {
-      const d = makeDrop();
-      d.y = Math.random() * H;
-      drops.push(d);
-    }
+    function mkSplash(x, y) { return { x, y, rx: 1, ry: 0.4, life: 1.0 }; }
+    for(let i=0; i<220; i++) { let d = mkDrop(); d.y = Math.random()*H; drops.push(d); }
 
     function loop() {
       clearCanvas();
+      wind += (targetWind - wind) * 0.05;
+
       drops.forEach((d, i) => {
         cx.save();
         cx.globalAlpha = d.op;
-        const grad = cx.createLinearGradient(d.x, d.y, d.x - d.vx * (d.len / d.vy), d.y - d.len);
+        const currentVx = d.vx + (wind * 2); 
+        const grad = cx.createLinearGradient(d.x, d.y, d.x - currentVx * (d.len / d.vy), d.y - d.len);
         grad.addColorStop(0, 'rgba(180, 20, 80, 0.95)');
         grad.addColorStop(0.4, 'rgba(255, 42,133, 0.70)');
         grad.addColorStop(1, 'rgba(255,110,180, 0.00)');
@@ -525,16 +687,16 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
         cx.lineCap = 'round';
         cx.beginPath();
         cx.moveTo(d.x, d.y);
-        cx.lineTo(d.x - d.vx * (d.len / d.vy), d.y - d.len);
+        cx.lineTo(d.x - currentVx * (d.len / d.vy), d.y - d.len);
         cx.stroke();
         cx.restore();
 
-        d.x += d.vx;
+        d.x += currentVx; 
         d.y += d.vy;
 
         if (d.y > H + 12) {
-          if (Math.random() < 0.32) splashes.push(makeSplash(d.x));
-          drops[i] = makeDrop();
+          if (Math.random() < 0.32) splashes.push(mkSplash(d.x, H-1));
+          drops[i] = mkDrop();
         }
       });
 
@@ -547,152 +709,60 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
         cx.ellipse(s.x, s.y, s.rx, s.ry, 0, 0, Math.PI * 2);
         cx.stroke();
         cx.restore();
-        s.rx += 1.8;
-        s.ry += 0.45;
-        s.life -= 0.07;
+        s.rx += 1.8; s.ry += 0.45; s.life -= 0.07;
       });
-
-      splashes = splashes.filter((s) => s.life > 0);
+      splashes = splashes.filter(s => s.life > 0);
       weatherAnim = requestAnimationFrame(loop);
     }
-
     loop();
   }
 
-  function startClouds() {
-    const clouds = Array.from({ length: 8 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H * 0.35 + 20,
-      r: 33 + Math.random() * 42,
-      v: 0.3 + Math.random() * 0.5,
-    }));
-
-    function loop() {
-      clearCanvas();
-      clouds.forEach((c) => {
-        c.x += c.v;
-        if (c.x > W + 120) c.x = -120;
-        cx.fillStyle = 'rgba(255,255,255,0.78)';
-        cx.beginPath();
-        cx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
-        cx.fill();
-        cx.arc(c.x + 40, c.y - 12, c.r * 0.8, 0, Math.PI * 2);
-        cx.fill();
-        cx.arc(c.x - 45, c.y - 8, c.r * 0.75, 0, Math.PI * 2);
-        cx.fill();
-      });
-      weatherAnim = requestAnimationFrame(loop);
-    }
-
-    loop();
-  }
-
-  function startSunshine() {
-    const stars = Array.from({ length: 130 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H * 0.7,
-      r: 0.8 + Math.random() * 1.6,
-      baseAlpha: 0.2 + Math.random() * 0.5,
-      phase: Math.random() * Math.PI * 2,
-    }));
-
-    function loop() {
-      clearCanvas();
-      cx.fillStyle = 'rgba(255,255,210,0.06)';
-      cx.fillRect(0, 0, W, H);
-
-      cx.beginPath();
-      cx.arc(W * 0.82, H * 0.17, 72, 0, Math.PI * 2);
-      cx.fillStyle = 'rgba(255,235,130,0.88)';
-      cx.fill();
-
-      stars.forEach((s) => {
-        const alpha = s.baseAlpha + 0.3 * Math.sin(Date.now() * 0.001 + s.phase);
-        cx.fillStyle = `rgba(255,255,255,${alpha})`;
-        cx.beginPath();
-        cx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        cx.fill();
-      });
-
-      weatherAnim = requestAnimationFrame(loop);
-    }
-
-    loop();
-  }
-
-  function startCherryBlossoms() {
-    const petals = Array.from({ length: 120 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      s: 0.8 + Math.random() * 1.2,
-      vx: -0.3 - Math.random() * 0.5,
-      vy: 0.45 + Math.random() * 0.5,
-      rot: Math.random() * Math.PI * 2,
-      vr: 0.006 + Math.random() * 0.012,
-    }));
-
-    function loop() {
-      clearCanvas();
-      petals.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.rot += p.vr;
-        if (p.y > H + 20) p.y = -20;
-        if (p.x < -30) p.x = W + 30;
-
-        cx.save();
-        cx.translate(p.x, p.y);
-        cx.rotate(p.rot);
-        cx.fillStyle = 'rgba(255,153,180,0.84)';
-        cx.beginPath();
-        cx.ellipse(0, 0, 8 * p.s, 12 * p.s, 0, 0, Math.PI * 2);
-        cx.fill();
-        cx.restore();
-      });
-
-      weatherAnim = requestAnimationFrame(loop);
-    }
-
-    loop();
-  }
-
+  // --- 5. FALL LEAVES ---
   function startFallLeaves() {
-    const leaves = Array.from({ length: 110 }, () => ({
+    const leaves = Array.from({ length: 70 }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      r: 0.75 + Math.random() * 1.2,
-      vx: -0.35 - Math.random() * 0.45,
-      vy: 0.85 + Math.random() * 0.7,
-      rot: Math.random() * Math.PI * 2,
-      vr: -0.01 + Math.random() * 0.02,
-      color: ['#c8621e', '#ef7f24', '#f2b134', '#9a532d', '#d88f51'][Math.floor(Math.random() * 5)],
+      s: 0.6 + Math.random() * 0.6,
+      v: 1 + Math.random() * 2,
+      angle: Math.random() * Math.PI * 2,
+      spinSpeed: -0.05 + Math.random() * 0.1,
+      sway: Math.random() * Math.PI * 2,
+      color: ['#c8621e', '#ef7f24', '#f2b134', '#9a532d', '#d88f51'][Math.floor(Math.random() * 5)]
     }));
 
     function loop() {
       clearCanvas();
-      leaves.forEach((l) => {
-        l.x += l.vx;
-        l.y += l.vy;
-        l.rot += l.vr;
-        if (l.y > H + 20) l.y = -20;
-        if (l.x < -30) l.x = W + 30;
+      wind += (targetWind - wind) * 0.05;
+
+      leaves.forEach(l => {
+        l.sway += 0.02;
+        l.x += Math.sin(l.sway) * 1.5 + (wind * 1.5);
+        l.y += l.v;
+        l.angle += l.spinSpeed;
+        if (l.y > H + 50) { l.y = -50; l.x = Math.random() * W; }
+        if (l.x > W + 50) l.x = -50;
+        if (l.x < -50) l.x = W + 50;
 
         cx.save();
         cx.translate(l.x, l.y);
-        cx.rotate(l.rot);
+        cx.rotate(l.angle);
+        cx.scale(l.s, l.s);
         cx.fillStyle = l.color;
         cx.beginPath();
-        cx.moveTo(0, 0);
-        cx.quadraticCurveTo(-7 * l.r, -9 * l.r, -2 * l.r, -14 * l.r);
-        cx.quadraticCurveTo(0, -22 * l.r, 4 * l.r, -14 * l.r);
-        cx.quadraticCurveTo(9 * l.r, -9 * l.r, 0, 0);
+        cx.moveTo(0, -15);
+        cx.bezierCurveTo(15, -15, 15, 0, 0, 15);
+        cx.bezierCurveTo(-15, 0, -15, -15, 0, -15);
         cx.fill();
+        cx.strokeStyle = 'rgba(0,0,0,0.1)';
+        cx.lineWidth = 2;
+        cx.beginPath();
+        cx.moveTo(0,0);
+        cx.lineTo(0,20);
+        cx.stroke();
         cx.restore();
       });
-
       weatherAnim = requestAnimationFrame(loop);
     }
-
     loop();
   }
 
