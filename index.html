@@ -160,16 +160,103 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .testi-name{font-weight:700;font-size:.95rem;margin-bottom:2px;color:var(--text-main);}
 .testi-role{font-size:.8rem;color:var(--text-muted);font-family:var(--fm);font-weight:600;letter-spacing:.02em;}
 
-/* ABOUT */
+/* ABOUT / POLAROID STYLE */
 #about{background:var(--card);border-top:1px solid var(--border);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 
-.about-frame{position:relative;width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:var(--subtle); box-shadow:0 20px 40px rgba(0,0,0,0.1);}
-.about-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;}
-.about-overlay{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%); z-index:2;}
-.about-badge{position:absolute;bottom:-10px;right:-10px;z-index:4;background:var(--pink);color:var(--white);padding:20px 24px;border-radius:6px;text-align:center;box-shadow:0 10px 25px rgba(255,42,133,0.3);}
-.about-badge .n{font-family:var(--fd);font-size:2.4rem;font-weight:700;display:block;line-height:1;}
-.about-badge .l{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;display:block;}
+.about-frame {
+  position: relative;
+  width: 100%;
+  background: var(--white);
+  padding: 18px 18px 75px 18px; /* Thick bottom border for polaroid look */
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.03);
+  transform: rotate(-3.5deg);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.about-frame:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+/* The Pushpin */
+.about-frame::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle at 35% 35%, #ffb7c5, var(--pink));
+  border-radius: 50%;
+  box-shadow: inset -2px -2px 5px rgba(0,0,0,0.3), 0 5px 8px rgba(0,0,0,0.4);
+  z-index: 10;
+}
+/* Pin Needle Shadow */
+.about-frame::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(50% + 3px);
+  width: 2px;
+  height: 12px;
+  background: rgba(0,0,0,0.25);
+  transform: rotate(45deg);
+  z-index: 9;
+}
+
+.about-img-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1; /* Keep it square like a polaroid */
+  overflow: hidden;
+  background: var(--subtle);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1); /* Inner depth */
+}
+
+.about-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.2) 0%, transparent 30%);
+  z-index: 2;
+}
+
+.about-badge {
+  position: absolute;
+  bottom: 15px;
+  right: -15px;
+  z-index: 4;
+  background: var(--pink);
+  color: var(--white);
+  padding: 16px 20px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(255,42,133,0.3);
+  transform: rotate(5deg); /* Contrast with the polaroid's rotation */
+}
+.about-badge .n {
+  font-family: var(--fd);
+  font-size: 2.2rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+.about-badge .l {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  display: block;
+}
 
 .about-eye{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);display:flex;align-items:center;gap:12px;margin-bottom:16px;}
 .about-eye::before{content:'';width:32px;height:2px;background:var(--pink);}
@@ -224,9 +311,10 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     <img src="logo-vb.svg" alt="Vijit Bhati Logo" class="nav-logo-img" />
   </a>
   <ul class="nav-links">
+    <li><a href="case-studies.html">Work</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="case-studies.html">Industry Work</a></li>
-    <li><a href="teaching.html">Teaching Experience</a></li>
+    <li><a href="mailto:vijitsinghbhati@gmail.com" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
@@ -238,6 +326,14 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     <p class="hero-desc">I'm Vijit, a Design Leader with 10+ years across three countries and several industries turning complex systems, messy workflows, and ambiguous problems into experiences that thrive.</p>
     <div class="hero-acts">
       <a href="#projects" class="btn-p">View Work</a>
+      <a href="teaching.html" class="btn-s">View Teaching</a>
+    </div>
+    <div id="weather-controls" class="hero-acts" style="margin-top:16px; gap:10px; flex-wrap:wrap;">
+      <button data-theme="sunset" class="btn-s weather-btn">Sunset</button>
+      <button data-theme="cloudy" class="btn-s weather-btn">Cloudy</button>
+      <button data-theme="rain" class="btn-s weather-btn">Rain</button>
+      <button data-theme="cherry" class="btn-s weather-btn">Cherry</button>
+      <button data-theme="fall" class="btn-s weather-btn">Fall</button>
     </div>
   </div>
   <div class="hero-scroll"><span>Scroll</span></div>
@@ -255,7 +351,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   </div>
 
   <a href="case-studies.html#eyq" class="featured reveal">
-    <div class="feat-bg" style="background-image: url('eyq-screenshot.png');"></div>
+    <div class="feat-bg" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80');"></div>
     <div class="feat-vig"></div>
     <div class="feat-body">
       <div class="feat-badge" style="background:#2b2d42;">Featured Project</div>
@@ -285,7 +381,8 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         <div class="proj-name">SaaS Contract Analyzer</div>
         <div class="proj-desc">Augmenting the financial auditing process for SaaS Contracts</div>
         <div class="proj-acts">
-          <span class="pbtn pbtn-play">Learn More</span>
+          <span class="pbtn pbtn-play">Study</span>
+          <span class="pbtn pbtn-info">More</span>
         </div>
       </div>
     </a>
@@ -302,7 +399,8 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         <div class="proj-name">Listing Doctor</div>
         <div class="proj-desc">Tracking and resolving listing errors on online marketplaces</div>
         <div class="proj-acts">
-          <span class="pbtn pbtn-play">Learn More</span>
+          <span class="pbtn pbtn-play">Study</span>
+          <span class="pbtn pbtn-info">More</span>
         </div>
       </div>
     </a>
@@ -319,7 +417,8 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         <div class="proj-name">Wingman</div>
         <div class="proj-desc">Integrating Generative AI Chatbot in a travel companion iOS application</div>
         <div class="proj-acts">
-          <span class="pbtn pbtn-play">Learn More</span>
+          <span class="pbtn pbtn-play">Study</span>
+          <span class="pbtn pbtn-info">More</span>
         </div>
       </div>
     </a>
@@ -352,11 +451,15 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   <div class="about-grid">
     
     <div class="reveal" style="display:flex; justify-content:center;">
-      <div style="position:relative; width: 65%; max-width: 360px;">
+      <div style="position:relative; width: 65%; max-width: 320px;">
+        
         <div class="about-frame">
-          <img src="vijit-profile-pic.jpg" alt="Portrait" class="about-img" />
-          <div class="about-overlay" style="border-radius:50%;"></div>
+          <div class="about-img-container">
+            <img src="vijit-profile-pic.jpg" alt="Portrait" class="about-img" />
+            <div class="about-overlay"></div>
+          </div>
         </div>
+
         <div class="about-badge"><span class="n">10+</span><span class="l">Years</span></div>
       </div>
     </div>
@@ -365,7 +468,6 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
       <div class="about-eye">About</div>
       <h2 class="about-hl">I'm a Senior Experience Designer based in beautiful Vancouver, British Columbia.</h2>
       <div class="about-body">
-        <p>I'm Vijit 👋🏼 a Senior Experience Designer at EA based in beautiful Vancouver, BC.</p>
         <p>I started my career lost in lines of JavaScript as a front-end engineer, but living in Tokyo changed everything. Seeing how thoughtful design permeated every aspect of daily life—from convenience store packaging to the intricate subway system—prompted me to trade my keyboard for a sketchbook and leap into product design.</p>
         <p>With 10+ years of experience across auditing, education, healthcare, and the gaming industry, I specialize in turning messy, complicated problems into simple, intuitive experiences. I believe great design is instinctive, iterative, and driven by a collaborative approach to uncover clarity hidden within complexity.</p>
         
@@ -398,7 +500,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   </div>
   <div class="footer-bot">
     <div class="footer-copy">&copy; 2026 </div>
-    <div style="font-size:1.1rem;">Developed & Designed by Vijit Bhati</div>
+    <div style="font-size:1.1rem;">Designed and Developed by Vijit Bhati</div>
   </div>
 </footer>
 
