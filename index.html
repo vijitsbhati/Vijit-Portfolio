@@ -78,6 +78,8 @@ nav.scrolled .nav-logo-img{height:50px;}
 .btn-p:hover{background:var(--pink-lt);transform:translateY(-2px); color:var(--white);}
 .btn-s{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--text-main);padding:14px 28px;border-radius:4px;font-weight:600;font-size:1rem;letter-spacing:.05em;text-decoration:none;border:2px solid var(--border);transition:border-color .2s, background .2s; text-transform:uppercase;}
 .btn-s:hover{background:var(--subtle); border-color:var(--text-main);}
+.weather-btn{padding:8px 14px;font-size:.85rem;}
+.weather-btn.active{background:var(--pink);color:var(--white);border-color:var(--pink);}
 .hero-scroll{position:absolute;bottom:38px;right:4vw;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5;animation:bob 2.4s ease-in-out infinite;}
 .hero-scroll span{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.1em;writing-mode:vertical-rl;transform:rotate(180deg);color:var(--text-muted);text-transform:uppercase;}
 .hero-scroll::after{content:'';width:2px;height:52px;background:linear-gradient(to bottom,var(--text-muted),transparent);}
@@ -240,6 +242,13 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     <div class="hero-acts">
       <a href="#projects" class="btn-p">View Work</a>
       <a href="teaching.html" class="btn-s">View Teaching</a>
+    </div>
+    <div id="weather-controls" class="hero-acts" style="margin-top:16px; gap:10px; flex-wrap:wrap;">
+      <button data-theme="sunny" class="btn-s weather-btn">Sunny</button>
+      <button data-theme="cloudy" class="btn-s weather-btn">Cloudy</button>
+      <button data-theme="rain" class="btn-s weather-btn">Rain</button>
+      <button data-theme="cherry" class="btn-s weather-btn">Cherry</button>
+      <button data-theme="fall" class="btn-s weather-btn">Fall</button>
     </div>
   </div>
   <div class="hero-scroll"><span>Scroll</span></div>
@@ -687,7 +696,13 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
     loop();
   }
 
-  function runWeather(theme) {
+  let manualOverride = null;
+
+  function runWeather(theme, isManual = false) {
+    if (isManual) manualOverride = theme;
+    if (!theme && manualOverride) theme = manualOverride;
+    if (!theme) theme = 'sunny';
+
     if (weatherAnim) cancelAnimationFrame(weatherAnim);
     clearCanvas();
     applyTheme(theme);
@@ -701,12 +716,27 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
     }
   }
 
+  function setupWeatherControls() {
+    document.querySelectorAll('#weather-controls .weather-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const theme = btn.dataset.theme;
+        document.querySelectorAll('#weather-controls .weather-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        runWeather(theme, true);
+      });
+    });
+  }
+
   async function initWeatherEffects() {
+    setupWeatherControls();
+
     const seasonal = seasonTheme();
-    if (seasonal) { return runWeather(seasonal); }
+    if (seasonal) { runWeather(seasonal); document.querySelector(`#weather-controls button[data-theme='${seasonal}']`)?.classList.add('active'); return; }
+
     const condition = await fetchVancouverCondition();
     const weatherTheme = mapCondition(condition);
     runWeather(weatherTheme);
+    document.querySelector(`#weather-controls button[data-theme='${weatherTheme}']`)?.classList.add('active');
   }
 
   initWeatherEffects();
