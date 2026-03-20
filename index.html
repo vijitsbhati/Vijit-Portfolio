@@ -62,7 +62,7 @@ nav.scrolled .nav-logo-img{height:50px;}
 
 /* HERO */
 #hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 4vw 12vh;overflow:hidden;z-index:2;}
-.hero-bg{position:absolute;inset:0;background-image:url('vancouver-hero.png');background-size:cover;background-position:center 30%;background-repeat:no-repeat;opacity: 0.35;}
+.hero-bg{position:absolute;inset:0;background-image:url('vancouver-hero.jpg');background-size:cover;background-position:center 30%;background-repeat:no-repeat;opacity: 0.35;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0.84) 0%,rgba(255,255,255,0.48) 42%,rgba(255,255,255,0.08) 100%),linear-gradient(to top,rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.0) 38%);}
 .hero-content{position:relative;z-index:3;max-width:850px;}
 .hero-eye{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);display:flex;align-items:center;gap:12px;margin-bottom:18px;opacity:0;animation:fadeUp .8s .2s forwards;}
@@ -186,6 +186,7 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4vw 40px;position:relative;z-index:2;}
 .footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:50px;margin-bottom:50px;}
 .footer-logo{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
+/* INCREASED LOGO SIZE IN FOOTER */
 .footer-logo-img{height:75px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);} 
 .footer-tag{font-size:.95rem;color:var(--text-muted);font-weight:500;line-height:1.6;max-width:280px; margin-top: 10px;}
 .footer-col h4{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);margin-bottom:16px;}
@@ -597,7 +598,7 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
     loop();
   }
 
-  // --- 3. SUNSET (Low Sun + Pink/Orange Rays + Dust) ---
+  // --- 3. SUNSET (God Rays + Dust Motes - Sun Removed) ---
   function startSunset() {
     const numRays = 22;
     const rays = Array.from({length: numRays}, (_, i) => ({
@@ -624,20 +625,11 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
       cx.fillStyle = 'rgba(255, 220, 230, 0.15)';
       cx.fillRect(0, 0, W, H);
 
-      // Low hanging setting sun
+      // Origin point for the rays (sun is removed)
       const originX = W * 0.7 + (wind * 30); 
       const originY = H * 0.65; 
-      
-      cx.beginPath();
-      cx.arc(originX, originY, 120, 0, Math.PI * 2);
-      const sunGrad = cx.createRadialGradient(originX, originY, 20, originX, originY, 120);
-      sunGrad.addColorStop(0, 'rgba(255, 240, 220, 0.9)');
-      sunGrad.addColorStop(0.5, 'rgba(255, 150, 150, 0.6)');
-      sunGrad.addColorStop(1, 'rgba(255, 100, 150, 0)');
-      cx.fillStyle = sunGrad;
-      cx.fill();
 
-      // God rays radiating from the sun
+      // God rays radiating from the origin
       rays.forEach(r => {
         r.angle += r.speed;
         r.phase += 0.02;
