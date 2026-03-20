@@ -476,10 +476,8 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   }
 
   async function fetchVancouverCondition() {
-    const station = 's00006646';
-    const url = `https://dd.weather.gc.ca/citypage_weather/json/${station}_e.json`;
     try {
-      const response = await fetch(url);
+      const response = await fetch('/api/weather');
       const data = await response.json();
       return data?.currentConditions?.condition || data?.forecast?.[0]?.wx || '';
     } catch (error) {
