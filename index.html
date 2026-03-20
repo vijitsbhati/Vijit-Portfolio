@@ -39,6 +39,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* BLOSSOM / RAIN CANVAS */
 #blossom-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:1.0;}
+body.weather-sunny{background:linear-gradient(180deg,#fffdf2,#ffeccd) fixed;}
+body.weather-cloudy{background:linear-gradient(180deg,#ebeff5,#d7dee8) fixed;}
+body.weather-rain{background:linear-gradient(180deg,#e9f2fc,#c9dbed) fixed;}
+body.weather-cherry{background:linear-gradient(180deg,#fff6fc,#ffe9f3) fixed;}
+body.weather-fall{background:linear-gradient(180deg,#fff2e4,#ffd7b8) fixed;}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 4vw;height:90px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(255,255,255,0.97) 0%,transparent 100%);transition:background .3s,border-color .3s, box-shadow .3s, height .3s;}
@@ -418,90 +423,293 @@ const ro = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-// Rainfall — deep pink drops against the Vancouver illustration
-(function () {
+// Weather / seasonal visual system for Vancouver
   const cv = document.getElementById('blossom-canvas');
   const cx = cv.getContext('2d');
-  let W, H, drops = [], splashes = [];
+  let W = window.innerWidth;
+  let H = window.innerHeight;
+  let weatherAnim = null;
 
-  function resize() {
-    W = cv.width  = window.innerWidth;
+  function resizeCanvas() {
+    W = cv.width = window.innerWidth;
     H = cv.height = window.innerHeight;
   }
-  resize();
-  window.addEventListener('resize', resize);
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
-  function mkDrop() {
-    const speed = 13 + Math.random() * 10;
-    const drift = 0.14 + Math.random() * 0.09;
-    return {
-      x:   Math.random() * (W + 300) - 150,
-      y:   -30 - Math.random() * H * 0.7,
-      len: 14 + Math.random() * 22,          // longer streaks = more visible
-      vx:  Math.sin(drift) * speed,
-      vy:  Math.cos(drift) * speed,
-      op:  0.22 + Math.random() * 0.38,      // stronger opacity against the illustration
-      w:   0.8 + Math.random() * 1.1,        // slightly thicker
-    };
-  }
-
-  function mkSplash(x) {
-    return { x, y: H - 1, rx: 1, ry: 0.4, life: 1.0 };
-  }
-
-  for (let i = 0; i < 220; i++) {
-    const d = mkDrop();
-    d.y = Math.random() * H;
-    drops.push(d);
-  }
-
-  (function loop() {
+  function clearCanvas() {
     cx.clearRect(0, 0, W, H);
+  }
 
-    drops.forEach((d, i) => {
-      cx.save();
-      cx.globalAlpha = d.op;
-      // Gradient: deep crimson-pink tip → soft pink tail, readable on the pastel illustration
-      const grad = cx.createLinearGradient(d.x, d.y, d.x - d.vx * (d.len / d.vy), d.y - d.len);
-      grad.addColorStop(0,   'rgba(180, 20, 80, 0.95)');   // deep rose at tip
-      grad.addColorStop(0.4, 'rgba(255, 42,133, 0.70)');   // mid pink
-      grad.addColorStop(1,   'rgba(255,110,180, 0.00)');   // fade out
-      cx.strokeStyle = grad;
-      cx.lineWidth   = d.w;
-      cx.lineCap     = 'round';
+  function applyTheme(theme) {
+    document.body.classList.remove('weather-sunny','weather-cloudy','weather-rain','weather-cherry','weather-fall');
+    document.body.classList.add(`weather-${theme}`);
+  }
+
+  function seasonTheme() {
+    const month = new Date().getMonth() + 1;
+    if (month === 4 || month === 5) return 'cherry';
+    if (month === 10 || month === 11) return 'fall';
+    return null;
+  }
+
+  function mapCondition(condition) {
+    const c = (condition || '').toLowerCase();
+    if (/(rain|shower|drizzle|storm|sleet|snow)/.test(c)) return 'rain';
+    if (/(cloud|overcast|fog|mist|haze)/.test(c)) return 'cloudy';
+    if (/(sun|clear|fair)/.test(c)) return 'sunny';
+    return 'sunny';
+  }
+
+  async function fetchVancouverCondition() {
+    const station = 's00006646';
+    const url = `https://dd.weather.gc.ca/citypage_weather/json/${station}_e.json`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data?.currentConditions?.condition || data?.forecast?.[0]?.wx || '';
+    } catch (error) {
+      console.warn('Fetch weather failed, using default', error);
+      return '';
+    }
+  }
+
+  function startRain() {
+    let drops = [];
+    let splashes = [];
+
+    function makeDrop() {
+      const speed = 13 + Math.random() * 10;
+      const drift = 0.14 + Math.random() * 0.09;
+      return {
+        x: Math.random() * (W + 300) - 150,
+        y: -30 - Math.random() * H * 0.7,
+        len: 14 + Math.random() * 22,
+        vx: Math.sin(drift) * speed,
+        vy: Math.cos(drift) * speed,
+        op: 0.22 + Math.random() * 0.38,
+        w: 0.8 + Math.random() * 1.1,
+      };
+    }
+
+    function makeSplash(x) {
+      return { x, y: H - 1, rx: 1, ry: 0.4, life: 1.0 };
+    }
+
+    for (let i = 0; i < 220; i++) {
+      const d = makeDrop();
+      d.y = Math.random() * H;
+      drops.push(d);
+    }
+
+    function loop() {
+      clearCanvas();
+      drops.forEach((d, i) => {
+        cx.save();
+        cx.globalAlpha = d.op;
+        const grad = cx.createLinearGradient(d.x, d.y, d.x - d.vx * (d.len / d.vy), d.y - d.len);
+        grad.addColorStop(0, 'rgba(180, 20, 80, 0.95)');
+        grad.addColorStop(0.4, 'rgba(255, 42,133, 0.70)');
+        grad.addColorStop(1, 'rgba(255,110,180, 0.00)');
+        cx.strokeStyle = grad;
+        cx.lineWidth = d.w;
+        cx.lineCap = 'round';
+        cx.beginPath();
+        cx.moveTo(d.x, d.y);
+        cx.lineTo(d.x - d.vx * (d.len / d.vy), d.y - d.len);
+        cx.stroke();
+        cx.restore();
+
+        d.x += d.vx;
+        d.y += d.vy;
+
+        if (d.y > H + 12) {
+          if (Math.random() < 0.32) splashes.push(makeSplash(d.x));
+          drops[i] = makeDrop();
+        }
+      });
+
+      splashes.forEach((s) => {
+        cx.save();
+        cx.globalAlpha = s.life * 0.35;
+        cx.strokeStyle = 'rgba(180,20,80,0.9)';
+        cx.lineWidth = 0.9;
+        cx.beginPath();
+        cx.ellipse(s.x, s.y, s.rx, s.ry, 0, 0, Math.PI * 2);
+        cx.stroke();
+        cx.restore();
+        s.rx += 1.8;
+        s.ry += 0.45;
+        s.life -= 0.07;
+      });
+
+      splashes = splashes.filter((s) => s.life > 0);
+      weatherAnim = requestAnimationFrame(loop);
+    }
+
+    loop();
+  }
+
+  function startClouds() {
+    const clouds = Array.from({ length: 8 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H * 0.35 + 20,
+      r: 33 + Math.random() * 42,
+      v: 0.3 + Math.random() * 0.5,
+    }));
+
+    function loop() {
+      clearCanvas();
+      clouds.forEach((c) => {
+        c.x += c.v;
+        if (c.x > W + 120) c.x = -120;
+        cx.fillStyle = 'rgba(255,255,255,0.78)';
+        cx.beginPath();
+        cx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+        cx.fill();
+        cx.arc(c.x + 40, c.y - 12, c.r * 0.8, 0, Math.PI * 2);
+        cx.fill();
+        cx.arc(c.x - 45, c.y - 8, c.r * 0.75, 0, Math.PI * 2);
+        cx.fill();
+      });
+      weatherAnim = requestAnimationFrame(loop);
+    }
+
+    loop();
+  }
+
+  function startSunshine() {
+    const stars = Array.from({ length: 130 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H * 0.7,
+      r: 0.8 + Math.random() * 1.6,
+      baseAlpha: 0.2 + Math.random() * 0.5,
+      phase: Math.random() * Math.PI * 2,
+    }));
+
+    function loop() {
+      clearCanvas();
+      cx.fillStyle = 'rgba(255,255,210,0.06)';
+      cx.fillRect(0, 0, W, H);
+
       cx.beginPath();
-      cx.moveTo(d.x, d.y);
-      cx.lineTo(d.x - d.vx * (d.len / d.vy), d.y - d.len);
-      cx.stroke();
-      cx.restore();
+      cx.arc(W * 0.82, H * 0.17, 72, 0, Math.PI * 2);
+      cx.fillStyle = 'rgba(255,235,130,0.88)';
+      cx.fill();
 
-      d.x += d.vx;
-      d.y += d.vy;
+      stars.forEach((s) => {
+        const alpha = s.baseAlpha + 0.3 * Math.sin(Date.now() * 0.001 + s.phase);
+        cx.fillStyle = `rgba(255,255,255,${alpha})`;
+        cx.beginPath();
+        cx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        cx.fill();
+      });
 
-      if (d.y > H + 12) {
-        if (Math.random() < 0.32) splashes.push(mkSplash(d.x));
-        drops[i] = mkDrop();
-      }
-    });
+      weatherAnim = requestAnimationFrame(loop);
+    }
 
-    splashes.forEach((s) => {
-      cx.save();
-      cx.globalAlpha = s.life * 0.35;
-      cx.strokeStyle = 'rgba(180,20,80,0.9)';
-      cx.lineWidth   = 0.9;
-      cx.beginPath();
-      cx.ellipse(s.x, s.y, s.rx, s.ry, 0, 0, Math.PI * 2);
-      cx.stroke();
-      cx.restore();
-      s.rx  += 1.8;
-      s.ry  += 0.45;
-      s.life -= 0.07;
-    });
+    loop();
+  }
 
-    splashes = splashes.filter(s => s.life > 0);
-    requestAnimationFrame(loop);
-  })();
-})();
+  function startCherryBlossoms() {
+    const petals = Array.from({ length: 120 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      s: 0.8 + Math.random() * 1.2,
+      vx: -0.3 - Math.random() * 0.5,
+      vy: 0.45 + Math.random() * 0.5,
+      rot: Math.random() * Math.PI * 2,
+      vr: 0.006 + Math.random() * 0.012,
+    }));
+
+    function loop() {
+      clearCanvas();
+      petals.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vr;
+        if (p.y > H + 20) p.y = -20;
+        if (p.x < -30) p.x = W + 30;
+
+        cx.save();
+        cx.translate(p.x, p.y);
+        cx.rotate(p.rot);
+        cx.fillStyle = 'rgba(255,153,180,0.84)';
+        cx.beginPath();
+        cx.ellipse(0, 0, 8 * p.s, 12 * p.s, 0, 0, Math.PI * 2);
+        cx.fill();
+        cx.restore();
+      });
+
+      weatherAnim = requestAnimationFrame(loop);
+    }
+
+    loop();
+  }
+
+  function startFallLeaves() {
+    const leaves = Array.from({ length: 110 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: 0.75 + Math.random() * 1.2,
+      vx: -0.35 - Math.random() * 0.45,
+      vy: 0.85 + Math.random() * 0.7,
+      rot: Math.random() * Math.PI * 2,
+      vr: -0.01 + Math.random() * 0.02,
+      color: ['#c8621e', '#ef7f24', '#f2b134', '#9a532d', '#d88f51'][Math.floor(Math.random() * 5)],
+    }));
+
+    function loop() {
+      clearCanvas();
+      leaves.forEach((l) => {
+        l.x += l.vx;
+        l.y += l.vy;
+        l.rot += l.vr;
+        if (l.y > H + 20) l.y = -20;
+        if (l.x < -30) l.x = W + 30;
+
+        cx.save();
+        cx.translate(l.x, l.y);
+        cx.rotate(l.rot);
+        cx.fillStyle = l.color;
+        cx.beginPath();
+        cx.moveTo(0, 0);
+        cx.quadraticCurveTo(-7 * l.r, -9 * l.r, -2 * l.r, -14 * l.r);
+        cx.quadraticCurveTo(0, -22 * l.r, 4 * l.r, -14 * l.r);
+        cx.quadraticCurveTo(9 * l.r, -9 * l.r, 0, 0);
+        cx.fill();
+        cx.restore();
+      });
+
+      weatherAnim = requestAnimationFrame(loop);
+    }
+
+    loop();
+  }
+
+  function runWeather(theme) {
+    if (weatherAnim) cancelAnimationFrame(weatherAnim);
+    clearCanvas();
+    applyTheme(theme);
+    switch (theme) {
+      case 'rain': return startRain();
+      case 'cloudy': return startClouds();
+      case 'sunny': return startSunshine();
+      case 'cherry': return startCherryBlossoms();
+      case 'fall': return startFallLeaves();
+      default: return startSunshine();
+    }
+  }
+
+  async function initWeatherEffects() {
+    const seasonal = seasonTheme();
+    if (seasonal) { return runWeather(seasonal); }
+    const condition = await fetchVancouverCondition();
+    const weatherTheme = mapCondition(condition);
+    runWeather(weatherTheme);
+  }
+
+  initWeatherEffects();
 </script>
 </body>
 </html>
