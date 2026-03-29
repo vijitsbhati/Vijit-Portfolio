@@ -287,6 +287,97 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 .footer-bot{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:.85rem;font-weight:600;color:var(--text-muted);font-family:var(--fm);}
 
+/* INDEX PAGE BROWSER MOCKUP */
+.browser-mockup-wrapper {
+  position: absolute;
+  right: -5%;
+  top: 15%;
+  width: 60%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1) inset;
+  transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+}
+
+.featured:hover .browser-mockup-wrapper {
+  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) scale(1.02);
+}
+
+.browser-header {
+  background: #f8f9fa;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.browser-dots .close { background: #ff5f56; }
+.browser-dots .min { background: #ffbd2e; }
+.browser-dots .max { background: #27c93f; }
+
+.browser-url {
+  flex: 1;
+  background: #ffffff;
+  margin: 0 14px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: var(--fm);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-align: center;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.browser-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Update the featured body to sit on the left */
+.feat-body-split {
+  position: relative;
+  width: 50%;
+  padding: 50px 55px;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media(max-width:900px){
+  .browser-mockup-wrapper {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 100%;
+    transform: none;
+    margin-top: 20px;
+  }
+  .featured:hover .browser-mockup-wrapper { transform: none; }
+  .feat-body-split { width: 100%; padding: 30px; }
+  .featured { height: auto; display: flex; flex-direction: column; }
+}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -344,19 +435,35 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     <a href="case-studies.html" class="see-all" style="padding-bottom: 3px;">View All</a>
   </div>
 
-  <a href="case-studies.html#eyq" class="featured reveal">
-    <div class="feat-bg" style="background-image: url('eyq-screenshot.png');"></div>
-    <div class="feat-vig"></div>
-    <div class="feat-body">
-      <div class="feat-badge" style="background:#2b2d42;">Featured Project</div>
-      <h2 class="feat-title">EYQ – Enterprise AI Platform</h2>
-      <p class="feat-desc">Designing a centralized AI marketplace enabling practitioners to create, manage, and safely use AI-powered “skills” for consulting workflows.</p>
+  <a href="case-studies.html#eyq" class="featured reveal" style="background: #1a1a24; overflow: hidden; display: flex;">
+    
+    <div class="feat-body-split">
+      <div class="feat-badge" style="background:var(--pink); align-self: flex-start;">Featured Project</div>
+      <h2 class="feat-title" style="color: var(--white);">EYQ – Enterprise AI Platform</h2>
+      <p class="feat-desc" style="color: rgba(255,255,255,0.7);">Designing a centralized AI marketplace enabling practitioners to create, manage, and safely use AI-powered “skills” for consulting workflows.</p>
       
       <div class="feat-tags">
         <span class="ftag">Experience Strategy</span>
         <span class="ftag">Platform Design</span>
         <span class="ftag">AI Governance</span>
-        <span class="btn-p" style="font-size:.8rem;padding:9px 18px;border-radius:4px;background:#2b2d42;border:none;">Case Study</span>
+      </div>
+      <div style="margin-top: 24px;">
+        <span class="btn-p" style="font-size:.8rem;padding:9px 18px;border-radius:4px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(4px);">View Case Study</span>
+      </div>
+    </div>
+
+    <div class="browser-mockup-wrapper">
+      <div class="browser-header">
+        <div class="browser-dots">
+          <span class="close"></span>
+          <span class="min"></span>
+          <span class="max"></span>
+        </div>
+        <div class="browser-url">eyq.ey.com/skills-marketplace</div>
+        <div style="width: 42px;"></div>
+      </div>
+      <div class="browser-content">
+        <img src="eyq-screenshot.jpg" alt="EYQ Platform Interface" />
       </div>
     </div>
   </a>
