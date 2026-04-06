@@ -1,0 +1,23 @@
+{
+  "name": "vijit-portfolio",
+  "version": "1.0.0",
+  "description": "Vijit Bhati's Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijitsbhati/Vijit-Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vijitsbhati/Vijit-Portfolio/issues"
+  },
+  "homepage": "https://github.com/vijitsbhati/Vijit-Portfolio#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
