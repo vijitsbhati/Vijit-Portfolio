@@ -115,6 +115,9 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .feat-tags{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .ftag{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--white);padding:4px 12px;border:1px solid rgba(255,255,255,0.4);border-radius:4px;backdrop-filter:blur(4px);}
 
+.featured .proj-acts{opacity:0;transition:opacity .3s;margin-top:24px;}
+.featured:hover .proj-acts{opacity:1;}
+
 .nf-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .proj-card{position:relative;border-radius:6px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;text-decoration:none;display:block;transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s,z-index 0s; background:#000;}
 .proj-card:hover{transform:translateY(-8px) scale(1.02);z-index:10;box-shadow:0 22px 45px rgba(0,0,0,.15);}
@@ -370,12 +373,16 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 
 @media(max-width:900px){
   .browser-mockup-wrapper {
-    position: relative;
-    right: 0;
-    top: 0;
-    width: 100%;
-    transform: none;
-    margin-top: 20px;
+    display: none;
+  }
+  .featured {
+    background: url('eyq-screenshot.png') center/cover;
+  }
+  .feat-vig {
+    background: linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 60%,transparent 100%);
+  }
+  .featured .proj-acts {
+    opacity: 1;
   }
   .featured:hover .browser-mockup-wrapper { transform: none; }
   .feat-body-split { width: 100%; padding: 30px; }
@@ -392,8 +399,9 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   .mantras-grid,.testi-grid{grid-template-columns:1fr;}
   .nf-row{grid-template-columns:1fr 1fr;}
   .nav-links{display:none;}
-  .featured{height:300px;}
+  .featured{height:auto;}
   .feat-body{padding:30px;}
+  .proj-acts{opacity:1;}
 }
 @media(max-width:600px){
   .nf-row{grid-template-columns:1fr;}
@@ -451,8 +459,8 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         <span class="ftag">Platform Design</span>
         <span class="ftag">AI Governance</span>
       </div>
-      <div style="margin-top: 24px;">
-        <span class="btn-p" style="font-size:.8rem;padding:9px 18px;border-radius:4px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(4px);">View Case Study</span>
+      <div class="proj-acts">
+        <span class="pbtn pbtn-play">Learn More</span>
       </div>
     </div>
 
