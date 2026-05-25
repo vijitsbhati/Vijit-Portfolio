@@ -99,7 +99,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .meta-lbl{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;display:block;}
 .meta-val{font-weight:700;font-size:1.05rem;color:var(--text-main);}
 
-.cs-body{padding:60px 70px;max-width:900px;}
+.cs-body{padding:60px 70px;width:100%;max-width:none;}
 .cs-body p{font-size:1.05rem;color:var(--text-muted);line-height:1.8;font-weight:500;margin-bottom:22px;}
 .cs-body p strong{color:var(--text-main);font-weight:700;}
 .cs-body p em{font-style:italic;color:var(--pink);}
@@ -109,9 +109,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .cs-img-grid.two-col { grid-template-columns: 1fr 1fr; }
 .cs-img-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
 .cs-img-wrapper { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--deep); box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
-.cs-img-wrapper img, .cs-img-wrapper iframe { width: 100%; height: auto; display: block; border: none; }
-.cs-img-wrapper iframe { height: 450px; background: #fff;}
+.cs-img-wrapper img, .cs-img-wrapper iframe { width: 100%; height: auto; display: block; border: none; cursor: pointer; transition: transform .2s ease, opacity .2s ease; }
+.cs-img-wrapper img:hover { transform: scale(1.01); opacity: .98; }
+.cs-img-wrapper iframe { height: 450px; background: #fff; }
 .cs-img-caption { font-family: var(--fm); font-size: 0.85rem; color: var(--text-muted); padding: 12px 16px; border-top: 1px solid var(--border); background: var(--white); font-weight: 600; }
+
+.image-lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 300; }
+.image-lightbox-overlay.active { display: flex; }
+.image-lightbox-content { position: relative; max-width: 95vw; max-height: 95vh; overflow: hidden; border-radius: 12px; }
+.image-lightbox-content img { width: auto; max-width: 100%; max-height: 100%; height: auto; display: block; border-radius: 12px; }
+.image-lightbox-close { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border: none; border-radius: 50%; background: rgba(255,255,255,.95); color: var(--text-main); font-size: 1.35rem; cursor: pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,0.2); }
 
 .overview{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:40px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:60px; box-shadow:0 10px 30px rgba(0,0,0,0.02);}
 .ov-lbl{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:12px;display:block;}
@@ -883,6 +890,43 @@ document.addEventListener('keydown', e => {
   if (next) {
     const navEl = document.querySelector('.sb-item[href="#' + next + '"]');
     show(next, navEl);
+  }
+});
+
+// Image lightbox popup
+const lightbox = document.createElement('div');
+lightbox.className = 'image-lightbox-overlay';
+lightbox.innerHTML = '<div class="image-lightbox-content"><button class="image-lightbox-close" aria-label="Close">&times;</button><img src="" alt="" /></div>';
+document.body.appendChild(lightbox);
+const lightboxImage = lightbox.querySelector('img');
+const closeButton = lightbox.querySelector('.image-lightbox-close');
+
+function openLightbox(src, alt) {
+  lightboxImage.src = src;
+  lightboxImage.alt = alt || '';
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.body.addEventListener('click', e => {
+  const img = e.target.closest('.cs-img-wrapper img');
+  if (img) {
+    openLightbox(img.src, img.alt);
+  }
+});
+
+closeButton.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+    closeLightbox();
   }
 });
 </script>
