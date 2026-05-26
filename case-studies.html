@@ -105,11 +105,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 .cs-body p em{font-style:italic;color:var(--pink);}
 
 /* Image Galleries */
-.cs-img-grid { display: grid; gap: 20px; margin-bottom: 30px; margin-top: 10px;}
-.cs-img-grid.two-col { grid-template-columns: 1fr 1fr; }
-.cs-img-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+.cs-img-grid { display: grid; gap: 20px; margin-bottom: 30px; margin-top: 10px; width: min(100%, 1120px); margin-left: auto; margin-right: auto; }
+.cs-img-grid.bento { grid-template-columns: repeat(4, minmax(240px, 1fr)); grid-auto-rows: auto; }
+.cs-img-grid.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cs-img-grid.three-col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .cs-img-wrapper { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--deep); box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
-.cs-img-wrapper img, .cs-img-wrapper iframe { width: 100%; height: auto; display: block; border: none; cursor: pointer; transition: transform .2s ease, opacity .2s ease; }
+.cs-img-wrapper img, .cs-img-wrapper iframe { width: 100%; height: auto; max-height: 520px; display: block; border: none; cursor: pointer; transition: transform .2s ease, opacity .2s ease; object-fit: contain; }
 .cs-img-wrapper img:hover { transform: scale(1.01); opacity: .98; }
 .cs-img-wrapper iframe { height: 450px; background: #fff; }
 .cs-img-caption { font-family: var(--fm); font-size: 0.85rem; color: var(--text-muted); padding: 12px 16px; border-top: 1px solid var(--border); background: var(--white); font-weight: 600; }
@@ -193,7 +194,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
   .overview,.insights,.stats{grid-template-columns:1fr;}
   .decision{grid-template-columns:1fr;}
   .dec-before{border-right:none;border-bottom:1px solid var(--border);}
-  .cs-img-grid.two-col, .cs-img-grid.three-col { grid-template-columns: 1fr; }
+  .cs-img-grid.two-col, .cs-img-grid.three-col, .cs-img-grid.bento { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -317,7 +318,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
             </div>
           </div>
 
-          <div class="cs-img-grid two-col">
+          <div class="cs-img-grid bento">
             <div class="cs-img-wrapper">
               <img src="eyq/2.png" alt="Wireframe - Chatbot" />
               <div class="cs-img-caption">Conversational Chatbot Interface Wireframe</div>
