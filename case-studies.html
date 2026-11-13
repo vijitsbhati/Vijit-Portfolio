@@ -888,7 +888,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // Left/Right switch case studies; Up/Down stay free for scrolling, and typing in a field is never hijacked.
 document.addEventListener('keydown', e => {
   if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
-  if (e.target.closest('input, textarea, select, [contenteditable="true"], .av-panel')) return;
+  if (e.target.closest('input, textarea, select, [contenteditable="true"], #ask-vijit')) return;
   const current = document.querySelector('.cs-panel.active')?.id.replace('panel-','');
   const idx = IDS.indexOf(current);
   let next = null;
