@@ -34,7 +34,7 @@ Senior Experience Designer — EADP, Social & Gameplay Services (May 2024 – Ma
 ### Ernst & Young (EY) — Vancouver, BC — Apr 2021 to May 2024
 Experience Designer — Supervising Associate (Aug 2022 – May 2024); Senior Associate (Apr 2021 – Aug 2022)
 - Led UX for EYQ, EY's company-wide Generative AI platform, improving employee efficiency in domain-specific tasks.
-- Led UX for a Generative AI and ML-powered product that scaled from 80% to 92% model accuracy in four months, launched company-wide, and was adopted by 80% of financial auditors — impacting teams driving ~50% of EY's audit revenue.
+- Led UX for the SaaS Contract Analyzer, a Generative AI and ML-powered audit product (separate from EYQ) that scaled from 80% to 92% model accuracy in four months, launched company-wide, and was adopted by 80% of financial auditors — impacting teams driving ~50% of EY's audit revenue.
 - Led UX strategy for enterprise data, analytics, and AI-powered products across auditing, banking, business, and healthcare.
 - Championed UX research and rapid prototyping services for EY clients, using AI/ML to turn business requirements into intuitive product designs.
 - Facilitated design thinking workshops with key stakeholders to define personas, user flows, and feature scope.
