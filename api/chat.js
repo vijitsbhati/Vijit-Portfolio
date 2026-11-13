@@ -97,7 +97,12 @@ async function callModel(model, messages, apiKey, siteUrl) {
       }),
     });
     if (!response.ok) {
-      throw new Error(`${model} responded ${response.status}`);
+      let detail = '';
+      try {
+        const errBody = await response.json();
+        detail = (errBody && errBody.error && (errBody.error.message || JSON.stringify(errBody.error))) || '';
+      } catch (e) { /* non-JSON error body */ }
+      throw new Error(`${model} responded ${response.status} ${String(detail).slice(0, 300)}`);
     }
     const data = await response.json();
     const reply = cleanReply(data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content);
@@ -138,7 +143,7 @@ module.exports = async function handler(req, res) {
       const reply = await callModel(model, messages, apiKey, siteUrl);
       return res.status(200).json({ reply });
     } catch (err) {
-      console.error('[chat] model failed:', err.message);
+      console.error('[chat] model failed:', err.name === 'AbortError' ? `${model} timed out` : err.message);
     }
   }
 
