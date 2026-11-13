@@ -1,14 +1,18 @@
 const { KNOWLEDGE } = require('./_knowledge');
 
 const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
+// Free models are often rate-limited, so try several; the slow 550B model goes last.
 const DEFAULT_MODELS = [
   'nvidia/nemotron-3.5-lightning:free',
-  'nvidia/nemotron-3-ultra-550b-a55b:free',
   'google/gemma-4-31b-it:free',
+  'google/gemma-4-26b-a4b-it:free',
+  'nvidia/nemotron-3.5-super-vl:free',
+  'nvidia/nemotron-3-ultra-550b-a55b:free',
 ];
 const MAX_MESSAGES = 10;
 const MAX_MESSAGE_CHARS = 1000;
-const MODEL_TIMEOUT_MS = 20000;
+const MODEL_TIMEOUT_MS = 15000;
+const TOTAL_BUDGET_MS = 45000;
 
 const RATE_LIMIT = 20;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
@@ -92,8 +96,9 @@ async function callModel(model, messages, apiKey, siteUrl) {
         model,
         messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
         temperature: 0.3,
-        max_tokens: 500,
-        reasoning: { exclude: true },
+        // Reasoning tokens count against max_tokens, so leave room for thinking plus the answer.
+        max_tokens: 2000,
+        reasoning: { effort: 'low', exclude: true },
       }),
     });
     if (!response.ok) {
@@ -105,8 +110,12 @@ async function callModel(model, messages, apiKey, siteUrl) {
       throw new Error(`${model} responded ${response.status} ${String(detail).slice(0, 300)}`);
     }
     const data = await response.json();
-    const reply = cleanReply(data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content);
-    if (!reply) throw new Error(`${model} returned an empty reply`);
+    const choice = data && data.choices && data.choices[0];
+    const reply = cleanReply(choice && choice.message && choice.message.content);
+    if (!reply) {
+      const why = (choice && choice.finish_reason) || (data && data.error && data.error.message) || 'unknown';
+      throw new Error(`${model} returned an empty reply (${why})`);
+    }
     return reply;
   } finally {
     clearTimeout(timer);
@@ -138,7 +147,9 @@ module.exports = async function handler(req, res) {
   }
 
   const siteUrl = process.env.SITE_URL || 'https://vijitbhati.com';
+  const startedAt = Date.now();
   for (const model of getModels()) {
+    if (Date.now() - startedAt > TOTAL_BUDGET_MS) break;
     try {
       const reply = await callModel(model, messages, apiKey, siteUrl);
       return res.status(200).json({ reply });
