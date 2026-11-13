@@ -96,9 +96,9 @@ async function callModel(model, messages, apiKey, siteUrl) {
         model,
         messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
         temperature: 0.3,
-        // Reasoning tokens count against max_tokens, so leave room for thinking plus the answer.
-        max_tokens: 2000,
-        reasoning: { effort: 'low', exclude: true },
+        // Short factual answers don't need thinking; it only adds latency and can eat the token budget.
+        max_tokens: 1200,
+        reasoning: { enabled: false, exclude: true },
       }),
     });
     if (!response.ok) {
