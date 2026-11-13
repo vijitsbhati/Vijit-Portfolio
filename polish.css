@@ -1,0 +1,168 @@
+/* Site-wide polish layer, loaded after each page's own styles.
+   Keeps the brand (pink, Rajdhani, weather canvas) and fixes accessibility,
+   contrast, motion and touch issues found by the taste-skill checker. */
+
+:root {
+  /* #FF2A85 stays for large display accents; small text and filled buttons
+     use a deeper step of the same hue so they reach 4.5:1 on white. */
+  --pink-ink:   #D6136A;
+  --pink-press: #B80F5A;
+  --text-muted: #4f4f4f;
+  --gutter:     clamp(20px, 5.5vw, 96px);
+  --focus:      #1a1a1a;
+}
+
+/* ---------- Focus: visible at once, never animated ---------- */
+/* Keyboard focus and anchor jumps never land under the fixed nav. */
+html { scroll-padding-top: 112px; scroll-padding-bottom: 104px; scroll-behavior: auto !important; }
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+:where(.btn-p, .nav-cta, .btn-w, .featured, .proj-card, .next-cta, .sb-item, .card button):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+/* Project cards reveal their details on hover; show them on keyboard focus too. */
+.featured:focus-visible .proj-acts,
+.proj-card:focus-visible .proj-acts { opacity: 1; }
+.proj-card:focus-visible .proj-desc { max-height: 70px; }
+.proj-card:focus-visible .proj-meta { transform: none; }
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10001;
+  padding: 10px 16px;
+  background: var(--text-main, #1a1a1a);
+  color: #fff;
+  font: 700 1rem/1 'Rajdhani', sans-serif;
+  letter-spacing: .04em;
+  text-decoration: none;
+  border-radius: 4px;
+  transform: translateY(-160%);
+}
+.skip-link:focus { transform: none; }
+
+/* ---------- Contrast: small pink text and pink fills ---------- */
+.hero-eye, .sec-lbl, .about-eye, .t-hero-eye, .t-sec-num,
+.sb-num, .ov-lbl, .cs-sec-num, .cs-quote cite, .dec-after::before,
+.cs-body p em, .pg-cap {
+  color: var(--pink-ink);
+}
+/* The hero eyebrow sits over the skyline image, so it takes the deepest step. */
+.hero-eye { color: var(--pink-press); }
+.hero-eye::before, .about-eye::before { background: var(--pink-ink); }
+
+/* Primary and secondary buttons share one height. */
+.btn-p { border: 2px solid transparent; }
+.btn-p, .btn-s { line-height: 1.6; }
+
+.btn-p, .pbtn-play, .feat-badge, .weather-btn.active, .badge-listing,
+.nav-cta, .t-cta {
+  background: var(--pink-ink) !important;
+}
+.btn-p:hover, .nav-cta:hover { background: var(--pink-press) !important; }
+.btn-p:active, .btn-s:active, .btn-w:active, .nav-cta:active { transform: translateY(1px); }
+.btn-w { color: var(--pink-ink); }
+
+.nav-links a:hover, .nav-right a:hover, .see-all:hover, .footer-col a:hover { color: var(--pink-ink); }
+.nav-links a[aria-current="page"] { color: var(--pink-ink) !important; }
+
+/* ---------- Content never waits on a scroll observer ---------- */
+.reveal, .reveal.visible { opacity: 1 !important; transform: none !important; }
+
+/* ---------- Touch targets on phones ---------- */
+@media (max-width: 900px) {
+  .about-photo-col { margin-bottom: 56px; }
+  .footer-col li { margin-bottom: 0; }
+  .footer-col a,
+  .see-all,
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* ---------- Phone menu (built by polish.js) ---------- */
+.menu-btn { display: none; }
+@media (max-width: 900px) {
+  .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 2px solid rgba(0,0,0,.12);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text-main, #1a1a1a);
+    font: 700 .95rem/1 'Rajdhani', sans-serif;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .menu-btn__bars, .menu-btn__bars::before, .menu-btn__bars::after {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    position: relative;
+  }
+  .menu-btn__bars::before, .menu-btn__bars::after { content: ''; position: absolute; left: 0; }
+  .menu-btn__bars::before { top: -6px; }
+  .menu-btn__bars::after { top: 6px; }
+
+  nav.menu-open .nav-links {
+    display: flex !important;
+    position: fixed;
+    top: var(--nav-h, 75px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px var(--gutter) 32px;
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,.08);
+    overflow-y: auto;
+  }
+  nav.menu-open .nav-links li { border-bottom: 1px solid rgba(0,0,0,.08); }
+  nav.menu-open .nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    font-size: 1.15rem;
+    color: var(--text-main, #1a1a1a);
+  }
+  nav.menu-open { background: #fff !important; }
+  body.menu-locked { overflow: hidden; }
+}
+
+/* ---------- Keep the chat launcher off the footer's last line ---------- */
+footer { padding-bottom: 104px !important; }
+
+/* ---------- Reduced motion: still pages, colours may still change ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+  #blossom-canvas { display: none !important; }
+}
+
+/* Logo links are tap targets too. */
+.nav-logo { min-width: 44px; min-height: 44px; }
+
+/* Tags over project photos sit on their own dark chip. */
+.proj-card .ftag { background: rgba(0,0,0,.5); }

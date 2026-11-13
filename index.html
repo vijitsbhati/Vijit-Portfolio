@@ -5,12 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c284c8d2f4db21b24c4_favicon-32x32.png">
 <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c8294b1373cf9b0309b_favicon%20(1).ico">
-<title>Vijit Bhati — Senior Experience Designer</title>
+<title>Vijit Bhati: Design Leader at Electronic Arts, Vancouver</title>
+<meta name="description" content="Vijit Bhati is a Senior Experience Designer at EA with 10+ years designing data, analytics and AI platforms across gaming and enterprise in Japan, the US and Canada." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="canonical" href="https://vijitbhati.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Vijit Bhati" />
+<meta property="og:title" content="Vijit Bhati: Design Leader at Electronic Arts" />
+<meta property="og:description" content="Senior Experience Designer at EA. 10+ years designing data, analytics and AI platforms across gaming and enterprise." />
+<meta property="og:url" content="https://vijitbhati.com/" />
+<meta property="og:image" content="https://vijitbhati.com/img/share.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preload" as="image" href="img/vancouver-hero.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://unpkg.com/lucide@latest"></script>
 <script defer src="/analytics.js"></script>
+<script defer src="/chat-widget.js"></script>
 <script defer src="/speed-insights.js"></script>
 <style>
 :root {
@@ -52,7 +64,7 @@ body.weather-cherry{background:linear-gradient(180deg,#fff6fc,#ffe9f3) fixed;}
 body.weather-fall{background:linear-gradient(180deg,#fff2e4,#ffc4b8) fixed;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 4vw;height:90px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(255,255,255,0.97) 0%,transparent 100%);transition:background .3s,border-color .3s, box-shadow .3s, height .3s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 var(--gutter);height:90px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(255,255,255,0.97) 0%,transparent 100%);transition:background .3s,border-color .3s, box-shadow .3s, height .3s;}
 nav.scrolled{height:75px; background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
 .nav-logo{text-decoration:none;display:flex;align-items:center;}
 .nav-logo-img{height:60px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%); transition: height .3s;}
@@ -65,10 +77,11 @@ nav.scrolled .nav-logo-img{height:50px;}
 .nav-cta:hover{background:var(--pink-lt)!important;}
 
 /* HERO */
-#hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 4vw 12vh;overflow:hidden;z-index:2;}
-.hero-bg{position:absolute;inset:0;background-image:url('vancouver-hero.png');background-size:cover;background-position:center 30%;background-repeat:no-repeat;opacity: 0.35;}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0.84) 0%,rgba(255,255,255,0.48) 42%,rgba(255,255,255,0.08) 100%),linear-gradient(to top,rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.0) 38%);}
+#hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:120px var(--gutter) 12vh;overflow:hidden;z-index:2;}
+.hero-bg{position:absolute;inset:0;background-image:url('img/vancouver-hero.webp');background-size:cover;background-position:center 30%;background-repeat:no-repeat;opacity: 0.35;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.7) 45%,rgba(255,255,255,0.1) 100%),linear-gradient(to top,rgba(255,255,255,0.96) 0%,rgba(255,255,255,0.0) 38%);}
 .hero-content{position:relative;z-index:3;max-width:850px;}
+.hero-content::before{content:'';position:absolute;inset:-48px -64px;z-index:-1;background:radial-gradient(closest-side,rgba(255,255,255,.78),rgba(255,255,255,0));pointer-events:none;}
 .hero-eye{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);display:flex;align-items:center;gap:12px;margin-bottom:18px;opacity:0;animation:fadeUp .8s .2s forwards;}
 .hero-eye::before{content:'';width:36px;height:2px;background:var(--pink);}
 
@@ -80,11 +93,11 @@ nav.scrolled .nav-logo-img{height:50px;}
 .hero-acts{display:flex;gap:16px;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards;}
 .btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:var(--white);padding:14px 28px;border-radius:4px;font-weight:700;font-size:1rem;letter-spacing:.05em;text-decoration:none;transition:background .2s,transform .2s; text-transform:uppercase;}
 .btn-p:hover{background:var(--pink-lt);transform:translateY(-2px); color:var(--white);}
-.btn-s{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--text-main);padding:14px 28px;border-radius:4px;font-weight:600;font-size:1rem;letter-spacing:.05em;text-decoration:none;border:2px solid var(--border);transition:border-color .2s, background .2s; text-transform:uppercase;}
-.btn-s:hover{background:var(--subtle); border-color:var(--text-main);}
+.btn-s{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--text-main);padding:14px 28px;border-radius:4px;font-family:inherit;font-weight:600;font-size:1rem;letter-spacing:.05em;text-decoration:none;border:2px solid var(--border);cursor:pointer;transition:border-color .2s, background .2s, transform .2s; text-transform:uppercase;}
+.btn-s:hover{background:var(--subtle); border-color:var(--text-main); transform:translateY(-1px);}
 .weather-btn{padding:8px 14px;font-size:.85rem;}
 .weather-btn.active{background:var(--pink);color:var(--white);border-color:var(--pink);}
-.hero-scroll{position:absolute;bottom:38px;right:4vw;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5;animation:bob 2.4s ease-in-out infinite;}
+.hero-scroll{position:absolute;bottom:38px;right:var(--gutter);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5;animation:bob 2.4s ease-in-out infinite;}
 .hero-scroll span{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.1em;writing-mode:vertical-rl;transform:rotate(180deg);color:var(--text-muted);text-transform:uppercase;}
 .hero-scroll::after{content:'';width:2px;height:52px;background:linear-gradient(to bottom,var(--text-muted),transparent);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
@@ -94,7 +107,7 @@ nav.scrolled .nav-logo-img{height:50px;}
 .stripe{height:4px;background:linear-gradient(to right,#FF9933 0%,var(--pink) 33%,#138808 55%,var(--pink) 76%,#C41E3A 88%,var(--pink) 100%);opacity:.8;}
 
 /* SECTION */
-section{padding:85px 4vw;position:relative;z-index:2;}
+section{padding:85px var(--gutter);position:relative;z-index:2;}
 .sec-hd{display:flex; align-items:flex-end; justify-content:flex-start; gap:20px; margin-bottom:40px;}
 .sec-lbl{font-family:var(--fm);font-size:.9rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:6px;}
 .sec-ttl{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--text-main);line-height:1;margin:0;}
@@ -110,20 +123,20 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .feat-vig{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.8) 20%,transparent 100%),linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%);}
 .feat-body{position:absolute;bottom:0;left:0;right:0;padding:50px 55px;z-index:2;}
 .feat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--pink);color:var(--white);font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:4px;margin-bottom:18px;}
-.feat-title{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.1;max-width:600px;margin-bottom:14px;}
+.feat-title{font-family:var(--fd);font-size:clamp(1.8rem,2.6vw,2.4rem);font-weight:700;line-height:1.1;max-width:600px;margin-bottom:14px;}
 .feat-desc{font-size:1.1rem;color:rgba(255,255,255,.85);max-width:520px;line-height:1.6;font-weight:500;margin-bottom:26px;}
 .feat-tags{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .ftag{font-family:var(--fm);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--white);padding:4px 12px;border:1px solid rgba(255,255,255,0.4);border-radius:4px;backdrop-filter:blur(4px);}
 
-.featured .proj-acts{opacity:0;transition:opacity .3s;margin-top:24px;}
+.featured .proj-acts{opacity:1;transition:opacity .3s;margin-top:24px;}
 .featured:hover .proj-acts{opacity:1;}
 
 .nf-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .proj-card{position:relative;border-radius:6px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;text-decoration:none;display:block;transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s,z-index 0s; background:#000;}
-.proj-card:hover{transform:translateY(-8px) scale(1.02);z-index:10;box-shadow:0 22px 45px rgba(0,0,0,.15);}
+.proj-card:hover{transform:translateY(-4px);z-index:10;box-shadow:0 22px 45px rgba(0,0,0,.15);}
 .proj-img-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.75;transition:opacity .3s, transform .5s;}
 .proj-card:hover .proj-img-overlay{opacity:0.95; transform:scale(1.05);}
-.proj-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 60%,transparent 100%);z-index:1;}
+.proj-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.1) 60%,transparent 100%);z-index:1;}
 .proj-accent{position:absolute;top:0;left:0;right:0;height:4px;z-index:2;}
 .proj-meta{position:absolute;bottom:0;left:0;right:0;padding:24px;z-index:3;transform:translateY(8px);transition:transform .3s;}
 .proj-card:hover .proj-meta{transform:translateY(0);}
@@ -140,7 +153,7 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 #mantras{background:var(--bg);}
 .mantras-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .mantra-card{background:var(--card);padding:50px 40px;border-radius:6px; border:1px solid var(--border);position:relative;overflow:hidden;transition:all .2s; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
-.mantra-card:hover{transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.08);}
+
 .mantra-top{height:4px;position:absolute;top:0;left:0;right:0;}
 .mantra-card:nth-child(1) .mantra-top{background:var(--pink);}
 .mantra-card:nth-child(2) .mantra-top{background:var(--sage);}
@@ -151,15 +164,16 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .mantra-card:nth-child(1) .mantra-ico{background:rgba(255,42,133,.1);color:var(--pink);}
 .mantra-card:nth-child(2) .mantra-ico{background:rgba(46,204,138,.1);color:var(--sage);}
 .mantra-card:nth-child(3) .mantra-ico{background:rgba(255,153,51,.1);color:#FF9933;}
-.mantra-title{font-family:var(--fd);font-size:1.8rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
+.mantra-title{font-family:var(--fd);font-size:1.6rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
 .mantra-body{font-size:.95rem;color:var(--text-muted);line-height:1.7;font-weight:500;}
 
 /* TESTIMONIALS */
 #testimonials{background:var(--deep);border-top:1px solid var(--border);}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .testi-card{background:var(--card);padding:40px 35px;border-radius:6px;border:1px solid var(--border);transition:all .2s; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
-.testi-card:hover{transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.08);}
-.testi-q{font-family:var(--fd);font-size:4rem;line-height:1;color:var(--pink);opacity:.2;margin-bottom:-10px;}
+
+.testi-q{font-family:var(--fd);font-size:4rem;line-height:.6;height:28px;color:var(--pink);opacity:.35;margin-bottom:12px;}
+.testi-card h3{font-family:var(--fd);font-size:1.6rem;line-height:1.2;margin-bottom:12px;}
 .testi-txt{font-style:italic;font-size:1rem;color:var(--text-muted);line-height:1.7;margin-bottom:24px;font-family:var(--fd);font-weight:500;}
 .testi-txt strong{font-style:normal;color:var(--text-main);font-weight:700;}
 .testi-person{display:flex;align-items:center;gap:14px;}
@@ -169,11 +183,11 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 
 /* ABOUT */
 #about{background:var(--card);border-top:1px solid var(--border);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 
 /* ABOUT / POLAROID STYLE */
 #about{background:var(--card);border-top:1px solid var(--border);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 
 .about-frame {
   position: relative;
@@ -280,13 +294,13 @@ section{padding:85px 4vw;position:relative;z-index:2;}
 .about-body p+p{margin-top:16px;}
 
 /* FOOTER */
-footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4vw 40px;position:relative;z-index:2;}
+footer{background:var(--deep);border-top:1px solid var(--border);padding:65px var(--gutter) 40px;position:relative;z-index:2;}
 .footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:50px;margin-bottom:50px;}
 .footer-logo{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
 /* INCREASED LOGO SIZE IN FOOTER */
 .footer-logo-img{height:75px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);} 
 .footer-tag{font-size:.95rem;color:var(--text-muted);font-weight:500;line-height:1.6;max-width:280px; margin-top: 10px;}
-.footer-col h4{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);margin-bottom:16px;}
+.footer-col h3{font-family:var(--fm);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-main);margin-bottom:16px;}
 .footer-col ul{list-style:none;}
 .footer-col li{margin-bottom:10px;}
 .footer-col a{font-size:.95rem;font-weight:500;color:var(--text-muted);text-decoration:none;transition:color .2s;}
@@ -305,13 +319,13 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1) inset;
-  transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  transform: none;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 1;
 }
 
 .featured:hover .browser-mockup-wrapper {
-  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) scale(1.02);
+  transform: translateY(-2px);
 }
 
 .browser-header {
@@ -376,7 +390,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     display: none;
   }
   .featured {
-    background: url('eyq-screenshot.png') center/cover;
+    background: url('img/eyq-screenshot.webp') center/cover;
   }
   .feat-vig {
     background: linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 60%,transparent 100%);
@@ -393,8 +407,13 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
+.about-photo-col{align-self:stretch;align-items:flex-start;}
+.about-photo-col > div{position:sticky;top:130px;}
+
 /* RESPONSIVE */
 @media(max-width:900px){
+  .about-photo-col > div{position:relative;top:auto;}
+  .hero-scroll{display:none;}
   .about-grid,.footer-top{grid-template-columns:1fr;gap:45px;}
   .mantras-grid,.testi-grid{grid-template-columns:1fr;}
   .nf-row{grid-template-columns:1fr 1fr;}
@@ -407,14 +426,18 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   .nf-row{grid-template-columns:1fr;}
 }
 </style>
+<link rel="stylesheet" href="/polish.css" />
+<script defer src="/polish.js"></script>
 </head>
 <body>
 
-<canvas id="blossom-canvas"></canvas>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<nav id="navbar">
-  <a href="#" class="nav-logo">
-    <img src="logo-vb.svg" alt="Vijit Bhati Logo" class="nav-logo-img" />
+<canvas id="blossom-canvas" aria-hidden="true"></canvas>
+
+<nav id="navbar" aria-label="Main">
+  <a href="#hero" class="nav-logo" aria-label="Vijit Bhati, back to top">
+    <img src="logo-vb.svg" alt="" class="nav-logo-img" width="60" height="60" />
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -423,6 +446,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
   </ul>
 </nav>
 
+<main id="main">
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -431,12 +455,13 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     <p class="hero-desc">I'm Vijit, a Design Leader with 10+ years of experience spanning across three countries and several industries turning complex systems and ambiguous problems into experiences that thrive.</p>
     <div class="hero-acts">
       <a href="#projects" class="btn-p">View Work</a>
+      <button type="button" class="btn-s" data-ask-vijit>&#10022; Ask Vijit AI</button>
     </div>
   </div>
-  <div class="hero-scroll"><span>Scroll</span></div>
+  <div class="hero-scroll" aria-hidden="true"><span>Scroll</span></div>
 </section>
 
-<div class="stripe"></div>
+<div class="stripe" aria-hidden="true"></div>
 
 <section id="projects">
   <div class="sec-hd reveal">
@@ -451,7 +476,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     
     <div class="feat-body-split">
       <div class="feat-badge" style="background:var(--pink); align-self: flex-start;">Featured Project</div>
-      <h2 class="feat-title" style="color: var(--white);">EYQ – Enterprise AI Platform</h2>
+      <h3 class="feat-title" style="color: var(--white);">EYQ – Enterprise AI Platform</h3>
       <p class="feat-desc" style="color: rgba(255,255,255,0.7);">Designing a centralized AI marketplace enabling practitioners to create, manage, and safely use AI-powered “skills” for consulting workflows.</p>
       
       <div class="feat-tags">
@@ -475,14 +500,14 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         <div style="width: 42px;"></div>
       </div>
       <div class="browser-content">
-        <img src="eyq-screenshot.png" alt="EYQ Platform Interface" />
+        <img src="img/eyq-screenshot.webp" alt="EYQ Skills marketplace home screen" width="1600" height="1657" loading="lazy" decoding="async" />
       </div>
     </div>
   </a>
 
   <div class="nf-row reveal">
     <a href="case-studies.html#saas" class="proj-card">
-      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png" alt="Fintech AI" class="proj-img-overlay" />
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png" alt="SaaS Contract Analyzer screens" class="proj-img-overlay" loading="lazy" decoding="async" />
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,#2ecc8a,var(--pink));"></div>
       <div class="proj-meta">
@@ -500,7 +525,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     </a>
 
     <a href="case-studies.html#listing" class="proj-card">
-      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg" alt="E-Commerce" class="proj-img-overlay" />
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg" alt="Listing Doctor dashboard" class="proj-img-overlay" loading="lazy" decoding="async" />
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,var(--pink),#FF9933);"></div>
       <div class="proj-meta">
@@ -517,7 +542,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     </a>
 
     <a href="case-studies.html#wingman" class="proj-card">
-      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png" alt="iOS Travel AI" class="proj-img-overlay" />
+      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png" alt="Wingman iOS app screens" class="proj-img-overlay" loading="lazy" decoding="async" />
       <div class="proj-grad"></div>
       <div class="proj-accent" style="background:linear-gradient(to right,#FFB7C5,var(--pink));"></div>
       <div class="proj-meta">
@@ -540,9 +565,9 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     <div><div class="sec-lbl">Design Philosophy</div><h2 class="sec-ttl">My 3 mantras for successful design</h2></div>
   </div>
   <div class="mantras-grid reveal">
-    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num">[1]</div><div class="mantra-ico"><i data-lucide="zap"></i></div><h3 class="mantra-title">Instinctive</h3><p class="mantra-body">Design should be instinctive for the user without relying on instructions. If you need to explain it, redesign it.</p></div>
-    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num">[2]</div><div class="mantra-ico"><i data-lucide="refresh-cw"></i></div><h3 class="mantra-title">Iterative</h3><p class="mantra-body">There is no finish line to design with each iteration, an opportunity to get it better for the user.</p></div>
-    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num">[3]</div><div class="mantra-ico"><i data-lucide="handshake"></i></div><h3 class="mantra-title">Open</h3><p class="mantra-body">Be receptive to feedback from others, creating a collaborative and inclusive approach to the design.</p></div>
+    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num" aria-hidden="true">[1]</div><div class="mantra-ico"><i data-lucide="zap"></i></div><h3 class="mantra-title">Instinctive</h3><p class="mantra-body">Design should be instinctive for the user without relying on instructions. If you need to explain it, redesign it.</p></div>
+    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num" aria-hidden="true">[2]</div><div class="mantra-ico"><i data-lucide="refresh-cw"></i></div><h3 class="mantra-title">Iterative</h3><p class="mantra-body">There is no finish line to design with each iteration, an opportunity to get it better for the user.</p></div>
+    <div class="mantra-card"><div class="mantra-top"></div><div class="mantra-num" aria-hidden="true">[3]</div><div class="mantra-ico"><i data-lucide="handshake"></i></div><h3 class="mantra-title">Open</h3><p class="mantra-body">Be receptive to feedback from others, creating a collaborative and inclusive approach to the design.</p></div>
   </div>
 </section>
 
@@ -551,21 +576,21 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
     <div><div class="sec-lbl">Testimonials</div><h2 class="sec-ttl">Hear it directly from my colleagues</h2></div>
   </div>
   <div class="testi-grid reveal">
-    <div class="testi-card"><div class="testi-q">"</div><h3 style="font-family:var(--fd); font-size: 1.2rem; margin-bottom: 10px;">Makes managing ambiguity look easy</h3><p class="testi-txt">Vijit has a zest for the work he does and calm demeanor that people gravitate towards. He always brings out the best in those around him and is an absolute joy to be around. At Spreetail, Vijit made managing projects and ambiguity look easy. He was our go-to for all things in UXR & Figma.</p><div class="testi-person"><div class="testi-av"><img src="laura.jpeg" alt="LB" style="width:100%;height:100%;object-fit:cover;"/></div><div><div class="testi-name">Laura Bergen</div><div class="testi-role">UX Director @ Spreetail</div></div></div></div>
-    <div class="testi-card"><div class="testi-q">"</div><h3 style="font-family:var(--fd); font-size: 1.2rem; margin-bottom: 10px;">Thoughtful, measured, driven</h3><p class="testi-txt">I'm super grateful that I got the chance to work with Vijit. He's thoughtful, measured, driven, and most importantly, a friend. In the UX world, I think honesty and clarity are two of the most important things a team can look to develop, and Vijit helped contribute to that culture at Spreetail.</p><div class="testi-person"><div class="testi-av"><img src="pat.jpeg" alt="PJ" style="width:100%;height:100%;object-fit:cover;"/></div><div><div class="testi-name">Patrick Jackman</div><div class="testi-role">UX Designer II @ Riot Games</div></div></div></div>
-    <div class="testi-card"><div class="testi-q">"</div><h3 style="font-family:var(--fd); font-size: 1.2rem; margin-bottom: 10px;">An exceptional, collaborative designer</h3><p class="testi-txt">Vijit consistently brings fresh perspectives and innovative ideas for continuous improvement. He brings the best UX practices to the table, seamlessly aligning stakeholders and facilitating workshops. His cross-functional collaboration with designers, developers, and product teams has been the key to the success of countless projects.</p><div class="testi-person"><div class="testi-av"><img src="camila.jpeg" alt="CS" style="width:100%;height:100%;object-fit:cover;"/></div><div><div class="testi-name">Camila Serrano</div><div class="testi-role">UX Architect @ EY</div></div></div></div>
+    <div class="testi-card"><div class="testi-q" aria-hidden="true">"</div><h3>Makes managing ambiguity look easy</h3><p class="testi-txt">Vijit has a zest for the work he does and calm demeanor that people gravitate towards. He always brings out the best in those around him and is an absolute joy to be around. At Spreetail, Vijit made managing projects and ambiguity look easy. He was our go-to for all things in UXR & Figma.</p><div class="testi-person"><div class="testi-av"><img src="img/laura.webp" alt="" width="46" height="46" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div><div><div class="testi-name">Laura Bergen</div><div class="testi-role">UX Director @ Spreetail</div></div></div></div>
+    <div class="testi-card"><div class="testi-q" aria-hidden="true">"</div><h3>Thoughtful, measured, driven</h3><p class="testi-txt">I'm super grateful that I got the chance to work with Vijit. He's thoughtful, measured, driven, and most importantly, a friend. In the UX world, I think honesty and clarity are two of the most important things a team can look to develop, and Vijit helped contribute to that culture at Spreetail.</p><div class="testi-person"><div class="testi-av"><img src="img/pat.webp" alt="" width="46" height="46" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div><div><div class="testi-name">Patrick Jackman</div><div class="testi-role">UX Designer II @ Riot Games</div></div></div></div>
+    <div class="testi-card"><div class="testi-q" aria-hidden="true">"</div><h3>An exceptional, collaborative designer</h3><p class="testi-txt">Vijit consistently brings fresh perspectives and innovative ideas for continuous improvement. He brings the best UX practices to the table, seamlessly aligning stakeholders and facilitating workshops. His cross-functional collaboration with designers, developers, and product teams has been the key to the success of countless projects.</p><div class="testi-person"><div class="testi-av"><img src="img/camila.webp" alt="" width="46" height="46" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div><div><div class="testi-name">Camila Serrano</div><div class="testi-role">UX Architect @ EY</div></div></div></div>
   </div>
 </section>
 
 <section id="about">
   <div class="about-grid">
     
-    <div class="reveal" style="display:flex; justify-content:center;">
-      <div style="position:relative; width: 65%;">
+    <div class="reveal about-photo-col" style="display:flex; justify-content:center;">
+      <div style="width: 65%;">
         
         <div class="about-frame">
           <div class="about-img-container">
-            <img src="vijit-profile-pic.jpg" alt="Portrait" class="about-img" />
+            <img src="img/vijit-profile-1000.webp" srcset="img/vijit-profile-600.webp 600w, img/vijit-profile-1000.webp 1000w" sizes="(max-width: 900px) 70vw, 30vw" alt="Vijit with life-size Sims characters at the EA office" width="1000" height="750" loading="lazy" decoding="async" class="about-img" />
             <div class="about-overlay"></div>
           </div>
         </div>
@@ -587,14 +612,15 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
         You'll find me passionately cheering on Liverpool in their quest for EPL glory, experimenting in the kitchen for my wife (results vary), indulging my cinephile side, or playing badminton at the local rec center.</p>
       </div>
       <div class="hero-acts">
-        <a href="https://topmate.io/vijit_bhati" target="_blank" class="btn-p">Book Mentorship</a>
+        <a href="https://topmate.io/vijit_bhati" target="_blank" rel="noopener" class="btn-p">Book Mentorship</a>
         <a href="mailto:vijitsinghbhati@gmail.com" class="btn-s">Get in Touch</a>
       </div>
     </div>
   </div>
 </section>
+</main>
 
-<div class="stripe"></div>
+<div class="stripe" aria-hidden="true"></div>
 
 <footer>
   <div class="footer-top">
@@ -604,8 +630,8 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px 4v
       </div>
       <p class="footer-tag">I'm a Senior Experience Designer at Electronic Arts based in Vancouver, BC.</p>
     </div>
-    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#projects">Work</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="#about">About</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/in/vijitbhati/" target="_blank">LinkedIn</a></li><li><a href="https://topmate.io/vijit_bhati" target="_blank">Mentorship</a></li></ul></div>
+    <div class="footer-col"><h3>Navigate</h3><ul><li><a href="#projects">Work</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="#about">About</a></li></ul></div>
+    <div class="footer-col"><h3>Connect</h3><ul><li><a href="https://www.linkedin.com/in/vijitbhati/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:vijitsinghbhati@gmail.com">Email</a></li><li><a href="https://topmate.io/vijit_bhati" target="_blank" rel="noopener">Mentorship</a></li></ul></div>
   </div>
   <div class="footer-bot">
     <div class="footer-copy">&copy; 2026 </div>
@@ -619,14 +645,6 @@ lucide.createIcons();
 // Navbar
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 55));
-
-// Reveal
-const ro = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 65); ro.unobserve(e.target); }
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
 // Weather / seasonal visual system for Vancouver
   const cv = document.getElementById('blossom-canvas');
@@ -996,6 +1014,8 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
     if (weatherAnim) cancelAnimationFrame(weatherAnim);
     clearCanvas();
     applyTheme(theme);
+    // Reduced motion keeps the weather tint but skips the falling particles.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     switch (theme) {
       case 'rain': return startRain();
       case 'cloudy': return startClouds();

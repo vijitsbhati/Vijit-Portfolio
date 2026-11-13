@@ -5,12 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c284c8d2f4db21b24c4_favicon-32x32.png">
 <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c8294b1373cf9b0309b_favicon%20(1).ico">
-<title>Case Studies — Vijit Bhati</title>
+<title>Vijit Bhati: UX Case Studies for EYQ, SaaS Contract Analyzer, Listing Doctor and Wingman</title>
+<meta name="description" content="Four UX case studies by Vijit Bhati covering enterprise generative AI, ML-assisted auditing, marketplace tooling and a conversational travel app." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#ffffff" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://unpkg.com/lucide@latest"></script>
 <script defer src="/analytics.js"></script>
+<script defer src="/chat-widget.js"></script>
 <script defer src="/speed-insights.js"></script>
 <style>
 :root {
@@ -26,6 +30,9 @@
   --cream:       #f5ede0;
   --gold:        #D4AF37;
   --indigo:      #5B7FD4;
+  --sage-ink:    #16804f;
+  --gold-ink:    #8f6c00;
+  --indigo-ink:  #4a6cc4;
   --white:       #ffffff;
   --text-main:   #1a1a1a;
   --text-muted:  #5e5e5e;
@@ -42,11 +49,12 @@ body{background:var(--bg);color:var(--text-main);font-family:var(--fb);font-size
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--pink);}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--gutter);display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);}
 .nav-logo{text-decoration:none;display:flex;align-items:center;}
 .nav-logo-img{height:40px; width:auto; filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(97%) contrast(110%);}
 
-.nav-right{display:flex;align-items:center;gap:26px;}
+.nav-right{display:flex;align-items:center;gap:26px;list-style:none;}
+.nav-right a{white-space:nowrap;}
 .nav-right a{font-family:var(--fm);font-size:.9rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s;}
 .nav-right a:hover{color:var(--pink);}
 
@@ -74,19 +82,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 
 .cs-hero{position:relative;min-height:480px;display:flex;align-items:flex-end;padding:60px 70px;overflow:hidden;background-color:#000;}
 .hero-bg-layer{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.85;}
-.bg-eyq{background-image:url('eyq-screenshot.png'); background-position: top center;}
+.bg-eyq{background-image:url('img/eyq-screenshot.webp'); background-position: top center;}
 .bg-saas{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png');}
 .bg-listing{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');}
 .bg-wingman{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png');}
 
-.hero-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.95) 45%,transparent 100%),linear-gradient(to top,rgba(255,255,255,.9) 0%,transparent 50%);}
+.hero-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.97) 0%,rgba(255,255,255,.94) 52%,rgba(255,255,255,.35) 100%),linear-gradient(to top,rgba(255,255,255,.9) 0%,transparent 50%);}
 .hero-content{position:relative;z-index:2;max-width:650px;}
 
 .cs-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:4px;margin-bottom:16px;color:var(--white);}
 .badge-eyq{background:#2b2d42;}
-.badge-saas{background:var(--sage);}
+.badge-saas{background:var(--sage-ink);}
 .badge-listing{background:var(--pink);}
-.badge-wingman{background:var(--indigo);}
+.badge-wingman{background:var(--indigo-ink);}
 
 .cs-hero-title{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:16px;color:var(--text-main);}
 .cs-hero-sub{font-size:1.1rem;color:var(--text-muted);max-width:550px;line-height:1.65;font-weight:500;margin-bottom:28px;}
@@ -156,7 +164,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px;}
 .stat{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:32px 26px;text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.02);}
-.stat-n{font-family:var(--fd);font-size:3rem;font-weight:700;line-height:1;margin-bottom:8px;display:block;}
+.stat-n{font-family:var(--fd);font-size:2.25rem;font-weight:700;line-height:1;margin-bottom:8px;display:block;}
 .stat-l{font-family:var(--fm);font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);}
 
 .decisions{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;}
@@ -186,6 +194,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
 
 @media(max-width:900px){
   .layout{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .hero-fade{background:rgba(255,255,255,.93);}
   .sidebar{position:relative;height:auto;top:0;padding:20px 0;}
   .main{height:auto;position:relative;top:0;}
   .cs-hero{padding:40px 30px;min-height:350px;}
@@ -197,23 +207,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
   .cs-img-grid.two-col, .cs-img-grid.three-col, .cs-img-grid.bento { grid-template-columns: 1fr; }
 }
 </style>
+<link rel="stylesheet" href="/polish.css" />
+<script defer src="/polish.js"></script>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="logo-vb.svg" alt="Vijit Bhati Logo" class="nav-logo-img" />
+<a class="skip-link" href="#main-scroll">Skip to content</a>
+
+<nav id="navbar" aria-label="Main">
+  <a href="index.html" class="nav-logo" aria-label="Vijit Bhati, home">
+    <img src="logo-vb.svg" alt="" class="nav-logo-img" width="40" height="40" />
   </a>
-  <div class="nav-right">
-    <a href="index.html">&#8592; Portfolio</a>
-    <a href="index.html#about">About</a>
-    <a href="teaching.html">Teaching Experience</a>
-  </div>
+  <ul class="nav-right nav-links">
+    <li><a href="index.html">&#8592; Portfolio</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="teaching.html">Teaching Experience</a></li>
+  </ul>
 </nav>
 
 
 <div class="layout">
-  <aside class="sidebar">
+  <aside class="sidebar" aria-label="Case studies">
     <span class="sb-label">Case Studies</span>
     
     <a class="sb-item active" href="#eyq" onclick="return show('eyq',this)">
@@ -247,7 +261,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
     </div>
   </aside>
 
-  <main class="main" id="main-scroll">
+  <main class="main" id="main-scroll" tabindex="-1">
     
     <div class="cs-panel active" id="panel-eyq">
       <div class="cs-hero">
@@ -481,9 +495,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">08</span><h2 class="cs-sec-title">Outcomes & Reflections</h2><div class="sec-rule"></div></div>
           <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">78%</span><span class="stat-l">Global Practitioner Adoption</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">50+</span><span class="stat-l">AI Skills Created & Shared</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--gold);">5 min</span><span class="stat-l">New User Onboarding</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage-ink);">78%</span><span class="stat-l">Global Practitioner Adoption</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink-ink);">50+</span><span class="stat-l">AI Skills Created & Shared</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--gold-ink);">5 min</span><span class="stat-l">New User Onboarding</span></div>
           </div>
           <div class="outcomes" style="margin-top:20px;">
             <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Rapid Time-to-Value:</strong> Practitioners could start using AI skills within 5 minutes of signup, dramatically reducing adoption friction across the global firm.</div></div>
@@ -602,9 +616,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes & Reflections</h2><div class="sec-rule"></div></div>
           <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">4w→1w</span><span class="stat-l">Audit Time Reduced</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">92%</span><span class="stat-l">ML Model Accuracy</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--gold);">80%</span><span class="stat-l">Auditor Adoption</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage-ink);">4w→1w</span><span class="stat-l">Audit Time Reduced</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink-ink);">92%</span><span class="stat-l">ML Model Accuracy</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--gold-ink);">80%</span><span class="stat-l">Auditor Adoption</span></div>
           </div>
           <div class="outcomes" style="margin-top:20px;">
             <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot">Achieved an 80% ML model accuracy in the first month, which soared to <strong>92% after just four months</strong> of company-wide launch.</div></div>
@@ -727,9 +741,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Outcomes & Reflections</h2><div class="sec-rule"></div></div>
           <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">$1.8M</span><span class="stat-l">Inventory Value Saved</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">90%</span><span class="stat-l">Active Listings on Marketplaces</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--gold);">+8%</span><span class="stat-l">Since Launch</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage-ink);">$1.8M</span><span class="stat-l">Inventory Value Saved</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink-ink);">90%</span><span class="stat-l">Active Listings on Marketplaces</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--gold-ink);">+8%</span><span class="stat-l">Since Launch</span></div>
           </div>
           
           <p style="margin-top: 20px;">After another series of user testing, Listing Doctor was successfully launched to the entire user base! Within the first 3 months, the listing quality team saw an <strong>increase in their productivity,</strong> allowing them to meet their quarterly metric goals of resolved listing errors.</p>
@@ -817,9 +831,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 4vw;di
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">The Win: From Prototype to Conviction</h2><div class="sec-rule"></div></div>
           <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--indigo);">100%</span><span class="stat-l">Stakeholder Buy-In</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--sage);">4/4</span><span class="stat-l">Test Users Engaged</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink);">Green</span><span class="stat-l">For Investment</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--indigo-ink);">100%</span><span class="stat-l">Stakeholder Buy-In</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage-ink);">4/4</span><span class="stat-l">Test Users Engaged</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink-ink);">Green</span><span class="stat-l">For Investment</span></div>
           </div>
           <div class="outcomes" style="margin-top:20px;">
             <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Investors Got It:</strong> The prototype wasn't just impressive—it made the vision tangible. The M&A firm moved immediately from evaluation to partnership.</div></div>
@@ -852,10 +866,11 @@ function show(id, navEl) {
   document.querySelectorAll('.cs-panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-' + id).classList.add('active');
   
-  document.querySelectorAll('.sb-item').forEach(n => n.classList.remove('active'));
-  if (navEl) navEl.classList.add('active');
+  document.querySelectorAll('.sb-item').forEach(n => { n.classList.remove('active'); n.removeAttribute('aria-current'); });
+  if (navEl) { navEl.classList.add('active'); navEl.setAttribute('aria-current', 'page'); }
   
-  document.getElementById('main-scroll').scrollTo({ top: 0, behavior: 'smooth' });
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('main-scroll').scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
   history.replaceState(null, '', '#' + id);
   return false;
 }
@@ -865,15 +880,20 @@ window.addEventListener('DOMContentLoaded', () => {
   if (IDS.includes(hash)) {
     const navEl = document.querySelector('.sb-item[href="#' + hash + '"]');
     show(hash, navEl);
+  } else {
+    document.querySelector('.sb-item.active')?.setAttribute('aria-current', 'page');
   }
 });
 
+// Left/Right switch case studies; Up/Down stay free for scrolling, and typing in a field is never hijacked.
 document.addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  if (e.target.closest('input, textarea, select, [contenteditable="true"], .av-panel')) return;
   const current = document.querySelector('.cs-panel.active')?.id.replace('panel-','');
   const idx = IDS.indexOf(current);
   let next = null;
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = IDS[(idx+1)%IDS.length];
-  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   next = IDS[(idx-1+IDS.length)%IDS.length];
+  if (e.key === 'ArrowRight') next = IDS[(idx+1)%IDS.length];
+  if (e.key === 'ArrowLeft')  next = IDS[(idx-1+IDS.length)%IDS.length];
   if (next) {
     const navEl = document.querySelector('.sb-item[href="#' + next + '"]');
     show(next, navEl);

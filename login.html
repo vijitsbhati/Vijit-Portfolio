@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c284c8d2f4db21b24c4_favicon-32x32.png">
   <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c8294b1373cf9b0309b_favicon%20(1).ico">
-  <title>Login — Case Studies</title>
+  <title>Vijit Bhati: Case Studies Access</title>
+  <meta name="description" content="Enter the password to view Vijit Bhati's UX case studies, or email him to request access." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#f9f9fa" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script defer src="/analytics.js"></script>
+  <script defer src="/chat-widget.js"></script>
   <script defer src="/speed-insights.js"></script>
   <style>
     :root {
@@ -43,7 +47,8 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      overflow: hidden;
+      min-height: 100dvh;
+      padding: 96px 0 48px;
     }
 
     /* Grain/Noise Overlay matches main site */
@@ -60,7 +65,7 @@
     .back-link {
       position: absolute;
       top: 40px;
-      left: 4vw;
+      left: var(--gutter);
       font-family: var(--fm);
       font-size: 0.95rem;
       font-weight: 600;
@@ -99,7 +104,7 @@
       margin-bottom: 20px;
     }
 
-    h1 {
+    .card h1 {
       font-family: var(--fd);
       font-size: 2.2rem;
       font-weight: 700;
@@ -115,7 +120,7 @@
     }
 
     /* Fixed Input Box Styling */
-    input {
+    .card input {
       font-family: var(--fb);
       font-size: 1.05rem;
       font-weight: 600;
@@ -128,21 +133,21 @@
       color: var(--text-main);
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
-      text-align: center;
+      text-align: left;
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.03); /* Inner shadow for depth */
     }
 
-    input::placeholder {
+    .card input::placeholder {
       color: #888888;
       font-weight: 400;
     }
 
-    input:focus {
-      border-color: var(--pink);
+    .card input:focus {
+      border-color: var(--pink-ink);
       box-shadow: 0 0 0 3px rgba(255, 42, 133, 0.15);
     }
 
-    button {
+    .card button {
       font-family: var(--fb);
       font-size: 1rem;
       font-weight: 700;
@@ -150,7 +155,8 @@
       text-transform: uppercase;
       width: 100%;
       padding: 14px 20px;
-      background: var(--pink);
+      min-height: 48px;
+      background: var(--pink-ink);
       color: var(--white);
       border: none;
       border-radius: 4px;
@@ -158,12 +164,12 @@
       transition: background 0.2s, transform 0.2s;
     }
 
-    button:hover:not(:disabled) {
-      background: var(--pink-lt);
-      transform: translateY(-2px);
+    .card button:hover:not(:disabled) {
+      background: var(--pink-press);
+      transform: translateY(-1px);
     }
 
-    button:disabled {
+    .card button:disabled {
       opacity: 0.55;
       cursor: not-allowed;
     }
@@ -178,49 +184,98 @@
       margin-top: 24px;
     }
 
+    .field-label {
+      display: block;
+      text-align: left;
+      font-family: var(--fm);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .form-error {
+      min-height: 1.6em;
+      margin: -6px 0 12px;
+      text-align: left;
+      font-size: .95rem;
+      font-weight: 600;
+      color: #b00020;
+    }
+    .help {
+      margin-top: 22px;
+      font-size: .98rem;
+      color: var(--text-muted);
+    }
+    .help a { color: var(--pink-ink); font-weight: 700; }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+  <link rel="stylesheet" href="/polish.css" />
 </head>
 <body>
 
   <a href="index.html" class="back-link">&#8592; Back to Portfolio</a>
 
-  <div class="card">
-    <img src="logo-vb.svg" alt="Vijit Bhati" class="logo-img" onerror="this.style.display='none'" />
-    <h1>Protected Content</h1>
+  <main class="card">
+    <img src="logo-vb.svg" alt="" class="logo-img" width="55" height="55" onerror="this.style.display='none'" />
+    <h1>Case Studies</h1>
     <p class="desc">Enter the password to view the case studies.</p>
-    
-    <form id="login">
-      <input name="password" type="password" placeholder="Password" required autocomplete="current-password" />
-      <button type="submit">Unlock</button>
+
+    <form id="login" novalidate>
+      <label class="field-label" for="password">Password</label>
+      <input id="password" name="password" type="password" required autocomplete="current-password" aria-describedby="password-error" />
+      <p class="form-error" id="password-error" role="alert" aria-live="assertive"></p>
+      <button type="submit">View Case Studies</button>
     </form>
 
-  </div>
+    <p class="help">Need access? <a href="mailto:vijitsinghbhati@gmail.com?subject=Case%20study%20access">Email Vijit</a></p>
+  </main>
 
   <script>
     const form = document.getElementById('login');
+    const input = document.getElementById('password');
+    const error = document.getElementById('password-error');
+    const submitBtn = form.querySelector('button');
+
+    function showError(message) {
+      error.textContent = message;
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    }
+
+    input.addEventListener('input', () => {
+      if (error.textContent) { error.textContent = ''; input.removeAttribute('aria-invalid'); }
+    });
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const submitBtn = form.querySelector('button');
+      const password = input.value.trim();
+      if (!password) return showError('Enter the password to continue.');
+
       submitBtn.disabled = true;
-
-      const password = form.querySelector('[name="password"]').value;
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
-      });
-
-      if (response.ok) {
-        window.location.href = '/case-studies.html';
-      } else {
-        alert('Incorrect password.');
-        submitBtn.disabled = false;
-        form.querySelector('[name="password"]').value = ''; // Clear input on fail
+      submitBtn.textContent = 'Checking…';
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password }),
+        });
+        if (response.ok) {
+          const study = /^#(eyq|saas|listing|wingman)$/.test(location.hash) ? location.hash : '';
+          window.location.href = '/case-studies.html' + study;
+          return;
+        }
+        input.value = '';
+        showError(response.status === 401 ? 'That password is incorrect. Try again or email Vijit for access.' : 'Something went wrong. Please try again.');
+      } catch (e) {
+        showError('Could not reach the server. Check your connection and try again.');
       }
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'View Case Studies';
     });
   </script>
 </body>
