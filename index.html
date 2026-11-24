@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>(function(){var t;try{t=localStorage.getItem('theme');}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');})();</script>
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c284c8d2f4db21b24c4_favicon-32x32.png">
 <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c8294b1373cf9b0309b_favicon%20(1).ico">
 <title>Vijit Bhati: Design Leader at Electronic Arts, Vancouver</title>
 <meta name="description" content="Vijit Bhati is a Senior Experience Designer at EA with 10+ years designing data, analytics and AI platforms across gaming and enterprise in Japan, the US and Canada." />
-<meta name="theme-color" content="#ffffff" />
+<meta name="theme-color" content="#0e0e13" />
 <link rel="canonical" href="https://vijitbhati.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Vijit Bhati" />
@@ -390,7 +391,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px va
     display: none;
   }
   .featured {
-    background: url('img/eyq-screenshot.webp') center/cover;
+    background: url('img/dc-banner.webp') center/cover;
   }
   .feat-vig {
     background: linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 60%,transparent 100%);
@@ -425,6 +426,55 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px va
 @media(max-width:600px){
   .nf-row{grid-template-columns:1fr;}
 }
+
+/* ---------- Dark theme ---------- */
+html[data-theme="dark"] body::before{opacity:0.25;}
+/* Weather tints: dark, subtly hued versions of the light gradients */
+html[data-theme="dark"] body.weather-sunset{background:linear-gradient(180deg,#0e0e13,#24121c) fixed;}
+html[data-theme="dark"] body.weather-cloudy{background:linear-gradient(180deg,#0e0e13,#1c1820) fixed;}
+html[data-theme="dark"] body.weather-rain{background:linear-gradient(180deg,#0e0e13,#22121b) fixed;}
+html[data-theme="dark"] body.weather-cherry{background:linear-gradient(180deg,#0e0e13,#26141e) fixed;}
+html[data-theme="dark"] body.weather-fall{background:linear-gradient(180deg,#0e0e13,#26160f) fixed;}
+/* Canvas effects paint light washes/clouds; soften them on dark */
+html[data-theme="dark"] #blossom-canvas{opacity:.7;}
+html[data-theme="dark"] nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.35);}
+
+/* Hero: dark fades over the skyline so text stays readable */
+html[data-theme="dark"] .hero-bg{opacity:.5;}
+html[data-theme="dark"] .hero-bg::after{background:linear-gradient(to right,rgba(14,14,19,0.92) 0%,rgba(14,14,19,0.65) 45%,rgba(14,14,19,0.1) 100%),linear-gradient(to top,rgba(14,14,19,0.96) 0%,rgba(14,14,19,0) 38%);}
+html[data-theme="dark"] .hero-content::before{background:radial-gradient(closest-side,rgba(14,14,19,.75),rgba(14,14,19,0));}
+html[data-theme="dark"] .hero-desc{color:#c9c9d3;}
+html[data-theme="dark"] .btn-s{background:var(--card);color:var(--text-main);border-color:rgba(255,255,255,.18);}
+html[data-theme="dark"] .btn-s:hover{background:var(--card-h);border-color:var(--text-main);}
+html[data-theme="dark"] .weather-btn.active{background:var(--pink);color:var(--white);border-color:var(--pink);}
+
+/* Projects */
+html[data-theme="dark"] .featured{box-shadow:0 10px 30px rgba(0,0,0,.45);border:1px solid var(--border);}
+html[data-theme="dark"] .proj-card{border:1px solid var(--border);}
+html[data-theme="dark"] .proj-card:hover{box-shadow:0 22px 45px rgba(0,0,0,.5);}
+html[data-theme="dark"] .browser-mockup-wrapper{background:#1b1b23;border-color:rgba(255,255,255,.12);box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.06) inset;}
+html[data-theme="dark"] .browser-header{background:#23232d;border-bottom-color:rgba(255,255,255,.08);}
+html[data-theme="dark"] .browser-url{background:#15151c;color:var(--text-muted);border-color:rgba(255,255,255,.1);}
+
+/* Mantras & testimonials */
+html[data-theme="dark"] .mantra-card,
+html[data-theme="dark"] .testi-card{box-shadow:0 4px 15px rgba(0,0,0,.3);}
+html[data-theme="dark"] .mantra-num{color:rgba(255,255,255,.08);}
+html[data-theme="dark"] .mantra-card:nth-child(1) .mantra-ico{background:rgba(255,42,133,.16);color:var(--pink-lt);}
+html[data-theme="dark"] .mantra-card:nth-child(2) .mantra-ico{background:rgba(46,204,138,.16);}
+html[data-theme="dark"] .mantra-card:nth-child(3) .mantra-ico{background:rgba(255,153,51,.16);}
+html[data-theme="dark"] .testi-card h3{color:var(--text-main);}
+html[data-theme="dark"] .testi-q{opacity:.55;}
+
+/* About: polaroid becomes a dark print */
+html[data-theme="dark"] .about-frame{background:#23232d;box-shadow:0 25px 50px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);}
+html[data-theme="dark"] .about-frame::before{background:rgba(0,0,0,.6);}
+html[data-theme="dark"] .about-img-container{box-shadow:inset 0 0 10px rgba(0,0,0,.4);}
+html[data-theme="dark"] .about-badge{box-shadow:0 10px 25px rgba(0,0,0,.45);}
+
+/* Logo: same pink, brightened for dark backgrounds */
+html[data-theme="dark"] .nav-logo-img,
+html[data-theme="dark"] .footer-logo-img{filter:invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(130%) contrast(110%);}
 </style>
 <link rel="stylesheet" href="/polish.css" />
 <script defer src="/polish.js"></script>
@@ -472,17 +522,17 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px va
     <a href="case-studies.html" class="see-all" style="padding-bottom: 3px;">View All</a>
   </div>
 
-  <a href="case-studies.html#eyq" class="featured reveal" style="background: #1a1a24; overflow: hidden; display: flex;">
+  <a href="case-studies.html#datacafe" class="featured reveal" style="background: #0d0b1a; overflow: hidden; display: flex;">
     
     <div class="feat-body-split">
       <div class="feat-badge" style="background:var(--pink); align-self: flex-start;">Featured Project</div>
-      <h3 class="feat-title" style="color: var(--white);">EYQ – Enterprise AI Platform</h3>
-      <p class="feat-desc" style="color: rgba(255,255,255,0.7);">Designing a centralized AI marketplace enabling practitioners to create, manage, and safely use AI-powered “skills” for consulting workflows.</p>
+      <h3 class="feat-title" style="color: var(--white);">Data Cafe – Designing the Backstage of AI</h3>
+      <p class="feat-desc" style="color: rgba(255,255,255,0.7);">Designing a self-serve onboarding system at EA that guides game teams to give their data meaning, so the AI tools built on top give answers people can trust.</p>
       
       <div class="feat-tags">
-        <span class="ftag">Experience Strategy</span>
-        <span class="ftag">Platform Design</span>
-        <span class="ftag">AI Governance</span>
+        <span class="ftag">Service Design</span>
+        <span class="ftag">System Design</span>
+        <span class="ftag">AI Readiness</span>
       </div>
       <div class="proj-acts">
         <span class="pbtn pbtn-play">Learn More</span>
@@ -496,16 +546,33 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px va
           <span class="min"></span>
           <span class="max"></span>
         </div>
-        <div class="browser-url">eyq.ey.com/skills-marketplace</div>
+        <div class="browser-url">Data Cafe Onboarding Kit</div>
         <div style="width: 42px;"></div>
       </div>
       <div class="browser-content">
-        <img src="img/eyq-screenshot.webp" alt="EYQ Skills marketplace home screen" width="1600" height="1657" loading="lazy" decoding="async" />
+        <img src="img/dc-banner.webp" alt="EA Data Cafe banner" width="1875" height="625" loading="lazy" decoding="async" />
       </div>
     </div>
   </a>
 
   <div class="nf-row reveal">
+    <a href="case-studies.html#eyq" class="proj-card">
+      <img src="img/eyq-screenshot.webp" alt="EYQ Skills marketplace home screen" class="proj-img-overlay" style="object-position: top center;" loading="lazy" decoding="async" />
+      <div class="proj-grad"></div>
+      <div class="proj-accent" style="background:linear-gradient(to right,#5B7FD4,var(--pink));"></div>
+      <div class="proj-meta">
+        <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Enterprise AI</span>
+          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Platform Design</span>
+        </div>
+        <div class="proj-name">EYQ – Enterprise AI Platform</div>
+        <div class="proj-desc">A governed AI marketplace for consultants to create and safely use AI skills</div>
+        <div class="proj-acts">
+          <span class="pbtn pbtn-play">Learn More</span>
+        </div>
+      </div>
+    </a>
+
     <a href="case-studies.html#saas" class="proj-card">
       <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png" alt="SaaS Contract Analyzer screens" class="proj-img-overlay" loading="lazy" decoding="async" />
       <div class="proj-grad"></div>
@@ -541,22 +608,6 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px va
       </div>
     </a>
 
-    <a href="case-studies.html#wingman" class="proj-card">
-      <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png" alt="Wingman iOS app screens" class="proj-img-overlay" loading="lazy" decoding="async" />
-      <div class="proj-grad"></div>
-      <div class="proj-accent" style="background:linear-gradient(to right,#FFB7C5,var(--pink));"></div>
-      <div class="proj-meta">
-        <div style="display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
-          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Conversational UI</span>
-          <span class="ftag" style="font-size:.65rem; padding:3px 8px; border-color: rgba(255,255,255,0.3);">Gen AI</span>
-        </div>
-        <div class="proj-name">Wingman</div>
-        <div class="proj-desc">Integrating Generative AI Chatbot in a travel companion iOS application</div>
-        <div class="proj-acts">
-          <span class="pbtn pbtn-play">Learn More</span>
-        </div>
-      </div>
-    </a>
   </div>
 </section>
 

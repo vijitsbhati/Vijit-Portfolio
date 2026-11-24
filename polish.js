@@ -13,6 +13,46 @@
   });
 })();
 
+// Light/dark toggle. The theme itself is applied by an inline script in each page's <head>.
+(function () {
+  var root = document.documentElement;
+  var SUN = '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>';
+  var MOON = '<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+
+  function current() { return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'theme-toggle';
+  btn.innerHTML = SUN + MOON;
+
+  function sync() {
+    var t = current();
+    btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.title = btn.getAttribute('aria-label');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', t === 'dark' ? '#0e0e13' : '#ffffff');
+  }
+
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    sync();
+    document.dispatchEvent(new CustomEvent('themechange', { detail: next }));
+  });
+
+  var nav = document.getElementById('navbar');
+  var list = nav && nav.querySelector('.nav-links');
+  if (list) {
+    list.insertAdjacentElement('afterend', btn);
+  } else {
+    btn.classList.add('theme-toggle--floating');
+    document.body.appendChild(btn);
+  }
+  sync();
+})();
+
 (function () {
   var nav = document.getElementById('navbar');
   var list = nav && nav.querySelector('.nav-links');

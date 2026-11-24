@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>(function(){var t;try{t=localStorage.getItem('theme');}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');})();</script>
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c284c8d2f4db21b24c4_favicon-32x32.png">
 <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c8294b1373cf9b0309b_favicon%20(1).ico">
-<title>Vijit Bhati: UX Case Studies for EYQ, SaaS Contract Analyzer, Listing Doctor and Wingman</title>
-<meta name="description" content="Four UX case studies by Vijit Bhati covering enterprise generative AI, ML-assisted auditing, marketplace tooling and a conversational travel app." />
+<title>Vijit Bhati: UX Case Studies for Data Cafe, EYQ, SaaS Contract Analyzer and Listing Doctor</title>
+<meta name="description" content="Four UX case studies by Vijit Bhati covering AI-ready data platforms, enterprise generative AI, ML-assisted auditing and marketplace tooling." />
 <meta name="robots" content="noindex" />
-<meta name="theme-color" content="#ffffff" />
+<meta name="theme-color" content="#0e0e13" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -85,7 +86,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
 .bg-eyq{background-image:url('img/eyq-screenshot.webp'); background-position: top center;}
 .bg-saas{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580adf7e65883587d883b4a_SaaS-Contract-Cover%20(1).png');}
 .bg-listing{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/657e4b697ec9baaa0da74906_listing_doc.jpg');}
-.bg-wingman{background-image:url('https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580afe08604b5368ad1bb59_04.png');}
 
 .hero-fade{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.97) 0%,rgba(255,255,255,.94) 52%,rgba(255,255,255,.35) 100%),linear-gradient(to top,rgba(255,255,255,.9) 0%,transparent 50%);}
 .hero-content{position:relative;z-index:2;max-width:650px;}
@@ -94,7 +94,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
 .badge-eyq{background:#2b2d42;}
 .badge-saas{background:var(--sage-ink);}
 .badge-listing{background:var(--pink);}
-.badge-wingman{background:var(--indigo-ink);}
 
 .cs-hero-title{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:16px;color:var(--text-main);}
 .cs-hero-sub{font-size:1.1rem;color:var(--text-muted);max-width:550px;line-height:1.65;font-weight:500;margin-bottom:28px;}
@@ -206,6 +205,60 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
   .dec-before{border-right:none;border-bottom:1px solid var(--border);}
   .cs-img-grid.two-col, .cs-img-grid.three-col, .cs-img-grid.bento { grid-template-columns: 1fr; }
 }
+
+/* Data Cafe case study */
+.bg-datacafe{background-image:url('img/dc-hero.webp');background-position:right center;opacity:1;}
+#panel-datacafe .hero-fade{background:linear-gradient(to right,var(--hero-fade-solid,rgba(255,255,255,.97)) 0%,var(--hero-fade-solid,rgba(255,255,255,.97)) 50%,var(--hero-fade-clear,rgba(255,255,255,0)) 66%),linear-gradient(to top,var(--hero-fade-solid,rgba(255,255,255,.97)) 0%,transparent 35%);}
+#panel-datacafe .hero-content{max-width:520px;}
+.badge-datacafe{background:#8f6c00;}
+.dc-flow{list-style:none;display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:10px 0 30px;padding:28px;background:var(--deep);border:1px solid var(--border);border-radius:8px;}
+.dc-flow li{position:relative;flex:1 1 150px;display:flex;align-items:center;}
+.dc-node{flex:1;background:var(--card);border:1px solid var(--border);border-top:4px solid var(--pink);border-radius:6px;padding:16px 14px;box-shadow:0 4px 15px rgba(0,0,0,0.03);height:100%;}
+.dc-node i{width:22px;height:22px;color:var(--pink);display:block;margin-bottom:8px;}
+.dc-node-t{font-weight:700;font-size:1rem;color:var(--text-main);line-height:1.25;margin-bottom:4px;}
+.dc-node-d{font-size:.85rem;color:var(--text-muted);line-height:1.45;font-weight:500;}
+.dc-flow li:not(:last-child)::after{content:'\2192';font-family:var(--fd);font-weight:700;font-size:1.4rem;color:var(--pink);padding:0 8px;}
+.dc-paths{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:10px 0 30px;}
+.dc-path{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px;box-shadow:0 4px 15px rgba(0,0,0,0.02);}
+.dc-path-lbl{font-family:var(--fm);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:6px;}
+.dc-path-t{font-weight:700;font-size:1.05rem;color:var(--text-main);line-height:1.3;margin-bottom:14px;}
+.dc-steps{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.dc-steps li{font-size:.9rem;color:var(--text-muted);font-weight:500;line-height:1.45;padding:10px 12px;border-radius:4px;background:var(--deep);border-left:3px solid var(--border);}
+.dc-steps li.gate{border-left-color:var(--gold);}
+.dc-steps li.go{border-left-color:var(--sage);color:var(--sage-ink);font-weight:700;}
+.dc-steps li.help{border-left-color:var(--indigo);}
+@media(max-width:900px){
+  .dc-flow{flex-direction:column;}
+  .dc-flow li{flex:none;flex-direction:column;}
+  .dc-flow li:not(:last-child)::after{content:'\2193';padding:6px 0;}
+  .dc-node{width:100%;}
+  .dc-paths{grid-template-columns:1fr;}
+}
+/* ---------- Dark theme ---------- */
+html[data-theme="dark"] .hero-fade{background:linear-gradient(to right,rgba(14,14,19,.97) 0%,rgba(14,14,19,.92) 52%,rgba(14,14,19,.4) 100%),linear-gradient(to top,rgba(14,14,19,.92) 0%,transparent 50%);}
+html[data-theme="dark"] .sb-skills span,
+html[data-theme="dark"] .cs-pill,
+html[data-theme="dark"] .cs-img-caption{background:var(--card);}
+html[data-theme="dark"] .cs-pill{box-shadow:none;}
+html[data-theme="dark"] .sb-item.active{background:rgba(255,42,133,.1);}
+html[data-theme="dark"] .badge-eyq{background:#3a3d5c;}
+html[data-theme="dark"] .overview,
+html[data-theme="dark"] .insight,
+html[data-theme="dark"] .stat,
+html[data-theme="dark"] .outcome,
+html[data-theme="dark"] .next-cta,
+html[data-theme="dark"] .dc-node,
+html[data-theme="dark"] .dc-path,
+html[data-theme="dark"] .cs-img-wrapper{box-shadow:none;}
+html[data-theme="dark"] .cs-quote{background:rgba(255,42,133,.08);}
+html[data-theme="dark"] .reflection{background:linear-gradient(135deg,rgba(255,42,133,.08) 0%,rgba(46,204,138,.06) 100%);border-color:rgba(255,42,133,.25);}
+html[data-theme="dark"] .oc{background:rgba(46,204,138,.15);}
+html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(--text-main);}
+@media(max-width:900px){
+  html[data-theme="dark"] .hero-fade,
+  html[data-theme="dark"] #panel-datacafe .hero-fade{background:rgba(14,14,19,.9);}
+  #panel-datacafe .hero-fade{background:var(--hero-fade-solid,rgba(255,255,255,.93));}
+}
 </style>
 <link rel="stylesheet" href="/polish.css" />
 <script defer src="/polish.js"></script>
@@ -230,29 +283,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
   <aside class="sidebar" aria-label="Case studies">
     <span class="sb-label">Case Studies</span>
     
-    <a class="sb-item active" href="#eyq" onclick="return show('eyq',this)">
-      <span class="sb-num">01 &middot; Enterprise AI &middot; B2B</span>
+    <a class="sb-item active" href="#datacafe" onclick="return show('datacafe',this)">
+      <span class="sb-num">01 &middot; Data Platform &middot; AI</span>
+      <div class="sb-title">Data Cafe</div>
+      <div class="sb-tag">Service Design &middot; Automation</div>
+    </a>
+
+    <a class="sb-item" href="#eyq" onclick="return show('eyq',this)">
+      <span class="sb-num">02 &middot; Enterprise AI &middot; B2B</span>
       <div class="sb-title">EYQ Platform</div>
       <div class="sb-tag">Gen AI &middot; Skills &middot; Governance</div>
     </a>
 
     <a class="sb-item" href="#saas" onclick="return show('saas',this)">
-      <span class="sb-num">02 &middot; Fintech &middot; AI</span>
+      <span class="sb-num">03 &middot; Fintech &middot; AI</span>
       <div class="sb-title">SaaS Contract Analyzer</div>
       <div class="sb-tag">Financial Auditing &middot; ML UX</div>
     </a>
     
     <a class="sb-item" href="#listing" onclick="return show('listing',this)">
-      <span class="sb-num">03 &middot; E-Commerce</span>
+      <span class="sb-num">04 &middot; E-Commerce</span>
       <div class="sb-title">Listing Doctor</div>
       <div class="sb-tag">Amazon &middot; Walmart &middot; eBay</div>
     </a>
     
-    <a class="sb-item" href="#wingman" onclick="return show('wingman',this)">
-      <span class="sb-num">04 &middot; iOS &middot; Gen AI</span>
-      <div class="sb-title">Wingman</div>
-      <div class="sb-tag">Travel &middot; Conversational UI</div>
-    </a>
     
     <div class="sb-divider"></div>
     <div class="sb-skills">
@@ -263,12 +317,203 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
 
   <main class="main" id="main-scroll" tabindex="-1">
     
-    <div class="cs-panel active" id="panel-eyq">
+    <div class="cs-panel active" id="panel-datacafe">
+      <div class="cs-hero">
+        <div class="hero-bg-layer bg-datacafe"></div>
+        <div class="hero-fade"></div>
+        <div class="hero-content">
+          <div class="cs-badge badge-datacafe"><i data-lucide="database" style="width:16px;height:16px;"></i> Case Study 01</div>
+          <h1 class="cs-hero-title">Data Cafe: Designing the Backstage of AI</h1>
+          <p class="cs-hero-sub">AI is only as good as the data you feed it. At EA, I designed a self-serve onboarding system that guides game teams to give their data meaning, so the AI tools built on top of it give answers people can trust.</p>
+          <div class="cs-pills">
+            <span class="cs-pill">Service Design</span><span class="cs-pill">System Design</span><span class="cs-pill">Workflow Automation</span><span class="cs-pill">AI Readiness</span>
+          </div>
+        </div>
+      </div>
+      <div class="meta-bar">
+        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">Sole Experience Designer</div></div>
+        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val">1 PM &middot; 2 Data Eng</div></div>
+        <div class="meta-item"><span class="meta-lbl">Timeline</span><div class="meta-val">6 Months &middot; Ongoing</div></div>
+        <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">Web &middot; Slack &middot; Jira</div></div>
+      </div>
+      <div class="cs-body">
+        <div class="overview">
+          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Data Cafe is EA's data context platform, the source of truth for discovering, governing and using trusted data across every team and title. As game teams started plugging AI into their work, the AI tools at their disposal kept giving unreliable analysis. The problem wasn't the model. It was <strong>messy, undocumented data</strong> with no definitions, no metadata and no shared language.</p></div>
+          <div><span class="ov-lbl">My Approach</span><p class="ov-txt">The obvious fix was a cleaner onboarding screen. But a team building FC works nothing like a team building Battlefield. So instead of just improving the UX of our data product, I designed the <strong>system behind it</strong>: a lightweight pipeline that meets teams in the tools they already use and makes adding context part of their normal day, not an extra chore.</p></div>
+        </div>
+
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Garbage In, Garbage Out: Finding the Real Problem</h2><div class="sec-rule"></div></div>
+          <p>I started by listening. Across <strong>71 user interviews</strong> and a survey of 24 people, one pattern kept showing up: demand for Data Cafe was high, but teams weren't ready. Nobody enjoys structuring data or writing context for it. It's tedious, and it takes forever. Meanwhile, every request to build a data catalog or onboard a new team lived in scattered Slack threads, long email chains and a lot of one-on-one handholding.</p>
+
+          <div class="insights">
+            <div class="insight" data-n="1">
+              <span class="in-ico"><i data-lucide="database"></i></span>
+              <div class="in-title">Data Producers</div>
+              <div class="in-txt">Data engineers and analysts who own the sources. They know their data best but have no time to document it, and every team catalogs differently.</div>
+              <span class="in-tag">Need: Publish Without the Busywork</span>
+            </div>
+            <div class="insight" data-n="2">
+              <span class="in-ico"><i data-lucide="search"></i></span>
+              <div class="in-title">Game Team Analysts &amp; PMs</div>
+              <div class="in-txt">Consumers on titles like Battlefield, FC and Mobile who need fast, trusted answers, and increasingly, AI agents that can answer for them.</div>
+              <span class="in-tag">Need: Answers They Can Trust</span>
+            </div>
+            <div class="insight" data-n="3" style="grid-column: 1 / -1;">
+              <span class="in-ico"><i data-lucide="users"></i></span>
+              <div class="in-title">The Platform Team</div>
+              <div class="in-txt">A small team handling every onboarding request by hand. Their white-glove support worked, but it couldn't scale past a few teams at a time.</div>
+              <span class="in-tag">Need: Scale Without Burning Out</span>
+            </div>
+          </div>
+
+          <div class="cs-quote">
+            <blockquote>"Provide data inventory, glossary/definitions, and searchable metadata so analysts can locate tables and metrics fast&hellip; enable users to ask agents, 'where did this metric come from?'"</blockquote>
+            <cite>CRM Engineering &middot; Voice of the Customer</cite>
+          </div>
+
+          <p>The insight that changed the project: <strong>data readiness was the number one bottleneck</strong>, and the teams that succeeded were the ones that got guided onboarding. The answer wasn't another interface. It was making that guidance self-serve.</p>
+        </div>
+
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">The Reframe: Designing the System, Not Just the Screen</h2><div class="sec-rule"></div></div>
+          <p>I treated workflows and integrations as my design canvas. Each decision moved a manual, invisible step into a guided one that lives where teams already work.</p>
+          <div class="decisions">
+            <div class="decision"><div class="dec-before">Onboarding started with a Slack DM or an email to whoever you knew on the platform team.</div><div class="dec-after"><strong>One front door:</strong> an onboarding site with a single enrollment form for every team and every need.</div></div>
+            <div class="decision"><div class="dec-before">Every team got the same conversation, whether they were brand new or ready to publish.</div><div class="dec-after"><strong>A readiness flow:</strong> four paths and two simple yes/no gates route each team to the right next step.</div></div>
+            <div class="decision"><div class="dec-before">Teams were asked to hand-write descriptions for hundreds of tables and columns.</div><div class="dec-after"><strong>Automated enrichment:</strong> an n8n pipeline pulls context from Confluence, GitHub and Snowflake into Alation.</div></div>
+            <div class="decision"><div class="dec-before">Requests got lost in threads, and nobody knew who was waiting on what.</div><div class="dec-after"><strong>Tracked by default:</strong> every enrollment becomes a Jira ticket and a Slack alert, with a reply within 2 business days.</div></div>
+          </div>
+        </div>
+
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Meeting Every Team Where They Are</h2><div class="sec-rule"></div></div>
+          <p>Because every team starts from a different place, I designed a conditional readiness flow instead of a one-size-fits-all checklist. Producers pick the journey that describes where they are today, answer a couple of simple questions and land on exactly one clear next step, whether that's publishing a data product or building an AI agent.</p>
+          <div class="dc-paths">
+            <div class="dc-path">
+              <span class="dc-path-lbl">Path A &middot; Fast Path</span>
+              <div class="dc-path-t">"I want to build with data that's already in Data Cafe."</div>
+              <ul class="dc-steps">
+                <li>Browse and request access to existing datasets</li>
+                <li class="go">Create a data product</li>
+              </ul>
+            </div>
+            <div class="dc-path">
+              <span class="dc-path-lbl">Path B &middot; Bring Your Own Data</span>
+              <div class="dc-path-t">"I have my own data sources to catalog and publish."</div>
+              <ul class="dc-steps">
+                <li class="gate">Gate 1: Is your data cataloged in Alation? If not, enroll for onboarding.</li>
+                <li class="gate">Gate 2: Is it enriched with metadata? If not, run the n8n enrichment.</li>
+                <li class="go">Create a data product</li>
+              </ul>
+            </div>
+            <div class="dc-path">
+              <span class="dc-path-lbl">Path C &middot; Build an AI Agent</span>
+              <div class="dc-path-t">"I want to create an AI agent using existing catalogs or data products."</div>
+              <ul class="dc-steps">
+                <li>Build, test and evaluate in Agent Studio</li>
+                <li class="go">Publish an agent grounded in trusted Alation context</li>
+              </ul>
+            </div>
+            <div class="dc-path">
+              <span class="dc-path-lbl">Path D &middot; Guided</span>
+              <div class="dc-path-t">"I'm not sure where to start."</div>
+              <ul class="dc-steps">
+                <li class="help">Submit one enrollment form</li>
+                <li class="help">The platform team routes you to the right path</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cs-img-grid">
+            <div class="cs-img-wrapper">
+              <img src="img/datacafe/onboarding-kit-home.webp" alt="Data Cafe Onboarding Kit home page built in Figma Make" loading="lazy" decoding="async" />
+              <div class="cs-img-caption">One front door for every producer and consumer, built in Figma Make.</div>
+            </div>
+          </div>
+          <div class="cs-img-grid two-col">
+            <div class="cs-img-wrapper">
+              <img src="img/datacafe/readiness-gates.webp" alt="For Data Producers page with four Choose Your Journey options" loading="lazy" decoding="async" />
+              <div class="cs-img-caption">Producers choose the journey that matches where they are today.</div>
+            </div>
+            <div class="cs-img-wrapper">
+              <img src="img/datacafe/signup-form.webp" alt="Data Cafe Signup Form with name, team, email and what-do-you-need checkboxes" loading="lazy" decoding="async" />
+              <div class="cs-img-caption">One signup form for every request, from onboarding to data product creation.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Building the Backstage Without an Engineering Cycle</h2><div class="sec-rule"></div></div>
+          <p>Rather than wait for a roadmap slot, I designed and built the pipeline myself with lightweight tools, then partnered with our data engineers to harden it.</p>
+          <ol class="dc-flow" aria-label="Enrollment pipeline">
+            <li><div class="dc-node"><i data-lucide="layout-template"></i><div class="dc-node-t">Onboarding Site</div><div class="dc-node-d">Built in Figma Make</div></div></li>
+            <li><div class="dc-node"><i data-lucide="clipboard-list"></i><div class="dc-node-t">Enrollment Form</div><div class="dc-node-d">One form for every need</div></div></li>
+            <li><div class="dc-node"><i data-lucide="workflow"></i><div class="dc-node-t">n8n Webhook</div><div class="dc-node-d">Parses and routes requests</div></div></li>
+            <li><div class="dc-node"><i data-lucide="ticket"></i><div class="dc-node-t">Jira Ticket</div><div class="dc-node-d">Auto-created and tracked</div></div></li>
+            <li><div class="dc-node"><i data-lucide="message-square"></i><div class="dc-node-t">Slack Alert</div><div class="dc-node-d">Team is notified instantly</div></div></li>
+          </ol>
+          <div class="process">
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);"><i data-lucide="pen-tool"></i></div><div><div class="proc-title">Figma Make: The Front Door</div><div class="proc-desc">I wrote the site spec page by page and used Figma Make to turn it into a working onboarding site, with separate journeys for producers and consumers, the readiness flow and the enrollment form.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);"><i data-lucide="code"></i></div><div><div class="proc-title">Claude Code: The Glue</div><div class="proc-desc">I used Claude Code to write the form handlers, webhook payloads and scripts that connect the site to our internal tools, work that would normally have waited on an engineering sprint.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="workflow"></i></div><div><div class="proc-title">n8n: The Automation Layer</div><div class="proc-desc">One workflow routes enrollments to Jira. Another enriches catalogs by pulling context from Confluence, GitHub and Snowflake, generating descriptions and pushing them back to Alation, turning days of writing into a 1 to 3 day run.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);"><i data-lucide="message-square"></i></div><div><div class="proc-title">Jira &amp; Slack: Where Teams Already Live</div><div class="proc-desc">Instead of asking people to learn a new tool, the system shows up in the places they already check every day. Requests are visible, owned and answered.</div></div></div>
+          </div>
+          <div class="cs-img-grid">
+            <div class="cs-img-wrapper">
+              <img src="img/datacafe/n8n-flow.webp" alt="n8n workflow: webhook, parse body, forward to Jira, format response" loading="lazy" decoding="async" />
+              <div class="cs-img-caption">The n8n enrollment workflow: a webhook in, a Jira ticket out.</div>
+            </div>
+          </div>
+          <div class="cs-img-grid two-col">
+            <div class="cs-img-wrapper">
+              <img src="img/datacafe/jira-automation.webp" alt="Jira automation rule that creates a Data Cafe signup ticket from a webhook" loading="lazy" decoding="async" />
+              <div class="cs-img-caption">Every request becomes a tracked ticket.</div>
+            </div>
+            <div class="cs-img-wrapper">
+              <img src="img/datacafe/slack-alert.webp" alt="Slack message announcing a new Data Cafe signup request" loading="lazy" decoding="async" />
+              <div class="cs-img-caption">The team is notified where they already work.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-sec">
+          <div class="cs-sec-hd"><span class="cs-sec-num">05</span><h2 class="cs-sec-title">Outcomes &amp; Reflections</h2><div class="sec-rule"></div></div>
+          <div class="stats">
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">20+</span><span class="stat-l">Teams Interested Across 4 BUs</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--indigo-ink);">10</span><span class="stat-l">Teams Onboarding</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--sage-ink);">11</span><span class="stat-l">Data Products Built</span></div>
+          </div>
+          <div class="stats">
+            <div class="stat"><span class="stat-n" style="color:var(--gold-ink);">41%</span><span class="stat-l">YoY Usage Growth</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--pink);">71</span><span class="stat-l">User Interviews</span></div>
+            <div class="stat"><span class="stat-n" style="color:var(--indigo-ink);">1</span><span class="stat-l">Team With AI Agents Live</span></div>
+          </div>
+          <div class="outcomes" style="margin-top:20px;">
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>From handholding to self-serve:</strong> Onboarding moved out of DMs and email threads into one tracked, repeatable pipeline that the platform team can scale.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Better input, better output:</strong> Teams that complete the flow publish data with definitions, ownership and metadata, the context AI tools need to give reliable answers.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Still growing:</strong> The work is ongoing, with more titles moving through the pipeline and agents next on the roadmap for Mobile and CRM.</div></div>
+          </div>
+
+          <div class="reflection">
+            <p><strong>Fix the Input, Not Just the Interface:</strong> When AI output is bad, the instinct is to redesign the chat. The real leverage was backstage, in the experience of the people creating the data.</p>
+            <p><strong>Design Systems and Workflows, Not Just Screens:</strong> The most useful thing I designed wasn't a page. It was the path a request takes from a form to a ticket to a person.</p>
+            <p><strong>Meet People Where They Already Work:</strong> Busy teams won't adopt a new tool to document their data. Bringing the process into Jira and Slack made good habits the easy default.</p>
+          </div>
+        </div>
+
+        <a href="#eyq" onclick="return show('eyq', document.querySelector('[href=\'#eyq\']'))" class="next-cta">
+          <div><span class="next-lbl">Next Case Study</span><div class="next-title">EYQ Platform</div></div>
+          <div class="next-arr"><i data-lucide="arrow-right"></i></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cs-panel" id="panel-eyq">
       <div class="cs-hero">
         <div class="hero-bg-layer bg-eyq"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-eyq" style="color: var(--white);"><i data-lucide="shield-check" style="width:16px;height:16px;"></i> Case Study 01</div>
+          <div class="cs-badge badge-eyq" style="color: var(--white);"><i data-lucide="shield-check" style="width:16px;height:16px;"></i> Case Study 02</div>
           <h1 class="cs-hero-title">EYQ – Enterprise Generative AI Platform</h1>
           <p class="cs-hero-sub">I led the design of a governed AI marketplace that gave consultants a secure, compliant way to harness generative AI—moving the firm from uncontrolled tool sprawl to a unified, auditable platform.</p>
           <div class="cs-pills">
@@ -523,7 +768,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
         <div class="hero-bg-layer bg-saas"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-saas"><i data-lucide="brain" style="width:16px;height:16px;"></i> Case Study 02</div>
+          <div class="cs-badge badge-saas"><i data-lucide="brain" style="width:16px;height:16px;"></i> Case Study 03</div>
           <h1 class="cs-hero-title">SaaS Contract Analyzer</h1>
           <p class="cs-hero-sub">I designed an AI-assisted contract audit tool that transformed a 4-week manual grind into a 1-week process—by making machine learning invisible and human judgment central.</p>
           <div class="cs-pills">
@@ -644,7 +889,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
         <div class="hero-bg-layer bg-listing"></div>
         <div class="hero-fade"></div>
         <div class="hero-content">
-          <div class="cs-badge badge-listing"><i data-lucide="zap" style="width:16px;height:16px;"></i> Case Study 03</div>
+          <div class="cs-badge badge-listing"><i data-lucide="zap" style="width:16px;height:16px;"></i> Case Study 04</div>
           <h1 class="cs-hero-title">Listing Doctor</h1>
           <p class="cs-hero-sub">I led the design of an error-tracking system that helped Spreetail's quality team escape from spreadsheet hell and take control of their listing health—lifting active listings from 82% to 95% in three months.</p>
           <div class="cs-pills">
@@ -755,104 +1000,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
           </div>
         </div>
         
-        <a href="#wingman" onclick="return show('wingman', document.querySelector('[href=\'#wingman\']'))" class="next-cta">
-          <div><span class="next-lbl">Next Case Study</span><div class="next-title">Wingman &mdash; AI Travel Companion</div></div>
-          <div class="next-arr"><i data-lucide="arrow-right"></i></div>
-        </a>
-      </div>
-    </div>
-
-    <div class="cs-panel" id="panel-wingman">
-      <div class="cs-hero">
-        <div class="hero-bg-layer bg-wingman"></div>
-        <div class="hero-fade"></div>
-        <div class="hero-content">
-          <div class="cs-badge badge-wingman"><i data-lucide="smartphone" style="width:16px;height:16px;"></i> Case Study 04</div>
-          <h1 class="cs-hero-title">Wingman</h1>
-          <p class="cs-hero-sub">I designed a conversational travel companion that proved to an M&A firm how ChatGPT, thoughtfully integrated, could unify fragmented travel services into one seamless experience.</p>
-          <div class="cs-pills">
-            <span class="cs-pill">Conversational UI</span><span class="cs-pill">iOS Design</span><span class="cs-pill">Gen AI</span><span class="cs-pill">Usability Testing</span>
-          </div>
-        </div>
-      </div>
-      <div class="meta-bar">
-        <div class="meta-item"><span class="meta-lbl">Role</span><div class="meta-val">UX Designer</div></div>
-        <div class="meta-item"><span class="meta-lbl">Team</span><div class="meta-val" style="font-size:0.95rem;">1 Partner, 1 PM</div></div>
-        <div class="meta-item"><span class="meta-lbl">Goal</span><div class="meta-val" style="color:var(--indigo);">Secure M&A Investment</div></div>
-        <div class="meta-item"><span class="meta-lbl">Platform</span><div class="meta-val">iOS &middot; Mobile</div></div>
-      </div>
-      <div class="cs-body">
-        <div class="overview">
-          <div><span class="ov-lbl">The Ask</span><p class="ov-txt">An M&A firm was evaluating travel tech companies. They wanted to see what was possible with ChatGPT—not a theoretical pitch, but a tangible prototype. Something that demonstrated how conversational AI could handle the messy, fragmented reality of travel—flights, lounges, food, connections, all in one flow.</p></div>
-          <div><span class="ov-lbl">Our Mission</span><p class="ov-txt">I had to design something that felt polished enough to impress investors, but grounded enough in reality to feel achievable. We simulated integrations with real travel services and built an iOS app that showed investors exactly how passengers would experience the future of travel assistance.</p></div>
-        </div>
-
-        <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Building the Narrative: Research Into Design</h2><div class="sec-rule"></div></div>
-          
-          <div class="process" style="margin-bottom: 30px;">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);"><i data-lucide="mic"></i></div><div><div class="proc-title">Understanding the Traveler</div><div class="proc-desc">I mapped every question a passenger asks at an airport. Connecting flights, lounge access, gate changes, dining options—the requests span wildly different domains. The insight: passengers don't think in categories. They think in questions, naturally. A conversational interface needed to reflect that.</div></div></div>
-          </div>
-          <div class="cs-img-grid">
-            <div class="cs-img-wrapper">
-              <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659dd7f4f1a7a01861faf150_1-wingman%20(1).png" alt="Wingman Context" />
-              <div class="cs-img-caption">Establishing context and user needs at the airport.</div>
-            </div>
-          </div>
-
-          <div class="process" style="margin-bottom: 30px; margin-top: 30px;">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(255,183,197,.2);color:#ff5e9f;"><i data-lucide="bot"></i></div><div><div class="proc-title">Orchestrating AI With Intent</div><div class="proc-desc">The prototype needed to feel like a single assistant, not a robot searching a database. I designed prompts and fallbacks that let ChatGPT understand travel context, route requests intelligently, and surface real answers—booking flights, finding lounges, recommending meals. The backend was simulated, but the interaction felt real.</div></div></div>
-          </div>
-          <div class="cs-img-grid">
-            <div class="cs-img-wrapper">
-              <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659dd80c8d0b96033e714f28_2-wingman.png" alt="Wingman Integration" />
-              <div class="cs-img-caption">Conversational AI taking over complex filtering.</div>
-            </div>
-          </div>
-
-          <div class="process" style="margin-bottom: 30px; margin-top: 30px;">
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="smartphone"></i></div><div><div class="proc-title">Mobile-First Accessibility</div><div class="proc-desc">This was iOS. Small screen, touch-first, voice-enabled. I carved out a chat interface that felt native, not web-like. Every interaction had to respect the platform while allowing AI to think and respond naturally.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);"><i data-lucide="accessibility"></i></div><div><div class="proc-title">Building for Everyone</div><div class="proc-desc">Accessibility wasn't an afterthought. Voice input, readable typography, obvious buttons, high contrast—these features weren't nice-to-haves. They were core. The app had to work for weary travelers in bright airport terminals, passengers with different abilities, and international users who might not speak English as a first language.</div></div></div>
-          </div>
-          <div class="cs-img-grid">
-            <div class="cs-img-wrapper">
-              <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659dd81ea2ab1cef8d7f0920_3-wingman.png" alt="Wingman High Fidelity" />
-              <div class="cs-img-caption">Voice-enabled AI and accessible conversational UI.</div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Testing With Stakeholders: Building Confidence</h2><div class="sec-rule"></div></div>
-          <p>With a polished prototype in hand, I ran usability tests with four stakeholders—a mix of travel industry experts and potential users. I wasn't just gathering feedback; I was building a narrative. Each session revealed what worked intuitively and where passengers would naturally need guidance. That feedback turned the prototype from impressive to <em>telling</em>—showing a coherent vision of the future, not just a tech demo.</p>
-        </div>
-
-        <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">The Win: From Prototype to Conviction</h2><div class="sec-rule"></div></div>
-          <div class="stats">
-            <div class="stat"><span class="stat-n" style="color:var(--indigo-ink);">100%</span><span class="stat-l">Stakeholder Buy-In</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--sage-ink);">4/4</span><span class="stat-l">Test Users Engaged</span></div>
-            <div class="stat"><span class="stat-n" style="color:var(--pink-ink);">Green</span><span class="stat-l">For Investment</span></div>
-          </div>
-          <div class="outcomes" style="margin-top:20px;">
-            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Investors Got It:</strong> The prototype wasn't just impressive—it made the vision tangible. The M&A firm moved immediately from evaluation to partnership.</div></div>
-            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Momentum Unlocked:</strong> Within weeks, the team was negotiating with the portfolio companies. Wingman went from concept to active development.</div></div>
-          </div>
-          
-          <div class="reflection" style="margin-top: 30px;">
-            <p><strong>Sometimes Design Is Salesmanship:</strong> This project taught me that great design isn't always about pixels—it's about clarity of vision. We didn't try to over-engineer everything; we demonstrated the principle compellingly and let stakeholders imagine the rest.</p>
-            <p><strong>Prototype by Purpose:</strong> I could have built something showy. Instead, I built something that answered a specific question: "Can conversational AI actually solve travel?" The prototype proved that it could, in the way investors needed to see.</p>
-            <p><strong>Accessibility Is a Feature Customers Notice:</strong> Voice input, readable text, responsive interactions—these weren't hidden behind a settings menu. They were <em>visible</em> in every interaction. Stakeholders immediately understood the product would work for real people in real scenarios.</p>
-          </div>
-        </div>
-
-        <a href="#eyq" onclick="return show('eyq', document.querySelector('[href=\'#eyq\']'))" class="next-cta">
-          <div><span class="next-lbl">Back to First</span><div class="next-title">&#8592; EYQ Platform</div></div>
+        <a href="#datacafe" onclick="return show('datacafe', document.querySelector('[href=\'#datacafe\']'))" class="next-cta">
+          <div><span class="next-lbl">Back to First</span><div class="next-title">&#8592; Data Cafe</div></div>
           <div class="next-arr" style="transform:none;"><i data-lucide="arrow-left"></i></div>
         </a>
       </div>
     </div>
+
   </main>
 </div>
 
@@ -860,7 +1014,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 var(--
 // Initialize Icons
 lucide.createIcons();
 
-const IDS = ['eyq', 'saas', 'listing', 'wingman'];
+const IDS = ['datacafe', 'eyq', 'saas', 'listing'];
 
 function show(id, navEl) {
   document.querySelectorAll('.cs-panel').forEach(p => p.classList.remove('active'));

@@ -166,3 +166,79 @@ footer { padding-bottom: 104px !important; }
 
 /* Tags over project photos sit on their own dark chip. */
 .proj-card .ftag { background: rgba(0,0,0,.5); }
+
+/* ---------- Light / dark theme (dark is the default; set early by an inline head script) ---------- */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:          #0e0e13;
+  --deep:        #15151c;
+  --card:        #1b1b23;
+  --card-h:      #23232d;
+  --border:      rgba(255,255,255,0.1);
+  --subtle:      rgba(255,255,255,0.04);
+  --text-main:   #f1f1f4;
+  --text-muted:  #b1b1bc;
+  --pink-ink:    #ff5e9f;
+  --pink-press:  #FF2A85;
+  --sage-ink:    #3ddc97;
+  --gold-ink:    #e3bd45;
+  --indigo-ink:  #8ea8ee;
+  --focus:       #ffffff;
+  --hero-fade-solid: rgba(14,14,19,.97);
+  --hero-fade-clear: rgba(14,14,19,0);
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --hero-fade-solid: rgba(255,255,255,.97);
+  --hero-fade-clear: rgba(255,255,255,0);
+}
+html[data-theme="dark"] body { background: var(--bg); color: var(--text-main); }
+html[data-theme="dark"] #navbar {
+  background: rgba(14,14,19,0.92) !important;
+  border-bottom-color: var(--border) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
+}
+html[data-theme="dark"] .skip-link { color: var(--bg); }
+html[data-theme="dark"] ::-webkit-scrollbar-track { background: var(--bg); }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  margin-left: 22px;
+  padding: 0;
+  border: 2px solid var(--border, rgba(0,0,0,.12));
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-main, #1a1a1a);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.theme-toggle:hover { border-color: var(--pink-ink); color: var(--pink-ink); }
+.theme-toggle svg { width: 20px; height: 20px; }
+.theme-toggle .icon-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+#navbar .nav-links { margin-left: auto; }
+/* Pages without a nav bar (login) get a floating toggle. */
+.theme-toggle--floating { position: fixed; top: 16px; right: 16px; z-index: 300; margin: 0; background: var(--card, #fff); }
+
+@media (max-width: 900px) {
+  .theme-toggle { margin-left: auto; margin-right: 10px; }
+  .theme-toggle--floating { margin: 0; }
+  html[data-theme="dark"] .menu-btn { background: var(--card); border-color: var(--border); }
+  html[data-theme="dark"] nav.menu-open .nav-links { background: var(--bg); border-top-color: var(--border); }
+  html[data-theme="dark"] nav.menu-open .nav-links li { border-bottom-color: var(--border); }
+  html[data-theme="dark"] nav.menu-open { background: var(--bg) !important; }
+}
+/* Filled pink surfaces keep the deep pink so white text stays at 4.5:1 in dark mode. */
+html[data-theme="dark"] :is(.btn-p, .pbtn-play, .feat-badge, .weather-btn.active, .badge-listing, .nav-cta, .t-cta, .card button) {
+  background: #D6136A !important;
+}
+html[data-theme="dark"] :is(.btn-p, .nav-cta, .card button):hover:not(:disabled) { background: #B80F5A !important; }
+html[data-theme="dark"] :is(.nav-logo-img, .card .logo-img) {
+  filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(175%) contrast(110%);
+}

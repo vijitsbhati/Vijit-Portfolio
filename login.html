@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){var t;try{t=localStorage.getItem('theme');}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');})();</script>
   <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c284c8d2f4db21b24c4_favicon-32x32.png">
   <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c8294b1373cf9b0309b_favicon%20(1).ico">
   <title>Vijit Bhati: Case Studies Access</title>
   <meta name="description" content="Enter the password to view Vijit Bhati's UX case studies, or email him to request access." />
   <meta name="robots" content="noindex" />
-  <meta name="theme-color" content="#f9f9fa" />
+  <meta name="theme-color" content="#0e0e13" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -213,8 +214,15 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* ---------- Dark theme ---------- */
+    html[data-theme="dark"] .card { border-color: var(--border); box-shadow: 0 15px 35px rgba(0,0,0,0.35); }
+    html[data-theme="dark"] .card input { background: var(--deep); box-shadow: none; }
+    html[data-theme="dark"] .card input::placeholder { color: #8a8a96; }
+    html[data-theme="dark"] .form-error { color: #ff7a8f; }
   </style>
   <link rel="stylesheet" href="/polish.css" />
+  <script defer src="/polish.js"></script>
 </head>
 <body>
 
@@ -265,7 +273,7 @@
           body: JSON.stringify({ password }),
         });
         if (response.ok) {
-          const study = /^#(eyq|saas|listing|wingman)$/.test(location.hash) ? location.hash : '';
+          const study = /^#(datacafe|eyq|saas|listing)$/.test(location.hash) ? location.hash : '';
           window.location.href = '/case-studies.html' + study;
           return;
         }

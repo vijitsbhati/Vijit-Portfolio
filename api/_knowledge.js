@@ -90,25 +90,25 @@ Home page sections:
 ### Case studies (password-protected; the bot only knows these teasers)
 Each link opens the case study directly. Visitors are asked for a password; recruiters can email Vijit at vijitsinghbhati@gmail.com for access.
 
-1. EYQ – Enterprise Generative AI Platform (EY) — /case-studies.html#eyq
+1. Data Cafe (EA) — /case-studies.html#datacafe
+   - Vijit is the sole Experience Designer (with a PM and two data engineers) on a self-serve onboarding system for EA's data context platform. It guides game teams to add metadata and shared definitions so the AI tools built on top give answers people can trust.
+   - Approach: designed the workflows and integrations behind the product, not just its screens, so onboarding meets teams in the tools they already use.
+   - Topics: service design, system design, workflow automation, AI readiness, data platforms.
+
+2. EYQ – Enterprise Generative AI Platform (EY) — /case-studies.html#eyq
    - Vijit was UX Lead (team: 1 PM, 6 engineers, 2 data scientists), designing a governed AI marketplace that gave consultants a secure, compliant way to use generative AI and moved the firm from uncontrolled tool sprawl to one auditable platform.
    - Headline results: 78% global practitioner adoption; 50+ AI skills created and shared.
    - Topics: enterprise AI, experience strategy, platform design, AI governance, B2B.
 
-2. SaaS Contract Analyzer (EY) — /case-studies.html#saas
+3. SaaS Contract Analyzer (EY) — /case-studies.html#saas
    - Vijit was UX Lead on an AI-assisted contract audit tool for financial auditors that keeps human judgment central and the ML in the background.
    - Headline results: audit time cut from about 4 weeks to 1 week; 92% ML model accuracy; 80% auditor adoption.
    - Topics: fintech, AI/ML UX, financial auditing, B2B SaaS, prototyping.
 
-3. Listing Doctor (Spreetail) — /case-studies.html#listing
+4. Listing Doctor (Spreetail) — /case-studies.html#listing
    - Vijit was UX Lead on an error-tracking system that moved Spreetail's quality team off spreadsheets to manage listing health on marketplaces like Amazon, Walmart and eBay.
    - Headline results: active listings rose from 82% to 95% in three months; about $1.8M in inventory value saved.
    - Topics: e-commerce, UX research, internal tools, marketplace operations.
-
-4. Wingman — /case-studies.html#wingman
-   - Vijit was the UX Designer on a conversational iOS travel companion that showed an M&A firm how ChatGPT could unify fragmented travel services into one experience.
-   - Headline result: full stakeholder buy-in and a green light for investment after testing with users.
-   - Topics: conversational UI, generative AI, iOS, mobile, travel.
 
 ### Teaching page — /teaching.html
 - Industry experience he brings to the classroom (EA, EY): /teaching.html#industry

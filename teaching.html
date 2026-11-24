@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>(function(){var t;try{t=localStorage.getItem('theme');}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');})();</script>
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c284c8d2f4db21b24c4_favicon-32x32.png">
 <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/61a515d3e9fb772a482c1d4a/659e3c8294b1373cf9b0309b_favicon%20(1).ico">
 <title>Vijit Bhati: UX Design Instructor and Mentor in Vancouver</title>
 <meta name="description" content="Vijit Bhati teaches UX design at BrainStation and mentors designers, drawing on 10+ years designing products at EA, EY and Spreetail." />
-<meta name="theme-color" content="#ffffff" />
+<meta name="theme-color" content="#0e0e13" />
 <link rel="canonical" href="https://vijitbhati.com/teaching.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Vijit Bhati" />
@@ -212,6 +213,12 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:65px va
   .item-2 { grid-column: 1; grid-row: 2; }
   .item-3 { grid-column: 1; grid-row: 3; }
 }
+/* ---------- Dark theme ---------- */
+html[data-theme="dark"] .btn-s,
+html[data-theme="dark"] .t-pill{background:var(--card);color:var(--text-main);}
+html[data-theme="dark"] .t-pill{box-shadow:none;}
+html[data-theme="dark"] .t-hero-bg{opacity:0.12;}
+html[data-theme="dark"] .pg-item{box-shadow:none;}
 </style>
 <link rel="stylesheet" href="/polish.css" />
 <script defer src="/polish.js"></script>
