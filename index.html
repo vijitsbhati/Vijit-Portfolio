@@ -62,6 +62,7 @@ body.weather-sunset{background:linear-gradient(180deg,#fff0f5,#ffb7c5) fixed;}
 body.weather-cloudy{background:linear-gradient(180deg,#fcf5f7,#e8d7e1) fixed;}
 body.weather-rain{background:linear-gradient(180deg,#fceef5,#eebbc9) fixed;}
 body.weather-cherry{background:linear-gradient(180deg,#fff6fc,#ffe9f3) fixed;}
+body.weather-snow{background:linear-gradient(180deg,#f7f9ff,#dfe7f4) fixed;}
 body.weather-fall{background:linear-gradient(180deg,#fff2e4,#ffc4b8) fixed;}
 
 /* NAV */
@@ -434,6 +435,7 @@ html[data-theme="dark"] body.weather-sunset{background:linear-gradient(180deg,#0
 html[data-theme="dark"] body.weather-cloudy{background:linear-gradient(180deg,#0e0e13,#1c1820) fixed;}
 html[data-theme="dark"] body.weather-rain{background:linear-gradient(180deg,#0e0e13,#22121b) fixed;}
 html[data-theme="dark"] body.weather-cherry{background:linear-gradient(180deg,#0e0e13,#26141e) fixed;}
+html[data-theme="dark"] body.weather-snow{background:linear-gradient(180deg,#0e0e13,#141a27) fixed;}
 html[data-theme="dark"] body.weather-fall{background:linear-gradient(180deg,#0e0e13,#26160f) fixed;}
 /* Canvas effects paint light washes/clouds; soften them on dark */
 html[data-theme="dark"] #blossom-canvas{opacity:.7;}
@@ -724,14 +726,15 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
   }
 
   function applyTheme(theme) {
-    document.body.classList.remove('weather-sunset','weather-cloudy','weather-rain','weather-cherry','weather-fall');
+    document.body.classList.remove('weather-sunset','weather-cloudy','weather-rain','weather-cherry','weather-fall','weather-snow');
     document.body.classList.add(`weather-${theme}`);
   }
 
   function seasonTheme() {
     const month = new Date().getMonth() + 1;
     if (month === 3 || month === 4) return 'cherry';
-    if (month === 10 || month === 11) return 'fall';
+    if (month === 10) return 'fall';
+    if (month === 11 || month === 12 || month === 1) return 'snow';
     return null;
   }
 
@@ -1055,6 +1058,45 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     loop();
   }
 
+  // --- 6. SNOW (November through January) ---
+  function startSnow() {
+    const flakes = Array.from({ length: 140 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: 1 + Math.random() * 3,
+      v: 0.4 + Math.random() * 1.1,
+      sway: Math.random() * Math.PI * 2,
+      swaySpeed: 0.005 + Math.random() * 0.015,
+      a: 0.55 + Math.random() * 0.45
+    }));
+
+    function loop() {
+      clearCanvas();
+      wind += (targetWind - wind) * 0.05;
+
+      flakes.forEach(f => {
+        f.sway += f.swaySpeed;
+        f.x += Math.sin(f.sway) * 0.6 + wind * 0.4 * (f.r / 3);
+        f.y += f.v * (0.6 + f.r / 4);
+        if (f.y > H + 10) { f.y = -10; f.x = Math.random() * W; }
+        if (f.x > W + 10) f.x = -10;
+        if (f.x < -10) f.x = W + 10;
+
+        // Soft blue halo keeps white flakes visible on the light theme.
+        cx.beginPath();
+        cx.arc(f.x, f.y, f.r * 1.8, 0, Math.PI * 2);
+        cx.fillStyle = `rgba(140, 165, 210, ${f.a * 0.25})`;
+        cx.fill();
+        cx.beginPath();
+        cx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        cx.fillStyle = `rgba(255, 255, 255, ${f.a})`;
+        cx.fill();
+      });
+      weatherAnim = requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
   let manualOverride = null;
 
   function runWeather(theme, isManual = false) {
@@ -1073,6 +1115,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
       case 'sunset': return startSunset();
       case 'cherry': return startCherryBlossoms();
       case 'fall': return startFallLeaves();
+      case 'snow': return startSnow();
       default: return startSunset();
     }
   }
