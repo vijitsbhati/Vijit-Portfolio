@@ -55,8 +55,6 @@
   .avatar svg { width: 20px; height: 20px; }
   .who { flex: 1; min-width: 0; }
   .title { font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
-  .sub { display: flex; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; align-items: center; gap: 6px; font-size: .88rem; color: #5a5a5a; line-height: 1.3; margin-top: 2px; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: #1f9d63; flex: none; }
   .icon {
     flex: none; width: 40px; height: 40px; display: grid; place-items: center;
     border: none; border-radius: 10px; background: transparent; color: #4f4f4f; cursor: pointer;
@@ -200,8 +198,7 @@
     panel.innerHTML =
       '<div class="head">' +
         '<div class="avatar">' + ICON_SPARK + '</div>' +
-        '<div class="who"><div class="title" id="av-title">Ask Vijit AI</div>' +
-        '<div class="sub"><span class="dot" aria-hidden="true"></span>Resume, LinkedIn &amp; portfolio</div></div>' +
+        '<div class="who"><div class="title" id="av-title">Ask Vijit AI</div></div>' +
         '<button type="button" class="icon reset" aria-label="Start a new chat" title="New chat">' + ICON_RESET + '</button>' +
         '<button type="button" class="icon close" aria-label="Close chat" title="Close">' + ICON_CLOSE + '</button>' +
       '</div>' +
