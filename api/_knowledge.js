@@ -85,15 +85,19 @@ Home page sections:
 - Projects overview: /#projects
 - Design philosophy, 3 mantras (Instinctive, Iterative, Open): /#mantras
 - Colleague testimonials (Laura Bergen, UX Director @ Spreetail; Patrick Jackman, UX Designer II @ Riot Games; Camila Serrano, UX Architect @ EY): /#testimonials
-- About Vijit, his story from front-end engineer in Tokyo to design leader, mentoring and life outside work: /#about
+- About Vijit, his professional story from front-end engineer in Tokyo to design leader, plus mentoring and industry involvement: /#about
 
 ### Case studies (password-protected; the bot only knows these teasers)
 Each link opens the case study directly. Visitors are asked for a password; recruiters can email Vijit at vijitsinghbhati@gmail.com for access.
 
-1. Data Cafe (EA) — /case-studies.html#datacafe
-   - Vijit is the sole Experience Designer (with a PM and two data engineers) on a self-serve onboarding system for EA's data context platform. It guides game teams to add metadata and shared definitions so the AI tools built on top give answers people can trust.
-   - Approach: designed the workflows and integrations behind the product, not just its screens, so onboarding meets teams in the tools they already use.
-   - Topics: service design, system design, workflow automation, AI readiness, data platforms.
+1. Data Cafe – Designing the Backstage of AI (EA) — /case-studies.html#datacafe (his most recent and featured case study)
+   - Role: sole Experience Designer, working with a PM, two data engineers, and game team analysts as research participants. About 6 months so far; the work is ongoing.
+   - Problem: AI is only as good as the data you feed it. AI tools used by EA game teams gave unreliable analysis because the underlying data was messy and undocumented (no definitions, metadata, or shared language). Onboarding teams to Data Cafe, EA's data context platform, ran on scattered Slack threads, email chains, and one-on-one handholding, so adoption stayed low.
+   - Approach: instead of only improving the UX of the data product, he designed the system behind it — a self-serve onboarding pipeline that meets teams in the tools they already use and makes adding context part of their normal work.
+   - What he built: an onboarding site (built with Figma Make) with one signup form for every request, and a readiness flow with four paths (use existing data, bring your own data, build an AI agent, or get guidance). Signups flow through an n8n workflow into a tracked Jira ticket and a Slack alert. He used Claude Code to write the glue code, so it shipped without waiting on an engineering cycle.
+   - Research: grounded in user interviews and a survey with data producers, analysts, and PMs; the key insight was that data readiness, not the interface, was the biggest bottleneck.
+   - Results (high level): onboarding moved from ad-hoc messages to one tracked, repeatable pipeline; teams that complete it publish data with definitions, ownership, and metadata that AI tools need; adoption across the data platforms has grown significantly. Specific numbers are in the password-protected case study.
+   - Topics: service design, system design, workflow automation, AI readiness, data platforms, designing for AI output quality.
 
 2. EYQ – Enterprise Generative AI Platform (EY) — /case-studies.html#eyq
    - Vijit was UX Lead (team: 1 PM, 6 engineers, 2 data scientists), designing a governed AI marketplace that gave consultants a secure, compliant way to use generative AI and moved the firm from uncontrolled tool sprawl to one auditable platform.
@@ -124,6 +128,9 @@ Each link opens the case study directly. Visitors are asked for a password; recr
 - LinkedIn: https://www.linkedin.com/in/vijitbhati/
 - Email: vijitsinghbhati@gmail.com
 - 1:1 mentorship booking: https://topmate.io/vijit_bhati
+
+## Personal life (not covered)
+- These notes intentionally contain no information about Vijit's family, relationships, children, age, health, religion, politics, finances, or other private matters. The assistant does not discuss them.
 
 ## About this chat
 - A small chat assistant Vijit built into his static portfolio site to help recruiters and visitors find information faster.
