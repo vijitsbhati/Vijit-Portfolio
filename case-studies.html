@@ -338,8 +338,8 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
       </div>
       <div class="cs-body">
         <div class="overview">
-          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Data Cafe is EA's data context platform, the source of truth for discovering, governing and using trusted data across every team and title. As game teams started plugging AI into their work, the AI tools at their disposal kept giving unreliable analysis. The problem wasn't the model. It was <strong>messy, undocumented data</strong> with no definitions, no metadata and no shared language.</p></div>
-          <div><span class="ov-lbl">My Approach</span><p class="ov-txt">The obvious fix was a cleaner onboarding screen. But a team building FC works nothing like a team building Battlefield. So instead of just improving the UX of our data product, I designed the <strong>system behind it</strong>: a lightweight pipeline that meets teams in the tools they already use and makes adding context part of their normal day, not an extra chore.</p></div>
+          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Data Cafe is EA's data context platform, the source of truth for discovering, governing and using trusted data across every team and title. As game teams started plugging AI into their work, the AI tools at their disposal kept giving unreliable analysis. The models were fine. The trouble was <strong>messy, undocumented data</strong> with no definitions, no metadata and no shared language.</p></div>
+          <div><span class="ov-lbl">My Approach</span><p class="ov-txt">My first thought was a cleaner onboarding screen. But a team building FC works nothing like a team building Battlefield, so beyond the UX of our data product, I designed the <strong>system behind it</strong>: a lightweight pipeline that runs inside the tools teams already use, so adding context happens during their normal day instead of as a separate chore.</p></div>
         </div>
 
         <div class="cs-sec">
@@ -372,11 +372,11 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
             <cite>CRM Engineering &middot; Voice of the Customer</cite>
           </div>
 
-          <p>The insight that changed the project: <strong>data readiness was the number one bottleneck</strong>, and the teams that succeeded were the ones that got guided onboarding. The answer wasn't another interface. It was making that guidance self-serve.</p>
+          <p>What changed the project for me was seeing that <strong>data readiness was the number one bottleneck</strong>, and that the teams that succeeded were the ones that got guided onboarding. So I focused on making that guidance self-serve rather than building another interface.</p>
         </div>
 
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">The Reframe: Designing the System, Not Just the Screen</h2><div class="sec-rule"></div></div>
+          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">The Reframe: Designing the System Behind the Screen</h2><div class="sec-rule"></div></div>
           <p>I treated workflows and integrations as my design canvas. Each decision moved a manual, invisible step into a guided one that lives where teams already work.</p>
           <div class="decisions">
             <div class="decision"><div class="dec-before">Onboarding started with a Slack DM or an email to whoever you knew on the platform team.</div><div class="dec-after"><strong>One front door:</strong> an onboarding site with a single enrollment form for every team and every need.</div></div>
@@ -388,7 +388,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Meeting Every Team Where They Are</h2><div class="sec-rule"></div></div>
-          <p>Because every team starts from a different place, I designed a conditional readiness flow instead of a one-size-fits-all checklist. Producers pick the journey that describes where they are today, answer a couple of simple questions and land on exactly one clear next step, whether that's publishing a data product or building an AI agent.</p>
+          <p>Every team starts from a different place, so one checklist for everyone wouldn't work. I designed a conditional readiness flow where producers pick the journey that describes where they are today, answer a couple of simple questions and land on exactly one clear next step, whether that's publishing a data product or building an AI agent.</p>
           <div class="dc-paths">
             <div class="dc-path">
               <span class="dc-path-lbl">Path A &middot; Fast Path</span>
@@ -444,7 +444,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Building the Backstage Without an Engineering Cycle</h2><div class="sec-rule"></div></div>
-          <p>Rather than wait for a roadmap slot, I designed and built the pipeline myself with lightweight tools, then partnered with our data engineers to harden it.</p>
+          <p>I didn't want to wait for a roadmap slot, so I designed and built the pipeline myself with lightweight tools, then worked with our data engineers to harden it.</p>
           <ol class="dc-flow" aria-label="Enrollment pipeline">
             <li><div class="dc-node"><i data-lucide="layout-template"></i><div class="dc-node-t">Onboarding Site</div><div class="dc-node-d">Built in Figma Make</div></div></li>
             <li><div class="dc-node"><i data-lucide="clipboard-list"></i><div class="dc-node-t">Enrollment Form</div><div class="dc-node-d">One form for every need</div></div></li>
@@ -455,8 +455,8 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
           <div class="process">
             <div class="proc-step"><div class="proc-ico" style="background:rgba(255,42,133,.1);color:var(--pink);"><i data-lucide="pen-tool"></i></div><div><div class="proc-title">Figma Make: The Front Door</div><div class="proc-desc">I wrote the site spec page by page and used Figma Make to turn it into a working onboarding site, with separate journeys for producers and consumers, the readiness flow and the enrollment form.</div></div></div>
             <div class="proc-step"><div class="proc-ico" style="background:rgba(91,127,212,.1);color:var(--indigo);"><i data-lucide="code"></i></div><div><div class="proc-title">Claude Code: The Glue</div><div class="proc-desc">I used Claude Code to write the form handlers, webhook payloads and scripts that connect the site to our internal tools, work that would normally have waited on an engineering sprint.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="workflow"></i></div><div><div class="proc-title">n8n: The Automation Layer</div><div class="proc-desc">One workflow routes enrollments to Jira. Another enriches catalogs by pulling context from Confluence, GitHub and Snowflake, generating descriptions and pushing them back to Alation, turning days of writing into a 1 to 3 day run.</div></div></div>
-            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);"><i data-lucide="message-square"></i></div><div><div class="proc-title">Jira &amp; Slack: Where Teams Already Live</div><div class="proc-desc">Instead of asking people to learn a new tool, the system shows up in the places they already check every day. Requests are visible, owned and answered.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(46,204,138,.1);color:var(--sage);"><i data-lucide="workflow"></i></div><div><div class="proc-title">n8n: The Automation Layer</div><div class="proc-desc">One workflow routes enrollments to Jira. Another enriches catalogs: it pulls context from Confluence, GitHub and Snowflake, generates descriptions and pushes them back to Alation. What used to be days of writing is now a 1 to 3 day run.</div></div></div>
+            <div class="proc-step"><div class="proc-ico" style="background:rgba(212,175,55,.1);color:var(--gold);"><i data-lucide="message-square"></i></div><div><div class="proc-title">Jira &amp; Slack: Where Teams Already Live</div><div class="proc-desc">Nobody has to learn a new tool. The system shows up in the places people already check every day, and every request has a visible owner and gets an answer.</div></div></div>
           </div>
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -495,8 +495,8 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
           </div>
 
           <div class="reflection">
-            <p><strong>Fix the Input, Not Just the Interface:</strong> When AI output is bad, the instinct is to redesign the chat. The real leverage was backstage, in the experience of the people creating the data.</p>
-            <p><strong>Design Systems and Workflows, Not Just Screens:</strong> The most useful thing I designed wasn't a page. It was the path a request takes from a form to a ticket to a person.</p>
+            <p><strong>Start With the Input:</strong> When AI output is bad, the instinct is to redesign the chat. On this project the leverage was backstage, in the experience of the people creating the data.</p>
+            <p><strong>Workflows Are Design Work Too:</strong> The most useful thing I designed on Data Cafe was the path a request takes from a form to a ticket to a person.</p>
             <p><strong>Meet People Where They Already Work:</strong> Busy teams won't adopt a new tool to document their data. Bringing the process into Jira and Slack made good habits the easy default.</p>
           </div>
         </div>
@@ -514,8 +514,8 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
         <div class="hero-fade"></div>
         <div class="hero-content">
           <div class="cs-badge badge-eyq" style="color: var(--white);"><i data-lucide="shield-check" style="width:16px;height:16px;"></i> Case Study 02</div>
-          <h1 class="cs-hero-title">EYQ – Enterprise Generative AI Platform</h1>
-          <p class="cs-hero-sub">I led the design of a governed AI marketplace that gave consultants a secure, compliant way to harness generative AI—moving the firm from uncontrolled tool sprawl to a unified, auditable platform.</p>
+          <h1 class="cs-hero-title">EYQ: Enterprise Generative AI Platform</h1>
+          <p class="cs-hero-sub">I led the design of a governed AI marketplace that gave consultants a secure, compliant way to use generative AI. It moved the firm off a sprawl of uncontrolled tools and onto one platform we could audit.</p>
           <div class="cs-pills">
             <span class="cs-pill">Experience Strategy</span><span class="cs-pill">Platform Design</span><span class="cs-pill">AI Governance</span><span class="cs-pill">B2B Enterprise</span>
           </div>
@@ -529,19 +529,19 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
       </div>
       <div class="cs-body">
         <div class="overview">
-          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Teams across the firm were quietly adopting external tools like ChatGPT—powerful, but risky. There was no governed way to standardize prompts, share workflows, or even track whether AI outputs were accurate or compliant with our data security policies. We needed to reclaim control.</p></div>
-          <div><span class="ov-lbl">Our Vision</span><p class="ov-txt">Rather than build another chatbot, we set out to create a <strong>centralized ecosystem</strong>. One where consultants could safely use pre-vetted "Skills," developers could publish reusable AI solutions, and admins could maintain complete visibility and compliance. A platform, not just a tool.</p></div>
+          <div><span class="ov-lbl">The Challenge</span><p class="ov-txt">Teams across the firm had started using external tools like ChatGPT on their own. The tools were powerful but risky: there was no governed way to standardize prompts, share workflows, or even track whether AI outputs were accurate or compliant with our data security policies. We needed to bring that work back under the firm's control.</p></div>
+          <div><span class="ov-lbl">Our Vision</span><p class="ov-txt">We didn't want to ship another chatbot. We set out to build a <strong>centralized ecosystem</strong> where consultants could safely use pre-vetted "Skills," developers could publish reusable AI solutions, and admins kept complete visibility and compliance.</p></div>
         </div>
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Mapping the Ecosystem</h2><div class="sec-rule"></div></div>
-          <p>I started with research into how the firm actually worked. Three distinct personas emerged, and with them came a critical realization: this wasn't just a design problem—it was a <strong>platform architecture problem.</strong> We needed to understand each group's motivations and pain points deeply, and design flows that would make sense to all three simultaneously.</p>
+          <p>I started with research into how the firm actually worked. Three distinct personas emerged, and that made it clear this was a <strong>platform architecture problem</strong> as much as a design one. We needed to understand what drove each group and where they got stuck, then design flows that made sense to all three at once.</p>
           
           <div class="insights">
             <div class="insight" data-n="1">
               <span class="in-ico"><i data-lucide="briefcase"></i></span>
               <div class="in-title">Client Practitioners</div>
-              <div class="in-txt">Consulting, Tax, and Assurance professionals needing to augment daily tasks, streamline workflows, and access firm-approved resources without risking data security.</div>
+              <div class="in-txt">Consulting, Tax, and Assurance professionals who wanted AI help with daily tasks and faster workflows, using firm-approved resources without risking data security.</div>
               <span class="in-tag">Goal: Streamline Workflows</span>
             </div>
             <div class="insight" data-n="2">
@@ -568,7 +568,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
           </div>
           
           <h4 style="margin-top:40px; margin-bottom: 20px; font-family: var(--fd); font-size: 1.4rem;">Foundations: Wireframes & Systems Thinking</h4>
-          <p>With three personas and competing needs, I mapped out the core workflows early using wireframes. The goal wasn't pixel-perfect design—it was to validate that the platform structure would actually work for all three user groups and that the information architecture made sense.</p>
+          <p>With three personas and competing needs, I mapped out the core workflows early using wireframes. At this stage I only wanted to check that the platform structure would actually work for all three user groups and that the information architecture made sense.</p>
           
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -623,7 +623,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">Designing for Adoption: The Practitioner Experience</h2><div class="sec-rule"></div></div>
-          <p>Client Practitioners—the bulk of our users—needed to feel confident immediately. So we crafted an onboarding experience that made the concept of "Skills" tangible. The welcoming tone mattered. Clear guidance mattered. Because if practitioners didn't understand the value on day one, adoption would stall.</p>
+          <p>Client Practitioners made up the bulk of our users, and they needed to feel confident right away. We designed an onboarding flow that made the idea of "Skills" concrete, with a welcoming tone and clear guidance. If practitioners didn't see the value on day one, adoption would stall.</p>
           
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -635,7 +635,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
           <div class="cs-img-grid two-col">
             <div class="cs-img-wrapper">
               <img src="eyq/EYQ UX Designs (7)/Landing screen-1.png" alt="Landing Screen" />
-              <div class="cs-img-caption">The main landing view, allowing users to toggle seamlessly between general 'EYQ Chat' and domain-specific 'Skills Chat'.</div>
+              <div class="cs-img-caption">The main landing view, where users can switch between general 'EYQ Chat' and domain-specific 'Skills Chat'.</div>
             </div>
             <div class="cs-img-wrapper">
               <img src="eyq/EYQ UX Designs (7)/Discover skill details.png" alt="Discover Skill Details" />
@@ -646,7 +646,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">04</span><h2 class="cs-sec-title">Core Interaction: Intelligent Guidance in the Chat</h2><div class="sec-rule"></div></div>
-          <p>The chat wasn't just a blank box. I designed it to be a guided experience—one that respected users' time and offered immediate, actionable suggestions tailored to the skill they'd chosen. The goal: help them get value faster and avoid the paralysis of a blank input field.</p>
+          <p>I designed the chat to guide people from the first screen, with suggestions tailored to the skill they'd chosen that they could use right away. A blank input field leaves people stuck, and I wanted them getting value faster without wasting their time.</p>
 
           <div class="cs-img-grid two-col">
             <div class="cs-img-wrapper">
@@ -666,14 +666,14 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
             </div>
             <div class="cs-img-wrapper">
               <img src="eyq/EYQ UX Designs (7)/Service Delivery Assist Skill-2.png" alt="Chat Input" />
-              <div class="cs-img-caption">The persistent input area allows users to continue refining their prompts seamlessly.</div>
+              <div class="cs-img-caption">The input area stays in place, so users can keep refining their prompts.</div>
             </div>
           </div>
         </div>
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">05</span><h2 class="cs-sec-title">Knowledge Sharing: A Prompt Library That Works</h2><div class="sec-rule"></div></div>
-          <p>We created a shared prompt library—not just as a nice-to-have, but as a core platform feature. The idea was simple: let consultants tap into the collective intelligence of their colleagues. If someone at the firm crafted a killer prompt, everyone else should benefit immediately.</p>
+          <p>We made the shared prompt library a core platform feature. Consultants could build on what their colleagues had already worked out: if someone at the firm wrote a killer prompt, everyone else could use it right away.</p>
 
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -684,8 +684,8 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
         </div>
 
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">06</span><h2 class="cs-sec-title">Empowering Developers: A No-Code Path to Impact</h2><div class="sec-rule"></div></div>
-          <p>The developer experience was tricky. Developers needed to be able to build and publish AI Skills without wrestling with complex infrastructure. I designed a guided form flow that made skill creation feel accessible—turning intricate prompt engineering into intuitive step-by-step workflows. The goal was empowerment, not complexity.</p>
+          <div class="cs-sec-hd"><span class="cs-sec-num">06</span><h2 class="cs-sec-title">For Developers: A No-Code Path to Publishing</h2><div class="sec-rule"></div></div>
+          <p>The developer experience was tricky. Developers needed to build and publish AI Skills without wrestling with complex infrastructure. I designed a guided form flow that breaks prompt engineering, which gets complicated fast, into plain step-by-step workflows.</p>
           
           <div class="cs-img-grid two-col">
             <div class="cs-img-wrapper">
@@ -698,7 +698,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
             </div>
           </div>
 
-          <p style="margin-top: 20px;">But I wanted developers to see the impact of their work in real time. So I built out a detailed Skill Analytics dashboard. Real-time accuracy metrics, execution times, and direct user feedback—all visible immediately. This creates a feedback loop where creators can iterate and improve continuously.</p>
+          <p style="margin-top: 20px;">I also wanted developers to see how their skills performed in real time, so I built out a detailed Skill Analytics dashboard with accuracy metrics, execution times, and direct user feedback as it came in. Creators could see what was working and keep improving.</p>
 
           <div class="cs-img-grid two-col">
             <div class="cs-img-wrapper">
@@ -714,7 +714,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">07</span><h2 class="cs-sec-title">Closing the Loop: Admin Visibility & Governance</h2><div class="sec-rule"></div></div>
-          <p>Admins couldn't govern what they couldn't see. So I built a comprehensive dashboard that gave them complete visibility into the entire EYQ ecosystem. Adoption rates, top-performing skills, response times—all at a glance. And when something went wrong, they needed to drill in. That's where our feedback interface came in.</p>
+          <p>Admins couldn't govern what they couldn't see, so I built a dashboard that showed them the entire EYQ ecosystem at a glance: adoption rates, top-performing skills, and response times. When something went wrong, they needed to dig into the details, which is what the feedback interface was for.</p>
 
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -725,14 +725,14 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
           <div class="cs-img-grid two-col" style="grid-template-columns: 1fr 1.5fr;">
             <div>
-              <p>Admins needed to audit user feedback at scale. We built a dedicated feedback interface that made it easy to filter, review, and act on hundreds of user reviews across different countries. Rather than waiting for escalations to bubble up, admins could now be proactive—deprecating failing skills and promoting high performers.</p>
+              <p>Admins needed to audit user feedback at scale. We built a dedicated feedback interface that made it easy to filter, review, and act on hundreds of user reviews across different countries. Admins no longer had to wait for escalations. They could deprecate failing skills and promote the high performers on their own.</p>
               <div class="decisions" style="margin-top: 20px;">
-                <div class="decision"><div class="dec-before">No visibility into model performance or potential hallucinations in real-world use.</div><div class="dec-after"><strong>Full Audit Trail.</strong> Admins gained the ability to review specific interactions, export data for compliance, and maintain governance across the firm.</div></div>
+                <div class="decision"><div class="dec-before">No visibility into model performance or potential hallucinations in real-world use.</div><div class="dec-after"><strong>Full Audit Trail.</strong> Admins could review specific interactions, export data for compliance, and keep governance consistent across the firm.</div></div>
               </div>
             </div>
             <div class="cs-img-wrapper">
               <img src="eyq/EYQ UX Designs (9)/Feedback.png" alt="Platform Feedback Table" />
-              <div class="cs-img-caption">Granular review tracking to ensure the AI remains compliant and helpful.</div>
+              <div class="cs-img-caption">Detailed review tracking, so admins can check that the AI stays compliant and helpful.</div>
             </div>
           </div>
         </div>
@@ -745,14 +745,14 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
             <div class="stat"><span class="stat-n" style="color:var(--gold-ink);">5 min</span><span class="stat-l">New User Onboarding</span></div>
           </div>
           <div class="outcomes" style="margin-top:20px;">
-            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Rapid Time-to-Value:</strong> Practitioners could start using AI skills within 5 minutes of signup, dramatically reducing adoption friction across the global firm.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Rapid Time-to-Value:</strong> Practitioners could start using AI skills within 5 minutes of signup, which made it much easier for people across the global firm to get started.</div></div>
             <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Network Effects:</strong> Over 50 AI skills were created within the first year, with practitioners freely sharing workflows across service lines and geographies.</div></div>
-            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Reduced Risk:</strong> 78% adoption meant the firm effectively eliminated reliance on ungovened external AI tools, bringing sensitive work back in-house.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot"><strong>Reduced Risk:</strong> With 78% adoption, the firm effectively stopped relying on ungoverned external AI tools and brought sensitive work back in-house.</div></div>
           </div>
           <div class="reflection" style="margin-top: 30px;">
-            <p><strong>Platform Thinking Over Feature Design:</strong> The biggest lesson was stepping back from building "features" and thinking like a platform architect. Enterprise adoption hinges on seeing the whole system—how Practitioners, Developers, and Admins all depend on each other.</p>
+            <p><strong>Platform Thinking Over Feature Design:</strong> My biggest lesson was to stop thinking in "features" and think like a platform architect. Enterprise adoption depends on seeing the whole system and how Practitioners, Developers, and Admins rely on each other.</p>
             <p><strong>Balancing Speed With Governance:</strong> I had to hold the line on security and compliance without smothering innovation. Some of the best design decisions came from resisting the urge to over-engineer and instead asking: "What's the minimum governance needed?"</p>
-            <p><strong>Make the Value Visible:</strong> Adoption spreads fastest when teams see tangible wins. By making the skill library discoverable and the reuse benefits obvious, practitioners naturally became evangelists. The tool sold itself.</p>
+            <p><strong>Make the Value Visible:</strong> Adoption spread fastest when teams could see real wins. Once the skill library was easy to find and the benefits of reuse were obvious, practitioners started recommending it to each other on their own.</p>
           </div>
         </div>
 
@@ -770,7 +770,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
         <div class="hero-content">
           <div class="cs-badge badge-saas"><i data-lucide="brain" style="width:16px;height:16px;"></i> Case Study 03</div>
           <h1 class="cs-hero-title">SaaS Contract Analyzer</h1>
-          <p class="cs-hero-sub">I designed an AI-assisted contract audit tool that transformed a 4-week manual grind into a 1-week process—by making machine learning invisible and human judgment central.</p>
+          <p class="cs-hero-sub">I designed an AI-assisted contract audit tool that cut a 4-week manual grind down to 1 week. The machine learning stays in the background, and auditors make the calls.</p>
           <div class="cs-pills">
             <span class="cs-pill">AI/ML UX</span><span class="cs-pill">B2B SaaS</span><span class="cs-pill">Fintech</span><span class="cs-pill">Prototyping</span>
           </div>
@@ -784,8 +784,8 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
       </div>
       <div class="cs-body">
         <div class="overview">
-          <div><span class="ov-lbl">The Reality</span><p class="ov-txt">Our auditors were drowning in contracts—each one 300+ pages—and manually combing through them was sucking weeks of time and thousands in unrealized billable hours every month. The firm had the domain expertise, the historical annotations, and the data. We had everything we needed except the system to leverage it.</p></div>
-          <div><span class="ov-lbl">The Opportunity</span><p class="ov-txt">We decided to partner machine learning with human judgment. Not to replace auditors, but to amplify them. If we could train a model on past annotations and flag likely problematic clauses, auditors could focus their expertise on validation and nuance. Our goal: reduce audit time from 4-5 weeks down to 1-2 weeks—and actually make the work less painful.</p></div>
+          <div><span class="ov-lbl">The Reality</span><p class="ov-txt">Our auditors were drowning in contracts, each one 300+ pages, and combing through them by hand ate weeks of time and thousands in unrealized billable hours every month. The firm already had the domain expertise, the historical annotations, and the data. What it didn't have was a system that could put them to work.</p></div>
+          <div><span class="ov-lbl">The Opportunity</span><p class="ov-txt">We decided to pair machine learning with human judgment, so the model would help auditors instead of replacing them. If we could train a model on past annotations and flag likely problematic clauses, auditors could focus their expertise on validation and nuance. Our goal was to cut audit time from 4-5 weeks to 1-2 weeks and make the work less painful along the way.</p></div>
         </div>
         
         <div class="cs-img-grid">
@@ -797,7 +797,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Discovery: Bringing Everyone to the Table</h2><div class="sec-rule"></div></div>
-          <p>I facilitated a workshop that got auditors, data scientists, engineers, and product leaders in the same room. The goal wasn't to design in isolation—it was to build shared understanding. What emerged was clarifying: we needed to respect auditors' expertise while introducing ML in a way that felt like an assistant, not a threat.</p>
+          <p>I ran a workshop that got auditors, data scientists, engineers, and product leaders in the same room so we'd all start from the same understanding of the problem. One thing became clear quickly: we had to respect auditors' expertise and bring in ML as an assistant, not a threat.</p>
           
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -815,7 +815,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">From Sketch to Reality: Rapid Iteration</h2><div class="sec-rule"></div></div>
-          <p>After the workshop, I sketched out workflows based on the most compelling stakeholder ideas. The real test came when we walked auditors through low-fidelity prototypes. That feedback was gold—it showed us where the flow broke down and what we fundamentally misunderstood about their process.</p>
+          <p>After the workshop, I sketched out workflows based on the strongest stakeholder ideas, then we walked auditors through low-fidelity prototypes. That feedback was gold. It showed us where the flow broke down and what we'd misunderstood about their process.</p>
           
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -824,7 +824,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
             </div>
           </div>
 
-          <p style="margin-top:20px;">Once the team aligned on approach, I moved quickly into high-fidelity using our in-house Motif design system. Two rounds of stakeholder testing later, we were hands-off with developers. I kept syncing weekly though—design problems almost always surface during build.</p>
+          <p style="margin-top:20px;">Once the team aligned on approach, I moved quickly into high-fidelity using our in-house Motif design system. Two rounds of stakeholder testing later, we were hands-off with developers. I kept syncing with them weekly, though, because design problems almost always surface during the build.</p>
 
           <div class="cs-img-grid two-col">
             <div class="cs-img-wrapper">
@@ -840,9 +840,9 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
 
         <div class="cs-sec">
           <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">The ML Reckoning: Handling Imperfection</h2><div class="sec-rule"></div></div>
-          <p>The model identified financial sections flawlessly—a win. But categorization was messy. Most clauses got lumped into "other," which meant auditors still had to do the hard cognitive work we'd hoped to offload. This was a moment where we had to make a choice: either over-promise the ML capabilities, or be honest and design around the constraint.</p>
+          <p>The model identified financial sections flawlessly, which was a win. Categorization was messy, though. Most clauses got lumped into "other," which meant auditors still had to do the hard cognitive work we'd hoped to offload. We could either over-promise what the ML could do or be honest and design around its limits.</p>
           
-          <p style="margin-top:20px;">We chose honesty. Rather than pretend the model was better than it was, we designed for a human-in-the-loop workflow. Auditors would be gatekeepers, reviewers, and improvers. To build confidence, I designed a power-user beta—six auditors, one month, with dashboards so we could see exactly where the model was failing and then iterate with the data science team.</p>
+          <p style="margin-top:20px;">We chose honesty and designed a human-in-the-loop workflow around the model as it actually performed. Auditors would check its output, and their corrections would help it improve. To build confidence, I designed a power-user beta with six auditors over one month, plus dashboards so we could see exactly where the model was failing and iterate with the data science team.</p>
 
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -866,14 +866,14 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
             <div class="stat"><span class="stat-n" style="color:var(--gold-ink);">80%</span><span class="stat-l">Auditor Adoption</span></div>
           </div>
           <div class="outcomes" style="margin-top:20px;">
-            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot">Achieved an 80% ML model accuracy in the first month, which soared to <strong>92% after just four months</strong> of company-wide launch.</div></div>
+            <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot">ML model accuracy was 80% in the first month and reached <strong>92% after four months</strong> of company-wide launch.</div></div>
             <div class="outcome"><div class="oc"><i data-lucide="check"></i></div><div class="ot">Adopted by 80% of financial auditors across EY, accounting for roughly <strong>50% of the revenue generated</strong> by the auditing department.</div></div>
           </div>
 
           <div class="reflection">
-            <p><strong>Bring Engineers Early:</strong> The best design decisions happened when I stopped designing in isolation and started designing with the engineering and ML teams. Feasibility constraints aren't limits—they're inputs that shape smarter solutions.</p>
-            <p><strong>Scope Discipline Is Leadership:</strong> I watched scope creep threaten the project multiple times. Pushing back on "nice-to-haves" and keeping the team focused on the core problem was some of the most important work I did.</p>
-            <p><strong>Honesty Around AI Beats Hype:</strong> The moment we stopped overselling the ML and started designing around its actual capabilities, adoption took off. Users respected the honesty. They felt like partners, not guinea pigs.</p>
+            <p><strong>Bring Engineers Early:</strong> The best design decisions happened when I stopped designing in isolation and started designing with the engineering and ML teams. Knowing the feasibility constraints early gave me something real to design around, and the solutions got smarter for it.</p>
+            <p><strong>Protect the Scope:</strong> I watched scope creep threaten the project multiple times. Pushing back on "nice-to-haves" and keeping the team focused on the core problem was some of the most important work I did.</p>
+            <p><strong>Be Honest About the AI:</strong> The moment we stopped overselling the ML and started designing around its actual capabilities, adoption took off. Users respected that, and they felt like partners, not guinea pigs.</p>
           </div>
         </div>
 
@@ -891,7 +891,7 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
         <div class="hero-content">
           <div class="cs-badge badge-listing"><i data-lucide="zap" style="width:16px;height:16px;"></i> Case Study 04</div>
           <h1 class="cs-hero-title">Listing Doctor</h1>
-          <p class="cs-hero-sub">I led the design of an error-tracking system that helped Spreetail's quality team escape from spreadsheet hell and take control of their listing health—lifting active listings from 82% to 95% in three months.</p>
+          <p class="cs-hero-sub">I led the design of an error-tracking system that got Spreetail's quality team out of spreadsheet hell. Active listings went from 82% to 95% in three months.</p>
           <div class="cs-pills">
             <span class="cs-pill">UX Research</span><span class="cs-pill">Prototyping</span><span class="cs-pill">Workshop Facilitation</span><span class="cs-pill">Usability Testing</span><span class="cs-pill">E-commerce</span>
           </div>
@@ -905,20 +905,20 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
       </div>
       <div class="cs-body">
         <div class="overview">
-          <div><span class="ov-lbl">The Bottleneck</span><p class="ov-txt">Hundreds of products were broken across multiple marketplaces, and every day without fixes was costing Spreetail millions. But here's the thing: the fixes themselves weren't the hard part. The hard part was finding the errors in the first place. Excel dumps from various marketplace APIs arrived in different formats, making it impossible to prioritize or even see the full picture of the damage.</p></div>
-          <div><span class="ov-lbl">Our Approach</span><p class="ov-txt">We decided to build visibility and ownership into the system. Not just aggregate errors, but make their financial impact obvious and give the quality team the ability to claim, track, and resolve work at their own pace. Our target: move from 82% active listings to 95% within the fiscal year.</p></div>
+          <div><span class="ov-lbl">The Bottleneck</span><p class="ov-txt">Hundreds of products were broken across multiple marketplaces, and every day without fixes was costing Spreetail millions. The fixes themselves weren't hard. Finding the errors was, because the Excel dumps from each marketplace API arrived in a different format, so nobody could prioritize or even see how much was broken.</p></div>
+          <div><span class="ov-lbl">Our Approach</span><p class="ov-txt">We set out to pull every error into one place, show what each one was costing, and let the quality team claim, track, and resolve work at their own pace. Our target: move from 82% active listings to 95% within the fiscal year.</p></div>
         </div>
 
         <div class="cs-img-grid">
           <div class="cs-img-wrapper" style="background:#fff;">
-            <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580d27ab692f735848146c9_ezgif%201.gif" alt="The Struggle GIF" style="max-width:600px; margin: 0 auto;" />
-            <div class="cs-img-caption">The tedious task of combing through mismatched error formats from various APIs.</div>
+            <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/6580d27ab692f735848146c9_ezgif%201.gif" alt="Scrolling through mismatched error exports" style="max-width:600px; margin: 0 auto;" />
+            <div class="cs-img-caption">Combing through error exports from different APIs, each in its own format.</div>
           </div>
         </div>
         
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Understanding the Work: Workshops That Unlock</h2><div class="sec-rule"></div></div>
-          <p>I kicked things off with a hands-on workshop—not just asking what people needed, but getting them to actually sketch out their ideal day, map their workflows, and vote on solutions together. Marketplace Managers, Operations, Vendors, and the Quality Team all brought different perspectives. The synthesis was enlightening.</p>
+          <div class="cs-sec-hd"><span class="cs-sec-num">01</span><h2 class="cs-sec-title">Starting With a Workshop</h2><div class="sec-rule"></div></div>
+          <p>I kicked things off with a hands-on workshop where people sketched their ideal day, mapped their workflows, and voted on solutions together. Marketplace Managers, Operations, Vendors, and the Quality Team each saw the problem differently, and pulling it all together pointed to three clear needs.</p>
           
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -928,42 +928,42 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
           </div>
 
           <div class="insights">
-            <div class="insight" data-n="1"><span class="in-ico"><i data-lucide="bar-chart-3"></i></span><div class="in-title">Unified Overview Needed</div><div class="in-txt">Users needed a clean, aggregated overview of listing errors for each individual marketplace, rather than raw excel exports.</div></div>
-            <div class="insight" data-n="2"><span class="in-ico"><i data-lucide="circle-dollar-sign"></i></span><div class="in-title">Financial Visibility</div><div class="in-txt">There was a strong desire to view the direct financial impact of listings with unresolved errors to help prioritize the workload.</div></div>
+            <div class="insight" data-n="1"><span class="in-ico"><i data-lucide="bar-chart-3"></i></span><div class="in-title">Unified Overview Needed</div><div class="in-txt">Users wanted one clean overview of listing errors for each marketplace instead of raw Excel exports.</div></div>
+            <div class="insight" data-n="2"><span class="in-ico"><i data-lucide="circle-dollar-sign"></i></span><div class="in-title">Financial Visibility</div><div class="in-txt">People wanted to see the direct financial impact of listings with unresolved errors so they could prioritize their workload.</div></div>
             <div class="insight" data-n="3" style="grid-column: 1 / -1;"><span class="in-ico"><i data-lucide="check-square"></i></span><div class="in-title">Claiming & Noting</div><div class="in-txt">The quality team needed the ability to "claim" specific listing errors for resolution and attach notes for ongoing follow-ups.</div></div>
           </div>
         </div>
 
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Fast Iteration: Testing Early, Pivoting Often</h2><div class="sec-rule"></div></div>
-          <p>With insights fresh, I partnered with the PM to map user journeys and convert everything into low-fidelity wireframes. Then we tested immediately. Those walkthroughs with real users gave us permission to iterate fast—and we needed to. The initial mental model was close, but not quite right.</p>
+          <div class="cs-sec-hd"><span class="cs-sec-num">02</span><h2 class="cs-sec-title">Testing Wireframes Early</h2><div class="sec-rule"></div></div>
+          <p>With insights fresh, I partnered with the PM to map user journeys and convert everything into low-fidelity wireframes. Then we tested immediately. The walkthroughs with real users let us iterate quickly, which we needed, because our first take on their mental model was close but not quite right.</p>
           
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
               <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/65debf47f0f28a7aa03b2d0e_wireframe-screen-1.png" alt="Wireframe 1" />
-              <div class="cs-img-caption">Low-fidelity wireframe establishing the core layout.</div>
+              <div class="cs-img-caption">Low-fidelity wireframe of the core layout.</div>
             </div>
           </div>
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
               <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659dccd72cc4d01c9b447d30_wireframe.svg" alt="Wireframe 2" />
-              <div class="cs-img-caption">Wireflow demonstrating the error categorization process.</div>
+              <div class="cs-img-caption">Wireflow of how errors get categorized.</div>
             </div>
           </div>
 
-          <p style="margin-top: 20px;">We ran another round of testing with these changes. The response was immediate. Users felt understood. They felt like the tool was built for them, not against them. Three months after launch to the full team, we crushed our targets.</p>
+          <p style="margin-top: 20px;">We ran another round of testing with these changes, and the reaction was immediate: users felt the tool had been built for them instead of working against them. Three months after we launched to the full team, we'd beaten our targets.</p>
           
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
               <img src="https://cdn.prod.website-files.com/61a515d4e9fb77e1e82c1d52/659dcc5b90526b9ddc805837_1.svg" alt="High Fidelity 1" />
-              <div class="cs-img-caption">High-fidelity dashboard showcasing error metrics.</div>
+              <div class="cs-img-caption">High-fidelity dashboard with error metrics.</div>
             </div>
           </div>
         </div>
 
         <div class="cs-sec">
-          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">The Beta Surprise: When Users Teach You Why You're Wrong</h2><div class="sec-rule"></div></div>
-          <p>We launched to eight beta users feeling confident. They loved the interface. Clear error messaging, simple workflow. And then they asked for something that made me rethink the entire approach: they wanted to download error lists into Excel. At first, I resisted. But I listened instead, and here's what I learned: their existing mental model was deeply rooted in the tools they already used. Fighting that was futile.</p>
+          <div class="cs-sec-hd"><span class="cs-sec-num">03</span><h2 class="cs-sec-title">What the Beta Users Asked For</h2><div class="sec-rule"></div></div>
+          <p>We launched to eight beta users feeling confident, and they loved the interface: clear error messages, simple workflow. Then they asked to download error lists into Excel, which made me rethink the whole approach. My first instinct was to push back. When I listened instead, I saw how deeply their way of working was rooted in the tools they already used, and there was no point fighting that.</p>
 
           <div class="cs-img-grid">
             <div class="cs-img-wrapper">
@@ -991,12 +991,12 @@ html[data-theme="dark"] .image-lightbox-close{background:var(--card);color:var(-
             <div class="stat"><span class="stat-n" style="color:var(--gold-ink);">+8%</span><span class="stat-l">Since Launch</span></div>
           </div>
           
-          <p style="margin-top: 20px;">After another series of user testing, Listing Doctor was successfully launched to the entire user base! Within the first 3 months, the listing quality team saw an <strong>increase in their productivity,</strong> allowing them to meet their quarterly metric goals of resolved listing errors.</p>
+          <p style="margin-top: 20px;">After another round of user testing, we launched Listing Doctor to the entire user base. Within the first 3 months, the listing quality team saw an <strong>increase in their productivity</strong> and met their quarterly goals for resolved listing errors.</p>
 
           <div class="reflection">
-            <p><strong>Reduce Friction Against Existing Mental Models:</strong> I learned the hard way that fighting entrenched workflows is usually a losing battle. Instead, I embraced item-number search and export capabilities—minor additions that created massive adoption.</p>
-            <p><strong>Make the Stakes Visible:</strong> The turning point came when we added financial impact to every error. Suddenly, the work wasn't abstract.—people could see exactly how much their effort mattered. Motivation shifted entirely.</p>
-            <p><strong>Sometimes the Best Users Are Teachers:</strong> Beta users told us we were wrong, but in a way that helped us build something better. Listening without defensiveness is a superpower in product design.</p>
+            <p><strong>Reduce Friction Against Existing Mental Models:</strong> I learned the hard way that fighting entrenched workflows usually loses. So I added item-number search and export. They were small features, and they did a lot for adoption.</p>
+            <p><strong>Make the Stakes Visible:</strong> Things changed when we added financial impact to every error. The work stopped feeling abstract because people could see exactly how much their effort mattered, and they got a lot more motivated.</p>
+            <p><strong>Sometimes the Best Users Are Teachers:</strong> Beta users told us we were wrong, and the way they did it helped us build something better. Listening without getting defensive is one of the most useful things I can do as a designer.</p>
           </div>
         </div>
         
