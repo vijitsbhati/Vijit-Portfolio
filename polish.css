@@ -194,9 +194,9 @@ html[data-theme="light"] {
 }
 html[data-theme="dark"] body { background: var(--bg); color: var(--text-main); }
 html[data-theme="dark"] #navbar {
-  background: rgba(14,14,19,0.92) !important;
+  background: rgb(14 14 19 / 0%) !important;
   border-bottom-color: var(--border) !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
+  box-shadow: none !important;
 }
 html[data-theme="dark"] .skip-link { color: var(--bg); }
 html[data-theme="dark"] ::-webkit-scrollbar-track { background: var(--bg); }
@@ -239,6 +239,3 @@ html[data-theme="dark"] :is(.btn-p, .pbtn-play, .feat-badge, .weather-btn.active
   background: #D6136A !important;
 }
 html[data-theme="dark"] :is(.btn-p, .nav-cta, .card button):hover:not(:disabled) { background: #B80F5A !important; }
-html[data-theme="dark"] :is(.nav-logo-img, .card .logo-img) {
-  filter: invert(24%) sepia(85%) saturate(3195%) hue-rotate(322deg) brightness(175%) contrast(110%);
-}
