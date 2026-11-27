@@ -91,7 +91,7 @@ Home page sections:
 Each link opens the case study directly. Visitors are asked for a password; recruiters can email Vijit at vijitsinghbhati@gmail.com for access.
 
 1. Data Cafe – Designing the Backstage of AI (EA) — /case-studies.html#datacafe (his most recent and featured case study)
-   - Role: sole Experience Designer, working with a PM, two data engineers, and game team analysts as research participants. About 6 months so far; the work is ongoing.
+   - Role: Lead Experience Designer, working with a PM, two data engineers, and game team analysts as research participants. About 6 months so far; the work is ongoing.
    - Problem: AI is only as good as the data you feed it. AI tools used by EA game teams gave unreliable analysis because the underlying data was messy and undocumented (no definitions, metadata, or shared language). Onboarding teams to Data Cafe, EA's data context platform, ran on scattered Slack threads, email chains, and one-on-one handholding, so adoption stayed low.
    - Approach: instead of only improving the UX of the data product, he designed the system behind it — a self-serve onboarding pipeline that meets teams in the tools they already use and makes adding context part of their normal work.
    - What he built: an onboarding site (built with Figma Make) with one signup form for every request, and a readiness flow with four paths (use existing data, bring your own data, build an AI agent, or get guidance). Signups flow through an n8n workflow into a tracked Jira ticket and a Slack alert. He used Claude Code to write the glue code, so it shipped without waiting on an engineering cycle.
